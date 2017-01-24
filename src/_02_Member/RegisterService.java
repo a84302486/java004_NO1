@@ -13,7 +13,7 @@ public class RegisterService {
 	
 	Context ctx;
 	
-	synchronized public int insert(Member mem){
+	synchronized public String insert(Member mem){
 	
 		int n =0;
 		String sql = "INSERT INTO Member "
@@ -56,19 +56,22 @@ public class RegisterService {
 			pstmt.setString(17, mem.getM_Joindate());
 			
 			n = pstmt.executeUpdate();
-		
-			System.out.println("成功 新增" + mem.getM_Username());			
-		}catch (Exception e){
+			
+			System.out.println("成功 新增" + mem.getM_Username());
+			
+			return null;
+		}catch (Exception e){		
 			System.out.println("失敗 新增" + mem.getM_Username());
 			e.printStackTrace();
+			return "失敗 新增" + mem.getM_Username();
 		}
-		return n;
+		
 	}
 	
 	public String findByPrimaryKey(String Username){
 		
 		int n =0;
-		String sql = "select Name from Member where Username =?;";
+		String sql = "select M_Name from Member where M_Username =?;";
 				 
 		Context ctx = null;
 		try {

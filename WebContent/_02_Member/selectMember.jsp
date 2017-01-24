@@ -12,7 +12,7 @@
 <H1>會員查詢</H1>
   
 <HR>
-<Form Action="./findPrimaryKey.jsp" method="POST">
+<Form Action="select.do" method="POST">
 <Table>
 		<TR>
              <TD align="RIGHT">用帳號查詢：</TD>

@@ -10,7 +10,7 @@
 </head>
 <body>
 <H1>會員資料</h1>
-會員帳號=${Username}<br>
+會員帳號=${M_Username}<br>
 會員名稱=${M_Name}<br>
 
 

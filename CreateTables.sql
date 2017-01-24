@@ -43,7 +43,7 @@ CREATE TABLE `Product_Taste_Package` (
 
 CREATE TABLE `Composition` (
   `Com_type`            char(1) NOT NULL,
-  `Com_id` 	         varchar(4) DEFAULT NULL,
+  `Com_id` 	         varchar(4) NOT NULL,
   `Com_description` varchar(60) DEFAULT NULL,
   
 	CONSTRAINT Composition_Com_id_PK PRIMARY KEY (`Com_id`)
@@ -92,7 +92,7 @@ CREATE TABLE `Customer` (
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE Discount(
-	Discount_ID     INT AUTO_INCREMENT,
+	Discount_ID     INT AUTO_INCREMENT NOT NULL,
 	description		NUMERIC (6,4),
 	
 	CONSTRAINT Discount_Discount_ID_PK PRIMARY KEY (Discount_ID)
@@ -101,7 +101,7 @@ CREATE TABLE Discount(
 
 CREATE TABLE Commission(
 
-	Commission_ID 	INT AUTO_INCREMENT,
+	Commission_ID 	INT AUTO_INCREMENT NOT NULL,
 	Customer_id 	CHAR(4),
 	Discount_01		NUMERIC (6,4),
 	Discount_02		NUMERIC (6,4),
@@ -133,7 +133,7 @@ CREATE TABLE Commission(
 
 CREATE TABLE Warehouse(
 	
-	W_ID 			INT AUTO_INCREMENT,
+	W_ID 			INT AUTO_INCREMENT NOT NULL,
 	Customer_id		CHAR(4),		
 	Product_id		VARCHAR(20),
 	Taste_ID		VARCHAR(20),
@@ -162,7 +162,7 @@ CREATE TABLE Warehouse(
 
 CREATE TABLE StockUpdate(
 	
-	CP_ID			INT AUTO_INCREMENT,
+	CP_ID			INT AUTO_INCREMENT NOT NULL,
 	CP_Date			DATETIME,
 	CP_REC			INT,			
 	CP_RET			INT,			
@@ -178,11 +178,11 @@ CREATE TABLE StockUpdate(
 
 CREATE TABLE TRHD(
 
-	CO_SEQ			CHAR(4),
-	CO_Type 		CHAR(2),
-	CO_Role 		CHAR(4),
-	CO_Year			CHAR(1),
-	CO_Month		CHAR(1),
+	CO_SEQ			CHAR(4) NOT NULL,
+	CO_Type 		CHAR(2) NOT NULL,
+	CO_Role 		CHAR(4) NOT NULL,
+	CO_Year			CHAR(1) NOT NULL,
+	CO_Month		CHAR(1) NOT NULL,
 	MIN_Role		CHAR(4),
 	TR_Date			DATETIME,
 	
@@ -202,11 +202,11 @@ CREATE TABLE TRHD(
 
 CREATE TABLE TRDT(
 
-	CO_SEQ			CHAR(4),
-	CO_Type 		CHAR(2),
-	CO_Role 		CHAR(4),
-	CO_Year			CHAR(1),
-	CO_Month		CHAR(1),
+	CO_SEQ			CHAR(4) NOT NULL,
+	CO_Type 		CHAR(2) NOT NULL,
+	CO_Role 		CHAR(4) NOT NULL,
+	CO_Year			CHAR(1) NOT NULL,
+	CO_Month		CHAR(1) NOT NULL,
 	MIN_Role		CHAR(4),
 	TR_Date			DATETIME,
 	
@@ -257,7 +257,7 @@ CREATE TABLE TRDT(
 CREATE TABLE Member(
 
 	M_ID			VARCHAR(20) NOT NULL,		
-	M_Username		VARCHAR(20) NOT NULL UNIQUE,
+	M_Username		VARCHAR(20) NOT NULL,
 	M_Password		VARCHAR(60) NOT NULL,			
 	M_Name			VARCHAR(20) NOT NULL,
 	M_Nick			VARCHAR(20),
@@ -269,15 +269,15 @@ CREATE TABLE Member(
 	M_Address		VARCHAR(60),
 	M_Line			VARCHAR(20),
 	M_FaceBook		VARCHAR(20),
-	M_IdentityCard	VARCHAR(10),			
+	M_IdentityCard	VARCHAR(10) UNIQUE,			
 	M_Invoice		VARCHAR(20),			
-	M_UniformNumber VARCHAR(20) UNIQUE,		
+	M_UniformNumber VARCHAR(20),		
 	M_Joindate		DATETIME,				
 	M_Level			CHAR(1) default 0,		
 	M_BonusPoints	INT,					
 	M_Total			NUMERIC(15,2),			
 	
-	CONSTRAINT Member_M_ID_PK PRIMARY KEY (M_ID)
+	CONSTRAINT Member_M_Username PRIMARY KEY (M_ID)
 	
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;
 

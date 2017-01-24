@@ -22,10 +22,11 @@ public class Select extends HttpServlet {
             throws IOException, ServletException {
     	
     	RegisterService rs = new RegisterService();
-    	String Username = request.getParameter("Username");
-    	String M_Name = rs.findByPrimaryKey(Username);
+    	String M_Username = request.getParameter("Username");
+    	String M_Name = rs.findByPrimaryKey(M_Username);
     	
-    	
+    	RequestDispatcher rd = request.getRequestDispatcher("findPrimaryKey.jsp");
+		rd.forward(request, response);
     }
     	
 }   

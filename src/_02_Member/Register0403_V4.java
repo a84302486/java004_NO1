@@ -81,6 +81,7 @@ public class Register0403_V4 extends HttpServlet {
 		}
 	
 		RegisterService rs = new RegisterService();
+		String insertError = null;
 			
 		
 			try {
@@ -88,11 +89,15 @@ public class Register0403_V4 extends HttpServlet {
 						Birthday,EMail,Phone,Cellphone,Address,Line,
 						FaceBook,IdentityCard,Invoice,UniformNumber,Joindate
 						);
-				rs.insert(mem);
+				insertError = rs.insert(mem);
 			} catch (Exception e) {
 				errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
 				e.printStackTrace();
 			}
+		if(insertError!=null){
+			errorMsg.add(insertError);
+		}
+			
 		
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
 		request.setAttribute("userIdKey", Username);
