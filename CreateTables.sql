@@ -6,13 +6,16 @@ CREATE TABLE `Product` (
   `O_place` 	varchar(20) DEFAULT NULL,
   `S_life` 		    int(10) DEFAULT NULL,
   `Suppier_id` 	    char(4) DEFAULT NULL,
-	PRIMARY KEY (`product_Id`)
+  
+	CONSTRAINT Product_product_id_PK PRIMARY KEY (`product_Id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `Taste` (
   `Taste_id` 	varchar(4) NOT NULL,
   `Taste_Name` 	varchar(60) DEFAULT NULL,
-	PRIMARY KEY (`Taste_id`)
+  `Spread` 	    int(10) DEFAULT NULL,
+  
+	CONSTRAINT Taste_Taste_id_PK PRIMARY KEY (`Taste_id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
@@ -20,7 +23,8 @@ CREATE TABLE `Package` (
   `Package_id` 	    varchar(20) NOT NULL,
   `Description` 	varchar(60) DEFAULT NULL,
   `Spread` 	    int(10) DEFAULT NULL,
-	PRIMARY KEY (`Package_Id`)
+  
+	CONSTRAINT Package_Package_id_PK PRIMARY KEY (`Package_Id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `Product_Taste_Package` (
@@ -34,14 +38,15 @@ CREATE TABLE `Product_Taste_Package` (
 		REFERENCES Taste(Taste_id),
 	CONSTRAINT P_T_P_Package_id_FK FOREIGN KEY (Package_id) 
 		REFERENCES Package(Package_id),
-	PRIMARY KEY (Product_id,Taste_id,Package_id)
+	CONSTRAINT P_T_P_P_T_P_id_PK PRIMARY KEY (Product_id,Taste_id,Package_id)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `Composition` (
   `Com_type`            char(1) NOT NULL,
   `Com_id` 	         varchar(4) DEFAULT NULL,
   `Com_description` varchar(60) DEFAULT NULL,
-	PRIMARY KEY (`Com_type`)
+  
+	CONSTRAINT Composition_Com_id_PK PRIMARY KEY (`Com_id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `Supplier` (
@@ -55,7 +60,8 @@ CREATE TABLE `Supplier` (
   `URL` 			varchar(100) DEFAULT NULL,
   `Principal_Name` 	varchar(30) DEFAULT NULL,
   `Contact_Name` 	varchar(30) DEFAULT NULL,
-	PRIMARY KEY (`Supplier_id`)
+  
+	CONSTRAINT Supplier_Supplier_id_PK PRIMARY KEY (`Supplier_id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
@@ -81,8 +87,17 @@ CREATE TABLE `Customer` (
   `Email` 			 varchar(60) DEFAULT NULL,
   `Line` 	         varchar(30) DEFAULT NULL,
   `Skype` 			 varchar(30) DEFAULT NULL,
-	PRIMARY KEY (`Customer_id`)
+	
+   CONSTRAINT Customer_Customer_id_PK PRIMARY KEY (`Customer_id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE Discount(
+	Discount_ID     INT AUTO_INCREMENT,
+	description		NUMERIC (6,4),
+	
+	CONSTRAINT Discount_Discount_ID_PK PRIMARY KEY (Discount_ID)
+);
+
 
 CREATE TABLE Commission(
 
@@ -120,18 +135,25 @@ CREATE TABLE Warehouse(
 	
 	W_ID 			INT AUTO_INCREMENT,
 	Customer_id		CHAR(4),		
-	Product_ID		VARCHAR(20),
+	Product_id		VARCHAR(20),
+	Taste_ID		VARCHAR(20),
+	Package_ID		VARCHAR(20),
 	Stock			INT,			
 	AC_REC			INT,			
 	AC_RET			INT,			
 	AC_SAL			INT,			
 	AC_BAD			INT,			
-	AC_BAL 			INT,			
+	AC_BAL 			INT,
+	MFD 			DATE,
 	
 	CONSTRAINT Warehouse_Customer_ID_FK FOREIGN KEY (Customer_id) 
 		REFERENCES Customer(Customer_id) ,
-	CONSTRAINT Warehouse_Product_ID_FK FOREIGN KEY (Product_ID) 
-		REFERENCES Product(Product_ID) ,
+	CONSTRAINT Warehouse_Product_id_FK FOREIGN KEY (Product_id) 
+		REFERENCES `Product`(`Product_id`), 
+	CONSTRAINT Warehouse_Taste_ID_FK FOREIGN KEY (Taste_ID) 
+		REFERENCES `Taste`(`Taste_ID`), 
+	CONSTRAINT Warehouse_Package_ID_FK FOREIGN KEY (Package_ID) 
+		REFERENCES `Package`(`Package_ID`),
 	CONSTRAINT Warehouse_W_ID_PK PRIMARY KEY (W_ID)
 
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -170,8 +192,11 @@ CREATE TABLE TRHD(
 	TO_Price		NUMERIC (15,2),
 	TO_Sold			NUMERIC (15,2),
 	TO_Cost			NUMERIC (15,2),
-	TO_Disc			NUMERIC	(6,4)
+	TO_Disc			NUMERIC	(6,4),
 	
+	CONSTRAINT TRHD_PK PRIMARY KEY (CO_SEQ, CO_Type, 
+								CO_Role, CO_Year, CO_Month)
+								
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
@@ -185,7 +210,9 @@ CREATE TABLE TRDT(
 	MIN_Role		CHAR(4),
 	TR_Date			DATETIME,
 	
-	Product_ID		VARCHAR(20),
+	Product_id		VARCHAR(20),
+	Taste_ID		VARCHAR(20),
+	Package_ID		VARCHAR(20),
 	SEQ_NO			INT,	
 	TR_QTY			INT,
 	TR_List			NUMERIC (15,2),
@@ -212,7 +239,16 @@ CREATE TABLE TRDT(
 	MTime			DATETIME,
 	
 	CONSTRAINT TRDT_M_ID_FK FOREIGN KEY (M_ID) 
-		REFERENCES Member(M_ID) 
+		REFERENCES Member(M_ID),
+	CONSTRAINT TRDT_Product_id_FK FOREIGN KEY (Product_id) 
+		REFERENCES `Product`(`Product_id`), 
+	CONSTRAINT TRDT_Taste_ID_FK FOREIGN KEY (Taste_ID) 
+		REFERENCES `Taste`(`Taste_ID`), 
+	CONSTRAINT TRDT_Package_ID_FK FOREIGN KEY (Package_ID) 
+		REFERENCES `Package`(`Package_ID`),
+	CONSTRAINT TRDT_PK PRIMARY KEY (CO_SEQ, CO_Type, 
+								CO_Role, CO_Year, CO_Month)
+
 	
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
@@ -244,6 +280,7 @@ CREATE TABLE Member(
 	CONSTRAINT Member_M_ID_PK PRIMARY KEY (M_ID)
 	
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 
 
 

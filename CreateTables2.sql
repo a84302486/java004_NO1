@@ -1,0 +1,17 @@
+CREATE TABLE Member(
+
+	M_ID			VARCHAR(20) NOT NULL,		
+	M_Username		VARCHAR(20) NOT NULL UNIQUE,
+	M_Password		VARCHAR(60) NOT NULL,			
+	M_Name			VARCHAR(20) NOT NULL,
+	M_EMail			VARCHAR(20),
+	M_Phone			VARCHAR(20),		
+	
+	CONSTRAINT Member_M_ID_PK PRIMARY KEY (M_ID)
+	
+)	CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+
+
+
