@@ -273,7 +273,7 @@ CREATE TABLE Member(
 	M_Invoice		VARCHAR(20),			
 	M_UniformNumber VARCHAR(20) UNIQUE,		
 	M_Joindate		DATETIME,				
-	M_Level			CHAR(1) NOT NULL,		
+	M_Level			CHAR(1) default 0,		
 	M_BonusPoints	INT,					
 	M_Total			NUMERIC(15,2),			
 	

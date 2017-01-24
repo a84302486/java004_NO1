@@ -10,7 +10,7 @@ public class Member implements Serializable {
 	String M_Password;			
 	String M_Name;
 	String M_Nick;
-	char M_Sex;
+	String M_Sex;
 	String M_Birthday;
 	String M_EMail;
 	String M_Phone;
@@ -22,14 +22,12 @@ public class Member implements Serializable {
 	String M_Invoice;		
 	String M_UniformNumber;		
 	String M_Joindate;			
-	char M_Level;	
-	int M_BonusPoints;					
-	double M_Total;
 	
-	public Member(String m_ID, String m_Username, String m_Password, String m_Name, String m_Nick, char m_Sex,
+	
+	public Member(String m_ID, String m_Username, String m_Password, String m_Name, String m_Nick, String m_Sex,
 			String m_Birthday, String m_EMail, String m_Phone, String m_Cellphone, String m_Address, String m_Line,
-			String m_FaceBook, String m_IdentityCard, String m_Invoice, String m_UniformNumber, String m_Joindate,
-			char m_Level, int m_BonusPoints, double m_Total) {
+			String m_FaceBook, String m_IdentityCard, String m_Invoice, String m_UniformNumber, String m_Joindate
+			) {
 		super();
 		M_ID = m_ID;
 		M_Username = m_Username;
@@ -48,24 +46,13 @@ public class Member implements Serializable {
 		M_Invoice = m_Invoice;
 		M_UniformNumber = m_UniformNumber;
 		M_Joindate = m_Joindate;
-		M_Level = m_Level;
-		M_BonusPoints = m_BonusPoints;
-		M_Total = m_Total;
+	
 	}
 	
-	
-
-	public Member(String m_ID, String m_Username, String m_Password, String m_Name, String m_EMail, String m_Phone) {
-		super();
-		M_ID = m_ID;
-		M_Username = m_Username;
-		M_Password = m_Password;
-		M_Name = m_Name;
-		M_EMail = m_EMail;
-		M_Phone = m_Phone;
+	public Member(){
+		
 	}
-
-
+	
 
 	public String getM_ID() {
 		return M_ID;
@@ -107,11 +94,11 @@ public class Member implements Serializable {
 		M_Nick = m_Nick;
 	}
 
-	public char getM_Sex() {
+	public String getM_Sex() {
 		return M_Sex;
 	}
 
-	public void setM_Sex(char m_Sex) {
+	public void setM_Sex(String m_Sex) {
 		M_Sex = m_Sex;
 	}
 
@@ -203,29 +190,7 @@ public class Member implements Serializable {
 		M_Joindate = m_Joindate;
 	}
 
-	public char getM_Level() {
-		return M_Level;
-	}
-
-	public void setM_Level(char m_Level) {
-		M_Level = m_Level;
-	}
-
-	public int getM_BonusPoints() {
-		return M_BonusPoints;
-	}
-
-	public void setM_BonusPoints(int m_BonusPoints) {
-		M_BonusPoints = m_BonusPoints;
-	}
-
-	public double getM_Total() {
-		return M_Total;
-	}
-
-	public void setM_Total(double m_Total) {
-		M_Total = m_Total;
-	}
+	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

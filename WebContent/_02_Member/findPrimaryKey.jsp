@@ -9,22 +9,11 @@
 <title>MVC</title>
 </head>
 <body>
-<H1>MVC (Database)</h1>
-<h3>新增資料至資料庫時，如有錯誤，以error.jsp來顯示本畫面</H3>
-<Font color='red' >檢查您的輸入資料時，發現含有下列錯誤，請更正後重新提交</font>
+<H1>會員資料</h1>
+會員帳號=${Username}<br>
+會員名稱=${M_Name}<br>
 
-<Table border=1>
-<tr>
-<c:forEach var="e" items="${ErrorMsgKey}">
-	
-    	<li>${ e }</li>
-</c:forEach> 
-</tr>   	
 
-</Table>
-
-<br>
-<p/>
 
 </body>
 </html>
