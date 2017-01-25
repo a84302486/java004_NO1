@@ -1,4 +1,4 @@
-package _02_Member;
+package _14_Member;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_02_Member/select.do")
+@WebServlet("/_14_Member/select.do")
 public class Select extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,HttpServletResponse response)

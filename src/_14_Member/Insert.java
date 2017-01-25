@@ -1,4 +1,4 @@
-﻿package _02_Member;
+﻿package _14_Member;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/_02_Member/insert.do")
+@WebServlet("/_14_Member/insert.do")
 public class Insert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,
