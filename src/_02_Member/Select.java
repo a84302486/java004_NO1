@@ -25,8 +25,19 @@ public class Select extends HttpServlet {
     	String M_Username = request.getParameter("Username");
     	String M_Name = rs.findByPrimaryKey(M_Username);
     	
-    	RequestDispatcher rd = request.getRequestDispatcher("findPrimaryKey.jsp");
-		rd.forward(request, response);
+    	System.out.println("帳號: "+M_Username);
+    	System.out.println("姓名: "+M_Name);
+    	
+    	request.setAttribute("M_Username", M_Username);
+    	request.setAttribute("M_Name", M_Name);
+    	
+    	if(M_Name!=null){
+    		RequestDispatcher rd = request.getRequestDispatcher("select_success.jsp");
+    		rd.forward(request, response);
+    	}else{
+    		RequestDispatcher rd = request.getRequestDispatcher("select_error.jsp");
+    		rd.forward(request, response);		
+    	}
     }
     	
 }   

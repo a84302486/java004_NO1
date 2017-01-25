@@ -12,7 +12,7 @@
 <H1>加入會員</H1>
   
 <HR>
-<Form Action="register0403_v4.do" method="POST">
+<Form Action="insert.do" method="POST">
     <Table>
     	 <TR>
              <TD align="RIGHT">卡號：</TD>

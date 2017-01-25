@@ -11,9 +11,7 @@
 
 
 <body>
-<h1>MVC (Database)</h1>
-<h3>新增資料至資料庫時，如新增成功, 以success.jsp來顯示本畫面)</h3>
-<Font color='blue' >親愛的${ userIdKey }您好，您的輸入資料已經處理完畢</font>
+<Font color='blue' >使用者${ M_Username }您好，您的輸入資料已經處理完畢</font>
 <p/>感謝您加入成為會員，請開始使用本系統<p/>
 
 </body>

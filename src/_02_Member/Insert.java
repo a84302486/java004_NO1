@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/_02_Member/register0403_v4.do")
-public class Register0403_V4 extends HttpServlet {
+@WebServlet("/_02_Member/insert.do")
+public class Insert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
@@ -100,13 +100,13 @@ public class Register0403_V4 extends HttpServlet {
 			
 		
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
-		request.setAttribute("userIdKey", Username);
+		request.setAttribute("M_Username", Username);
 		if (errorMsg.isEmpty())	{			
-			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("insert_success.jsp");
 			rd.forward(request, response);
 			return ; 
 		}  else {
-			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("insert_error.jsp");
 			rd.forward(request, response);
 			return;
 		}

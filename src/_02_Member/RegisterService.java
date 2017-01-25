@@ -87,6 +87,8 @@ public class RegisterService {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+		String M_Name = null;	
 		try(
 			Connection con = ds.getConnection();
 			PreparedStatement pstmt	= con.prepareStatement(sql);){				
@@ -96,14 +98,15 @@ public class RegisterService {
 				ResultSet rs = pstmt.executeQuery();
 			){
 				if (rs.next()){					
-					String Name = rs.getString(1);					
+					M_Name = rs.getString(1);					
 				}
-			}			
+			}
+			return M_Name;
 		}catch (Exception e){
 			
 			e.printStackTrace();
 		}
-		return null;
+		return M_Name;
 	}
 	
 }

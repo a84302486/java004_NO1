@@ -6,13 +6,15 @@
 <head>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css'  type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MVC</title>
+<title>會員</title>
 </head>
 <body>
-<H1>會員資料</h1>
-會員帳號=${M_Username}<br>
-會員名稱=${M_Name}<br>
+<H1>會員查詢失敗</h1>
 
+<Font color='red' >
+會員帳號=${M_Username}<br>
+查無此資料!!<br>
+</font>
 
 
 </body>
