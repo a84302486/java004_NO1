@@ -1,10 +1,6 @@
 package _14_Member;
-import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,17 +18,16 @@ public class Select_findAll extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 		RegisterService rs = new RegisterService();
-		List<Member> list = rs.findAll();
-
-//		for(int i=0;i<list.size();i++){
-//			Member mb = list.get(i);
-//			request.setAttribute("mb", mb);
-//		}
+		Collection<Member> coll = rs.findAll();
 		
-		request.setAttribute("mb", list);
+		request.setAttribute("memberColl", coll);
 		RequestDispatcher rd = request.getRequestDispatcher("select_all.jsp");
 		rd.forward(request, response);
 
+	}
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
 	}
 
 }  

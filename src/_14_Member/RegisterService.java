@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -103,12 +103,12 @@ public class RegisterService {
 	}
 	
 	
-	public List<Member> findAll() {
+	public Collection<Member> findAll() {
 
 		int n = 0;
 		String sql = "select * from Member;";
 
-		List<Member> list = new ArrayList<>();
+		Collection<Member> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			try (ResultSet rs = pstmt.executeQuery();) {
@@ -133,12 +133,12 @@ public class RegisterService {
 					pb.setM_UniformNumber(rs.getString(16));
 					pb.setM_Joindate(rs.getString(17));
 
-					list.add(pb);
+					coll.add(pb);
 				}
 
 				System.out.println("記錄 查詢all");
 			}
-			return list;
+			return coll;
 		} catch (Exception e) {
 
 			e.printStackTrace();
