@@ -20,11 +20,7 @@
 		<li><a href="">客戶資料</a></li>
 		<li><a href="">廠商資料</a></li>
 		<li><a href="">員工資料</a></li>
-<<<<<<< HEAD
 		<li><a href="_14_Member/MemberMain.jsp">會員資料</a></li><br>
-=======
-		<li><a href="_14_Member/memberMain.jsp">會員資料</a></li><br>
->>>>>>> d48c8907b47ff2afb7865ac2ada9c76f62789c18
 	</td>
 	<td>
 	<a href="">庫存管理</a>

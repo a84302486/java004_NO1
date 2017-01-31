@@ -19,15 +19,10 @@ public class RegisterService {
 	Context ctx;
 	DataSource ds;
 	
-<<<<<<< HEAD
-	synchronized public String insert(MemberBean mem){
-		
-		int n =0;
-		String sql = "INSERT INTO Member "
-				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,null,null,null)";
-=======
+
+	
 	public RegisterService(){
->>>>>>> d48c8907b47ff2afb7865ac2ada9c76f62789c18
+
 		
 		try {
 			ctx = new InitialContext();
@@ -42,7 +37,7 @@ public class RegisterService {
 		}
 	}
 	
-	synchronized public String insert(Member mem){
+	synchronized public String insert(MemberBean mem){
 	
 		int n =0;
 		String sql = "INSERT INTO Member "
@@ -110,18 +105,18 @@ public class RegisterService {
 	}
 	
 	
-	public Collection<Member> findAll() {
+	public Collection<MemberBean> findAll() {
 
 		int n = 0;
 		String sql = "select * from Member;";
 
-		Collection<Member> coll = new ArrayList<>();
+		Collection<MemberBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			try (ResultSet rs = pstmt.executeQuery();) {
 
 				while (rs.next()) {
-					Member pb = new Member();
+					MemberBean pb = new MemberBean();
 					pb.setM_ID(rs.getString(1));
 					pb.setM_Username(rs.getString(2));
 					pb.setM_Password(rs.getString(3));

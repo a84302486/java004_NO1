@@ -50,7 +50,5 @@
 
 	</c:forEach>
 
-
-
 </body>
 </html>

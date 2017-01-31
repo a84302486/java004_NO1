@@ -11,17 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_14_Member/Select_findAll.do")
-public class Select_findAll extends HttpServlet {
+@WebServlet("/_14_Member/SelectFindAll.do")
+public class SelectFindAll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 		RegisterService rs = new RegisterService();
-		Collection<Member> coll = rs.findAll();
+		Collection<MemberBean> coll = rs.findAll();
 		
 		request.setAttribute("memberColl", coll);
-		RequestDispatcher rd = request.getRequestDispatcher("select_all.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("SelectAll.jsp");
 		rd.forward(request, response);
 
 	}

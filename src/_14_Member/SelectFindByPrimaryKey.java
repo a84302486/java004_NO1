@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_14_Member/Select_findByPrimaryKey.do")
-public class Select_findByPrimaryKey extends HttpServlet {
+@WebServlet("/_14_Member/SelectFindByPrimaryKey.do")
+public class SelectFindByPrimaryKey extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
@@ -32,10 +32,10 @@ public class Select_findByPrimaryKey extends HttpServlet {
     	request.setAttribute("M_Name", M_Name);
     	
     	if(M_Name!=null){
-    		RequestDispatcher rd = request.getRequestDispatcher("select_success.jsp");
+    		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
     		rd.forward(request, response);
     	}else{
-    		RequestDispatcher rd = request.getRequestDispatcher("select_error.jsp");
+    		RequestDispatcher rd = request.getRequestDispatcher("SelectError.jsp");
     		rd.forward(request, response);		
     	}
     }

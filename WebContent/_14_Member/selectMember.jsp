@@ -12,7 +12,7 @@
 <H1>會員查詢</H1>
   
 <HR>
-<Form Action="Select_findAll.do" method="POST">
+<Form Action="SelectFindAll.do" method="POST">
 <Table>
 		
          <TR>
@@ -22,7 +22,7 @@
 </Form>
 <HR>
 
-<Form Action="Select_findByPrimaryKey.do" method="POST">
+<Form Action="SelectFindByPrimaryKey.do" method="POST">
 <Table>
 		<br>
 		<TR>
