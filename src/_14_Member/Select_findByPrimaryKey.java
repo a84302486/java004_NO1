@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_14_Member/select.do")
-public class Select extends HttpServlet {
+@WebServlet("/_14_Member/Select_findByPrimaryKey.do")
+public class Select_findByPrimaryKey extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
