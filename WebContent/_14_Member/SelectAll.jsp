@@ -8,7 +8,7 @@
 	href='${pageContext.request.contextPath}/css/styles.css'
 	type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>會員</title>
+<title>會員查詢</title>
 </head>
 <body>
 	<H1>會員列表查詢</h1>
