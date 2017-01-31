@@ -1,4 +1,4 @@
-﻿package _14_Member;
+﻿package _01_Product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +13,8 @@ public class RegisterService {
 	
 	Context ctx;
 	
-	synchronized public String insert(MemberBean mem){
+	synchronized public String insert(ProductBean pb){
 		
-		int n =0;
 		String sql = "INSERT INTO Member "
 				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,null,null,null)";
 		
@@ -52,9 +51,8 @@ public class RegisterService {
 			pstmt.setString(14, mem.getM_IdentityCard());
 			pstmt.setString(15, mem.getM_Invoice());
 			pstmt.setString(16, mem.getM_UniformNumber());
-			pstmt.setString(17, mem.getM_Joindate());
-			
-			n = pstmt.executeUpdate();
+			pstmt.setString(17, mem.getM_Joindate());	
+			pstmt.executeUpdate();
 			
 			System.out.println("成功 新增" + mem.getM_Username());
 			

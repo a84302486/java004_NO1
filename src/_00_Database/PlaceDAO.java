@@ -77,9 +77,9 @@ public class PlaceDAO {
 			}
 			String[] CreateStatement = sb.toString().trim().split(";");
 			
-			for(int n=0;n<CreateStatement.length;n++){
-				CreateStatement[n] +=";";
-			}
+//			for(int n=0;n<CreateStatement.length;n++){
+//				CreateStatement[n] +=";";
+//			}
 			
 			return CreateStatement;
 		} catch (IOException ex) {

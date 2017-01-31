@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="insertMember.jsp">註冊</a>
-<a href="selectMember.jsp">查詢</a>
+<a href="InsertMember.jsp">註冊</a>
+<a href="SelectMember.jsp">查詢</a>
 </body>
 </html>

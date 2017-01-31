@@ -2,7 +2,7 @@
 
 import java.io.Serializable;
 
-public class Member implements Serializable {
+public class MemberBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	String M_ID;	
@@ -24,7 +24,7 @@ public class Member implements Serializable {
 	String M_Joindate;			
 	
 	
-	public Member(String m_ID, String m_Username, String m_Password, String m_Name, String m_Nick, String m_Sex,
+	public MemberBean(String m_ID, String m_Username, String m_Password, String m_Name, String m_Nick, String m_Sex,
 			String m_Birthday, String m_EMail, String m_Phone, String m_Cellphone, String m_Address, String m_Line,
 			String m_FaceBook, String m_IdentityCard, String m_Invoice, String m_UniformNumber, String m_Joindate
 			) {
@@ -49,7 +49,7 @@ public class Member implements Serializable {
 	
 	}
 	
-	public Member(){
+	public MemberBean(){
 		
 	}
 	

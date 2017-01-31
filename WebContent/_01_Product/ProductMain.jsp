@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>產品</h1>
-	<hr>
+	<a href="InsertProduct.jsp">新增資料</a><br>
+	<a href="SelectProduct.jsp">查詢資料</a><br>
 </body>
 </html>
