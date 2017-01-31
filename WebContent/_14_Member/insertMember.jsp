@@ -84,7 +84,7 @@
              <TD align="LEFT" > <input type="text" name="UniformNumber" value="0999000999"></TD>
          </TR>                    
          <TR>
-            <TD colspan="2" align="center">      <input type="submit" value="提交"> </TD>
+            <TD colspan="2" align="center"> <input type="submit" value="提交"> </TD>
          </TR>
          </Table>
 </Form>

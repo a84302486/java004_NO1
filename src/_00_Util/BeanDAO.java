@@ -79,8 +79,7 @@ public class BeanDAO {
 		return null;
 	}
 
-
-	private void pstmtSetValue(PreparedStatement pstmt, String[] saFields, String[] saTypes, Object[] oaValues) throws SQLException{
+	public void pstmtSetValue(PreparedStatement pstmt, String[] saFields, String[] saTypes, Object[] oaValues) throws SQLException{
 		for(int i=0;i<saFields.length;i++){
 			switch(saTypes[i].toUpperCase()){
 			case "INT": case "INTEGER":
