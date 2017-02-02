@@ -1,8 +1,10 @@
 ﻿package _14_Member;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -14,14 +16,14 @@ import javax.sql.DataSource;
 
 
 
-public class RegisterService {
+public class MemberDAO {
 	
 	Context ctx;
 	DataSource ds;
 	
 
 	
-	public RegisterService(){
+	public MemberDAO(){
 
 		
 		try {
@@ -74,6 +76,66 @@ public class RegisterService {
 			System.out.println("失敗 新增" + mem.getM_Username());
 			e.printStackTrace();
 			return "失敗 新增" + mem.getM_Username();
+		}
+		
+	}
+	public int delete(String username){
+		int n =0;
+		String sql = "DELETE FROM Member WHERE M_Username =? ;";
+		try(
+				Connection con = ds.getConnection();
+				PreparedStatement pstmt	= con.prepareStatement(sql);
+		){
+			pstmt.setString(1, username);
+			n = pstmt.executeUpdate();
+			System.out.println("成功 刪除 "+ username);
+			
+			return n;
+		}catch (SQLException e){
+			System.out.println("失敗 刪除 "+ username);
+			e.printStackTrace();
+			return n;
+		}
+	}
+	synchronized public String update(MemberBean mem){
+		
+		int n =0;
+		String sql = "UPDATE Member SET "
+				+ "M_Password = ?, M_Name = ?, M_Nick = ?, M_Sex = ?, M_Birthday = ?, M_EMail = ?,"
+				+ "M_Phone = ?, M_Cellphone = ?, M_Address = ?, M_Line = ?, M_FaceBook = ?, M_IdentityCard = ?"
+				+ "M_Invoice = ?, M_UniformNumber = ?"
+				+ "WHERE M_Username = ?;";
+		
+		try(
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);){				
+		
+			pstmt.setString(1, mem.getM_ID());
+			pstmt.setString(2, mem.getM_Username());
+			pstmt.setString(3, mem.getM_Password());
+			pstmt.setString(4, mem.getM_Name());
+			pstmt.setString(5, mem.getM_Nick());
+			pstmt.setString(6, mem.getM_Sex());
+			pstmt.setString(7, mem.getM_Birthday());		
+			pstmt.setString(8, mem.getM_EMail());
+			pstmt.setString(9, mem.getM_Phone());
+			pstmt.setString(10, mem.getM_Cellphone());
+			pstmt.setString(11, mem.getM_Address());
+			pstmt.setString(12, mem.getM_Line());
+			pstmt.setString(13, mem.getM_FaceBook());
+			pstmt.setString(14, mem.getM_IdentityCard());
+			pstmt.setString(15, mem.getM_Invoice());
+			pstmt.setString(16, mem.getM_UniformNumber());
+					
+			n = pstmt.executeUpdate();
+			
+			System.out.println("成功 修改" + mem.getM_Username());
+			
+			return null;
+		}catch (Exception e){		
+			System.out.println("失敗 修改" + mem.getM_Username());
+			e.printStackTrace();
+			return "失敗 修改" + mem.getM_Username();
 		}
 		
 	}

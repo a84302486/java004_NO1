@@ -8,6 +8,8 @@
 </head>
 <body>
 <a href="InsertMember.jsp">註冊</a>
+<a href="DeleteMember.jsp">刪除</a>
+<a href="UpdateMember.jsp">修改</a>
 <a href="SelectMember.jsp">查詢</a>
 </body>
 </html>

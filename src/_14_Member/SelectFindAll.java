@@ -17,7 +17,7 @@ public class SelectFindAll extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-		RegisterService rs = new RegisterService();
+		MemberDAO rs = new MemberDAO();
 		Collection<MemberBean> coll = rs.findAll();
 		
 		request.setAttribute("memberColl", coll);

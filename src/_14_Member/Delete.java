@@ -15,27 +15,23 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_14_Member/SelectFindByPrimaryKey.do")
-public class SelectFindByPrimaryKey extends HttpServlet {
+@WebServlet("/_14_Member/Delete.do")
+public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
     	MemberDAO rs = new MemberDAO();
     	String M_Username = request.getParameter("Username");
-    	String M_Name = rs.findByPrimaryKey(M_Username);
-    	
-    	System.out.println("帳號: "+M_Username);
-    	System.out.println("姓名: "+M_Name);
+    	int success = rs.delete(M_Username);
+    	System.out.println("刪除帳號: "+M_Username);
     	
     	request.setAttribute("M_Username", M_Username);
-    	request.setAttribute("M_Name", M_Name);
-    	
-    	if(M_Name!=null){
-    		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
+    	if(success > 0){
+    		RequestDispatcher rd = request.getRequestDispatcher("DeleteSuccess.jsp");
     		rd.forward(request, response);
     	}else{
-    		RequestDispatcher rd = request.getRequestDispatcher("SelectError.jsp");
+    		RequestDispatcher rd = request.getRequestDispatcher("DeleteError.jsp");
     		rd.forward(request, response);		
     	}
     }
