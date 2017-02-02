@@ -13,39 +13,49 @@
 <body>
 	<H1>會員列表查詢</h1>
 
-			<table style="border: 5px double rgb(109, 2, 107); height: 50px; background-color: rgb(255, 255, 255);" align="left" cellpadding="5" cellspacing="5" frame="border" rules="all">
-			<tbody>
-				<TR height='30'>
-					<TD width='560'>會員帳號</TD>
-					<TD width='560'>會員姓名</TD>
-					<TD width='560'>會員卡號</TD>
-					<TD width='560'>會員暱稱</TD>
-					<TD width='560'>會員生日</TD>
-					<TD width='560'>電子信箱</TD>
-					<TD width='1200'>會員電話</TD>
+	<table style="border: 3px ;height: 10%; width:100%;background-color: rgb(255, 255, 255);table-layout:fixed;" align="Center" cellpadding="5" cellspacing="5" >
+
+			</tbody>
+			
+				<TR>
+					<TD>會員帳號</TD>
+					<TD>會員姓名</TD>
+					<TD>會員卡號</TD>
+					<TD>會員暱稱</TD>
+					<TD>會員生日</TD>
+					<TD>電子信箱</TD>
+					<TD>會員電話</TD>
 
 				</TR>
-				</tbody>
-			</TABLE>
-	
-
+				 <tr>
+              	  
+             	</tr>
+            
+				
+			</tbody>
+	</TABLE>
 	<c:forEach varStatus="stVar" var="MemberBean" items="${memberColl}">
 
 
 		
-			<table style="border: 5px double rgb(109, 2, 107); height: 30px; background-color: rgb(255, 255, 255);" align="left" cellpadding="5" cellspacing="5" frame="border" rules="all">
+			<table style="border: 3px ; height: 10%; width:100%;background-color: rgb(255, 255, 255);table-layout:fixed;" align="Center" cellpadding="5" cellspacing="5" frame="border" rules="all">
 
 			</tbody>
-				<TR height='30'>
-					<TD width='560'>${MemberBean.m_Username}</TD>
-					<TD width='560'>${MemberBean.m_Name}</TD>
-					<TD width='560'>${MemberBean.m_ID}</TD>
-					<TD width='560'>${MemberBean.m_Nick}</TD>
-					<TD width='560'>${MemberBean.m_Birthday}</TD>
-					<TD width='560'>${MemberBean.m_EMail}</TD>
-					<TD width='1200'>${MemberBean.m_Phone}</TD>
+			
+				<TR>
+					<TD>${MemberBean.m_Username}</TD>
+					<TD>${MemberBean.m_Name}</TD>
+					<TD>${MemberBean.m_ID}</TD>
+					<TD>${MemberBean.m_Nick}</TD>
+					<TD>${MemberBean.m_Birthday}</TD>
+					<TD>${MemberBean.m_EMail}</TD>
+					<TD>${MemberBean.m_Phone}</TD>
 
 				</TR>
+				 <tr>
+              	 
+             	</tr>
+            
 				</tbody>
 			</TABLE>
 		
