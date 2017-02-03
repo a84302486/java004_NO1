@@ -13,10 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import _00_Util.BeanDAO;
 
-@WebServlet("/_01_Product/InsertProduct.do")
+@WebServlet("/_01_Product/Insert.do")
 
-public class InsertProduct extends HttpServlet {
-	public class Insert extends HttpServlet {
+public class Insert extends HttpServlet {
 		private static final long serialVersionUID = 1L;
 
 		public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -68,7 +67,7 @@ public class InsertProduct extends HttpServlet {
 			try{
 				ProductBean pb = new ProductBean(productId, PGPrice, name, 
 						avgCost, oPlace, sLife, suppierId);
-				insertError = new BeanDAO().insert(pb);
+				insertError = new ProductDAO().insert(pb);
 			}catch(Exception e){
 				errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
 				e.printStackTrace();
@@ -79,7 +78,7 @@ public class InsertProduct extends HttpServlet {
 			// 依照 Business Logic 運算結果來挑選適當的畫面
 			request.setAttribute("Product_id", productId);
 			if(errorMsg.isEmpty()){
-				RequestDispatcher rd =request.getRequestDispatcher("InsertSuccess");
+				RequestDispatcher rd =request.getRequestDispatcher("InsertSuccess.jsp");
 				rd.forward(request, response);
 				return;
 			}else{
@@ -89,4 +88,3 @@ public class InsertProduct extends HttpServlet {
 			}
 		}
 	}
-}

@@ -3,24 +3,28 @@ package _01_Product;
 import java.io.Serializable;
 
 public class ProductBean implements Serializable {
-	String product_id;
-	String P_G_price;
-	String Name;
-	String AVG_cost;
-	String O_place;
-	String S_life;
-	String Suppier_id;
+	private String product_id;
+	private String p_g_price;
+	private String name;
+	private String avg_cost;
+	private String o_place;
+	private String s_life;
+	private String suppier_id;
 	
-	public ProductBean(String product_id, String p_G_price, String name, String aVG_cost, String o_place, String s_life,
+	public ProductBean(){
+		
+	}
+	
+	public ProductBean(String product_id, String p_g_price, String name, String avg_cost, String o_place, String s_life,
 			String suppier_id) {
 		super();
 		this.product_id = product_id;
-		P_G_price = p_G_price;
-		Name = name;
-		AVG_cost = aVG_cost;
-		O_place = o_place;
-		S_life = s_life;
-		Suppier_id = suppier_id;
+		this.p_g_price = p_g_price;
+		this.name = name;
+		this.avg_cost = avg_cost;
+		this.o_place = o_place;
+		this.s_life = s_life;
+		this.suppier_id = suppier_id;
 	}
 
 	public String getProduct_id() {
@@ -32,50 +36,50 @@ public class ProductBean implements Serializable {
 	}
 
 	public String getP_G_price() {
-		return P_G_price;
+		return p_g_price;
 	}
 
-	public void setP_G_price(String p_G_price) {
-		P_G_price = p_G_price;
+	public void setP_G_price(String p_g_price) {
+		this.p_g_price = p_g_price;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public String getAVG_cost() {
-		return AVG_cost;
+		return avg_cost;
 	}
 
-	public void setAVG_cost(String aVG_cost) {
-		AVG_cost = aVG_cost;
+	public void setAVG_cost(String avg_cost) {
+		this.avg_cost = avg_cost;
 	}
 
 	public String getO_place() {
-		return O_place;
+		return o_place;
 	}
 
 	public void setO_place(String o_place) {
-		O_place = o_place;
+		this.o_place = o_place;
 	}
 
 	public String getS_life() {
-		return S_life;
+		return s_life;
 	}
 
 	public void setS_life(String s_life) {
-		S_life = s_life;
+		this.s_life = s_life;
 	}
 
 	public String getSuppier_id() {
-		return Suppier_id;
+		return suppier_id;
 	}
 
 	public void setSuppier_id(String suppier_id) {
-		Suppier_id = suppier_id;
+		this.suppier_id = suppier_id;
 	}
 }

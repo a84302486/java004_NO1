@@ -12,7 +12,7 @@
 <H1>新增資料</H1>
   
 <HR>
-<Form Action="InsertProduct.do" method="POST">
+<Form Action="Insert.do" method="POST">
     <Table>
     	 <TR>
              <TD align="RIGHT">產品序號：</TD>
@@ -36,11 +36,11 @@
          </TR>            
          <TR>
              <TD align="RIGHT">產品保存期：</TD>
-             <TD align="LEFT" ><input	type="text" name="sLife" value="一年"  size="30"></TD>
+             <TD align="LEFT" ><input	type="text" name="sLife" value="360"  size="30"></TD>
          </TR>                
                   <TR>
              <TD align="RIGHT">產品供應商：</TD>
-             <TD align="LEFT" ><input	type="text" name="suppierId" value="山羊伯農場"  size="30"></TD>
+             <TD align="LEFT" ><input	type="text" name="suppierId" value="A"  size="30"></TD>
          </TR> 
          <TR>
             <TD colspan="2" align="center"> 

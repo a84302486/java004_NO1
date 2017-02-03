@@ -1,26 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css'  type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<title>MVC</title>
 </head>
 <body>
-	<h1>產品</h1>
-	<hr>
-	<Form Action="select.do" method="POST">
-		<Table>
-			<TR>
-				<TD align="RIGHT">用料號查詢：</TD>
-				<TD align="LEFT"><input type="text" name="Product_id"
-					value="123" size="20"></TD>
-			</TR>
-			<TR>
-				<TD colspan="2" align="center"><input type="submit" value="提交">
-				</TD>
-			</TR>
-		</Table>
-	</Form>
+<CENTER>
+<H1>產品查詢</H1>
+  
+<HR>
+<Form Action="SelectFindAll.do" method="POST">
+<Table>
+		
+         <TR>
+            <TD colspan="2" align="center">列出所有產品資料 <br><br><input type="submit" value="開始查詢"> </TD>
+         </TR>
+</Table>
+</Form>
+<HR>
+
+<Form Action="SelectFindByPrimaryKey.do" method="POST">
+<Table>
+		<br>
+		<TR>
+             <TD align="RIGHT">用序號查詢</TD>
+             <TD align="LEFT"><input type="text" name="productId" value="001" size="20"></TD>
+         </TR>
+         <TR>
+            <TD colspan="2" align="center"><br><input type="submit" value="開始查詢"> </TD>
+         </TR>
+</Table>
+</Form>
+<HR>
+
+
+</CENTER>
 </body>
+
 </html>
