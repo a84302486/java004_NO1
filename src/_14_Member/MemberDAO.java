@@ -43,7 +43,7 @@ public class MemberDAO {
 	
 		int n =0;
 		String sql = "INSERT INTO Member "
-				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,0,0,0)";
+				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)";
 		
 		try(
 			Connection con = ds.getConnection();
@@ -66,7 +66,10 @@ public class MemberDAO {
 			pstmt.setString(15, mem.getM_Invoice());
 			pstmt.setString(16, mem.getM_UniformNumber());
 			pstmt.setString(17, mem.getM_Joindate());
-			
+			pstmt.setInt(18, mem.getM_Level());
+			pstmt.setInt(19, mem.getM_BonusPoints());
+			pstmt.setInt(20, mem.getM_Total());
+									
 			n = pstmt.executeUpdate();
 			
 			System.out.println("成功 新增" + mem.getM_Username());

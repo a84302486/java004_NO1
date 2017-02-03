@@ -79,7 +79,7 @@ public class Insert extends HttpServlet {
 		String insertError = null;
 		try {
 			MemberBean mem = new MemberBean(id, username, password, name, nick, sex, birthday, eMail, phone, cellPhone,
-					address, line, faceBook, identityCard, invoice, uniformNumber, joinDate);
+					address, line, faceBook, identityCard, invoice, uniformNumber, joinDate,0,0,0);
 			insertError = new MemberDAO().insert(mem);
 		} catch (Exception e) {
 			errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());

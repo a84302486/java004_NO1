@@ -13,7 +13,7 @@
 <body>
 	<H1>會員列表查詢</h1>
 
-	<table style="border: 3px ;height: 10%; width:100%;background-color: rgb(255, 255, 255);table-layout:fixed;" align="Center" cellpadding="5" cellspacing="5" >
+	<table style="border: 3px ;height: 10%; width:200%;background-color: rgb(255, 255, 255);table-layout:fixed;" align="Center" cellpadding="5" cellspacing="5" >
 
 			</tbody>
 			
@@ -25,10 +25,19 @@
 					<TD>會員生日</TD>
 					<TD>電子信箱</TD>
 					<TD>會員電話</TD>
+					<TD>會員手機</TD>
+					<TD>LineID</TD>
+					<TD>FaceBook</TD>
+					<TD>身分證號</TD>
+					<TD>統一編號</TD>
+					<TD>發票抬頭</TD>
+					<TD>加入時間</TD>
+					<TD>會員等級</TD>
+					<TD>紅利點數</TD>
+					<TD>累積消費</TD>
 
 				</TR>
-				 <tr>
-              	  
+				 <tr>           	  
              	</tr>
             
 				
@@ -38,7 +47,7 @@
 
 
 		
-			<table style="border: 3px ; height: 10%; width:100%;background-color: rgb(255, 255, 255);table-layout:fixed;" align="Center" cellpadding="5" cellspacing="5" frame="border" rules="all">
+			<table style="border: 3px ; height: 10%; width:200%;background-color: rgb(255, 255, 255);table-layout:fixed;" align="Center" cellpadding="5" cellspacing="5" frame="border" rules="all">
 
 			</tbody>
 			
@@ -50,10 +59,19 @@
 					<TD>${MemberBean.m_Birthday}</TD>
 					<TD>${MemberBean.m_EMail}</TD>
 					<TD>${MemberBean.m_Phone}</TD>
+					<TD>${MemberBean.m_Cellphone}</TD>
+					<TD>${MemberBean.m_Line}</TD>
+					<TD>${MemberBean.m_FaceBook}</TD>
+					<TD>${MemberBean.m_IdentityCard}</TD>
+					<TD>${MemberBean.m_UniformNumber}</TD>
+					<TD>${MemberBean.m_Invoice}</TD>
+					<TD>${MemberBean.m_Joindate}</TD>
+					<TD>${MemberBean.m_Level}</TD>
+					<TD>${MemberBean.m_BonusPoints}</TD>
+					<TD>${MemberBean.m_Total}</TD>
 
 				</TR>
-				 <tr>
-              	 
+				 <tr>            	 
              	</tr>
             
 				</tbody>
