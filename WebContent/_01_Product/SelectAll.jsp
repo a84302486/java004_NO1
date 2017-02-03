@@ -44,9 +44,9 @@
 
 			<TR>
 				<TD>${pc.product_id}</TD>
-				<TD>${pc.p_G_price}</TD>
+				<TD>${pc.p_g_price}</TD>
 				<TD>${pc.name}</TD>
-				<TD>${pc.AVG_cost}</TD>
+				<TD>${pc.avg_cost}</TD>
 				<TD>${pc.o_place}</TD>
 				<TD>${pc.s_life}</TD>
 				<TD>${pc.suppier_id}</TD>

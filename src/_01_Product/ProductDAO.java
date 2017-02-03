@@ -41,11 +41,11 @@ public class ProductDAO {
 				){				
 			
 				pstmt.setString(1, pb.getProduct_id());
-				pstmt.setInt(2, Integer.parseInt(pb.getP_G_price()));
+				pstmt.setInt(2, pb.getP_g_price());
 				pstmt.setString(3, pb.getName());
-				pstmt.setLong(4, Integer.parseInt(pb.getAVG_cost()));
+				pstmt.setDouble(4, pb.getAvg_cost());
 				pstmt.setString(5, pb.getO_place());
-				pstmt.setInt(6,  Integer.parseInt(pb.getS_life()));
+				pstmt.setInt(6,  pb.getS_life());
 				pstmt.setString(7, pb.getSuppier_id());		
 				pstmt.executeUpdate();
 				
@@ -89,11 +89,11 @@ public class ProductDAO {
 				PreparedStatement pstmt	= con.prepareStatement(sql);){				
 			
 				pstmt.setString(1, pb.getProduct_id());
-				pstmt.setInt(2, Integer.parseInt(pb.getP_G_price()));
+				pstmt.setInt(2, pb.getP_g_price());
 				pstmt.setString(3, pb.getName());
-				pstmt.setDouble(4, Double.parseDouble(pb.getAVG_cost()));
+				pstmt.setDouble(4, pb.getAvg_cost());
 				pstmt.setString(5, pb.getO_place());
-				pstmt.setInt(6, Integer.parseInt(pb.getS_life()));
+				pstmt.setInt(6, pb.getS_life());
 				pstmt.setString(7, pb.getSuppier_id());		
 				pstmt.executeUpdate();
 				
@@ -148,11 +148,11 @@ public class ProductDAO {
 					while (rs.next()) {
 						ProductBean pb = new ProductBean();
 						pb.setProduct_id(rs.getString(1));
-						pb.setP_G_price(Integer.toString(rs.getInt(2)));
+						pb.setP_g_price(rs.getInt(2));
 						pb.setName(rs.getString(3));
-						pb.setAVG_cost(Double.toString( rs.getDouble(4)));
+						pb.setAvg_cost(rs.getDouble(4));
 						pb.setO_place(rs.getString(5));
-						pb.setS_life(Integer.toString(rs.getInt(6)));
+						pb.setS_life(rs.getInt(6));
 						pb.setSuppier_id(rs.getString(7));
 		
 						coll.add(pb);
@@ -181,11 +181,11 @@ public class ProductDAO {
 					while (rs.next()) {
 						ProductBean pb = new ProductBean();
 						pb.setProduct_id(rs.getString(1));
-						pb.setP_G_price(Integer.toString(rs.getInt(2)));
+						pb.setP_g_price(rs.getInt(2));
 						pb.setName(rs.getString(3));
-						pb.setAVG_cost(Double.toString( rs.getDouble(4)));
+						pb.setAvg_cost(rs.getDouble(4));
 						pb.setO_place(rs.getString(5));
-						pb.setS_life(Integer.toString(rs.getInt(6)));
+						pb.setS_life(rs.getInt(6));
 						pb.setSuppier_id(rs.getString(7));
 		
 						coll.add(pb);

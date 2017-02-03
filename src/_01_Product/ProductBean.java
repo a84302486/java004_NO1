@@ -4,18 +4,18 @@ import java.io.Serializable;
 
 public class ProductBean implements Serializable {
 	private String product_id;
-	private String p_g_price;
+	private int p_g_price;
 	private String name;
-	private String avg_cost;
+	private double avg_cost;
 	private String o_place;
-	private String s_life;
+	private int s_life;
 	private String suppier_id;
 	
 	public ProductBean(){
 		
 	}
-	
-	public ProductBean(String product_id, String p_g_price, String name, String avg_cost, String o_place, String s_life,
+
+	public ProductBean(String product_id, int p_g_price, String name, double avg_cost, String o_place, int s_life,
 			String suppier_id) {
 		super();
 		this.product_id = product_id;
@@ -35,11 +35,11 @@ public class ProductBean implements Serializable {
 		this.product_id = product_id;
 	}
 
-	public String getP_G_price() {
+	public int getP_g_price() {
 		return p_g_price;
 	}
 
-	public void setP_G_price(String p_g_price) {
+	public void setP_g_price(int p_g_price) {
 		this.p_g_price = p_g_price;
 	}
 
@@ -51,11 +51,11 @@ public class ProductBean implements Serializable {
 		this.name = name;
 	}
 
-	public String getAVG_cost() {
+	public double getAvg_cost() {
 		return avg_cost;
 	}
 
-	public void setAVG_cost(String avg_cost) {
+	public void setAvg_cost(double avg_cost) {
 		this.avg_cost = avg_cost;
 	}
 
@@ -67,11 +67,11 @@ public class ProductBean implements Serializable {
 		this.o_place = o_place;
 	}
 
-	public String getS_life() {
+	public int getS_life() {
 		return s_life;
 	}
 
-	public void setS_life(String s_life) {
+	public void setS_life(int s_life) {
 		this.s_life = s_life;
 	}
 
@@ -82,4 +82,6 @@ public class ProductBean implements Serializable {
 	public void setSuppier_id(String suppier_id) {
 		this.suppier_id = suppier_id;
 	}
+	
+	
 }

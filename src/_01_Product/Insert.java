@@ -28,29 +28,29 @@ public class Insert extends HttpServlet {
 			request.setAttribute("ErrorMsgKey", errorMsg);
 			// 讀取輸入的資料
 			String productId = request.getParameter("productId");
-			String PGPrice = request.getParameter("PGPrice");
+			int PGPrice = Integer.parseInt(request.getParameter("PGPrice"));
 			String name = request.getParameter("name");
-			String avgCost = request.getParameter("avgCost");
+			double avgCost = Double.parseDouble(request.getParameter("avgCost"));
 			String oPlace = request.getParameter("oPlace");
-			String sLife = request.getParameter("sLife");
+			int sLife = Integer.parseInt(request.getParameter("sLife"));
 			String suppierId = request.getParameter("suppierId");
 			// 檢查輸入的資料
 			if(productId ==null || productId.trim().length()==0)
 				errorMsg.add("序號必須輸入");
 			
-			if(PGPrice ==null || PGPrice.trim().length()==0)
+			if(Integer.toString(PGPrice) ==null || Integer.toString(PGPrice).trim().length()==0)
 				errorMsg.add("定價必須輸入");
 			
 			if(name ==null || name.trim().length()==0)
 				errorMsg.add("產品名稱必須輸入");
 			
-			if(avgCost ==null || avgCost.trim().length()==0)
+			if(Double.toString(avgCost) ==null || Double.toString(avgCost).trim().length()==0)
 				errorMsg.add("成本必須輸入");
 			
 			if(oPlace ==null || oPlace.trim().length()==0)
 				errorMsg.add("生產地必須輸入");
 			
-			if(sLife ==null || sLife.trim().length()==0)
+			if(Integer.toString(sLife) ==null || Integer.toString(sLife).trim().length()==0)
 				errorMsg.add("保存期必須輸入");
 			
 			if(suppierId ==null || suppierId.trim().length()==0)

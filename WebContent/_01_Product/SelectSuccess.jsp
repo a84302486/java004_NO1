@@ -42,9 +42,9 @@
 
 			<TR>
 				<TD>${pic.product_id}</TD>
-				<TD>${pic.p_G_price}</TD>
+				<TD>${pic.p_g_price}</TD>
 				<TD>${pic.name}</TD>
-				<TD>${pic.AVG_cost}</TD>
+				<TD>${pic.avg_cost}</TD>
 				<TD>${pic.o_place}</TD>
 				<TD>${pic.s_life}</TD>
 				<TD>${pic.suppier_id}</TD>
