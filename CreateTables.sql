@@ -72,7 +72,7 @@ CREATE TABLE `Customer` (
   `Telephone` 		 varchar(30) DEFAULT NULL,
   `Fax` 			 varchar(30) DEFAULT NULL,
   `Contacter` 		 varchar(30) DEFAULT NULL,
-  `Adress` 			 varchar(30) DEFAULT NULL,
+  `Address` 			 varchar(30) DEFAULT NULL,
   `Uniform_NO` 		    char(8) DEFAULT NULL,
   `This_Invertory_Date`	char(8) DEFAULT NULL,
   `Last_Invertory_Date`	char(8) DEFAULT NULL,
