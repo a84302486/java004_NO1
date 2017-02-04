@@ -7,7 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>交易主檔</h1>
+	<h1>廠商資料</h1>
 	<hr>
+		<a href="InsertSupplier.jsp">新增資料</a><br>
+		<a href="SelectSupplier.jsp">查詢資料</a><br>
+		<a href="UpdateSupplier.jsp">新增資料</a><br>
+		<a href="DeleteSupplier.jsp">刪除資料</a><br>
 </body>
 </html>
