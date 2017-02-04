@@ -22,7 +22,7 @@
 		<tr>
 			<td><a href="">基本資料</a> 
 				<a href="">客戶資料</a> 
-				<a href="">廠商資料</a>
+				<a href="_06_Supplier/SupplierMain.jsp">廠商資料</a>
 				<a href="">員工資料</a> 
 				<a href="_14_Member/MemberMain.jsp">會員資料</a>
 			</td>
