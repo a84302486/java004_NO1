@@ -22,9 +22,10 @@ public class SelectFindByPrimaryKey extends HttpServlet {
  
     	System.out.println("口味序號: "+ taste_id);
     	
+    	request.setAttribute("tasteId", taste_id);
     	request.setAttribute("tasteIdColl", coll);
     	
-    	if(taste_id.trim().length()!=0 || !coll.isEmpty()){
+    	if(taste_id.trim().length()!=0 && !coll.isEmpty()){
     		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
     		rd.forward(request, response);
     	}else{

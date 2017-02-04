@@ -20,10 +20,10 @@ public class SelectFindByPrimaryKey extends HttpServlet {
     	ProductDAO pd = new ProductDAO();
     	String product_id = request.getParameter("productId");
     	Collection<ProductBean> coll = pd.findByPrimaryKey(product_id);
- 
-    	
+
     	System.out.println("產品序號: "+ product_id);
     	
+    	request.setAttribute("productId", product_id);
     	request.setAttribute("productIdColl", coll);
     	
     	if(product_id !=null && coll !=null){

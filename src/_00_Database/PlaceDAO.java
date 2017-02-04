@@ -42,8 +42,6 @@ public class PlaceDAO {
 				//強制刪除FK
 			
 			for(int n =0; n < createStr.length;n++){
-			
-			
 			stmt.executeUpdate(dropStr[n]);
 			System.out.println("第"+(n+1)+"個Table Drop OK");
 			stmt.executeUpdate(createStr[n]);
@@ -57,7 +55,6 @@ public class PlaceDAO {
 		}
 	}
 	
-
 	private String[] readSQLFile(String filename) {
 
 		try (FileInputStream fis = new FileInputStream(filename);

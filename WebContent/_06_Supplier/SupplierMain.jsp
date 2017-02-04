@@ -11,5 +11,7 @@
 	<hr>
 		<a href="InsertSupplier.jsp">新增資料</a><br>
 		<a href="SelectSupplier.jsp">查詢資料</a><br>
+		<a href="UpdateSupplier.jsp">新增資料</a><br>
+		<a href="DeleteSupplier.jsp">刪除資料</a><br>
 </body>
 </html>

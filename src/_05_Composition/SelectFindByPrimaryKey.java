@@ -22,6 +22,7 @@ public class SelectFindByPrimaryKey extends HttpServlet {
  
     	System.out.println("成份類型: "+ composition_type);
     	
+    	request.setAttribute("compositionType", composition_type);
     	request.setAttribute("compositionIdColl", coll);
     	
     	if(composition_type.trim().length()!=0 && !coll.isEmpty()){

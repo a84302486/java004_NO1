@@ -55,7 +55,7 @@ public class CompositionDAO {
 			}	
 		}
 		
-		public void delete(String compositionType){
+		public boolean delete(String compositionType){
 		
 			String sql = "DELETE FROM Composition WHERE Composition_type =? ;";
 			try(
@@ -66,11 +66,14 @@ public class CompositionDAO {
 				pstmt.setString(1, compositionType);
 				pstmt.executeUpdate();
 				System.out.println("成功 刪除 "+ compositionType);
+				return true;
 				
 			}catch (SQLException e){
 				System.out.println("失敗 刪除 "+ compositionType);
 				e.printStackTrace();
+				return false;
 			}
+			
 		}
 		
 		synchronized public String update(CompositionBean cb){

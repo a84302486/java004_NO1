@@ -11,5 +11,7 @@
 	<hr>
 		<a href="InsertTaste.jsp">新增資料</a><br>
 		<a href="SelectTaste.jsp">查詢資料</a><br>
+		<a href="UpdateTaste.jsp">新增資料</a><br>
+		<a href="DeleteTaste.jsp">刪除資料</a><br>
 </body>
 </html>

@@ -54,7 +54,7 @@ public class TasteDAO {
 			}	
 		}
 		
-		public void delete(String tasteId){
+		public boolean delete(String tasteId){
 		
 			String sql = "DELETE FROM Taste WHERE Taste_id =? ;";
 			try(
@@ -65,10 +65,12 @@ public class TasteDAO {
 				pstmt.setString(1, tasteId);
 				pstmt.executeUpdate();
 				System.out.println("成功 刪除 "+ tasteId);
+				return true;
 				
 			}catch (SQLException e){
 				System.out.println("失敗 刪除 "+ tasteId);
 				e.printStackTrace();
+				return false;
 			}
 		}
 		

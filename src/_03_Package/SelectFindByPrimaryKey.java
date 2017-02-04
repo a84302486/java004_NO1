@@ -22,6 +22,7 @@ public class SelectFindByPrimaryKey extends HttpServlet {
  
     	System.out.println("包裝序號: "+ package_id);
     	
+    	request.setAttribute("packageId", package_id);
     	request.setAttribute("packageIdColl", coll);
     	
     	if(package_id.trim().length()!=0 && !coll.isEmpty()){

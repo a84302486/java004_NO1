@@ -54,7 +54,7 @@ public class PackageDAO {
 			}	
 		}
 		
-		public void delete(String PackageId){
+		public boolean delete(String PackageId){
 		
 			String sql = "DELETE FROM Package WHERE Package_id =? ;";
 			try(
@@ -65,11 +65,13 @@ public class PackageDAO {
 				pstmt.setString(1, PackageId);
 				pstmt.executeUpdate();
 				System.out.println("成功 刪除 "+ PackageId);
-				
+				return true;
 			}catch (SQLException e){
 				System.out.println("失敗 刪除 "+ PackageId);
 				e.printStackTrace();
+				return false;
 			}
+			
 		}
 		
 		synchronized public String update(PackageBean pb){

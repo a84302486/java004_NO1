@@ -12,7 +12,7 @@
 <H1>廠商資料查詢失敗</h1>
 
 <Font color='red' >
-成份類型=${supplier_id}<br>
+成份類型=${supplierId}<br>
 查無此資料!!<br>
 </font>
 

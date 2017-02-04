@@ -12,7 +12,7 @@
 <H1>包裝查詢失敗</h1>
 
 <Font color='red' >
-包裝序號=${Package_id}<br>
+包裝序號=${packageId}<br>
 查無此資料!!<br>
 </font>
 

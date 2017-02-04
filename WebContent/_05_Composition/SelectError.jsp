@@ -12,7 +12,7 @@
 <H1>成份查詢失敗</h1>
 
 <Font color='red' >
-成份類型=${composition_type}<br>
+成份類型=${compositionType}<br>
 查無此資料!!<br>
 </font>
 

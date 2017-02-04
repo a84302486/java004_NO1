@@ -12,7 +12,7 @@
 <H1>產品查詢失敗</h1>
 
 <Font color='red' >
-產品序號=${Product_id}<br>
+產品序號=${productId}<br>
 查無此資料!!<br>
 </font>
 

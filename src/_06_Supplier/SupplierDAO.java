@@ -62,7 +62,7 @@ public class SupplierDAO {
 			}	
 		}
 		
-		public void delete(String SupplierId){
+		public boolean delete(String SupplierId){
 		
 			String sql = "DELETE FROM Supplier WHERE Supplier_id =? ;";
 			try(
@@ -73,11 +73,14 @@ public class SupplierDAO {
 				pstmt.setString(1, SupplierId);
 				pstmt.executeUpdate();
 				System.out.println("成功 刪除 "+ SupplierId);
+				return true;
 				
 			}catch (SQLException e){
 				System.out.println("失敗 刪除 "+ SupplierId);
 				e.printStackTrace();
+				return false;
 			}
+			
 		}
 		
 		synchronized public String update(SupplierBean sb){

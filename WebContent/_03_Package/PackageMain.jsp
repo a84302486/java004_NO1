@@ -11,5 +11,7 @@
 	<hr>
 		<a href="InsertPackage.jsp">新增資料</a><br>
 		<a href="SelectPackage.jsp">查詢資料</a><br>
+		<a href="UpdatePackage.jsp">新增資料</a><br>
+		<a href="DeletePackage.jsp">刪除資料</a><br>
 </body>
 </html>

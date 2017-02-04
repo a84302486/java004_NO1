@@ -12,7 +12,7 @@
 <H1>口味查詢失敗</h1>
 
 <Font color='red' >
-口味序號=${Taste_id}<br>
+口味序號=${tasteId}<br>
 查無此資料!!<br>
 </font>
 

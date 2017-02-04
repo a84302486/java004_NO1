@@ -59,7 +59,7 @@ public class ProductDAO {
 			}	
 		}
 		
-		public void delete(String productId){
+		public boolean delete(String productId){
 		
 			String sql = "DELETE FROM Product WHERE Product_id =? ;";
 			try(
@@ -70,11 +70,13 @@ public class ProductDAO {
 				pstmt.setString(1, productId);
 				pstmt.executeUpdate();
 				System.out.println("成功 刪除 "+ productId);
-				
+				return true;
 			}catch (SQLException e){
 				System.out.println("失敗 刪除 "+ productId);
 				e.printStackTrace();
+				return false;
 			}
+			
 		}
 		
 		synchronized public String update(ProductBean pb){
