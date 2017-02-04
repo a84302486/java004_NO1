@@ -11,30 +11,30 @@
 
 		<tbody>
 		<tr>
-			<td><a href="">產品資訊</a> 
+			<td>產品資訊
 				<a href="_01_Product/ProductMain.jsp">產品</a>
 				<a href="_02_Taste/TasteMain.jsp">口味</a> 
 				<a href="_03_Package/PackageMain.jsp">包裝</a> 
-				<a href="_04_">產品型錄</a> 
-				<a href="_05_Composition/CompositionMain.jsp">成份</a> 
+				<a href="_04_Composition/CompositionMain.jsp">成份</a> 
+				<a href="_05_">產品型錄</a> 
 			</td>
 		</tr>
 		<tr>
-			<td><a href="">基本資料</a> 
-				<a href="">客戶資料</a> 
+			<td>基本資料 
 				<a href="_06_Supplier/SupplierMain.jsp">廠商資料</a>
-				<a href="">員工資料</a> 
+				<a href="_07_Customer/CustomerMain.jsp">客戶資料</a> 
+				<a href="_08_">員工資料</a> 
 				<a href="_14_Member/MemberMain.jsp">會員資料</a>
 			</td>
 		</tr>
 		<tr>
-			<td><a href="">庫存管理</a> 
+			<td>庫存管理 
 				<a href="_09_WarehouseMG/Warehouse.jsp">產品庫存</a>
 				<a href="_09_WarehouseMG/StockUpdate.jsp">實盤更新</a>
 			</td>
 		</tr>
 		<tr>
-			<td><a href="">訂單系統</a> 
+			<td>交易系統
 				<a href="_10_TradeInfo/TRHD.jsp">交易主檔</a>
 				<a href="_10_TradeInfo/TRDT.jsp">交易明細</a>
 			    <a href="_10_TradeInfo/OrderSearch.jsp">訂單查詢</a>

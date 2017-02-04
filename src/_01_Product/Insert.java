@@ -38,7 +38,8 @@ public class Insert extends HttpServlet {
 			}
 			
 			String PGPriceStr = request.getParameter("PGPrice");
-			int PGPrice = 0;
+			int PGPrice = 
+					0;
 			if(PGPriceStr ==null || PGPriceStr.trim().length()==0)
 			{
 				errorMsg.add("定價必須輸入");
