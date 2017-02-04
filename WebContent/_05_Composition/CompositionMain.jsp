@@ -9,6 +9,7 @@
 <body>
 	<h1>成份</h1>
 	<hr>
-	
+		<a href="InsertComposition.jsp">新增資料</a><br>
+		<a href="SelectComposition.jsp">查詢資料</a><br>
 </body>
 </html>

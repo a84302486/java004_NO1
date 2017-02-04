@@ -157,7 +157,7 @@ public class ProductDAO {
 		
 						coll.add(pb);
 					}
-					System.out.println("記錄 查詢all");
+					System.out.println("序號查詢資料");
 				}
 				return coll;
 			} catch (Exception e) {

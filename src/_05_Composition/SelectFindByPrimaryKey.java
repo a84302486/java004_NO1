@@ -1,4 +1,4 @@
-package _01_Product;
+package _05_Composition;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -11,22 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_01_Product/SelectFindByPrimaryKey.do")
+@WebServlet("/_05_Composition/SelectFindByPrimaryKey.do")
 public class SelectFindByPrimaryKey extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
-    	ProductDAO pd = new ProductDAO();
-    	String product_id = request.getParameter("productId");
-    	Collection<ProductBean> coll = pd.findByPrimaryKey(product_id);
+    	String composition_type = request.getParameter("compositionType");
+    	Collection<CompositionBean> coll =  new CompositionDAO().findByPrimaryKey(composition_type);
  
+    	System.out.println("成份類型: "+ composition_type);
     	
-    	System.out.println("產品序號: "+ product_id);
+    	request.setAttribute("compositionIdColl", coll);
     	
-    	request.setAttribute("productIdColl", coll);
-    	
-    	if(product_id !=null && coll !=null){
+    	if(composition_type.trim().length()!=0 && !coll.isEmpty()){
     		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
     		rd.forward(request, response);
     	}else{

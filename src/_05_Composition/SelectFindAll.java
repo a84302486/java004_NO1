@@ -1,4 +1,4 @@
-package _01_Product;
+package _05_Composition;
 import java.io.IOException;
 import java.util.Collection;
 
@@ -11,15 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_01_Product/SelectFindAll.do")
+@WebServlet("/_05_Composition/SelectFindAll.do")
 public class SelectFindAll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-		Collection<ProductBean> coll = new ProductDAO().findAll();
+
+		Collection<CompositionBean> coll = new CompositionDAO().findAll();
 		
-		request.setAttribute("productColl", coll);
+		request.setAttribute("compositionColl", coll);
 		RequestDispatcher rd = request.getRequestDispatcher("SelectAll.jsp");
 		rd.forward(request, response);
 

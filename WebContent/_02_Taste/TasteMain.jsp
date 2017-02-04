@@ -9,5 +9,7 @@
 <body>
 	<h1>口味</h1>
 	<hr>
+		<a href="InsertTaste.jsp">新增資料</a><br>
+		<a href="SelectTaste.jsp">查詢資料</a><br>
 </body>
 </html>

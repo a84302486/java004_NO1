@@ -13,10 +13,10 @@
 		<tr>
 			<td><a href="">產品資訊</a> 
 				<a href="_01_Product/ProductMain.jsp">產品</a>
-				<a href="_02_Taste/Taste.jsp">口味</a> 
-				<a href="_03_Package/Package.jsp">包裝</a> 
-				<a href="_04_Composition/Composition.jsp">成份</a> 
-				<a href="_01_Product/ProductCategory.jsp">產品型錄</a>
+				<a href="_02_Taste/TasteMain.jsp">口味</a> 
+				<a href="_03_Package/PackageMain.jsp">包裝</a> 
+				<a href="_04_">產品型錄</a> 
+				<a href="_05_Composition/CompositionMain.jsp">成份</a> 
 			</td>
 		</tr>
 		<tr>

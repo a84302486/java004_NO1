@@ -13,7 +13,6 @@ CREATE TABLE `Product` (
 CREATE TABLE `Taste` (
   `Taste_id` 	varchar(4) NOT NULL,
   `Taste_Name` 	varchar(60) DEFAULT NULL,
-  `Spread` 	    int(10) DEFAULT NULL,
   
 	CONSTRAINT Taste_Taste_id_PK PRIMARY KEY (`Taste_id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -22,7 +21,7 @@ CREATE TABLE `Taste` (
 CREATE TABLE `Package` (
   `Package_id` 	    varchar(20) NOT NULL,
   `Description` 	varchar(60) DEFAULT NULL,
-  `Spread` 	    int(10) DEFAULT NULL,
+
   
 	CONSTRAINT Package_Package_id_PK PRIMARY KEY (`Package_Id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;

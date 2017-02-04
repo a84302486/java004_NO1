@@ -57,11 +57,6 @@ public class PlaceDAO {
 		}
 	}
 	
-	public void insertInto(){
-		
-		String[] insertStr = readSQLFile("dropPlace.sql");
-		
-	}
 
 	private String[] readSQLFile(String filename) {
 

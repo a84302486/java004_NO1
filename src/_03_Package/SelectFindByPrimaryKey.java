@@ -1,4 +1,4 @@
-package _01_Product;
+package _03_Package;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -11,22 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_01_Product/SelectFindByPrimaryKey.do")
+@WebServlet("/_03_Package/SelectFindByPrimaryKey.do")
 public class SelectFindByPrimaryKey extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
-    	ProductDAO pd = new ProductDAO();
-    	String product_id = request.getParameter("productId");
-    	Collection<ProductBean> coll = pd.findByPrimaryKey(product_id);
+    	String package_id = request.getParameter("packageId");
+    	Collection<PackageBean> coll =  new PackageDAO().findByPrimaryKey(package_id);
  
+    	System.out.println("包裝序號: "+ package_id);
     	
-    	System.out.println("產品序號: "+ product_id);
+    	request.setAttribute("packageIdColl", coll);
     	
-    	request.setAttribute("productIdColl", coll);
-    	
-    	if(product_id !=null && coll !=null){
+    	if(package_id.trim().length()!=0 && !coll.isEmpty()){
     		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
     		rd.forward(request, response);
     	}else{
