@@ -3,6 +3,7 @@ package _01_Product;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,8 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import _00_Util.BeanDAO;
 
 @WebServlet("/_01_Product/Insert.do")
 
@@ -28,30 +27,64 @@ public class Insert extends HttpServlet {
 			request.setAttribute("ErrorMsgKey", errorMsg);
 			// 讀取輸入的資料
 			String productId = request.getParameter("productId");
-			int PGPrice = Integer.parseInt(request.getParameter("PGPrice"));
+			String PGPriceStr = request.getParameter("PGPrice");
+			int PGPrice = 0;
+			if(PGPriceStr ==null || PGPriceStr.trim().length()==0)
+			{
+				errorMsg.add("定價必須輸入");
+			}
+			else if(!isInteger(PGPriceStr))
+			{
+				errorMsg.add("定價必須是整數");
+			}
+			else
+			{
+				PGPrice = Integer.parseInt(PGPriceStr);
+			}		
+			
 			String name = request.getParameter("name");
-			double avgCost = Double.parseDouble(request.getParameter("avgCost"));
+			String avgCostStr = request.getParameter("avgCost");
+			double avgCost = 0;
+			if(avgCostStr ==null || avgCostStr.trim().length()==0)
+			{
+				errorMsg.add("成本必須輸入");
+			}
+			else if(!isDouble(avgCostStr))
+			{
+				errorMsg.add("成本必須是小數");
+			}
+			else
+			{
+			    avgCost = Double.parseDouble(avgCostStr);
+			}
+			
 			String oPlace = request.getParameter("oPlace");
-			int sLife = Integer.parseInt(request.getParameter("sLife"));
+			String sLifeStr = request.getParameter("sLife");
+			int sLife = 0;
+			if(sLifeStr ==null || sLifeStr.trim().length()==0)
+			{
+				errorMsg.add("保存期必須輸入");
+			}
+			else if(!isInteger(sLifeStr))
+			{
+				errorMsg.add("保存期必須是整數");
+			}
+			else
+			{
+				 sLife = Integer.parseInt(sLifeStr);
+			}
+			
+			
 			String suppierId = request.getParameter("suppierId");
 			// 檢查輸入的資料
 			if(productId ==null || productId.trim().length()==0)
 				errorMsg.add("序號必須輸入");
 			
-			if(Integer.toString(PGPrice) ==null || Integer.toString(PGPrice).trim().length()==0)
-				errorMsg.add("定價必須輸入");
-			
 			if(name ==null || name.trim().length()==0)
 				errorMsg.add("產品名稱必須輸入");
-			
-			if(Double.toString(avgCost) ==null || Double.toString(avgCost).trim().length()==0)
-				errorMsg.add("成本必須輸入");
-			
+					
 			if(oPlace ==null || oPlace.trim().length()==0)
 				errorMsg.add("生產地必須輸入");
-			
-			if(Integer.toString(sLife) ==null || Integer.toString(sLife).trim().length()==0)
-				errorMsg.add("保存期必須輸入");
 			
 			if(suppierId ==null || suppierId.trim().length()==0)
 				errorMsg.add("供應商必須輸入");
@@ -86,5 +119,15 @@ public class Insert extends HttpServlet {
 				rd.forward(request, response);
 				return;
 			}
+		}
+		
+		public static boolean isInteger(String value) {
+		    Pattern pattern = Pattern.compile("^[-+]?\\d+$");
+		    return pattern.matcher(value).matches();
+		}
+		
+		public static boolean isDouble(String value) {
+		    Pattern pattern = Pattern.compile("^([-+]?\\d+)(\\.\\d+)?$");
+		    return pattern.matcher(value).matches();
 		}
 	}
