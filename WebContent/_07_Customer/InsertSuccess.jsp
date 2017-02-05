@@ -11,8 +11,8 @@
 
 
 <body>
-<Font color='blue' >使用者${ M_Username }您好，您的輸入資料已經處理完畢</font>
-<p/>感謝您加入成為會員，請開始使用本系統<p/>
+<Font color='blue' >${ Customer_id }輸入資料已經處理完畢</font>
+
 
 </body>
 </html>

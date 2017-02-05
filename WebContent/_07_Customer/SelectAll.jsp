@@ -8,42 +8,49 @@
 	href='${pageContext.request.contextPath}/css/styles.css'
 	type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>會員查詢</title>
+<title>客戶查詢</title>
 </head>
 <body>
-	<H1>會員列表查詢</h1>
+	<H1>客戶列表查詢</h1>
 
 	<table style="border: 3px ;height: 10%; width:200%;background-color: rgb(255, 255, 255);table-layout:fixed;" align="Center" cellpadding="5" cellspacing="5" >
 
 			</tbody>
 			
 				<TR>
-					<TD>會員帳號</TD>
-					<TD>會員姓名</TD>
-					<TD>會員卡號</TD>
-					<TD>會員暱稱</TD>
-					<TD>會員生日</TD>
-					<TD>電子信箱</TD>
-					<TD>會員電話</TD>
-					<TD>會員手機</TD>
-					<TD>LineID</TD>
-					<TD>FaceBook</TD>
-					<TD>身分證號</TD>
+					<TD>客戶編號</TD>
+					<TD>簡稱</TD>
+					<TD>名稱</TD>
+					<TD>通路</TD>
+					<TD>電話</TD>
+					<TD>傳真</TD>
+					<TD>聯絡人</TD>
+					<TD>地址</TD>
 					<TD>統一編號</TD>
-					<TD>發票抬頭</TD>
-					<TD>加入時間</TD>
-					<TD>會員等級</TD>
-					<TD>紅利點數</TD>
-					<TD>累積消費</TD>
+					<TD>此次盤點日期</TD>
+					<TD>上次盤點日期</TD>
+					<TD>盤點狀態</TD>
+					<TD>此次折扣代碼</TD>
+					<TD>下次折扣代碼</TD>
+					<TD>傳真</TD>
+					<TD>網站</TD>
+					<TD>老闆</TD>
+					<TD>聯絡人</TD>
+					<TD>Email</TD>
+					<TD>LineID</TD>
+					<TD>Skype</TD>
 
 				</TR>
 				 <tr>           	  
              	</tr>
+             	
+             	 <TR>
+             
             
 				
 			</tbody>
 	</TABLE>
-	<c:forEach varStatus="stVar" var="MemberBean" items="${memberColl}">
+	<c:forEach varStatus="stVar" var="CustomerBean" items="${customerColl}">
 
 
 		
@@ -52,23 +59,27 @@
 			</tbody>
 			
 				<TR>
-					<TD>${MemberBean.m_Username}</TD>
-					<TD>${MemberBean.m_Name}</TD>
-					<TD>${MemberBean.m_ID}</TD>
-					<TD>${MemberBean.m_Nick}</TD>
-					<TD>${MemberBean.m_Birthday}</TD>
-					<TD>${MemberBean.m_EMail}</TD>
-					<TD>${MemberBean.m_Phone}</TD>
-					<TD>${MemberBean.m_Cellphone}</TD>
-					<TD>${MemberBean.m_Line}</TD>
-					<TD>${MemberBean.m_FaceBook}</TD>
-					<TD>${MemberBean.m_IdentityCard}</TD>
-					<TD>${MemberBean.m_UniformNumber}</TD>
-					<TD>${MemberBean.m_Invoice}</TD>
-					<TD>${MemberBean.m_Joindate}</TD>
-					<TD>${MemberBean.m_Level}</TD>
-					<TD>${MemberBean.m_BonusPoints}</TD>
-					<TD>${MemberBean.m_Total}</TD>
+					<TD>${CustomerBean.customer_id}</TD>
+					<TD>${CustomerBean.simple_Name}</TD>
+					<TD>${CustomerBean.name}</TD>
+					<TD>${CustomerBean.sale_Path}</TD>
+					<TD>${CustomerBean.telephone}</TD>
+					<TD>${CustomerBean.fax}</TD>
+					<TD>${CustomerBean.contacter}</TD>
+					<TD>${CustomerBean.address}</TD>
+					<TD>${CustomerBean.uniform_NO}</TD>
+					<TD>${CustomerBean.this_Invertory_Date}</TD>
+					<TD>${CustomerBean.last_Invertory_Date}</TD>
+					<TD>${CustomerBean.PR_Status}</TD>
+					<TD>${CustomerBean.current_Discount_id}</TD>
+					<TD>${CustomerBean.next_Discount_id}</TD>
+					<TD>${CustomerBean.tax_Type}</TD>
+					<TD>${CustomerBean.URL}</TD>
+					<TD>${CustomerBean.principal_Name}</TD>
+					<TD>${CustomerBean.contact_Name}</TD>
+					<TD>${CustomerBean.email}</TD>
+					<TD>${CustomerBean.line}</TD>
+					<TD>${CustomerBean.skype}</TD>
 
 				</TR>
 				 <tr>            	 

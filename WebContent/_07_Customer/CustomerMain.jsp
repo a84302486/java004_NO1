@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="InsertMember.jsp">註冊</a>
-<a href="DeleteMember.jsp">刪除</a>
-<a href="UpdateMember.jsp">修改</a>
-<a href="SelectMember.jsp">查詢</a>
+<a href="InsertCustomer.jsp">新增</a>
+<a href="DeleteCustomer.jsp">刪除</a>
+<a href="UpdateCustomer.jsp">修改</a>
+<a href="SelectCustomer.jsp">查詢</a>
 </body>
 </html>

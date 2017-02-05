@@ -18,9 +18,9 @@ public class SelectFindAll extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 		CustomerDAO rs = new CustomerDAO();
-		Collection<MemberBean> coll = rs.findAll();
+		Collection<CustomerBean> coll = rs.findAll();
 		
-		request.setAttribute("memberColl", coll);
+		request.setAttribute("customerColl", coll);
 		RequestDispatcher rd = request.getRequestDispatcher("SelectAll.jsp");
 		rd.forward(request, response);
 

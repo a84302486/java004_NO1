@@ -22,11 +22,11 @@ public class Delete extends HttpServlet {
             throws IOException, ServletException {
     	
     	CustomerDAO rs = new CustomerDAO();
-    	String M_Username = request.getParameter("Username");
-    	int success = rs.delete(M_Username);
-    	System.out.println("刪除帳號: "+M_Username);
+    	String Customer_id = request.getParameter("Customer_id");
+    	int success = rs.delete(Customer_id);
+    	System.out.println("刪除帳號: "+Customer_id);
     	
-    	request.setAttribute("M_Username", M_Username);
+    	request.setAttribute("Customer_id", Customer_id);
     	if(success > 0){
     		RequestDispatcher rd = request.getRequestDispatcher("DeleteSuccess.jsp");
     		rd.forward(request, response);

@@ -9,15 +9,15 @@
 </head>
 <body>
 <CENTER>
-<H1>會員刪除</H1>
+<H1>客戶刪除</H1>
   
 <HR>
 
 <Form Action="Delete.do" method="POST">
 <Table>
 		<TR>
-             <TD align="RIGHT">請輸入要刪除的帳號</TD>
-             <TD align="LEFT"><input type="text" name="Username" value="helloSnoopy" size="20"></TD>
+             <TD align="RIGHT">請輸入要刪除的客戶編號</TD>
+             <TD align="LEFT"><input type="text" name="Customer_id" value="helloSnoopy" size="20"></TD>
          </TR>
          <TR>
             <TD colspan="2" align="center"><br><input type="submit" value="開始刪除"> </TD>

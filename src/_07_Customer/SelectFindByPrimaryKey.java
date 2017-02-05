@@ -22,16 +22,16 @@ public class SelectFindByPrimaryKey extends HttpServlet {
             throws IOException, ServletException {
     	
     	CustomerDAO rs = new CustomerDAO();
-    	String M_Username = request.getParameter("Username");
-    	String M_Name = rs.findByPrimaryKey(M_Username);
+    	String Customer_id = request.getParameter("Customer_id");
+    	String Name = rs.findByPrimaryKey(Customer_id);
     	
-    	System.out.println("帳號: "+M_Username);
-    	System.out.println("姓名: "+M_Name);
+    	System.out.println("編號: "+Customer_id);
+    	System.out.println("名稱: "+Name);
     	
-    	request.setAttribute("M_Username", M_Username);
-    	request.setAttribute("M_Name", M_Name);
+    	request.setAttribute("Customer_id", Customer_id);
+    	request.setAttribute("Name", Name);
     	
-    	if(M_Name!=null){
+    	if(Name!=null){
     		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
     		rd.forward(request, response);
     	}else{

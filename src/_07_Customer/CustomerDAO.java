@@ -42,8 +42,8 @@ public class CustomerDAO {
 	synchronized public String insert(CustomerBean mem){
 	
 		int n =0;
-		String sql = "INSERT INTO Member "
-				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)";
+		String sql = "INSERT INTO Customer "
+				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
 		
 		try(
 			Connection con = ds.getConnection();
@@ -85,7 +85,7 @@ public class CustomerDAO {
 	}
 	public int delete(String Customer_id){
 		int n =0;
-		String sql = "DELETE FROM Member WHERE Customer_id =? ;";
+		String sql = "DELETE FROM Customer WHERE Customer_id =? ;";
 		try(
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);
@@ -106,9 +106,9 @@ public class CustomerDAO {
 	public String findByPrimaryKey(String Customer_id){
 		
 		int n =0;
-		String sql = "select M_Name from Customer where Customer_id =?;";
+		String sql = "select Name from Customer where Customer_id =?;";
 				 		
-		String M_Name = null;	
+		String Name = null;	
 		try(
 			Connection con = ds.getConnection();
 			PreparedStatement pstmt	= con.prepareStatement(sql);){				
@@ -118,10 +118,10 @@ public class CustomerDAO {
 				ResultSet rs = pstmt.executeQuery();
 			){
 				if (rs.next()){					
-					M_Name = rs.getString(1);					
+					Name = rs.getString(1);					
 				}
 			}
-			return M_Name;
+			return Name;
 		}catch (Exception e){
 			
 			e.printStackTrace();

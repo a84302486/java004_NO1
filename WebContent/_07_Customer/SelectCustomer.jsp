@@ -9,14 +9,14 @@
 </head>
 <body>
 <CENTER>
-<H1>會員查詢</H1>
+<H1>客戶查詢</H1>
   
 <HR>
 <Form Action="SelectFindAll.do" method="POST">
 <Table>
 		
          <TR>
-            <TD colspan="2" align="center">列出所有會員資料 <br><br><input type="submit" value="開始查詢"> </TD>
+            <TD colspan="2" align="center">列出所有客戶資料 <br><br><input type="submit" value="開始查詢"> </TD>
          </TR>
 </Table>
 </Form>
@@ -26,8 +26,8 @@
 <Table>
 		<br>
 		<TR>
-             <TD align="RIGHT">用帳號查詢</TD>
-             <TD align="LEFT"><input type="text" name="Username" value="helloSnoopy" size="20"></TD>
+             <TD align="RIGHT">用客戶編號查詢</TD>
+             <TD align="LEFT"><input type="text" name="Customer_id" value="A001" size="20"></TD>
          </TR>
          <TR>
             <TD colspan="2" align="center"><br><input type="submit" value="開始查詢"> </TD>

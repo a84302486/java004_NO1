@@ -6,13 +6,13 @@
 <head>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css'  type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>會員</title>
+<title>客戶</title>
 </head>
 <body>
-<H1>會員刪除成功</h1>
+<H1>客戶刪除成功</h1>
 
 <Font color='blue' >
-會員帳號 = ${M_Username}<br>
+客戶編號 = ${Customer_id}<br>
 已經成功刪除!!
 </font>
 
