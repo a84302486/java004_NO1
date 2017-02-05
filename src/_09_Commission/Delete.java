@@ -1,4 +1,4 @@
-package _08_Discount;
+package _09_Commission;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -10,17 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_08_Discount/Delete.do")
+@WebServlet("/_09_Commission/Delete.do")
 public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
-    	String discountId = request.getParameter("discountId");
-    	boolean success = new DiscountDAO().delete(discountId);
-    	System.out.println("刪除成份資料: "+discountId);
+    	String commissionId = request.getParameter("commissionId");
+    	boolean success = new CommissionDAO().delete(commissionId);
+    	System.out.println("刪除成份資料: "+commissionId);
     	
-    	request.setAttribute("discountId", discountId);
+    	request.setAttribute("commissionId", commissionId);
     	
     	if(success == true){
     		RequestDispatcher rd = request.getRequestDispatcher("DeleteSuccess.jsp");
