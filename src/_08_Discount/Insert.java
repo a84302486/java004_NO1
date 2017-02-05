@@ -1,4 +1,4 @@
-package _12_TRHD;
+package _08_Discount;
 
 
 import java.io.IOException;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/_12_TRHD/Insert.do")
+@WebServlet("/_08_Discount/Insert.do")
 
 public class Insert extends HttpServlet {
 		private static final long serialVersionUID = 1L;
@@ -29,41 +29,25 @@ public class Insert extends HttpServlet {
 			request.setAttribute("ErrorMsgKey", errorMsg);
 			
 			// 讀取輸入的資料
-			String supplierId = request.getParameter("supplierId");
-			if(supplierId ==null || supplierId.trim().length()==0){
+			String discountId = request.getParameter("discountId");
+			if(discountId ==null || discountId.trim().length()==0){
 				errorMsg.add("序號必須輸入");
-			}else if(!isInteger(supplierId)){
+			}else if(!isInteger(discountId)){
 				errorMsg.add("序號必須是整數數字");
 			}
 			
-			String name = request.getParameter("name");
-			if(name ==null || name.trim().length()==0)
+			String descriptionStr = request.getParameter("description");
+			double description = 0d;
+			if(descriptionStr ==null || descriptionStr.trim().length()==0)
 				errorMsg.add("名稱必須輸入");
-			
-			String telephone = request.getParameter("telephone");
-			if(telephone ==null || telephone.trim().length()==0){
-				errorMsg.add("電話號碼必須輸入");
-			}else if(!isInteger(telephone)){
-				errorMsg.add("電話號碼必須是數字");
+			else if(!isDouble(descriptionStr))
+			{
+				errorMsg.add("定價必須是整數");
 			}
-			
-			String zipNo = request.getParameter("zipNo");
-			if(telephone ==null || telephone.trim().length()==0){
-				errorMsg.add("郵遞區號必須輸入");
-			}else if(!isInteger(telephone)){
-				errorMsg.add("郵遞區號必須是數字");
-			}
-			
-			String address = request.getParameter("address");
-			if(address ==null || address.trim().length()==0)
-				errorMsg.add("地址必須輸入");
-				
-			String fax = request.getParameter("fax");
-			String email = request.getParameter("email");
-			String url = request.getParameter("url");
-			String principal_Name = request.getParameter("principal_Name");
-			String contact_Name = request.getParameter("contact_Name");
-			
+			else
+			{
+				 description=Double.parseDouble(descriptionStr);
+			}		
 			//若錯誤訊息不是空的,跳到此頁面
 			if (!errorMsg.isEmpty()) {
 				RequestDispatcher rd = request.getRequestDispatcher("InsertError.jsp");
@@ -73,8 +57,8 @@ public class Insert extends HttpServlet {
 			 
 			String insertError = null;
 			try{
-				TRHDBean cb = new TRHDBean();
-//				insertError = new TRDTBean().insert(cb);
+				DiscountBean cb = new DiscountBean(discountId, description);
+				insertError = new DiscountDAO().insert(cb);
 			}catch(Exception e){
 				errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
 				e.printStackTrace();
@@ -84,7 +68,7 @@ public class Insert extends HttpServlet {
 			}
 			
 			// 依照 Business Logic 運算結果來挑選適當的畫面
-			request.setAttribute("supplier_Id", supplierId);
+			request.setAttribute("discount_Id", discountId);
 			if(errorMsg.isEmpty()){
 				RequestDispatcher rd =request.getRequestDispatcher("InsertSuccess.jsp");
 				rd.forward(request, response);

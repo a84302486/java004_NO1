@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>廠商資料</h1>
+	<h1>折扣</h1>
 	<hr>
-		<a href="InsertSupplier.jsp">新增資料</a><br>
-		<a href="SelectSupplier.jsp">查詢資料</a><br>
-		<a href="UpdateSupplier.jsp">更新資料</a><br>
-		<a href="DeleteSupplier.jsp">刪除資料</a><br>
+		<a href="InsertDiscount.jsp">新增資料</a><br>
+		<a href="SelectDiscount.jsp">查詢資料</a><br>
+		<a href="UpdateDiscount.jsp">更新資料</a><br>
+		<a href="DeleteDiscount.jsp">刪除資料</a><br>
 </body>
 </html>

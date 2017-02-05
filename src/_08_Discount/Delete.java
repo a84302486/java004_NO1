@@ -1,4 +1,4 @@
-package _12_TRHD;
+package _08_Discount;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_12_TRHD/Delete.do")
+@WebServlet("/_08_Discount/Delete.do")
 public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
     	String supplierId = request.getParameter("supplierId");
-    	boolean success = new TRHDDAO().delete(supplierId);
+    	boolean success = new DiscountDAO().delete(supplierId);
     	System.out.println("刪除成份資料: "+supplierId);
     	
     	request.setAttribute("supplierId", supplierId);

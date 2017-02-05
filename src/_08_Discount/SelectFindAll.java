@@ -1,4 +1,4 @@
-package _13_TRDT;
+package _08_Discount;
 import java.io.IOException;
 import java.util.Collection;
 
@@ -11,16 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_13_TRDT/SelectFindAll.do")
+@WebServlet("/_08_Discount/SelectFindAll.do")
 public class SelectFindAll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 
-		Collection<TRDTBean> coll = new TRDTDAO().findAll();
+		Collection<DiscountBean> coll = new DiscountDAO().findAll();
 		
-		request.setAttribute("supplierColl", coll);
+		request.setAttribute("discountColl", coll);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("SelectAll.jsp");
 		rd.forward(request, response);
 

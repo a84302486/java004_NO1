@@ -35,6 +35,8 @@
 		</tr>
 		<tr>
 			<td>交易系統
+				<a href="_08_Discount/DiscountMain.jsp">折扣</a>
+				<a href="_09_Commission/CommissionMain.jsp">佣金</a>
 				<a href="_10_TradeInfo/TRHD.jsp">交易主檔</a>
 				<a href="_10_TradeInfo/TRDT.jsp">交易明細</a>
 			    <a href="_10_TradeInfo/OrderSearch.jsp">訂單查詢</a>

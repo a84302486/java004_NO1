@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_06_Supplier/SelectFindAll.do")
+@WebServlet("/_12_TRHD/SelectFindAll.do")
 public class SelectFindAll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

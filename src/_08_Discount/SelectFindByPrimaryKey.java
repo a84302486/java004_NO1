@@ -1,4 +1,4 @@
-package _12_TRHD;
+package _08_Discount;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -11,21 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_12_TRHD/SelectFindByPrimaryKey.do")
+@WebServlet("/_08_Discount/SelectFindByPrimaryKey.do")
 public class SelectFindByPrimaryKey extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
-    	String supplier_id = request.getParameter("supplierId");
-    	Collection<TRHDBean> coll =  new TRHDDAO().findByPrimaryKey(supplier_id);
+    	String discount_id = request.getParameter("discountId");
+    	Collection<DiscountBean> coll =  new DiscountDAO().findByPrimaryKey(discount_id);
  
-    	System.out.println("廠商序號: "+ supplier_id);
+    	System.out.println("折扣序號: "+ discount_id);
     	
-    	request.setAttribute("supplierId", supplier_id);
-    	request.setAttribute("supplierIdColl", coll);
+    	request.setAttribute("discountId", discount_id);
+    	request.setAttribute("discountIdColl", coll);
     	
-    	if(supplier_id.trim().length()!=0 && !coll.isEmpty()){
+    	if(discount_id.trim().length()!=0 && !coll.isEmpty()){
     		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
     		rd.forward(request, response);
     	}else{
