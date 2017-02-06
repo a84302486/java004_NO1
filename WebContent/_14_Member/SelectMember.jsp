@@ -12,17 +12,8 @@
 <H1>會員查詢</H1>
   
 <HR>
-<Form Action="SelectFindAll.do" method="POST">
-<Table>
-		
-         <TR>
-            <TD colspan="2" align="center">列出所有會員資料 <br><br><input type="submit" value="開始查詢"> </TD>
-         </TR>
-</Table>
-</Form>
-<HR>
 
-<Form Action="SelectFindByPrimaryKey.do" method="POST">
+<Form Action="Select.do" method="POST">
 <Table>
 		<br>
 		<TR>
