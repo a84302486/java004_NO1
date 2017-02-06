@@ -39,10 +39,10 @@ public class Insert extends HttpServlet {
 			String descriptionStr = request.getParameter("description");
 			double description = 0d;
 			if(descriptionStr ==null || descriptionStr.trim().length()==0)
-				errorMsg.add("名稱必須輸入");
+				errorMsg.add("敘述必須輸入");
 			else if(!isDouble(descriptionStr))
 			{
-				errorMsg.add("定價必須是整數");
+				errorMsg.add("敘述必須是整數");
 			}
 			else
 			{

@@ -29,8 +29,8 @@
 		</tr>
 		<tr>
 			<td>庫存管理 
-				<a href="_09_WarehouseMG/Warehouse.jsp">產品庫存</a>
-				<a href="_09_WarehouseMG/StockUpdate.jsp">實盤更新</a>
+				<a href="_10_Warehouse/WarehouseMain.jsp">產品庫存</a>
+
 			</td>
 		</tr>
 		<tr>
