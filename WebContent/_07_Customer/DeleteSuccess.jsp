@@ -12,7 +12,7 @@
 <H1>客戶刪除成功</h1>
 
 <Font color='blue' >
-客戶編號 = ${Customer_id}<br>
+客戶編號 = ${CustomerId}<br>
 已經成功刪除!!
 </font>
 

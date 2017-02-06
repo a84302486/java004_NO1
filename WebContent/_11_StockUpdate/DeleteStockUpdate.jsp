@@ -11,14 +11,14 @@
 </head>
 <body>
 	<CENTER>
-		<H1>折扣資料刪除</H1>
+		<H1>實盤更新資料刪除</H1>
 		<HR>
 
 		<Form Action="Delete.do" method="POST">
 			<Table>
 				<TR>
-					<TD align="RIGHT">請輸入要刪除的折扣序號</TD>
-					<TD align="LEFT"><input type="text" name="discountId" value="001"
+					<TD align="RIGHT">請輸入要刪除的實盤更新序號</TD>
+					<TD align="LEFT"><input type="text" name="wId" value="1"
 						size="20"></TD>
 				</TR>
 				<TR>

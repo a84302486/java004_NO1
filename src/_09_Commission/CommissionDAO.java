@@ -43,7 +43,7 @@ public class CommissionDAO {
 				){				
 			
 				pstmt.setInt(1, cb.getCommissionId());
-				pstmt.setString(2, cb.getCustomerLdd());
+				pstmt.setString(2, cb.getCustomerId());
 				pstmt.setDouble(3, cb.getDiscount01());
 				pstmt.setDouble(4, cb.getDiscount02());
 				pstmt.setDouble(5, cb.getDiscount03());
@@ -107,7 +107,7 @@ public class CommissionDAO {
 				PreparedStatement pstmt	= con.prepareStatement(sql);){				
 			
 				pstmt.setInt(1, cb.getCommissionId());
-				pstmt.setString(2, cb.getCustomerLdd());
+				pstmt.setString(2, cb.getCustomerId());
 				pstmt.setDouble(3, cb.getDiscount01());
 				pstmt.setDouble(4, cb.getDiscount02());
 				pstmt.setDouble(5, cb.getDiscount03());
@@ -156,7 +156,7 @@ public class CommissionDAO {
 					while (rs.next()) {
 						CommissionBean cb = new CommissionBean();
 						cb.setCommissionId(rs.getInt(1));
-						cb.setCustomerLdd(rs.getString(2));
+						cb.setCustomerId(rs.getString(2));
 						coll.add(cb);
 					}
 					System.out.println("序號查詢資料");
@@ -182,7 +182,7 @@ public class CommissionDAO {
 					while (rs.next()) {
 						CommissionBean cb = new CommissionBean();
 						cb.setCommissionId(rs.getInt(1));
-						cb.setCustomerLdd(rs.getString(2));
+						cb.setCustomerId(rs.getString(2));
 						coll.add(cb);
 						coll.add(cb);
 					}

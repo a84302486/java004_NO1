@@ -48,11 +48,11 @@
          </TR>
          <TR>
              <TD align="RIGHT">負責人：</TD>
-             <TD align="LEFT"><input	type="text" name="principal_Name" value="牛某人" size="20"></TD>
+             <TD align="LEFT"><input	type="text" name="principalName" value="牛某人" size="20"></TD>
          </TR>
          <TR>
              <TD align="RIGHT">連絡人：</TD>
-             <TD align="LEFT"><input	type="text" name="contact_Name" value="某業務" size="20"></TD>
+             <TD align="LEFT"><input	type="text" name="contactName" value="某業務" size="20"></TD>
          </TR>
          <TR>
             <TD colspan="2" align="center"> 

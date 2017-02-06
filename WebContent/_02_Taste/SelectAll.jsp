@@ -38,8 +38,8 @@
 			</tbody>
 
 			<TR>
-				<TD>${tc.taste_id}</TD>
-				<TD>${tc.taste_name}</TD>
+				<TD>${tc.tasteId}</TD>
+				<TD>${tc.tasteName}</TD>
 			</TR>
 			<tr>
 

@@ -9,14 +9,14 @@
 </head>
 <body>
 <CENTER>
-<H1>折扣查詢</H1>
+<H1>佣金查詢</H1>
   
 <HR>
 <Form Action="SelectFindAll.do" method="POST">
 <Table>
 		
          <TR>
-            <TD colspan="2" align="center">列出所有折扣資料 <br><br><input type="submit" value="開始查詢"> </TD>
+            <TD colspan="2" align="center">列出所有佣金資料 <br><br><input type="submit" value="開始查詢"> </TD>
          </TR>
 </Table>
 </Form>
@@ -27,7 +27,7 @@
 		<br>
 		<TR>
              <TD align="RIGHT">用序號查詢</TD>
-             <TD align="LEFT"><input type="text" name="discountId" value="001" size="20"></TD>
+             <TD align="LEFT"><input type="text" name="commissionId" value="001" size="20"></TD>
          </TR>
          <TR>
             <TD colspan="2" align="center"><br><input type="submit" value="開始查詢"> </TD>

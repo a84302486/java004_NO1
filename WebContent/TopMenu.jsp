@@ -15,8 +15,8 @@
 				<a href="_01_Product/ProductMain.jsp">產品</a>
 				<a href="_02_Taste/TasteMain.jsp">口味</a> 
 				<a href="_03_Package/PackageMain.jsp">包裝</a> 
-				<a href="_04_Composition/CompositionMain.jsp">成份</a> 
-				<a href="_05_">產品型錄</a> 
+				<a href="_05_Composition/CompositionMain.jsp">成份</a> 
+				<a href="_04_">產品型錄</a> 
 			</td>
 		</tr>
 		<tr>
@@ -30,16 +30,14 @@
 		<tr>
 			<td>庫存管理 
 				<a href="_10_Warehouse/WarehouseMain.jsp">產品庫存</a>
-
+				<a href="_11_StockUpdate/StockUpdateMain.jsp">實盤更新</a>
+				
 			</td>
 		</tr>
 		<tr>
 			<td>交易系統
 				<a href="_08_Discount/DiscountMain.jsp">折扣</a>
 				<a href="_09_Commission/CommissionMain.jsp">佣金</a>
-				<a href="_10_TradeInfo/TRHD.jsp">交易主檔</a>
-				<a href="_10_TradeInfo/TRDT.jsp">交易明細</a>
-			    <a href="_10_TradeInfo/OrderSearch.jsp">訂單查詢</a>
 			</td>
 		</tr>
 		</tbody>

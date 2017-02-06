@@ -18,15 +18,15 @@ public class SelectFindByPrimaryKey extends HttpServlet {
             throws IOException, ServletException {
     	
     	ProductDAO pd = new ProductDAO();
-    	String product_id = request.getParameter("productId");
-    	Collection<ProductBean> coll = pd.findByPrimaryKey(product_id);
+    	String productIdStr = request.getParameter("productId");
+    	Collection<ProductBean> coll = pd.findByPrimaryKey(productIdStr);
 
-    	System.out.println("產品序號: "+ product_id);
+    	System.out.println("產品序號: "+ productIdStr);
     	
-    	request.setAttribute("productId", product_id);
+    	request.setAttribute("productId", productIdStr);
     	request.setAttribute("productIdColl", coll);
     	
-    	if(product_id !=null && coll !=null){
+    	if(productIdStr !=null && coll !=null){
     		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
     		rd.forward(request, response);
     	}else{

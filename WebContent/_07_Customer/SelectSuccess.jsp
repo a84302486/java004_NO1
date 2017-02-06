@@ -12,7 +12,7 @@
 <H1>客戶查詢成功</h1>
 
 <Font color='blue' >
-客戶編號 = ${Customer_id}<br>
+客戶編號 = ${CustomerId}<br>
 客戶名稱 = ${Name}<br>
 </font>
 

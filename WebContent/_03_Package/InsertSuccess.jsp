@@ -10,7 +10,7 @@
 <title>MVC</title>
 </head>
 <body>
-	<Font color='blue'>包裝序號 ${ Package_id }輸入資料已經處理完畢</font>
+	<Font color='blue'>包裝序號 ${ PackageId }輸入資料已經處理完畢</font>
 
 </body>
 </html>

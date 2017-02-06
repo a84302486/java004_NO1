@@ -5,22 +5,22 @@ public class ProductBean {
 	public int pgPrice;
 	public String name;
 	public double avgCost;
-	public String oPlace;
-	public int sLife;
+	public String oplace;
+	public int slife;
 	public String suppierId;
 
 	public ProductBean() {
 	}
 
-	public ProductBean(String productId, int pgPrice, String name, double avgCost, String oPlace, int sLife,
+	public ProductBean(String productId, int pgPrice, String name, double avgCost, String oplace, int slife,
 			String suppierId) {
 		super();
 		this.productId = productId;
 		this.pgPrice = pgPrice;
 		this.name = name;
 		this.avgCost = avgCost;
-		this.oPlace = oPlace;
-		this.sLife = sLife;
+		this.oplace = oplace;
+		this.slife = slife;
 		this.suppierId = suppierId;
 	}
 
@@ -56,20 +56,20 @@ public class ProductBean {
 		this.avgCost = avgCost;
 	}
 
-	public String getOPlace() {
-		return oPlace;
+	public String getOplace() {
+		return oplace;
 	}
 
-	public void setOPlace(String oPlace) {
-		this.oPlace = oPlace;
+	public void setOplace(String oplace) {
+		this.oplace = oplace;
 	}
 
-	public int getSLife() {
-		return sLife;
+	public int getSlife() {
+		return slife;
 	}
 
-	public void setSLife(int sLife) {
-		this.sLife = sLife;
+	public void setSlife(int slife) {
+		this.slife = slife;
 	}
 
 	public String getSuppierId() {

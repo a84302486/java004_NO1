@@ -11,7 +11,7 @@
 
 
 <body>
-<Font color='blue' >${ Customer_id }輸入資料已經處理完畢</font>
+<Font color='blue' >${ CustomerId }輸入資料已經處理完畢</font>
 
 
 </body>

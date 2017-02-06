@@ -29,40 +29,40 @@ public class Insert extends HttpServlet {
 			request.setAttribute("ErrorMsgKey", errorMsg);
 			
 			// 讀取輸入的資料
-			String supplierId = request.getParameter("supplierId");
-			if(supplierId ==null || supplierId.trim().length()==0){
+			String supplierIdStr = request.getParameter("supplierId");
+			if(supplierIdStr ==null || supplierIdStr.trim().length()==0){
 				errorMsg.add("序號必須輸入");
-			}else if(!isInteger(supplierId)){
+			}else if(!isInteger(supplierIdStr)){
 				errorMsg.add("序號必須是整數數字");
 			}
 			
-			String name = request.getParameter("name");
-			if(name ==null || name.trim().length()==0)
+			String nameStr = request.getParameter("name");
+			if(nameStr ==null || nameStr.trim().length()==0)
 				errorMsg.add("名稱必須輸入");
 			
-			String telephone = request.getParameter("telephone");
-			if(telephone ==null || telephone.trim().length()==0){
+			String telephoneStr = request.getParameter("telephone");
+			if(telephoneStr ==null || telephoneStr.trim().length()==0){
 				errorMsg.add("電話號碼必須輸入");
-			}else if(!isInteger(telephone)){
+			}else if(!isInteger(telephoneStr)){
 				errorMsg.add("電話號碼必須是數字");
 			}
 			
-			String zipNo = request.getParameter("zipNo");
-			if(telephone ==null || telephone.trim().length()==0){
+			String zipNoStr = request.getParameter("zipNo");
+			if(zipNoStr ==null || zipNoStr.trim().length()==0){
 				errorMsg.add("郵遞區號必須輸入");
-			}else if(!isInteger(telephone)){
+			}else if(!isInteger(zipNoStr)){
 				errorMsg.add("郵遞區號必須是數字");
 			}
 			
-			String address = request.getParameter("address");
-			if(address ==null || address.trim().length()==0)
+			String addressStr = request.getParameter("address");
+			if(addressStr ==null || addressStr.trim().length()==0)
 				errorMsg.add("地址必須輸入");
 				
-			String fax = request.getParameter("fax");
-			String email = request.getParameter("email");
-			String url = request.getParameter("url");
-			String principal_Name = request.getParameter("principal_Name");
-			String contact_Name = request.getParameter("contact_Name");
+			String faxStr = request.getParameter("fax");
+			String emailStr = request.getParameter("email");
+			String urlStr = request.getParameter("url");
+			String principalNameStr = request.getParameter("principalName");
+			String contactNameStr = request.getParameter("contactName");
 			
 			//若錯誤訊息不是空的,跳到此頁面
 			if (!errorMsg.isEmpty()) {
@@ -73,7 +73,9 @@ public class Insert extends HttpServlet {
 			 
 			String insertError = null;
 			try{
-				SupplierBean cb = new SupplierBean(supplierId, name, telephone, zipNo, address, fax, email, url, principal_Name, contact_Name);
+				SupplierBean cb = new SupplierBean(supplierIdStr, nameStr, telephoneStr, zipNoStr, 
+						addressStr, faxStr, emailStr, urlStr, principalNameStr, contactNameStr);
+				
 				insertError = new SupplierDAO().insert(cb);
 			}catch(Exception e){
 				errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
@@ -84,7 +86,7 @@ public class Insert extends HttpServlet {
 			}
 			
 			// 依照 Business Logic 運算結果來挑選適當的畫面
-			request.setAttribute("supplier_Id", supplierId);
+			request.setAttribute("supplierId", supplierIdStr);
 			if(errorMsg.isEmpty()){
 				RequestDispatcher rd =request.getRequestDispatcher("InsertSuccess.jsp");
 				rd.forward(request, response);

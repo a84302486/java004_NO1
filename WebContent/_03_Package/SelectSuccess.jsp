@@ -37,8 +37,8 @@
 			</tbody>
 
 			<TR>
-				<TD>${pic.package_id}</TD>
-				<TD>${pic.package_name}</TD>
+				<TD>${pic.packageId}</TD>
+				<TD>${pic.packageName}</TD>
 			</TR>
 			<tr>
 			</tr>

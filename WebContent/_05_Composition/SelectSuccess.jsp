@@ -37,9 +37,9 @@
 			</tbody>
 
 			<TR>
-				<TD>${cic.com_type}</TD>
-				<TD>${cic.com_id}</TD>
-				<TD>${cic.com_description}</TD>
+				<TD>${cic.comType}</TD>
+				<TD>${cic.comId}</TD>
+				<TD>${cic.comDescription}</TD>
 			</TR>
 			<tr>
 			</tr>

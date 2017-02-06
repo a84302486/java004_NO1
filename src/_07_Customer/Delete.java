@@ -21,13 +21,13 @@ public class Delete extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
-    	CustomerDAO rs = new CustomerDAO();
-    	String Customer_id = request.getParameter("Customer_id");
-    	int success = rs.delete(Customer_id);
-    	System.out.println("刪除帳號: "+Customer_id);
     	
-    	request.setAttribute("Customer_id", Customer_id);
-    	if(success > 0){
+    	String CustomerIdStr = request.getParameter("CustomerId");
+    	boolean success = new CustomerDAO().delete(CustomerIdStr);
+    	System.out.println("刪除帳號: "+ CustomerIdStr);
+    	
+    	request.setAttribute("CustomerId", CustomerIdStr);
+    	if(success == true){
     		RequestDispatcher rd = request.getRequestDispatcher("DeleteSuccess.jsp");
     		rd.forward(request, response);
     	}else{

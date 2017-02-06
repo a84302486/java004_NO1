@@ -10,7 +10,7 @@
 <title>MVC</title>
 </head>
 <body>
-	<Font color='blue'>折扣序號 ${ discountId }輸入資料已經處理完畢</font>
+	<Font color='blue'>佣金序號 ${ commissionId }輸入資料已經處理完畢</font>
 
 </body>
 </html>

@@ -44,8 +44,8 @@ public class ProductDAO {
 				pstmt.setInt(2, pb.getPgPrice());
 				pstmt.setString(3, pb.getName());
 				pstmt.setDouble(4, pb.getAvgCost());
-				pstmt.setString(5, pb.getOPlace());
-				pstmt.setInt(6,  pb.getSLife());
+				pstmt.setString(5, pb.getOplace());
+				pstmt.setInt(6,  pb.getSlife());
 				pstmt.setString(7, pb.getSuppierId());		
 				pstmt.executeUpdate();
 				
@@ -94,8 +94,8 @@ public class ProductDAO {
 				pstmt.setInt(2, pb.getPgPrice());
 				pstmt.setString(3, pb.getName());
 				pstmt.setDouble(4, pb.getAvgCost());
-				pstmt.setString(5, pb.getOPlace());
-				pstmt.setInt(6,  pb.getSLife());
+				pstmt.setString(5, pb.getOplace());
+				pstmt.setInt(6,  pb.getSlife());
 				pstmt.setString(7, pb.getSuppierId());		
 				pstmt.executeUpdate();
 				
@@ -153,8 +153,8 @@ public class ProductDAO {
 						pb.setPgPrice(rs.getInt(2));
 						pb.setName(rs.getString(3));
 						pb.setAvgCost(rs.getDouble(4));
-						pb.setOPlace(rs.getString(5));
-						pb.setSLife(rs.getInt(6));
+						pb.setOplace(rs.getString(5));
+						pb.setSlife(rs.getInt(6));
 						pb.setSuppierId(rs.getString(7));
 						coll.add(pb);
 					}
@@ -185,8 +185,8 @@ public class ProductDAO {
 						pb.setPgPrice(rs.getInt(2));
 						pb.setName(rs.getString(3));
 						pb.setAvgCost(rs.getDouble(4));
-						pb.setOPlace(rs.getString(5));
-						pb.setSLife(rs.getInt(6));
+						pb.setOplace(rs.getString(5));
+						pb.setSlife(rs.getInt(6));
 						pb.setSuppierId(rs.getString(7));
 						coll.add(pb);
 					}

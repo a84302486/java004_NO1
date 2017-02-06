@@ -8,12 +8,12 @@
 	href='${pageContext.request.contextPath}/css/styles.css'
 	type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>折扣資料</title>
+<title>佣金資料</title>
 </head>
 <body>
-	<H1>折扣資料刪除成功</h1>
+	<H1>佣金資料刪除成功</h1>
 
-	<Font color='blue'> 折扣資料 = ${"discountId"}<br> 已經成功刪除!!
+	<Font color='blue'> 佣金資料 = ${"commissionId"}<br> 已經成功刪除!!
 	</font>
 
 </body>

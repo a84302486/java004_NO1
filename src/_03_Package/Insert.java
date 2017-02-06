@@ -28,13 +28,13 @@ public class Insert extends HttpServlet {
 			request.setAttribute("ErrorMsgKey", errorMsg);
 			
 			// 讀取輸入的資料
-			String packageId = request.getParameter("packageId");
-			if(packageId ==null || packageId.trim().length()==0){
+			String packageIdStr = request.getParameter("packageId");
+			if(packageIdStr ==null || packageIdStr.trim().length()==0){
 				errorMsg.add("序號必須輸入");
 			}
 			
-			String packageName = request.getParameter("packageName");
-			if(packageName ==null || packageName.trim().length()==0)
+			String packageNameStr = request.getParameter("packageName");
+			if(packageNameStr ==null || packageNameStr.trim().length()==0)
 				errorMsg.add("名稱必須輸入");
 
 			//若錯誤訊息不是空的,跳到此頁面
@@ -46,7 +46,7 @@ public class Insert extends HttpServlet {
 			 
 			String insertError = null;
 			try{
-				PackageBean tb = new PackageBean(packageId, packageName);
+				PackageBean tb = new PackageBean(packageIdStr, packageNameStr);
 				insertError = new PackageDAO().insert(tb);
 			}catch(Exception e){
 				errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
@@ -57,7 +57,7 @@ public class Insert extends HttpServlet {
 			}
 			
 			// 依照 Business Logic 運算結果來挑選適當的畫面
-			request.setAttribute("Package_id", packageId);
+			request.setAttribute("Package_id", packageIdStr);
 			if(errorMsg.isEmpty()){
 				RequestDispatcher rd =request.getRequestDispatcher("InsertSuccess.jsp");
 				rd.forward(request, response);

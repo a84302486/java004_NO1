@@ -37,8 +37,8 @@
 			</tbody>
 
 			<TR>
-				<TD>${tic.taste_id}</TD>
-				<TD>${tic.taste_name}</TD>
+				<TD>${tic.tasteId}</TD>
+				<TD>${tic.tasteName}</TD>
 			</TR>
 			<tr>
 			</tr>

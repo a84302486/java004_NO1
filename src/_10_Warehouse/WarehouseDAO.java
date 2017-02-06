@@ -185,7 +185,6 @@ public class WarehouseDAO {
 						wb.setAcBAL(rs.getInt(11));
 						wb.setMfd(rs.getString(12));
 						coll.add(wb);
-						coll.add(wb);
 					}
 					System.out.println("記錄 查詢all");
 				}

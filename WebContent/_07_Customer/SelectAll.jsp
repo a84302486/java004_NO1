@@ -59,24 +59,24 @@
 			</tbody>
 			
 				<TR>
-					<TD>${CustomerBean.customer_id}</TD>
-					<TD>${CustomerBean.simple_Name}</TD>
+					<TD>${CustomerBean.customerId}</TD>
+					<TD>${CustomerBean.simpleName}</TD>
 					<TD>${CustomerBean.name}</TD>
-					<TD>${CustomerBean.sale_Path}</TD>
+					<TD>${CustomerBean.salePath}</TD>
 					<TD>${CustomerBean.telephone}</TD>
 					<TD>${CustomerBean.fax}</TD>
 					<TD>${CustomerBean.contacter}</TD>
 					<TD>${CustomerBean.address}</TD>
-					<TD>${CustomerBean.uniform_NO}</TD>
-					<TD>${CustomerBean.this_Invertory_Date}</TD>
-					<TD>${CustomerBean.last_Invertory_Date}</TD>
-					<TD>${CustomerBean.PR_Status}</TD>
-					<TD>${CustomerBean.current_Discount_id}</TD>
-					<TD>${CustomerBean.next_Discount_id}</TD>
-					<TD>${CustomerBean.tax_Type}</TD>
-					<TD>${CustomerBean.URL}</TD>
-					<TD>${CustomerBean.principal_Name}</TD>
-					<TD>${CustomerBean.contact_Name}</TD>
+					<TD>${CustomerBean.uniformNO}</TD>
+					<TD>${CustomerBean.thisInvertoryDate}</TD>
+					<TD>${CustomerBean.lastInvertoryDate}</TD>
+					<TD>${CustomerBean.prStatus}</TD>
+					<TD>${CustomerBean.currentDiscountId}</TD>
+					<TD>${CustomerBean.nextDiscountId}</TD>
+					<TD>${CustomerBean.taxType}</TD>
+					<TD>${CustomerBean.url}</TD>
+					<TD>${CustomerBean.principalName}</TD>
+					<TD>${CustomerBean.contactName}</TD>
 					<TD>${CustomerBean.email}</TD>
 					<TD>${CustomerBean.line}</TD>
 					<TD>${CustomerBean.skype}</TD>

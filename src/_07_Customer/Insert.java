@@ -26,38 +26,35 @@ public class Insert extends HttpServlet {
 
 		// 1. 讀取使用者輸入資料
 
-		String customer_id = request.getParameter("Customer_id");
-		String simple_Name = request.getParameter("Simple_Name");
-		String name = request.getParameter("Name");
-		String sale_Path = request.getParameter("Sale_Path");
-		String telephone = request.getParameter("Telephone");
-		String fax = request.getParameter("Fax");
-		String contacter = request.getParameter("Contacter");
-		String address = request.getParameter("Address");
-		String uniform_NO = request.getParameter("Uniform_NO");
-		String this_Invertory_Date = request.getParameter("This_Invertory_Date");
-		String last_Invertory_Date = request.getParameter("Last_Invertory_Date");
-		String pR_Status = request.getParameter("PR_Status");
-		String current_Discount_id = request.getParameter("Current_Discount_id");
-		String next_Discount_id = request.getParameter("Next_Discount_id");
-		String tax_Type = request.getParameter("Tax_Type");
-		String uRL = request.getParameter("URL");
-		String principal_Name = request.getParameter("Principal_Name");
-		String contact_Name = request.getParameter("Contact_Name");
-		String email = request.getParameter("Email");
-		String line = request.getParameter("Line");
-		String skype = request.getParameter("Skype");
+		String customerIdStr = request.getParameter("CustomerId");
+		String simpleNameStr = request.getParameter("SimpleName");
+		String nameStr = request.getParameter("Name");
+		String salePathStr = request.getParameter("SalePath");
+		String telephoneStr = request.getParameter("Telephone");
+		String faxStr = request.getParameter("Fax");
+		String contacterStr = request.getParameter("Contacter");
+		String addressStr = request.getParameter("Address");
+		String uniformNOStr = request.getParameter("UniformNO");
+		String thisInvertoryDateStr = request.getParameter("ThisInvertory_Date");
+		String lastInvertoryDateStr = request.getParameter("LastInvertory_Date");
+		String prStatusStr = request.getParameter("PRStatus");
+		String currentDiscountIdStr = request.getParameter("CurrentDiscountId");
+		String nextDiscountIdStr = request.getParameter("NextDiscountId");
+		String taxTypeStr = request.getParameter("TaxType");
+		String urlStr = request.getParameter("URL");
+		String principalNameStr = request.getParameter("PrincipalName");
+		String contactNameStr = request.getParameter("ContactName");
+		String emailStr = request.getParameter("Email");
+		String lineStr = request.getParameter("Line");
+		String skypeStr = request.getParameter("Skype");
 		
-
-
-
 		// 2. 進行必要的資料轉換
 
 		// 3. 檢查使用者輸入資料
-		if (customer_id == null || customer_id.trim().length() == 0) {
+		if (customerIdStr == null || customerIdStr.trim().length() == 0) {
 			errorMsg.add("會員卡號必須輸入");
 		}
-		if (name == null || name.trim().length() == 0) {
+		if (nameStr == null || nameStr.trim().length() == 0) {
 			errorMsg.add("帳號欄必須輸入");
 		}
 		
@@ -71,9 +68,11 @@ public class Insert extends HttpServlet {
 
 		String insertError = null;
 		try {
-			CustomerBean mem = new CustomerBean(customer_id, simple_Name, name, sale_Path, telephone, fax, contacter,
-					address, uniform_NO, this_Invertory_Date, last_Invertory_Date, pR_Status, current_Discount_id,
-					next_Discount_id, tax_Type, uRL, principal_Name, contact_Name, email, line, skype);
+			CustomerBean mem = new CustomerBean(customerIdStr, simpleNameStr, nameStr, salePathStr, telephoneStr, 
+					faxStr, contacterStr, addressStr, uniformNOStr, thisInvertoryDateStr, lastInvertoryDateStr, prStatusStr, 
+					currentDiscountIdStr, nextDiscountIdStr, taxTypeStr, urlStr, principalNameStr, contactNameStr, emailStr,
+					lineStr, skypeStr);
+					
 			
 			insertError = new CustomerDAO().insert(mem);
 		} catch (Exception e) {
@@ -85,7 +84,7 @@ public class Insert extends HttpServlet {
 		}
 
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
-		request.setAttribute("Customer_id", customer_id);
+		request.setAttribute("CustomerId", customerIdStr);
 		if (errorMsg.isEmpty()) {
 			RequestDispatcher rd = request.getRequestDispatcher("InsertSuccess.jsp");
 			rd.forward(request, response);

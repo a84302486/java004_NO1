@@ -39,9 +39,9 @@
 			</tbody>
 
 			<TR>
-				<TD>${cc.com_type}</TD>
-				<TD>${cc.com_id}</TD>
-				<TD>${cc.com_description}</TD>
+				<TD>${cc.comType}</TD>
+				<TD>${cc.comId}</TD>
+				<TD>${cc.comDescription}</TD>
 			</TR>
 			<tr>
 

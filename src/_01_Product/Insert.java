@@ -27,12 +27,12 @@ public class Insert extends HttpServlet {
 			request.setAttribute("ErrorMsgKey", errorMsg);
 			// 讀取輸入的資料 , 檢查輸入的資料
 			
-			String productId = request.getParameter("productId");
-			if(productId ==null || productId.trim().length()==0)
+			String productIdStr = request.getParameter("productId");
+			if(productIdStr ==null || productIdStr.trim().length()==0)
 			{
 				errorMsg.add("序號必須輸入");
 			}
-			else if(!isInteger(productId))
+			else if(!isInteger(productIdStr))
 			{
 				errorMsg.add("序號必須是整數");
 			}
@@ -72,8 +72,8 @@ public class Insert extends HttpServlet {
 			    avgCost = Double.parseDouble(avgCostStr);
 			}
 			
-			String oPlace = request.getParameter("oPlace");
-			if(oPlace ==null || oPlace.trim().length()==0)
+			String oPlaceStr = request.getParameter("oPlace");
+			if(oPlaceStr ==null || oPlaceStr.trim().length()==0)
 				errorMsg.add("生產地必須輸入");
 			
 			String sLifeStr = request.getParameter("sLife");
@@ -91,8 +91,8 @@ public class Insert extends HttpServlet {
 				 sLife = Integer.parseInt(sLifeStr);
 			}
 			
-			String suppierId = request.getParameter("suppierId");
-			if(suppierId ==null || suppierId.trim().length()==0)
+			String suppierIdStr = request.getParameter("suppierId");
+			if(suppierIdStr ==null || suppierIdStr.trim().length()==0)
 				errorMsg.add("供應商必須輸入");
 			
 			//若錯誤訊息不是空的,跳到此頁面
@@ -104,8 +104,8 @@ public class Insert extends HttpServlet {
 		
 			String insertError = null;
 			try{
-				ProductBean pb = new ProductBean(productId, PGPrice, name, 
-						avgCost, oPlace, sLife, suppierId);
+				ProductBean pb = new ProductBean(productIdStr, PGPrice, name, 
+						avgCost, oPlaceStr, sLife, suppierIdStr);
 				insertError = new ProductDAO().insert(pb);
 			}catch(Exception e){
 				errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
@@ -115,7 +115,7 @@ public class Insert extends HttpServlet {
 				errorMsg.add(insertError);
 			}
 			// 依照 Business Logic 運算結果來挑選適當的畫面
-			request.setAttribute("Product_id", productId);
+			request.setAttribute("Product_id", productIdStr);
 			if(errorMsg.isEmpty()){
 				RequestDispatcher rd =request.getRequestDispatcher("InsertSuccess.jsp");
 				rd.forward(request, response);

@@ -41,13 +41,13 @@
 			</tbody>
 
 			<TR>
-				<TD>${pic.product_id}</TD>
-				<TD>${pic.p_g_price}</TD>
+				<TD>${pic.productId}</TD>
+				<TD>${pic.pgPrice}</TD>
 				<TD>${pic.name}</TD>
-				<TD>${pic.avg_cost}</TD>
-				<TD>${pic.o_place}</TD>
-				<TD>${pic.s_life}</TD>
-				<TD>${pic.suppier_id}</TD>
+				<TD>${pic.avgCost}</TD>
+				<TD>${pic.oplace}</TD>
+				<TD>${pic.slife}</TD>
+				<TD>${pic.suppierId}</TD>
 			</TR>
 			<tr>
 

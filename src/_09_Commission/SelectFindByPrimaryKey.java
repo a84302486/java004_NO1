@@ -17,15 +17,15 @@ public class SelectFindByPrimaryKey extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
-    	String commission_id = request.getParameter("commissionId");
-    	Collection<CommissionBean> coll =  new CommissionDAO().findByPrimaryKey(commission_id);
+    	String commissionIdStr = request.getParameter("commissionId");
+    	Collection<CommissionBean> coll =  new CommissionDAO().findByPrimaryKey(commissionIdStr);
  
-    	System.out.println("折扣序號: "+ commission_id);
+    	System.out.println("折扣序號: "+ commissionIdStr);
     	
-    	request.setAttribute("commissionId", commission_id);
+    	request.setAttribute("commissionId", commissionIdStr);
     	request.setAttribute("commissionIdColl", coll);
     	
-    	if(commission_id.trim().length()!=0 && !coll.isEmpty()){
+    	if(commissionIdStr.trim().length()!=0 && !coll.isEmpty()){
     		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
     		rd.forward(request, response);
     	}else{

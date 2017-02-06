@@ -10,7 +10,7 @@
 <title>MVC</title>
 </head>
 <body>
-	<Font color='blue'>成份類型 ${ composition_type }輸入資料已經處理完畢</font>
+	<Font color='blue'>成份類型 ${ compositionType }輸入資料已經處理完畢</font>
 
 </body>
 </html>

@@ -8,10 +8,10 @@
 	href='${pageContext.request.contextPath}/css/styles.css'
 	type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>折扣查詢</title>
+<title>佣金查詢</title>
 </head>
 <body>
-	<H1>折扣列表查詢</h1>
+	<H1>佣金列表查詢</h1>
 
 	<table
 		style="border: 3px; height: 10%; width: 100%; background-color: rgb(255, 255, 255); table-layout: fixed;"
@@ -19,8 +19,29 @@
 
 		</tbody>
 		<TR>
-			<TD>序號</TD>
-			<TD>敘述</TD>
+				<TR>
+			<TD>折扣01</TD>
+			<TD>折扣02</TD>
+			<TD>折扣03</TD>
+			<TD>折扣04</TD>
+			<TD>折扣05</TD>
+			<TD>折扣06</TD>
+			<TD>折扣07</TD>
+			<TD>折扣08</TD>
+			<TD>折扣09</TD>
+			<TD>折扣10</TD>
+		</TR>
+		<TR>
+			<TD>Rate01</TD>
+			<TD>Rate02</TD>
+			<TD>Rate03</TD>
+			<TD>Rate04</TD>
+			<TD>Rate05</TD>
+			<TD>Rate06</TD>
+			<TD>Rate07</TD>
+			<TD>Rate08</TD>
+			<TD>Rate09</TD>
+			<TD>Rate10</TD>
 		</TR>
 		<tr>
 		</tr>
@@ -28,7 +49,7 @@
 		</tbody>
 	</TABLE>
 	
-	<c:forEach var="dc" items="${discountColl}">
+	<c:forEach var="cc" items="${commissionColl}">
 
 		<table
 			style="border: 3px; height: 10%; width: 100%; background-color: rgb(255, 255, 255); table-layout: fixed;"
@@ -36,10 +57,29 @@
 			rules="all">
 
 			</tbody>
-
 			<TR>
-				<TD>${dc.discountId}</TD>
-				<TD>${dc.description}</TD>
+				<TD>${cc.discount01}</TD>
+				<TD>${cc.discount02}</TD>
+				<TD>${cc.discount03}</TD>
+				<TD>${cc.discount04}</TD>
+				<TD>${cc.discount05}</TD>
+				<TD>${cc.discount06}</TD>
+				<TD>${cc.discount07}</TD>
+				<TD>${cc.discount08}</TD>
+				<TD>${cc.discount09}</TD>
+				<TD>${cc.discount10}</TD>
+			</TR>
+			<TR>
+				<TD>${cc.rate01}</TD>
+				<TD>${cc.rate02}</TD>
+				<TD>${cc.rate03}</TD>
+				<TD>${cc.rate04}</TD>
+				<TD>${cc.rate05}</TD>
+				<TD>${cc.rate06}</TD>
+				<TD>${cc.rate07}</TD>
+				<TD>${cc.rate08}</TD>
+				<TD>${cc.rate09}</TD>
+				<TD>${cc.rate10}</TD>
 			</TR>
 			<tr>
 

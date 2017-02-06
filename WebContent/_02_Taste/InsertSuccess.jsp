@@ -10,7 +10,7 @@
 <title>MVC</title>
 </head>
 <body>
-	<Font color='blue'>產品序號 ${ Taste_id }輸入資料已經處理完畢</font>
+	<Font color='blue'>產品序號 ${ TasteId }輸入資料已經處理完畢</font>
 
 </body>
 </html>

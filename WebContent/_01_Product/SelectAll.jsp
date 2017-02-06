@@ -43,13 +43,13 @@
 			</tbody>
 
 			<TR>
-				<TD>${pc.product_id}</TD>
-				<TD>${pc.p_g_price}</TD>
+				<TD>${pc.productId}</TD>
+				<TD>${pc.pgPrice}</TD>
 				<TD>${pc.name}</TD>
-				<TD>${pc.avg_cost}</TD>
-				<TD>${pc.o_place}</TD>
-				<TD>${pc.s_life}</TD>
-				<TD>${pc.suppier_id}</TD>
+				<TD>${pc.avgCost}</TD>
+				<TD>${pc.oplace}</TD>
+				<TD>${pc.slife}</TD>
+				<TD>${pc.suppierId}</TD>
 			</TR>
 			<tr>
 

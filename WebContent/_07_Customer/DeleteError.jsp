@@ -12,7 +12,7 @@
 <H1>會員刪除失敗</h1>
 
 <Font color='red' >
-會員帳號=${M_Username}<br>
+會員帳號=${CustomerId}<br>
 刪除帳號發生問題!!<br>
 </font>
 

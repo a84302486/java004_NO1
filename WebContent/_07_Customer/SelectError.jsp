@@ -12,7 +12,7 @@
 <H1>客戶查詢失敗</h1>
 
 <Font color='red' >
-客戶編號=${Customer_id}<br>
+客戶編號=${CustomerId}<br>
 查無此資料!!<br>
 </font>
 

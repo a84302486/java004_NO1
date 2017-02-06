@@ -17,15 +17,15 @@ public class SelectFindByPrimaryKey extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
-    	String composition_type = request.getParameter("compositionType");
-    	Collection<CompositionBean> coll =  new CompositionDAO().findByPrimaryKey(composition_type);
+    	String compositionTypeStr = request.getParameter("compositionType");
+    	Collection<CompositionBean> coll =  new CompositionDAO().findByPrimaryKey(compositionTypeStr);
  
-    	System.out.println("成份類型: "+ composition_type);
+    	System.out.println("成份類型: "+ compositionTypeStr);
     	
-    	request.setAttribute("compositionType", composition_type);
+    	request.setAttribute("compositionType", compositionTypeStr);
     	request.setAttribute("compositionIdColl", coll);
     	
-    	if(composition_type.trim().length()!=0 && !coll.isEmpty()){
+    	if(compositionTypeStr.trim().length()!=0 && !coll.isEmpty()){
     		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
     		rd.forward(request, response);
     	}else{

@@ -46,7 +46,7 @@
 			</tbody>
 
 			<TR>
-				<TD>${sc.supplier_id}</TD>
+				<TD>${sc.supplierId}</TD>
 				<TD>${sc.name}</TD>
 				<TD>${sc.telephone}</TD>
 				<TD>${sc.zipNo}</TD>
@@ -54,8 +54,8 @@
 				<TD>${sc.fax}</TD>
 				<TD>${sc.email}</TD>
 				<TD>${sc.url}</TD>
-				<TD>${sc.principal_Name}</TD>
-				<TD>${sc.contact_Name}</TD>
+				<TD>${sc.principalName}</TD>
+				<TD>${sc.contactName}</TD>
 			</TR>
 			<tr>
 

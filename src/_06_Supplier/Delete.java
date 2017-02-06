@@ -16,11 +16,11 @@ public class Delete extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
-    	String supplierId = request.getParameter("supplierId");
-    	boolean success = new SupplierDAO().delete(supplierId);
-    	System.out.println("刪除成份資料: "+supplierId);
+    	String supplierIdStr = request.getParameter("supplierId");
+    	boolean success = new SupplierDAO().delete(supplierIdStr);
+    	System.out.println("刪除成份資料: "+ supplierIdStr);
     	
-    	request.setAttribute("supplierId", supplierId);
+    	request.setAttribute("supplierId", supplierIdStr);
     	
     	if(success == true){
     		RequestDispatcher rd = request.getRequestDispatcher("DeleteSuccess.jsp");

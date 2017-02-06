@@ -6,13 +6,13 @@
 <head>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css'  type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>折扣</title>
+<title>佣金</title>
 </head>
 <body>
-<H1>折扣查詢失敗</h1>
+<H1>佣金查詢失敗</h1>
 
 <Font color='red' >
-折扣=${discountId}<br>
+折扣=${commissionId}<br>
 查無此資料!!<br>
 </font>
 

@@ -38,8 +38,8 @@
 			</tbody>
 
 			<TR>
-				<TD>${pc.package_id}</TD>
-				<TD>${pc.package_name}</TD>
+				<TD>${pc.packageId}</TD>
+				<TD>${pc.packageName}</TD>
 			</TR>
 			<tr>
 

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class CommissionBean implements Serializable {
 	private int commissionId;	
-	private String customerLdd; 	
+	private String customerId; 	
 	private double discount01;		
 	private double discount02;		
 	private double discount03;	
@@ -30,13 +30,13 @@ public class CommissionBean implements Serializable {
 		
 	}
 
-	public CommissionBean(int commissionId, String customerLdd, double discount01, double discount02, double discount03,
+	public CommissionBean(int commissionId, String customerId, double discount01, double discount02, double discount03,
 			double discount04, double discount05, double discount06, double discount07, double discount08,
 			double discount09, double discount10, double rate01, double rate02, double rate03, double rate04,
 			double rate05, double rate06, double rate07, double rate08, double rate09, double rate10) {
 		super();
 		this.commissionId = commissionId;
-		this.customerLdd = customerLdd;
+		this.customerId = customerId;
 		this.discount01 = discount01;
 		this.discount02 = discount02;
 		this.discount03 = discount03;
@@ -67,12 +67,12 @@ public class CommissionBean implements Serializable {
 		this.commissionId = commissionId;
 	}
 
-	public String getCustomerLdd() {
-		return customerLdd;
+	public String getCustomerId() {
+		return customerId;
 	}
 
-	public void setCustomerLdd(String customerLdd) {
-		this.customerLdd = customerLdd;
+	public void setCustomerId(String customerLdd) {
+		this.customerId = customerLdd;
 	}
 
 	public double getDiscount01() {

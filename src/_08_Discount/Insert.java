@@ -29,10 +29,10 @@ public class Insert extends HttpServlet {
 			request.setAttribute("ErrorMsgKey", errorMsg);
 			
 			// 讀取輸入的資料
-			String discountId = request.getParameter("discountId");
-			if(discountId ==null || discountId.trim().length()==0){
+			String discountIdStr = request.getParameter("discountId");
+			if(discountIdStr ==null || discountIdStr.trim().length()==0){
 				errorMsg.add("序號必須輸入");
-			}else if(!isInteger(discountId)){
+			}else if(!isInteger(discountIdStr)){
 				errorMsg.add("序號必須是整數數字");
 			}
 			
@@ -57,7 +57,7 @@ public class Insert extends HttpServlet {
 			 
 			String insertError = null;
 			try{
-				DiscountBean cb = new DiscountBean(discountId, description);
+				DiscountBean cb = new DiscountBean(discountIdStr, description);
 				insertError = new DiscountDAO().insert(cb);
 			}catch(Exception e){
 				errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
@@ -68,7 +68,7 @@ public class Insert extends HttpServlet {
 			}
 			
 			// 依照 Business Logic 運算結果來挑選適當的畫面
-			request.setAttribute("discount_Id", discountId);
+			request.setAttribute("discountId", discountIdStr);
 			if(errorMsg.isEmpty()){
 				RequestDispatcher rd =request.getRequestDispatcher("InsertSuccess.jsp");
 				rd.forward(request, response);

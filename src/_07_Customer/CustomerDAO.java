@@ -82,22 +82,22 @@ public class CustomerDAO {
 		}
 		
 	}
-	public int delete(String Customer_id){
-		int n =0;
+	public boolean delete(String CustomerId){
+
 		String sql = "DELETE FROM Customer WHERE Customer_id =? ;";
 		try(
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);
 		){
-			pstmt.setString(1, Customer_id);
-			n = pstmt.executeUpdate();
-			System.out.println("成功 刪除 "+ Customer_id);
+			pstmt.setString(1, CustomerId);
+			pstmt.executeUpdate();
+			System.out.println("成功 刪除 "+ CustomerId);
 			
-			return n;
+			return true;
 		}catch (SQLException e){
-			System.out.println("失敗 刪除 "+ Customer_id);
+			System.out.println("失敗 刪除 "+ CustomerId);
 			e.printStackTrace();
-			return n;
+			return false;
 		}
 	}
 	

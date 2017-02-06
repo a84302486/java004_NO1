@@ -29,20 +29,20 @@ public class Insert extends HttpServlet {
 			request.setAttribute("ErrorMsgKey", errorMsg);
 			
 			// 讀取輸入的資料
-			String compositionType = request.getParameter("compositionType");
-			if(compositionType ==null || compositionType.trim().length()==0){
+			String compositionTypeStr = request.getParameter("compositionType");
+			if(compositionTypeStr ==null || compositionTypeStr.trim().length()==0){
 				errorMsg.add("類型必須輸入");
 			}
 			
-			String compositionId = request.getParameter("compositionId");
-			if(compositionId ==null || compositionId.trim().length()==0){
+			String compositionIdStr = request.getParameter("compositionId");
+			if(compositionIdStr ==null || compositionIdStr.trim().length()==0){
 				errorMsg.add("序號必須輸入");
-			}else if(!isInteger(compositionId)){
+			}else if(!isInteger(compositionIdStr)){
 					errorMsg.add("序號必須是整數數字");
 			}
 			
-			String compositionDesc = request.getParameter("compositionDesc");
-			if(compositionDesc ==null || compositionDesc.trim().length()==0){
+			String compositionDescStr = request.getParameter("compositionDesc");
+			if(compositionDescStr ==null || compositionDescStr.trim().length()==0){
 				errorMsg.add("敘述必須輸入");
 			}
 			
@@ -55,7 +55,7 @@ public class Insert extends HttpServlet {
 			 
 			String insertError = null;
 			try{
-				CompositionBean cb = new CompositionBean(compositionType, compositionId, compositionDesc);
+				CompositionBean cb = new CompositionBean(compositionTypeStr, compositionIdStr, compositionDescStr);
 				insertError = new CompositionDAO().insert(cb);
 			}catch(Exception e){
 				errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
@@ -66,7 +66,7 @@ public class Insert extends HttpServlet {
 			}
 			
 			// 依照 Business Logic 運算結果來挑選適當的畫面
-			request.setAttribute("composition_type", compositionType);
+			request.setAttribute("compositionType", compositionTypeStr);
 			if(errorMsg.isEmpty()){
 				RequestDispatcher rd =request.getRequestDispatcher("InsertSuccess.jsp");
 				rd.forward(request, response);

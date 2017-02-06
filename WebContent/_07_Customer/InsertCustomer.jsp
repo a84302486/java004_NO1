@@ -16,11 +16,11 @@
     <Table>
     	 <TR>
              <TD align="RIGHT">客戶編號：</TD>
-             <TD align="LEFT"><input	type="text" name="Customer_id" value="A001" size="20"></TD>
+             <TD align="LEFT"><input	type="text" name="CustomerId" value="A001" size="20"></TD>
          </TR>
          <TR>
              <TD align="RIGHT">簡稱：</TD>
-             <TD align="LEFT"><input	type="text" name="Simple_Name" value="北科大" size="20"></TD>
+             <TD align="LEFT"><input	type="text" name="SimpleName" value="北科大" size="20"></TD>
          </TR>
          <TR>
              <TD align="RIGHT">名稱：</TD>
@@ -28,7 +28,7 @@
          </TR> 
          <TR>
              <TD align="RIGHT">通路：</TD>
-             <TD align="LEFT" ><input	type="text" name="Sale_Path" value="" size="20"></TD>
+             <TD align="LEFT" ><input	type="text" name="SalePath" value="" size="20"></TD>
          </TR>            
          <TR>
              <TD align="RIGHT">電話：</TD>
@@ -49,31 +49,31 @@
            
          <TR>
              <TD align="RIGHT">統一編號：</TD>
-             <TD align="LEFT" ><input type="text" name="Uniform_NO" value="" size="40"></TD>
+             <TD align="LEFT" ><input type="text" name="UniformNO" value="" size="40"></TD>
          </TR>             
          <TR>
              <TD align="RIGHT">此次盤點日期：</TD>
-             <TD align="LEFT" > <input type="text" name="This_Invertory_Date" value="2017-01-31"></TD>
+             <TD align="LEFT" > <input type="text" name="ThisInvertoryDate" value="2017-01-31"></TD>
          </TR>  
          <TR>
              <TD align="RIGHT">上次盤點日期：</TD>
-             <TD align="LEFT" > <input type="text" name="Last_Invertory_Date" value="2017-01-20"></TD>
+             <TD align="LEFT" > <input type="text" name="LastInvertoryDate" value="2017-01-20"></TD>
          </TR>
          <TR>
              <TD align="RIGHT">盤點狀態：</TD>
-             <TD align="LEFT" > <input type="text" name="PR_Status" value=""></TD>
+             <TD align="LEFT" > <input type="text" name="PRStatus" value=""></TD>
          </TR>
          <TR>
              <TD align="RIGHT">此次折扣代碼：</TD>
-             <TD align="LEFT" > <input type="text" name="Current_Discount_id" value=""></TD>
+             <TD align="LEFT" > <input type="text" name="CurrentDiscountId" value=""></TD>
          </TR>
          <TR>
              <TD align="RIGHT">下次折扣代碼：</TD>
-             <TD align="LEFT" > <input type="text" name="Next_Discount_id" value=""></TD>
+             <TD align="LEFT" > <input type="text" name="NextDiscountId" value=""></TD>
          </TR>
          <TR>
              <TD align="RIGHT">傳真：</TD>
-             <TD align="LEFT" > <input type="text" name="Tax_Type" value=""></TD>
+             <TD align="LEFT" > <input type="text" name="TaxType" value=""></TD>
          </TR>
          <TR>
              <TD align="RIGHT">網站：</TD>
@@ -81,11 +81,11 @@
          </TR>
          <TR>
              <TD align="RIGHT">老闆：</TD>
-             <TD align="LEFT" > <input type="text" name="Principal_Name" value=""></TD>
+             <TD align="LEFT" > <input type="text" name="PrincipalName" value=""></TD>
          </TR>  
          <TR>
              <TD align="RIGHT">聯絡人：</TD>
-             <TD align="LEFT" > <input type="text" name="Contact_Name" value=""></TD>
+             <TD align="LEFT" > <input type="text" name="ContactName" value=""></TD>
          </TR> 
          <TR>
              <TD align="RIGHT">Email：</TD>
