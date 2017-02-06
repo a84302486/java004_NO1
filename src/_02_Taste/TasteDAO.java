@@ -40,17 +40,17 @@ public class TasteDAO {
 				PreparedStatement pstmt	= con.prepareStatement(sql);
 				){				
 			
-				pstmt.setString(1, tb.getTaste_id());
-				pstmt.setString(2, tb.getTaste_name());
+				pstmt.setString(1, tb.getTasteId());
+				pstmt.setString(2, tb.getTasteName());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 新增" + tb.getTaste_id());
+				System.out.println("成功 新增" + tb.getTasteId());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 新增" + tb.getTaste_id());
+				System.out.println("失敗 新增" + tb.getTasteId());
 				e.printStackTrace();
-				return "失敗 新增" + tb.getTaste_id();
+				return "失敗 新增" + tb.getTasteId();
 			}	
 		}
 		
@@ -83,17 +83,17 @@ public class TasteDAO {
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);){				
 			
-				pstmt.setString(1, tb.getTaste_id());
-				pstmt.setString(2, tb.getTaste_name());	
+				pstmt.setString(1, tb.getTasteId());
+				pstmt.setString(2, tb.getTasteName());	
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 修改" + tb.getTaste_id());
+				System.out.println("成功 修改" + tb.getTasteId());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 修改" + tb.getTaste_id());
+				System.out.println("失敗 修改" + tb.getTasteId());
 				e.printStackTrace();
-				return "失敗 修改" + tb.getTaste_id();
+				return "失敗 修改" + tb.getTasteId();
 			}
 		}
 		
@@ -112,8 +112,8 @@ public class TasteDAO {
 					
 					while (rs.next()) {
 						TasteBean tb = new TasteBean();
-						tb.setTaste_id(rs.getString(1));
-						tb.setTaste_name(rs.getString(2));
+						tb.setTasteId(rs.getString(1));
+						tb.setTasteName(rs.getString(2));
 						coll.add(tb);
 					}
 					System.out.println("序號查詢資料");
@@ -138,8 +138,8 @@ public class TasteDAO {
 
 					while (rs.next()) {
 						TasteBean tb = new TasteBean();
-						tb.setTaste_id(rs.getString(1));
-						tb.setTaste_name(rs.getString(2));
+						tb.setTasteId(rs.getString(1));
+						tb.setTasteName(rs.getString(2));
 						coll.add(tb);
 					}
 					System.out.println("記錄 查詢all");

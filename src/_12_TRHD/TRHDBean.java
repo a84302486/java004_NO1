@@ -4,155 +4,156 @@ import java.io.Serializable;
 
 public class TRHDBean implements Serializable {
 	
-	private String co_seq;			
-	private String co_type; 		
-	private String co_role; 		
-	private String co_year;			
-	private String co_month;		
-	private String min_role;		
-	private String tr_date;			
-	private int seq_no;			
-	private int to_qty;			
-	private double to_list;			
-	private double to_price;		
-	private double to_sold;			
-	private double to_cost;			
-	private double to_disc;			
+	private String coSeq;			
+	private String coType; 		
+	private String coRole; 		
+	private String coYear;			
+	private String coMonth;		
+	private String minRole;		
+	private String trDate;			
+	private int seqNo;			
+	private int toQty;			
+	private double toList;			
+	private double toPrice;		
+	private double toSold;			
+	private double toCost;			
+	private double toDisc;			
 	 
 	public TRHDBean(){
 		
 	}
 
-	public TRHDBean(String co_seq, String co_type, String co_role, String co_year, String co_month, String min_role,
-			String tr_date, int seq_no, int to_qty, double to_list, double to_price, double to_sold, double to_cost,
-			double to_disc) {
+	public TRHDBean(String coSeq, String coType, String coRole, String coYear, String coMonth, String minRole,
+			String trDate, int seqNo, int toQty, double toList, double toPrice, double toSold, double toCost,
+			double toDisc) {
 		super();
-		this.co_seq = co_seq;
-		this.co_type = co_type;
-		this.co_role = co_role;
-		this.co_year = co_year;
-		this.co_month = co_month;
-		this.min_role = min_role;
-		this.tr_date = tr_date;
-		this.seq_no = seq_no;
-		this.to_qty = to_qty;
-		this.to_list = to_list;
-		this.to_price = to_price;
-		this.to_sold = to_sold;
-		this.to_cost = to_cost;
-		this.to_disc = to_disc;
+		this.coSeq = coSeq;
+		this.coType = coType;
+		this.coRole = coRole;
+		this.coYear = coYear;
+		this.coMonth = coMonth;
+		this.minRole = minRole;
+		this.trDate = trDate;
+		this.seqNo = seqNo;
+		this.toQty = toQty;
+		this.toList = toList;
+		this.toPrice = toPrice;
+		this.toSold = toSold;
+		this.toCost = toCost;
+		this.toDisc = toDisc;
 	}
 
-	public String getCo_seq() {
-		return co_seq;
+	public String getCoSeq() {
+		return coSeq;
 	}
 
-	public void setCo_seq(String co_seq) {
-		this.co_seq = co_seq;
+	public void setCoSeq(String coSeq) {
+		this.coSeq = coSeq;
 	}
 
-	public String getCo_type() {
-		return co_type;
+	public String getCoType() {
+		return coType;
 	}
 
-	public void setCo_type(String co_type) {
-		this.co_type = co_type;
+	public void setCoType(String coType) {
+		this.coType = coType;
 	}
 
-	public String getCo_role() {
-		return co_role;
+	public String getCoRole() {
+		return coRole;
 	}
 
-	public void setCo_role(String co_role) {
-		this.co_role = co_role;
+	public void setCoRole(String coRole) {
+		this.coRole = coRole;
 	}
 
-	public String getCo_year() {
-		return co_year;
+	public String getCoYear() {
+		return coYear;
 	}
 
-	public void setCo_year(String co_year) {
-		this.co_year = co_year;
+	public void setCoYear(String coYear) {
+		this.coYear = coYear;
 	}
 
-	public String getCo_month() {
-		return co_month;
+	public String getCoMonth() {
+		return coMonth;
 	}
 
-	public void setCo_month(String co_month) {
-		this.co_month = co_month;
+	public void setCoMonth(String coMonth) {
+		this.coMonth = coMonth;
 	}
 
-	public String getMin_role() {
-		return min_role;
+	public String getMinRole() {
+		return minRole;
 	}
 
-	public void setMin_role(String min_role) {
-		this.min_role = min_role;
+	public void setMinRole(String minRole) {
+		this.minRole = minRole;
 	}
 
-	public String getTr_date() {
-		return tr_date;
+	public String getTrDate() {
+		return trDate;
 	}
 
-	public void setTr_date(String tr_date) {
-		this.tr_date = tr_date;
+	public void setTrDate(String trDate) {
+		this.trDate = trDate;
 	}
 
-	public int getSeq_no() {
-		return seq_no;
+	public int getSeqNo() {
+		return seqNo;
 	}
 
-	public void setSeq_no(int seq_no) {
-		this.seq_no = seq_no;
+	public void setSeqNo(int seqNo) {
+		this.seqNo = seqNo;
 	}
 
-	public int getTo_qty() {
-		return to_qty;
+	public int getToQty() {
+		return toQty;
 	}
 
-	public void setTo_qty(int to_qty) {
-		this.to_qty = to_qty;
+	public void setToQty(int toQty) {
+		this.toQty = toQty;
 	}
 
-	public double getTo_list() {
-		return to_list;
+	public double getToList() {
+		return toList;
 	}
 
-	public void setTo_list(double to_list) {
-		this.to_list = to_list;
+	public void setToList(double toList) {
+		this.toList = toList;
 	}
 
-	public double getTo_price() {
-		return to_price;
+	public double getToPrice() {
+		return toPrice;
 	}
 
-	public void setTo_price(double to_price) {
-		this.to_price = to_price;
+	public void setToPrice(double toPrice) {
+		this.toPrice = toPrice;
 	}
 
-	public double getTo_sold() {
-		return to_sold;
+	public double getToSold() {
+		return toSold;
 	}
 
-	public void setTo_sold(double to_sold) {
-		this.to_sold = to_sold;
+	public void setToSold(double toSold) {
+		this.toSold = toSold;
 	}
 
-	public double getTo_cost() {
-		return to_cost;
+	public double getToCost() {
+		return toCost;
 	}
 
-	public void setTo_cost(double to_cost) {
-		this.to_cost = to_cost;
+	public void setToCost(double toCost) {
+		this.toCost = toCost;
 	}
 
-	public double getTo_disc() {
-		return to_disc;
+	public double getToDisc() {
+		return toDisc;
 	}
 
-	public void setTo_disc(double to_disc) {
-		this.to_disc = to_disc;
+	public void setToDisc(double toDisc) {
+		this.toDisc = toDisc;
 	}
+	
 	
 }

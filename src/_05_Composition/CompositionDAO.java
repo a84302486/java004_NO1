@@ -40,18 +40,18 @@ public class CompositionDAO {
 				PreparedStatement pstmt	= con.prepareStatement(sql);
 				){				
 			
-				pstmt.setString(1, cb.getCom_type());
-				pstmt.setString(2, cb.getCom_id());
-				pstmt.setString(3, cb.getCom_description());
+				pstmt.setString(1, cb.getComType());
+				pstmt.setString(2, cb.getComId());
+				pstmt.setString(3, cb.getComDescription());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 新增" + cb.getCom_type());
+				System.out.println("成功 新增" + cb.getComType());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 新增" + cb.getCom_type());
+				System.out.println("失敗 新增" + cb.getComType());
 				e.printStackTrace();
-				return "失敗 新增" + cb.getCom_type();
+				return "失敗 新增" + cb.getComType();
 			}	
 		}
 		
@@ -85,18 +85,18 @@ public class CompositionDAO {
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);){				
 			
-				pstmt.setString(1, cb.getCom_type());
-				pstmt.setString(2, cb.getCom_id());
-				pstmt.setString(3, cb.getCom_description());
+				pstmt.setString(1, cb.getComType());
+				pstmt.setString(2, cb.getComId());
+				pstmt.setString(3, cb.getComDescription());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 修改" + cb.getCom_type());
+				System.out.println("成功 修改" + cb.getComType());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 修改" + cb.getCom_type());
+				System.out.println("失敗 修改" + cb.getComType());
 				e.printStackTrace();
-				return "失敗 修改" + cb.getCom_type();
+				return "失敗 修改" + cb.getComType();
 			}
 		}
 		
@@ -115,9 +115,9 @@ public class CompositionDAO {
 					
 					while (rs.next()) {
 						CompositionBean cb = new CompositionBean();
-						cb.setCom_type(rs.getString(1));
-						cb.setCom_id(rs.getString(2));
-						cb.setCom_description(rs.getString(3));
+						cb.setComType(rs.getString(1));
+						cb.setComId(rs.getString(2));
+						cb.setComDescription(rs.getString(3));
 						coll.add(cb);
 					}
 					System.out.println("類型查詢資料");
@@ -142,9 +142,9 @@ public class CompositionDAO {
 
 					while (rs.next()) {
 						CompositionBean cb = new CompositionBean();
-						cb.setCom_type(rs.getString(1));
-						cb.setCom_id(rs.getString(2));
-						cb.setCom_description(rs.getString(3));
+						cb.setComType(rs.getString(1));
+						cb.setComId(rs.getString(2));
+						cb.setComDescription(rs.getString(3));
 						coll.add(cb);
 					}
 					System.out.println("記錄 查詢all");

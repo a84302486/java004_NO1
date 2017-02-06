@@ -40,7 +40,7 @@ public class SupplierDAO {
 				PreparedStatement pstmt	= con.prepareStatement(sql);
 				){				
 			
-				pstmt.setString(1, sb.getSupplier_id());
+				pstmt.setString(1, sb.getSupplierId());
 				pstmt.setString(2, sb.getName());
 				pstmt.setString(3, sb.getTelephone());
 				pstmt.setString(4, sb.getZipNo());
@@ -48,17 +48,17 @@ public class SupplierDAO {
 				pstmt.setString(6, sb.getFax());
 				pstmt.setString(7, sb.getEmail());
 				pstmt.setString(8, sb.getUrl());
-				pstmt.setString(9, sb.getPrincipal_Name());
-				pstmt.setString(10, sb.getContact_Name());
+				pstmt.setString(9, sb.getPrincipalName());
+				pstmt.setString(10, sb.getContactName());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 新增" + sb.getSupplier_id());
+				System.out.println("成功 新增" + sb.getSupplierId());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 新增" + sb.getSupplier_id());
+				System.out.println("失敗 新增" + sb.getSupplierId());
 				e.printStackTrace();
-				return "失敗 新增" + sb.getSupplier_id();
+				return "失敗 新增" + sb.getSupplierId();
 			}	
 		}
 		
@@ -94,7 +94,7 @@ public class SupplierDAO {
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);){				
 			
-				pstmt.setString(1, sb.getSupplier_id());
+				pstmt.setString(1, sb.getSupplierId());
 				pstmt.setString(2, sb.getName());
 				pstmt.setString(3, sb.getTelephone());
 				pstmt.setString(4, sb.getZipNo());
@@ -102,17 +102,17 @@ public class SupplierDAO {
 				pstmt.setString(6, sb.getFax());
 				pstmt.setString(7, sb.getEmail());
 				pstmt.setString(8, sb.getUrl());
-				pstmt.setString(9, sb.getPrincipal_Name());
-				pstmt.setString(10, sb.getContact_Name());
+				pstmt.setString(9, sb.getPrincipalName());
+				pstmt.setString(10, sb.getContactName());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 修改" + sb.getSupplier_id());
+				System.out.println("成功 修改" + sb.getSupplierId());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 修改" + sb.getSupplier_id());
+				System.out.println("失敗 修改" + sb.getSupplierId());
 				e.printStackTrace();
-				return "失敗 修改" + sb.getSupplier_id();
+				return "失敗 修改" + sb.getSupplierId();
 			}
 		}
 		
@@ -131,7 +131,7 @@ public class SupplierDAO {
 					
 					while (rs.next()) {
 						SupplierBean sb = new SupplierBean();
-						sb.setSupplier_id(rs.getString(1));
+						sb.setSupplierId(rs.getString(1));
 						sb.setName(rs.getString(2));
 						sb.setTelephone(rs.getString(3));
 						sb.setZipNo(rs.getString(4));
@@ -139,8 +139,8 @@ public class SupplierDAO {
 						sb.setFax(rs.getString(6));
 						sb.setEmail(rs.getString(7));
 						sb.setUrl(rs.getString(8));
-						sb.setPrincipal_Name(rs.getString(9));
-						sb.setContact_Name(rs.getString(10));
+						sb.setPrincipalName(rs.getString(9));
+						sb.setContactName(rs.getString(10));
 						coll.add(sb);
 					}
 					System.out.println("序號查詢資料");
@@ -165,7 +165,7 @@ public class SupplierDAO {
 
 					while (rs.next()) {
 						SupplierBean sb = new SupplierBean();
-						sb.setSupplier_id(rs.getString(1));
+						sb.setSupplierId(rs.getString(1));
 						sb.setName(rs.getString(2));
 						sb.setTelephone(rs.getString(3));
 						sb.setZipNo(rs.getString(4));
@@ -173,8 +173,8 @@ public class SupplierDAO {
 						sb.setFax(rs.getString(6));
 						sb.setEmail(rs.getString(7));
 						sb.setUrl(rs.getString(8));
-						sb.setPrincipal_Name(rs.getString(9));
-						sb.setContact_Name(rs.getString(10));
+						sb.setPrincipalName(rs.getString(9));
+						sb.setContactName(rs.getString(10));
 						coll.add(sb);
 					}
 					System.out.println("記錄 查詢all");

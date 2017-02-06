@@ -3,43 +3,43 @@ package _05_Composition;
 import java.io.Serializable;
 
 public class CompositionBean implements Serializable {
-	private String com_type;
-	private String com_id;
-	private String com_description;
+	private String comType;
+	private String comId;
+	private String comDescription;
 	
 	public CompositionBean(){
 		
 	}
 
-	public CompositionBean(String com_type, String com_id, String com_description) {
+	public CompositionBean(String comType, String comId, String comDescription) {
 		super();
-		this.com_type = com_type;
-		this.com_id = com_id;
-		this.com_description = com_description;
+		this.comType = comType;
+		this.comId = comId;
+		this.comDescription = comDescription;
 	}
 
-	public String getCom_type() {
-		return com_type;
+	public String getComType() {
+		return comType;
 	}
 
-	public void setCom_type(String com_type) {
-		this.com_type = com_type;
+	public void setComType(String comType) {
+		this.comType = comType;
 	}
 
-	public String getCom_id() {
-		return com_id;
+	public String getComId() {
+		return comId;
 	}
 
-	public void setCom_id(String com_id) {
-		this.com_id = com_id;
+	public void setComId(String comId) {
+		this.comId = comId;
 	}
 
-	public String getCom_description() {
-		return com_description;
+	public String getComDescription() {
+		return comDescription;
 	}
 
-	public void setCom_description(String com_description) {
-		this.com_description = com_description;
+	public void setComDescription(String comDescription) {
+		this.comDescription = comDescription;
 	}
 	
 }

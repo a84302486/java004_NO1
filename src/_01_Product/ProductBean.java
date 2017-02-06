@@ -1,81 +1,83 @@
 package _01_Product;
 
-import java.io.Serializable;
+public class ProductBean {
+	public String productId;
+	public int pgPrice;
+	public String name;
+	public double avgCost;
+	public String oPlace;
+	public int sLife;
+	public String suppierId;
 
-public class ProductBean implements Serializable {
-	private ProductBeanData data = new ProductBeanData();
-
-	public ProductBean(){
-		
+	public ProductBean() {
 	}
 
-	public ProductBean(String product_id, int p_g_price, String name, double avg_cost, String o_place, int s_life,
-			String suppier_id) {
+	public ProductBean(String productId, int pgPrice, String name, double avgCost, String oPlace, int sLife,
+			String suppierId) {
 		super();
-		this.data.productId = product_id;
-		this.data.pgPrice = p_g_price;
-		this.data.name = name;
-		this.data.avgCost = avg_cost;
-		this.data.oPlace = o_place;
-		this.data.sLife = s_life;
-		this.data.suppierId = suppier_id;
+		this.productId = productId;
+		this.pgPrice = pgPrice;
+		this.name = name;
+		this.avgCost = avgCost;
+		this.oPlace = oPlace;
+		this.sLife = sLife;
+		this.suppierId = suppierId;
 	}
 
-	public String getProduct_id() {
-		return data.productId;
+	public String getProductId() {
+		return productId;
 	}
 
-	public void setProduct_id(String product_id) {
-		this.data.productId = product_id;
+	public void setProductId(String productId) {
+		this.productId = productId;
 	}
 
-	public int getP_g_price() {
-		return data.pgPrice;
+	public int getPgPrice() {
+		return pgPrice;
 	}
 
-	public void setP_g_price(int p_g_price) {
-		this.data.pgPrice = p_g_price;
+	public void setPgPrice(int pgPrice) {
+		this.pgPrice = pgPrice;
 	}
 
 	public String getName() {
-		return data.name;
+		return name;
 	}
 
 	public void setName(String name) {
-		this.data.name = name;
+		this.name = name;
 	}
 
-	public double getAvg_cost() {
-		return data.avgCost;
+	public double getAvgCost() {
+		return avgCost;
 	}
 
-	public void setAvg_cost(double avg_cost) {
-		this.data.avgCost = avg_cost;
+	public void setAvgCost(double avgCost) {
+		this.avgCost = avgCost;
 	}
 
-	public String getO_place() {
-		return data.oPlace;
+	public String getOPlace() {
+		return oPlace;
 	}
 
-	public void setO_place(String o_place) {
-		this.data.oPlace = o_place;
+	public void setOPlace(String oPlace) {
+		this.oPlace = oPlace;
 	}
 
-	public int getS_life() {
-		return data.sLife;
+	public int getSLife() {
+		return sLife;
 	}
 
-	public void setS_life(int s_life) {
-		this.data.sLife = s_life;
+	public void setSLife(int sLife) {
+		this.sLife = sLife;
 	}
 
-	public String getSuppier_id() {
-		return data.suppierId;
+	public String getSuppierId() {
+		return suppierId;
 	}
 
-	public void setSuppier_id(String suppier_id) {
-		this.data.suppierId = suppier_id;
+	public void setSuppierId(String suppierId) {
+		this.suppierId = suppierId;
 	}
-	
 	
 }

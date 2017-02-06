@@ -40,17 +40,17 @@ public class PackageDAO {
 				PreparedStatement pstmt	= con.prepareStatement(sql);
 				){				
 			
-				pstmt.setString(1, pb.getPackage_id());
-				pstmt.setString(2, pb.getPackage_name());
+				pstmt.setString(1, pb.getPackageId());
+				pstmt.setString(2, pb.getPackageName());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 新增" + pb.getPackage_id());
+				System.out.println("成功 新增" + pb.getPackageId());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 新增" + pb.getPackage_id());
+				System.out.println("失敗 新增" + pb.getPackageId());
 				e.printStackTrace();
-				return "失敗 新增" + pb.getPackage_id();
+				return "失敗 新增" + pb.getPackageId();
 			}	
 		}
 		
@@ -83,17 +83,17 @@ public class PackageDAO {
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);){				
 			
-				pstmt.setString(1, pb.getPackage_id());
-				pstmt.setString(2, pb.getPackage_name());	
+				pstmt.setString(1, pb.getPackageId());
+				pstmt.setString(2, pb.getPackageName());	
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 修改" + pb.getPackage_id());
+				System.out.println("成功 修改" + pb.getPackageId());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 修改" + pb.getPackage_id());
+				System.out.println("失敗 修改" + pb.getPackageId());
 				e.printStackTrace();
-				return "失敗 修改" + pb.getPackage_id();
+				return "失敗 修改" + pb.getPackageId();
 			}
 		}
 		
@@ -112,8 +112,8 @@ public class PackageDAO {
 					
 					while (rs.next()) {
 						PackageBean pb = new PackageBean();
-						pb.setPackage_id(rs.getString(1));
-						pb.setPackage_name(rs.getString(2));
+						pb.setPackageId(rs.getString(1));
+						pb.setPackageName(rs.getString(2));
 						coll.add(pb);
 					}
 					System.out.println("序號查詢資料");
@@ -138,8 +138,8 @@ public class PackageDAO {
 
 					while (rs.next()) {
 						PackageBean pb = new PackageBean();
-						pb.setPackage_id(rs.getString(1));
-						pb.setPackage_name(rs.getString(2));
+						pb.setPackageId(rs.getString(1));
+						pb.setPackageName(rs.getString(2));
 						coll.add(pb);
 					}
 					System.out.println("記錄 查詢all");

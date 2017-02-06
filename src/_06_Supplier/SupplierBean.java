@@ -3,7 +3,7 @@ package _06_Supplier;
 import java.io.Serializable;
 
 public class SupplierBean implements Serializable {
-	private String supplier_id;
+	private String supplierId;
 	private String name;
 	private String telephone;
 	private String zipNo;
@@ -11,17 +11,17 @@ public class SupplierBean implements Serializable {
 	private String fax;
 	private String email;
 	private String url;
-	private String principal_Name;
-	private String contact_Name;
+	private String principalName;
+	private String contactName;
 	
 	public SupplierBean(){
 		
 	}
 
-	public SupplierBean(String supplier_id, String name, String telephone, String zipNo, String address, String fax,
-			String email, String url, String principal_Name, String contact_Name) {
+	public SupplierBean(String supplierId, String name, String telephone, String zipNo, String address, String fax,
+			String email, String url, String principalName, String contactName) {
 		super();
-		this.supplier_id = supplier_id;
+		this.supplierId = supplierId;
 		this.name = name;
 		this.telephone = telephone;
 		this.zipNo = zipNo;
@@ -29,16 +29,16 @@ public class SupplierBean implements Serializable {
 		this.fax = fax;
 		this.email = email;
 		this.url = url;
-		this.principal_Name = principal_Name;
-		this.contact_Name = contact_Name;
+		this.principalName = principalName;
+		this.contactName = contactName;
 	}
 
-	public String getSupplier_id() {
-		return supplier_id;
+	public String getSupplierId() {
+		return supplierId;
 	}
 
-	public void setSupplier_id(String supplier_id) {
-		this.supplier_id = supplier_id;
+	public void setSupplierId(String supplierId) {
+		this.supplierId = supplierId;
 	}
 
 	public String getName() {
@@ -97,20 +97,20 @@ public class SupplierBean implements Serializable {
 		this.url = url;
 	}
 
-	public String getPrincipal_Name() {
-		return principal_Name;
+	public String getPrincipalName() {
+		return principalName;
 	}
 
-	public void setPrincipal_Name(String principal_Name) {
-		this.principal_Name = principal_Name;
+	public void setPrincipalName(String principalName) {
+		this.principalName = principalName;
 	}
 
-	public String getContact_Name() {
-		return contact_Name;
+	public String getContactName() {
+		return contactName;
 	}
 
-	public void setContact_Name(String contact_Name) {
-		this.contact_Name = contact_Name;
+	public void setContactName(String contactName) {
+		this.contactName = contactName;
 	}
 	
 	

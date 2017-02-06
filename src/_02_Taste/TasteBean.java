@@ -3,33 +3,33 @@ package _02_Taste;
 import java.io.Serializable;
 
 public class TasteBean implements Serializable {
-	private String taste_id;
-	private String taste_name;
+	private String tasteId;
+	private String tasteName;
 	
 	public TasteBean(){
 		
 	}
 
-	public TasteBean(String taste_id, String taste_name) {
+	public TasteBean(String tasteId, String tasteName) {
 		super();
-		this.taste_id = taste_id;
-		this.taste_name = taste_name;
+		this.tasteId = tasteId;
+		this.tasteName = tasteName;
 	}
 
-	public String getTaste_id() {
-		return taste_id;
+	public String getTasteId() {
+		return tasteId;
 	}
 
-	public void setTaste_id(String taste_id) {
-		this.taste_id = taste_id;
+	public void setTasteId(String tasteId) {
+		this.tasteId = tasteId;
 	}
 
-	public String getTaste_name() {
-		return taste_name;
+	public String getTasteName() {
+		return tasteName;
 	}
 
-	public void setTaste_name(String taste_name) {
-		this.taste_name = taste_name;
+	public void setTasteName(String tasteName) {
+		this.tasteName = tasteName;
 	}
 	
 }

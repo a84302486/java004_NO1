@@ -43,31 +43,31 @@ public class TRDTDAO {
 				PreparedStatement pstmt	= con.prepareStatement(sql);
 				){				
 			
-				pstmt.setString(1, tb.getCo_sqe());
-				pstmt.setString(2, tb.getCo_type());
-				pstmt.setString(3, tb.getCo_role());
-				pstmt.setString(4, tb.getCo_year());
-				pstmt.setString(5, tb.getCo_month());
-				pstmt.setString(6, tb.getMin_role());
-				pstmt.setString(7, tb.getTr_date());
-				pstmt.setString(8, tb.getProduct_id());
-				pstmt.setString(9, tb.getTaste_id());
-				pstmt.setString(10, tb.getPackage_id());
-				pstmt.setInt(11, tb.getSeq_no());
-				pstmt.setInt(12, tb.getTr_qty());
-				pstmt.setDouble(13, tb.getTr_list());
-				pstmt.setDouble(14, tb.getTr_price());
-				pstmt.setDouble(15, tb.getTr_sold());
-				pstmt.setDouble(16, tb.getTr_cost());
-				pstmt.setDouble(17, tb.getTr_discount());
-				pstmt.setDouble(18, tb.getPre_deposit());
-				pstmt.setDouble(19, tb.getThis_deposit());
+				pstmt.setString(1, tb.getCoSqe());
+				pstmt.setString(2, tb.getCoType());
+				pstmt.setString(3, tb.getCoRole());
+				pstmt.setString(4, tb.getCoYear());
+				pstmt.setString(5, tb.getCoMonth());
+				pstmt.setString(6, tb.getMinRole());
+				pstmt.setString(7, tb.getTrDate());
+				pstmt.setString(8, tb.getProductId());
+				pstmt.setString(9, tb.getTasteId());
+				pstmt.setString(10, tb.getPackageId());
+				pstmt.setInt(11, tb.getSeqNo());
+				pstmt.setInt(12, tb.getTrQty());
+				pstmt.setDouble(13, tb.getTrList());
+				pstmt.setDouble(14, tb.getTrPrice());
+				pstmt.setDouble(15, tb.getTrSold());
+				pstmt.setDouble(16, tb.getTrCost());
+				pstmt.setDouble(17, tb.getTrDiscount());
+				pstmt.setDouble(18, tb.getPreDeposit());
+				pstmt.setDouble(19, tb.getThisDeposit());
 				pstmt.setDouble(20, tb.getVisa());
 				pstmt.setDouble(21, tb.getCash());
 				pstmt.setString(22, tb.getSales());
 				pstmt.setString(23, tb.getShift());
-				pstmt.setDouble(24, tb.getDisc_atm());
-				pstmt.setString(25, tb.getM_id());
+				pstmt.setDouble(24, tb.getDiscAtm());
+				pstmt.setString(25, tb.getMid());
 				pstmt.setString(26, tb.getIuser());
 				pstmt.setString(27, tb.getIdate());
 				pstmt.setString(28, tb.getItime());
@@ -76,13 +76,13 @@ public class TRDTDAO {
 				pstmt.setString(31, tb.getMtime());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 新增" + tb.getCo_sqe());
+				System.out.println("成功 新增" + tb.getCoSqe());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 新增" + tb.getCo_sqe());
+				System.out.println("失敗 新增" + tb.getCoSqe());
 				e.printStackTrace();
-				return "失敗 新增" + tb.getCo_sqe();
+				return "失敗 新增" + tb.getCoSqe();
 			}	
 		}
 		
@@ -115,46 +115,46 @@ public class TRDTDAO {
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);){				
 			
-				pstmt.setString(1, tb.getCo_sqe());
-				pstmt.setString(2, tb.getCo_type());
-				pstmt.setString(3, tb.getCo_role());
-				pstmt.setString(4, tb.getCo_year());
-				pstmt.setString(5, tb.getCo_month());
-				pstmt.setString(6, tb.getMin_role());
-				pstmt.setString(7, tb.getTr_date());
-				pstmt.setString(8, tb.getProduct_id());
-				pstmt.setString(9, tb.getTaste_id());
-				pstmt.setString(10, tb.getPackage_id());
-				pstmt.setInt(11, tb.getSeq_no());
-				pstmt.setInt(12, tb.getTr_qty());
-				pstmt.setDouble(13, tb.getTr_list());
-				pstmt.setDouble(14, tb.getTr_price());
-				pstmt.setDouble(15, tb.getTr_sold());
-				pstmt.setDouble(16, tb.getTr_cost());
-				pstmt.setDouble(17, tb.getTr_discount());
-				pstmt.setDouble(18, tb.getPre_deposit());
-				pstmt.setDouble(19, tb.getThis_deposit());
+				pstmt.setString(1, tb.getCoSqe());
+				pstmt.setString(2, tb.getCoType());
+				pstmt.setString(3, tb.getCoRole());
+				pstmt.setString(4, tb.getCoYear());
+				pstmt.setString(5, tb.getCoMonth());
+				pstmt.setString(6, tb.getMinRole());
+				pstmt.setString(7, tb.getTrDate());
+				pstmt.setString(8, tb.getProductId());
+				pstmt.setString(9, tb.getTasteId());
+				pstmt.setString(10, tb.getPackageId());
+				pstmt.setInt(11, tb.getSeqNo());
+				pstmt.setInt(12, tb.getTrQty());
+				pstmt.setDouble(13, tb.getTrList());
+				pstmt.setDouble(14, tb.getTrPrice());
+				pstmt.setDouble(15, tb.getTrSold());
+				pstmt.setDouble(16, tb.getTrCost());
+				pstmt.setDouble(17, tb.getTrDiscount());
+				pstmt.setDouble(18, tb.getPreDeposit());
+				pstmt.setDouble(19, tb.getThisDeposit());
 				pstmt.setDouble(20, tb.getVisa());
 				pstmt.setDouble(21, tb.getCash());
 				pstmt.setString(22, tb.getSales());
 				pstmt.setString(23, tb.getShift());
-				pstmt.setDouble(24, tb.getDisc_atm());
-				pstmt.setString(25, tb.getM_id());
+				pstmt.setDouble(24, tb.getDiscAtm());
+				pstmt.setString(25, tb.getMid());
 				pstmt.setString(26, tb.getIuser());
 				pstmt.setString(27, tb.getIdate());
 				pstmt.setString(28, tb.getItime());
 				pstmt.setString(29, tb.getMuser());
 				pstmt.setString(30, tb.getMdate());
-				pstmt.setString(31, tb.getMtime());;
+				pstmt.setString(31, tb.getMtime());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 修改" + tb.getCo_sqe());
+				System.out.println("成功 修改" + tb.getCoSqe());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 修改" + tb.getCo_sqe());
+				System.out.println("失敗 修改" + tb.getCoSqe());
 				e.printStackTrace();
-				return "失敗 修改" + tb.getCo_sqe();
+				return "失敗 修改" + tb.getCoSqe();
 			}
 		}
 		
@@ -173,31 +173,31 @@ public class TRDTDAO {
 					
 					while (rs.next()) {
 						TRDTBean tb = new TRDTBean();
-						tb.setCo_sqe(rs.getString(1));
-						tb.setCo_type(rs.getString(2));
-						tb.setCo_role(rs.getString(3));
-						tb.setCo_year(rs.getString(4));
-						tb.setCo_month(rs.getString(5));
-						tb.setMin_role(rs.getString(6));
-						tb.setTr_date(rs.getString(7));
-						tb.setProduct_id(rs.getString(8));
-						tb.setTaste_id(rs.getString(9));
-						tb.setPackage_id(rs.getString(10));
-						tb.setSeq_no(rs.getInt(11));
-						tb.setTr_qty(rs.getInt(12));
-						tb.setTr_list(rs.getDouble(13));
-						tb.setTr_price(rs.getDouble(14));
-						tb.setTr_sold(rs.getDouble(15));
-						tb.setTr_cost(rs.getDouble(16));
-						tb.setTr_discount(rs.getDouble(17));
-						tb.setPre_deposit(rs.getDouble(18));
-						tb.setThis_deposit(rs.getDouble(19));
+						tb.setCoSqe(rs.getString(1));
+						tb.setCoType(rs.getString(2));
+						tb.setCoRole(rs.getString(3));
+						tb.setCoYear(rs.getString(4));
+						tb.setCoMonth(rs.getString(5));
+						tb.setMinRole(rs.getString(6));
+						tb.setTrDate(rs.getString(7));
+						tb.setProductId(rs.getString(8));
+						tb.setTasteId(rs.getString(9));
+						tb.setPackageId(rs.getString(10));
+						tb.setSeqNo(rs.getInt(11));
+						tb.setTrQty(rs.getInt(12));
+						tb.setTrList(rs.getDouble(13));
+						tb.setTrPrice(rs.getDouble(14));
+						tb.setTrSold(rs.getDouble(15));
+						tb.setTrCost(rs.getDouble(16));
+						tb.setTrDiscount(rs.getDouble(17));
+						tb.setPreDeposit(rs.getDouble(18));
+						tb.setThisDeposit(rs.getDouble(19));
 						tb.setVisa(rs.getDouble(20));
 						tb.setCash(rs.getDouble(21));
 						tb.setSales(rs.getString(22));
 						tb.setShift(rs.getString(23));
-						tb.setDisc_atm(rs.getDouble(24));
-						tb.setM_id(rs.getString(25));
+						tb.setDiscAtm(rs.getDouble(24));
+						tb.setMid(rs.getString(25));
 						tb.setIuser(rs.getString(26));
 						tb.setIdate(rs.getString(27));
 						tb.setItime(rs.getString(28));
@@ -228,31 +228,31 @@ public class TRDTDAO {
 
 					while (rs.next()) {
 						TRDTBean tb = new TRDTBean();
-						tb.setCo_sqe(rs.getString(1));
-						tb.setCo_type(rs.getString(2));
-						tb.setCo_role(rs.getString(3));
-						tb.setCo_year(rs.getString(4));
-						tb.setCo_month(rs.getString(5));
-						tb.setMin_role(rs.getString(6));
-						tb.setTr_date(rs.getString(7));
-						tb.setProduct_id(rs.getString(8));
-						tb.setTaste_id(rs.getString(9));
-						tb.setPackage_id(rs.getString(10));
-						tb.setSeq_no(rs.getInt(11));
-						tb.setTr_qty(rs.getInt(12));
-						tb.setTr_list(rs.getDouble(13));
-						tb.setTr_price(rs.getDouble(14));
-						tb.setTr_sold(rs.getDouble(15));
-						tb.setTr_cost(rs.getDouble(16));
-						tb.setTr_discount(rs.getDouble(17));
-						tb.setPre_deposit(rs.getDouble(18));
-						tb.setThis_deposit(rs.getDouble(19));
+						tb.setCoSqe(rs.getString(1));
+						tb.setCoType(rs.getString(2));
+						tb.setCoRole(rs.getString(3));
+						tb.setCoYear(rs.getString(4));
+						tb.setCoMonth(rs.getString(5));
+						tb.setMinRole(rs.getString(6));
+						tb.setTrDate(rs.getString(7));
+						tb.setProductId(rs.getString(8));
+						tb.setTasteId(rs.getString(9));
+						tb.setPackageId(rs.getString(10));
+						tb.setSeqNo(rs.getInt(11));
+						tb.setTrQty(rs.getInt(12));
+						tb.setTrList(rs.getDouble(13));
+						tb.setTrPrice(rs.getDouble(14));
+						tb.setTrSold(rs.getDouble(15));
+						tb.setTrCost(rs.getDouble(16));
+						tb.setTrDiscount(rs.getDouble(17));
+						tb.setPreDeposit(rs.getDouble(18));
+						tb.setThisDeposit(rs.getDouble(19));
 						tb.setVisa(rs.getDouble(20));
 						tb.setCash(rs.getDouble(21));
 						tb.setSales(rs.getString(22));
 						tb.setShift(rs.getString(23));
-						tb.setDisc_atm(rs.getDouble(24));
-						tb.setM_id(rs.getString(25));
+						tb.setDiscAtm(rs.getDouble(24));
+						tb.setMid(rs.getString(25));
 						tb.setIuser(rs.getString(26));
 						tb.setIdate(rs.getString(27));
 						tb.setItime(rs.getString(28));

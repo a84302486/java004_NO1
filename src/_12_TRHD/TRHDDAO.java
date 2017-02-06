@@ -41,28 +41,28 @@ public class TRHDDAO {
 				PreparedStatement pstmt	= con.prepareStatement(sql);
 				){				
 			
-				pstmt.setString(1, tb.getCo_seq());
-				pstmt.setString(2, tb.getCo_type());
-				pstmt.setString(3, tb.getCo_role());
-				pstmt.setString(4, tb.getCo_year());
-				pstmt.setString(5, tb.getCo_month());
-				pstmt.setString(6, tb.getMin_role());
-				pstmt.setString(7, tb.getTr_date());
-				pstmt.setDouble(8, tb.getSeq_no());
-				pstmt.setDouble(9, tb.getTo_list());
-				pstmt.setDouble(10, tb.getTo_price());
-				pstmt.setDouble(11, tb.getTo_sold());
-				pstmt.setDouble(12, tb.getTo_cost());
-				pstmt.setDouble(13, tb.getTo_disc());
+				pstmt.setString(1, tb.getCoSeq());
+				pstmt.setString(2, tb.getCoType());
+				pstmt.setString(3, tb.getCoRole());
+				pstmt.setString(4, tb.getCoYear());
+				pstmt.setString(5, tb.getCoMonth());
+				pstmt.setString(6, tb.getMinRole());
+				pstmt.setString(7, tb.getTrDate());
+				pstmt.setDouble(8, tb.getSeqNo());
+				pstmt.setDouble(9, tb.getToList());
+				pstmt.setDouble(10, tb.getToPrice());
+				pstmt.setDouble(11, tb.getToSold());
+				pstmt.setDouble(12, tb.getToCost());
+				pstmt.setDouble(13, tb.getToDisc());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 新增" + tb.getCo_seq());
+				System.out.println("成功 新增" + tb.getCoSeq());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 新增" + tb.getCo_seq());
+				System.out.println("失敗 新增" + tb.getCoSeq());
 				e.printStackTrace();
-				return "失敗 新增" + tb.getCo_seq();
+				return "失敗 新增" + tb.getCoSeq();
 			}	
 		}
 		
@@ -95,28 +95,28 @@ public class TRHDDAO {
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);){				
 			
-				pstmt.setString(1, tb.getCo_seq());
-				pstmt.setString(2, tb.getCo_type());
-				pstmt.setString(3, tb.getCo_role());
-				pstmt.setString(4, tb.getCo_year());
-				pstmt.setString(5, tb.getCo_month());
-				pstmt.setString(6, tb.getMin_role());
-				pstmt.setString(7, tb.getTr_date());
-				pstmt.setDouble(8, tb.getSeq_no());
-				pstmt.setDouble(9, tb.getTo_list());
-				pstmt.setDouble(10, tb.getTo_price());
-				pstmt.setDouble(11, tb.getTo_sold());
-				pstmt.setDouble(12, tb.getTo_cost());
-				pstmt.setDouble(13, tb.getTo_disc());
+				pstmt.setString(1, tb.getCoSeq());
+				pstmt.setString(2, tb.getCoType());
+				pstmt.setString(3, tb.getCoRole());
+				pstmt.setString(4, tb.getCoYear());
+				pstmt.setString(5, tb.getCoMonth());
+				pstmt.setString(6, tb.getMinRole());
+				pstmt.setString(7, tb.getTrDate());
+				pstmt.setDouble(8, tb.getSeqNo());
+				pstmt.setDouble(9, tb.getToList());
+				pstmt.setDouble(10, tb.getToPrice());
+				pstmt.setDouble(11, tb.getToSold());
+				pstmt.setDouble(12, tb.getToCost());
+				pstmt.setDouble(13, tb.getToDisc());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 修改" + tb.getCo_seq());
+				System.out.println("成功 修改" + tb.getCoSeq());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 修改" + tb.getCo_seq());
+				System.out.println("失敗 修改" + tb.getCoSeq());
 				e.printStackTrace();
-				return "失敗 修改" + tb.getCo_seq();
+				return "失敗 修改" + tb.getCoSeq();
 			}
 		}
 		
@@ -135,19 +135,19 @@ public class TRHDDAO {
 					
 					while (rs.next()) {
 						TRHDBean tb = new TRHDBean();
-						tb.setCo_seq(rs.getString(1));
-						tb.setCo_type(rs.getString(2));
-						tb.setCo_role(rs.getString(3));
-						tb.setCo_year(rs.getString(4));
-						tb.setCo_month(rs.getString(5));
-						tb.setMin_role(rs.getString(6));
-						tb.setTr_date(rs.getString(7));
-						tb.setSeq_no(rs.getInt(8));
-						tb.setTo_qty(rs.getInt(9));
-						tb.setTo_list(rs.getDouble(10));
-						tb.setTo_price(rs.getInt(11));
-						tb.setTo_sold(rs.getInt(12));
-						tb.setTo_cost(rs.getDouble(13));
+						tb.setCoSeq(rs.getString(1));
+						tb.setCoType(rs.getString(2));
+						tb.setCoRole(rs.getString(3));
+						tb.setCoYear(rs.getString(4));
+						tb.setCoMonth(rs.getString(5));
+						tb.setMinRole(rs.getString(6));
+						tb.setTrDate(rs.getString(7));
+						tb.setSeqNo(rs.getInt(8));
+						tb.setToQty(rs.getInt(9));
+						tb.setToList(rs.getDouble(10));
+						tb.setToPrice(rs.getInt(11));
+						tb.setToSold(rs.getInt(12));
+						tb.setToCost(rs.getDouble(13));
 						coll.add(tb);
 					}
 					System.out.println("序號查詢資料");
@@ -172,19 +172,19 @@ public class TRHDDAO {
 
 					while (rs.next()) {
 						TRHDBean tb = new TRHDBean();
-						tb.setCo_seq(rs.getString(1));
-						tb.setCo_type(rs.getString(2));
-						tb.setCo_role(rs.getString(3));
-						tb.setCo_year(rs.getString(4));
-						tb.setCo_month(rs.getString(5));
-						tb.setMin_role(rs.getString(6));
-						tb.setTr_date(rs.getString(7));
-						tb.setSeq_no(rs.getInt(8));
-						tb.setTo_qty(rs.getInt(9));
-						tb.setTo_list(rs.getDouble(10));
-						tb.setTo_price(rs.getInt(11));
-						tb.setTo_sold(rs.getInt(12));
-						tb.setTo_cost(rs.getDouble(13));
+						tb.setCoSeq(rs.getString(1));
+						tb.setCoType(rs.getString(2));
+						tb.setCoRole(rs.getString(3));
+						tb.setCoYear(rs.getString(4));
+						tb.setCoMonth(rs.getString(5));
+						tb.setMinRole(rs.getString(6));
+						tb.setTrDate(rs.getString(7));
+						tb.setSeqNo(rs.getInt(8));
+						tb.setToQty(rs.getInt(9));
+						tb.setToList(rs.getDouble(10));
+						tb.setToPrice(rs.getInt(11));
+						tb.setToSold(rs.getInt(12));
+						tb.setToCost(rs.getDouble(13));
 						coll.add(tb);
 					}
 					System.out.println("記錄 查詢all");

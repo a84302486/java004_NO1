@@ -3,34 +3,37 @@ package _03_Package;
 import java.io.Serializable;
 
 public class PackageBean implements Serializable {
-	private String package_id;
-	private String package_name;
+	private String packageId;
+	private String packageName;
 	
 	public PackageBean(){
 		
 	}
 
-	public PackageBean(String package_id, String package_name) {
+	public PackageBean(String packageId, String packageName) {
 		super();
-		this.package_id = package_id;
-		this.package_name = package_name;
+		this.packageId = packageId;
+		this.packageName = packageName;
 	}
 
-	public String getPackage_id() {
-		return package_id;
+	public String getPackageId() {
+		return packageId;
 	}
 
-	public void setPackage_id(String package_id) {
-		this.package_id = package_id;
+	public void setPackageId(String packageId) {
+		this.packageId = packageId;
 	}
 
-	public String getPackage_name() {
-		return package_name;
+	public String getPackageName() {
+		return packageName;
 	}
 
-	public void setPackage_name(String package_name) {
-		this.package_name = package_name;
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
 	}
+	
+	
+
 	
 }
 	

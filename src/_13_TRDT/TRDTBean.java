@@ -3,31 +3,31 @@ package _13_TRDT;
 import java.io.Serializable;
 
 public class TRDTBean implements Serializable {
-	private String co_sqe;		
-	private String co_type; 		
-	private String co_role; 		
-	private String co_year;			
-	private String co_month;		
-	private String min_role;		
-	private String tr_date;			
-	private String product_id;		
-	private String taste_id;		
-	private String package_id;		
-	private int seq_no;			
-	private int tr_qty;			
-	private double tr_list;			
-	private double tr_price;		
-	private double tr_sold;			
-	private double tr_cost;			
-	private double tr_discount;		
-	private double pre_deposit;		
-	private double this_deposit;	
+	private String coSqe;		
+	private String coType; 		
+	private String coRole; 		
+	private String coYear;			
+	private String coMonth;		
+	private String minRole;		
+	private String trDate;			
+	private String productId;		
+	private String tasteId;		
+	private String packageId;		
+	private int seqNo;			
+	private int trQty;			
+	private double trList;			
+	private double trPrice;		
+	private double trSold;			
+	private double trCost;			
+	private double trDiscount;		
+	private double preDeposit;		
+	private double thisDeposit;	
 	private double visa;			
 	private double cash;			
 	private String sales;			
 	private String shift;			
-	private double disc_atm;		
-	private String m_id;			
+	private double discAtm;		
+	private String mId;			
 	private String iuser;			
 	private String idate;			
 	private String itime;			
@@ -39,37 +39,37 @@ public class TRDTBean implements Serializable {
 		
 	}
 
-	public TRDTBean(String co_sqe, String co_type, String co_role, String co_year, String co_month, String min_role,
-			String tr_date, String product_id, String taste_id, String package_id, int seq_no, int tr_qty,
-			double tr_list, double tr_price, double tr_sold, double tr_cost, double tr_discount, double pre_deposit,
-			double this_deposit, double visa, double cash, String sales, String shift, double disc_atm, String m_id,
-			String iuser, String idate, String itime, String muser, String mdate, String mtime) {
+	public TRDTBean(String coSqe, String coType, String coRole, String coYear, String coMonth, String minRole,
+			String trDate, String productId, String tasteId, String packageId, int seqNo, int trQty, double trList,
+			double trPrice, double trSold, double trCost, double trDiscount, double preDeposit, double thisDeposit,
+			double visa, double cash, String sales, String shift, double discAtm, String mId, String iuser,
+			String idate, String itime, String muser, String mdate, String mtime) {
 		super();
-		this.co_sqe = co_sqe;
-		this.co_type = co_type;
-		this.co_role = co_role;
-		this.co_year = co_year;
-		this.co_month = co_month;
-		this.min_role = min_role;
-		this.tr_date = tr_date;
-		this.product_id = product_id;
-		this.taste_id = taste_id;
-		this.package_id = package_id;
-		this.seq_no = seq_no;
-		this.tr_qty = tr_qty;
-		this.tr_list = tr_list;
-		this.tr_price = tr_price;
-		this.tr_sold = tr_sold;
-		this.tr_cost = tr_cost;
-		this.tr_discount = tr_discount;
-		this.pre_deposit = pre_deposit;
-		this.this_deposit = this_deposit;
+		this.coSqe = coSqe;
+		this.coType = coType;
+		this.coRole = coRole;
+		this.coYear = coYear;
+		this.coMonth = coMonth;
+		this.minRole = minRole;
+		this.trDate = trDate;
+		this.productId = productId;
+		this.tasteId = tasteId;
+		this.packageId = packageId;
+		this.seqNo = seqNo;
+		this.trQty = trQty;
+		this.trList = trList;
+		this.trPrice = trPrice;
+		this.trSold = trSold;
+		this.trCost = trCost;
+		this.trDiscount = trDiscount;
+		this.preDeposit = preDeposit;
+		this.thisDeposit = thisDeposit;
 		this.visa = visa;
 		this.cash = cash;
 		this.sales = sales;
 		this.shift = shift;
-		this.disc_atm = disc_atm;
-		this.m_id = m_id;
+		this.discAtm = discAtm;
+		this.mId = mId;
 		this.iuser = iuser;
 		this.idate = idate;
 		this.itime = itime;
@@ -78,156 +78,156 @@ public class TRDTBean implements Serializable {
 		this.mtime = mtime;
 	}
 
-	public String getCo_sqe() {
-		return co_sqe;
+	public String getCoSqe() {
+		return coSqe;
 	}
 
-	public void setCo_sqe(String co_sqe) {
-		this.co_sqe = co_sqe;
+	public void setCoSqe(String coSqe) {
+		this.coSqe = coSqe;
 	}
 
-	public String getCo_type() {
-		return co_type;
+	public String getCoType() {
+		return coType;
 	}
 
-	public void setCo_type(String co_type) {
-		this.co_type = co_type;
+	public void setCoType(String coType) {
+		this.coType = coType;
 	}
 
-	public String getCo_role() {
-		return co_role;
+	public String getCoRole() {
+		return coRole;
 	}
 
-	public void setCo_role(String co_role) {
-		this.co_role = co_role;
+	public void setCoRole(String coRole) {
+		this.coRole = coRole;
 	}
 
-	public String getCo_year() {
-		return co_year;
+	public String getCoYear() {
+		return coYear;
 	}
 
-	public void setCo_year(String co_year) {
-		this.co_year = co_year;
+	public void setCoYear(String coYear) {
+		this.coYear = coYear;
 	}
 
-	public String getCo_month() {
-		return co_month;
+	public String getCoMonth() {
+		return coMonth;
 	}
 
-	public void setCo_month(String co_month) {
-		this.co_month = co_month;
+	public void setCoMonth(String coMonth) {
+		this.coMonth = coMonth;
 	}
 
-	public String getMin_role() {
-		return min_role;
+	public String getMinRole() {
+		return minRole;
 	}
 
-	public void setMin_role(String min_role) {
-		this.min_role = min_role;
+	public void setMinRole(String minRole) {
+		this.minRole = minRole;
 	}
 
-	public String getTr_date() {
-		return tr_date;
+	public String getTrDate() {
+		return trDate;
 	}
 
-	public void setTr_date(String tr_date) {
-		this.tr_date = tr_date;
+	public void setTrDate(String trDate) {
+		this.trDate = trDate;
 	}
 
-	public String getProduct_id() {
-		return product_id;
+	public String getProductId() {
+		return productId;
 	}
 
-	public void setProduct_id(String product_id) {
-		this.product_id = product_id;
+	public void setProductId(String productId) {
+		this.productId = productId;
 	}
 
-	public String getTaste_id() {
-		return taste_id;
+	public String getTasteId() {
+		return tasteId;
 	}
 
-	public void setTaste_id(String taste_id) {
-		this.taste_id = taste_id;
+	public void setTasteId(String tasteId) {
+		this.tasteId = tasteId;
 	}
 
-	public String getPackage_id() {
-		return package_id;
+	public String getPackageId() {
+		return packageId;
 	}
 
-	public void setPackage_id(String package_id) {
-		this.package_id = package_id;
+	public void setPackageId(String packageId) {
+		this.packageId = packageId;
 	}
 
-	public int getSeq_no() {
-		return seq_no;
+	public int getSeqNo() {
+		return seqNo;
 	}
 
-	public void setSeq_no(int seq_no) {
-		this.seq_no = seq_no;
+	public void setSeqNo(int seqNo) {
+		this.seqNo = seqNo;
 	}
 
-	public int getTr_qty() {
-		return tr_qty;
+	public int getTrQty() {
+		return trQty;
 	}
 
-	public void setTr_qty(int tr_qty) {
-		this.tr_qty = tr_qty;
+	public void setTrQty(int trQty) {
+		this.trQty = trQty;
 	}
 
-	public double getTr_list() {
-		return tr_list;
+	public double getTrList() {
+		return trList;
 	}
 
-	public void setTr_list(double tr_list) {
-		this.tr_list = tr_list;
+	public void setTrList(double trList) {
+		this.trList = trList;
 	}
 
-	public double getTr_price() {
-		return tr_price;
+	public double getTrPrice() {
+		return trPrice;
 	}
 
-	public void setTr_price(double tr_price) {
-		this.tr_price = tr_price;
+	public void setTrPrice(double trPrice) {
+		this.trPrice = trPrice;
 	}
 
-	public double getTr_sold() {
-		return tr_sold;
+	public double getTrSold() {
+		return trSold;
 	}
 
-	public void setTr_sold(double tr_sold) {
-		this.tr_sold = tr_sold;
+	public void setTrSold(double trSold) {
+		this.trSold = trSold;
 	}
 
-	public double getTr_cost() {
-		return tr_cost;
+	public double getTrCost() {
+		return trCost;
 	}
 
-	public void setTr_cost(double tr_cost) {
-		this.tr_cost = tr_cost;
+	public void setTrCost(double trCost) {
+		this.trCost = trCost;
 	}
 
-	public double getTr_discount() {
-		return tr_discount;
+	public double getTrDiscount() {
+		return trDiscount;
 	}
 
-	public void setTr_discount(double tr_discount) {
-		this.tr_discount = tr_discount;
+	public void setTrDiscount(double trDiscount) {
+		this.trDiscount = trDiscount;
 	}
 
-	public double getPre_deposit() {
-		return pre_deposit;
+	public double getPreDeposit() {
+		return preDeposit;
 	}
 
-	public void setPre_deposit(double pre_deposit) {
-		this.pre_deposit = pre_deposit;
+	public void setPreDeposit(double preDeposit) {
+		this.preDeposit = preDeposit;
 	}
 
-	public double getThis_deposit() {
-		return this_deposit;
+	public double getThisDeposit() {
+		return thisDeposit;
 	}
 
-	public void setThis_deposit(double this_deposit) {
-		this.this_deposit = this_deposit;
+	public void setThisDeposit(double thisDeposit) {
+		this.thisDeposit = thisDeposit;
 	}
 
 	public double getVisa() {
@@ -262,20 +262,20 @@ public class TRDTBean implements Serializable {
 		this.shift = shift;
 	}
 
-	public double getDisc_atm() {
-		return disc_atm;
+	public double getDiscAtm() {
+		return discAtm;
 	}
 
-	public void setDisc_atm(double disc_atm) {
-		this.disc_atm = disc_atm;
+	public void setDiscAtm(double discAtm) {
+		this.discAtm = discAtm;
 	}
 
-	public String getM_id() {
-		return m_id;
+	public String getMid() {
+		return mId;
 	}
 
-	public void setM_id(String m_id) {
-		this.m_id = m_id;
+	public void setMid(String mId) {
+		this.mId = mId;
 	}
 
 	public String getIuser() {
@@ -325,5 +325,6 @@ public class TRDTBean implements Serializable {
 	public void setMtime(String mtime) {
 		this.mtime = mtime;
 	}
+
 	
 }

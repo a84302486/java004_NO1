@@ -40,22 +40,22 @@ public class ProductDAO {
 				PreparedStatement pstmt	= con.prepareStatement(sql);
 				){				
 			
-				pstmt.setString(1, pb.getProduct_id());
-				pstmt.setInt(2, pb.getP_g_price());
+				pstmt.setString(1, pb.getProductId());
+				pstmt.setInt(2, pb.getPgPrice());
 				pstmt.setString(3, pb.getName());
-				pstmt.setDouble(4, pb.getAvg_cost());
-				pstmt.setString(5, pb.getO_place());
-				pstmt.setInt(6,  pb.getS_life());
-				pstmt.setString(7, pb.getSuppier_id());		
+				pstmt.setDouble(4, pb.getAvgCost());
+				pstmt.setString(5, pb.getOPlace());
+				pstmt.setInt(6,  pb.getSLife());
+				pstmt.setString(7, pb.getSuppierId());		
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 新增" + pb.getProduct_id());
+				System.out.println("成功 新增" + pb.getProductId());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 新增" + pb.getProduct_id());
+				System.out.println("失敗 新增" + pb.getProductId());
 				e.printStackTrace();
-				return "失敗 新增" + pb.getProduct_id();
+				return "失敗 新增" + pb.getProductId();
 			}	
 		}
 		
@@ -90,22 +90,22 @@ public class ProductDAO {
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);){				
 			
-				pstmt.setString(1, pb.getProduct_id());
-				pstmt.setInt(2, pb.getP_g_price());
+				pstmt.setString(1, pb.getProductId());
+				pstmt.setInt(2, pb.getPgPrice());
 				pstmt.setString(3, pb.getName());
-				pstmt.setDouble(4, pb.getAvg_cost());
-				pstmt.setString(5, pb.getO_place());
-				pstmt.setInt(6, pb.getS_life());
-				pstmt.setString(7, pb.getSuppier_id());		
+				pstmt.setDouble(4, pb.getAvgCost());
+				pstmt.setString(5, pb.getOPlace());
+				pstmt.setInt(6,  pb.getSLife());
+				pstmt.setString(7, pb.getSuppierId());		
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 修改" + pb.getProduct_id());
+				System.out.println("成功 修改" + pb.getProductId());
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 修改" + pb.getProduct_id());
+				System.out.println("失敗 修改" + pb.getProductId());
 				e.printStackTrace();
-				return "失敗 修改" + pb.getProduct_id();
+				return "失敗 修改" + pb.getProductId();
 			}
 		}
 		
@@ -149,14 +149,13 @@ public class ProductDAO {
 					
 					while (rs.next()) {
 						ProductBean pb = new ProductBean();
-						pb.setProduct_id(rs.getString(1));
-						pb.setP_g_price(rs.getInt(2));
+						pb.setProductId(rs.getString(1));
+						pb.setPgPrice(rs.getInt(2));
 						pb.setName(rs.getString(3));
-						pb.setAvg_cost(rs.getDouble(4));
-						pb.setO_place(rs.getString(5));
-						pb.setS_life(rs.getInt(6));
-						pb.setSuppier_id(rs.getString(7));
-		
+						pb.setAvgCost(rs.getDouble(4));
+						pb.setOPlace(rs.getString(5));
+						pb.setSLife(rs.getInt(6));
+						pb.setSuppierId(rs.getString(7));
 						coll.add(pb);
 					}
 					System.out.println("序號查詢資料");
@@ -182,14 +181,13 @@ public class ProductDAO {
 
 					while (rs.next()) {
 						ProductBean pb = new ProductBean();
-						pb.setProduct_id(rs.getString(1));
-						pb.setP_g_price(rs.getInt(2));
+						pb.setProductId(rs.getString(1));
+						pb.setPgPrice(rs.getInt(2));
 						pb.setName(rs.getString(3));
-						pb.setAvg_cost(rs.getDouble(4));
-						pb.setO_place(rs.getString(5));
-						pb.setS_life(rs.getInt(6));
-						pb.setSuppier_id(rs.getString(7));
-		
+						pb.setAvgCost(rs.getDouble(4));
+						pb.setOPlace(rs.getString(5));
+						pb.setSLife(rs.getInt(6));
+						pb.setSuppierId(rs.getString(7));
 						coll.add(pb);
 					}
 					System.out.println("記錄 查詢all");
