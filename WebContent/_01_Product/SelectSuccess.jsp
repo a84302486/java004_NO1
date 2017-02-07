@@ -11,7 +11,8 @@
 <title>產品</title>
 </head>
 <body>
-	<H1>產品查詢成功</h1>
+	<H1>產品列表查詢</h1>
+
 	<table
 		style="border: 3px; height: 10%; width: 100%; background-color: rgb(255, 255, 255); table-layout: fixed;"
 		align="Center" cellpadding="5" cellspacing="5">
@@ -28,6 +29,7 @@
 		</TR>
 		<tr>
 		</tr>
+
 		</tbody>
 	</TABLE>
 	

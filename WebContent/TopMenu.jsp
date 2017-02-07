@@ -1,24 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<%
+<%-- 	
     
-    String username = (String) session.getAttribute("username");
-    if(username == null) {
-        response.setHeader("Refresh", "0; " + "http://localhost:8080/java004/_00_Login/Home.jsp");
-        return;
+     String username = (String) session.getAttribute("username");
+     if(username == null) {
+         response.setHeader("Refresh", "0; " + "http://localhost:8080/java004/_00_Login/Home.jsp");
+         return;
     }
-    else {
+     else {
         // 立即登出
-        session.invalidate();
-    }
-	%>
+         session.invalidate();
+   }
+--%>
 	<table style="border: 5px double rgb(109, 2, 107); height: 150px; background-color: rgb(255, 255, 255); width: 400px;" align="left" cellpadding="5" cellspacing="5" frame="border" rules="all">
 
 		<tbody>
@@ -53,6 +52,7 @@
 			</td>
 		</tr>
 		</tbody>
+
 	</table>
 </body>
 </html>

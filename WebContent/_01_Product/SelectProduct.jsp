@@ -12,7 +12,7 @@
 <H1>產品查詢</H1>
   
 <HR>
-<Form Action="SelectFindAll.do" method="POST">
+<Form Action="_01_Product/SelectFindAll.do" method="POST">
 <Table>
 		
          <TR>

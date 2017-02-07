@@ -1,0 +1,21 @@
+        header, section, aside, footer {
+           /* margin-inside: 10px;*/
+            background-color: white;
+            border: solid 1px #000;
+        }
+        button{
+        	width: 50px;
+        	height: 50px;
+        }
+        nav{
+        	height:60px; 
+        }
+        #price{
+        	height: 100px;
+        }
+        #connect{
+        	height: 400px;
+        }
+        footer{
+        	height: 100px;
+        }

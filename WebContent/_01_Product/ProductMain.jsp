@@ -9,7 +9,7 @@
 <body>
 	<a href="InsertProduct.jsp">新增資料</a><br>
 	<a href="SelectProduct.jsp">查詢資料</a><br>
-	<a href="UpdateProduct.jsp">新增資料</a><br>
+	<a href="UpdateProduct.jsp">更新資料</a><br>
 	<a href="DeleteProduct.jsp">刪除資料</a><br>
 </body>
 </html>

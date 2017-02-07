@@ -9,11 +9,8 @@
 </head>
 <body>
 <CENTER>
-<H1>會員查詢</H1>
-  
-<HR>
 
-<Form Action="Select.do" method="POST">
+<Form Action="_14_Member/Select.do" method="POST">
 <Table>
 		<br>
 		<TR>
@@ -21,11 +18,10 @@
              <TD align="LEFT"><input type="text" name="Username" value="helloSnoopy" size="20"></TD>
          </TR>
          <TR>
-            <TD colspan="2" align="center"><br><input type="submit" value="開始查詢"> </TD>
+            <TD colspan="2" align="center"><input type="submit" value="開始查詢"> </TD>
          </TR>
 </Table>
 </Form>
-<HR>
 
 
 </CENTER>
