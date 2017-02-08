@@ -5,27 +5,17 @@
 <head>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css'  type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MVC</title>
 </head>
 <body>
 <CENTER>
-<H1>會員刪除</H1>
-  
-<HR>
 
 <Form Action="Delete.do" method="POST">
-<Table>
-		<TR>
-             <TD align="RIGHT">請輸入要刪除的帳號</TD>
-             <TD align="LEFT"><input type="text" name="Username" value="helloSnoopy" size="20"></TD>
-         </TR>
-         <TR>
-            <TD colspan="2" align="center"><br><input type="submit" value="開始刪除"> </TD>
-         </TR>
-</Table>
-</Form>
-<HR>
 
+          	  輸入帳號刪除:
+             <input type="text" name="Username" value="helloSnoopy" size="20">
+             <input type="submit" value="開始刪除">
+             
+</Form>
 
 </CENTER>
 </body>

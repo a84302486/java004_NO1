@@ -9,9 +9,7 @@
 </head>
 <body>
 <CENTER>
-<H1>加入會員</H1>
-  
-<HR>
+ 
 <Form Action="insert.do" method="POST">
     <Table>
     	 <TR>
@@ -84,7 +82,7 @@
              <TD align="LEFT" > <input type="text" name="UniformNumber" value="0999000999"></TD>
          </TR>                    
          <TR>
-            <TD colspan="2" align="center"> <input type="submit" value="提交"> </TD>
+            <TD colspan="2" align="center"> <input type="submit" value="加入會員"> </TD>
          </TR>
          </Table>
 </Form>

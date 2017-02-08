@@ -10,16 +10,12 @@
 <body>
 <CENTER>
 
-<Form Action="_14_Member/Select.do" method="POST">
-<Table>
-		<TR>
-             <TD align="RIGHT">用帳號查詢</TD>
-             <TD align="LEFT"><input type="text" name="Username" value="helloSnoopy" size="20"></TD>
-         </TR>
-         <TR>
-            <TD colspan="2" align="center"><input type="submit" value="開始查詢"> </TD>
-         </TR>
-</Table>
+<Form Action="Select.do" method="POST">
+
+          	  輸入帳號查詢:
+             <input type="text" name="Username" value="helloSnoopy" size="20">
+             <input type="submit" value="開始查詢">
+             
 </Form>
 
 
