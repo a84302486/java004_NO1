@@ -12,7 +12,6 @@
 
 <Form Action="_14_Member/Select.do" method="POST">
 <Table>
-		<br>
 		<TR>
              <TD align="RIGHT">用帳號查詢</TD>
              <TD align="LEFT"><input type="text" name="Username" value="helloSnoopy" size="20"></TD>

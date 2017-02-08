@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- 	
+<%  	
     
      String username = (String) session.getAttribute("username");
      if(username == null) {
@@ -17,8 +17,8 @@
         // 立即登出
          session.invalidate();
    }
---%>
-	<table style="border: 5px double rgb(109, 2, 107); height: 150px; background-color: rgb(255, 255, 255); width: 400px;" align="left" cellpadding="5" cellspacing="5" frame="border" rules="all">
+%>
+	<table style="border: 5px double rgb(109, 2, 107); height: 150px; background-color: rgb(255, 255, 255); width: 400px;" >
 
 		<tbody>
 		<tr>
