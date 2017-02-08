@@ -37,7 +37,7 @@
 	<button><strong>F3<br>修改</strong></button>
 	<button><strong>F4<br>刪除</strong></button>
 	<button><strong>F5<br>列印</strong></button> -->
-		<nav class="navbar navbar-default">
+		<nav class="container-fuild">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
 					<button>
