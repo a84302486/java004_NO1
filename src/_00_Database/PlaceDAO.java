@@ -22,8 +22,7 @@ import _00_Util.PlaceBean;
 import _00_Util.SystemConstant;
 
 public class PlaceDAO {
-	String dbURL = SystemConstant.URL + "?user=" + SystemConstant.USER + "&password=" + SystemConstant.PASSWORD
-			+ "&useSSL=true&useUnicode=yes&characterEncoding=UTF-8";
+	String dbURL = SystemConstant.URL;
 
 	public PlaceDAO() {
 	}
