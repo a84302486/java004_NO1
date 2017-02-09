@@ -47,6 +47,16 @@
 	</nav>		
 </section>
 <section class="container-fuild" id='resp'></section><p>
+
+<div id='control_Flow'>
+<small>
+
+</small>
+</div>
+
+<section class="container-fuild" id="connect">contact</section>
+
+
 <script>
 	var btnJSP1 = document.getElementById("btnJSP1");
 	var div1 = document.getElementById("resp");
@@ -133,16 +143,29 @@
 		}
 	}
 	
+	var btnJSP5 = document.getElementById("btnJSP1");
+	var div2 = document.getElementById("connect");
+	btnJSP5.onclick = function() {
+		// ajax的同步請求
+		// 步驟一: 新建XMLHttpRequest物件
+		var xhr = new XMLHttpRequest();
+		// 步驟二: 經由AJAX提出HTTP請求
+		if (xhr != null) {
+			xhr.onreadystatechange = function(){
+				// 步驟三: 處理伺服器送回的回應資料
+				if  (xhr.readyState == 4 && xhr.status == 200) {
+					div2.innerHTML = "<h3>" +  xhr.responseText + "</h3>";
+				}
+			}
+			xhr.open('GET', 'SelectMember.jsp', true);
+			xhr.send();
+		} else {
+			div2.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
+		}
+	}  
+	
 	
 </script>
-<div id='control_Flow'>
-<small>
-
-</small>
-</div>
-
-<section class="container-fuild" id="connect">contact</section>
-
 <footer class="container-fuild">footer</footer>
 <script src="../js/bootstrap.min.js"></script>
 </body>
