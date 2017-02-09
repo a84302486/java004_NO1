@@ -35,22 +35,10 @@ public class Select extends HttpServlet {
     		rd.forward(request, response);
     		
     	}else{
-    		
-    		String M_Name = rs.findByPrimaryKey(M_Username);
-        	
-        	System.out.println("帳號: "+M_Username);
-        	System.out.println("姓名: "+M_Name);
-        	
-        	request.setAttribute("M_Username", M_Username);
-        	request.setAttribute("M_Name", M_Name);
-        	
-        	if(M_Name!=null){
-        		RequestDispatcher rd = request.getRequestDispatcher("SelectSuccess.jsp");
-        		rd.forward(request, response);
-        	}else{
-        		RequestDispatcher rd = request.getRequestDispatcher("SelectError.jsp");
-        		rd.forward(request, response);		
-        	}
+    		Collection<MemberBean> coll= rs.findByPrimaryKey(M_Username);
+    		request.setAttribute("memberColl", coll);
+    		RequestDispatcher rd = request.getRequestDispatcher("SelectAll.jsp");
+    		rd.forward(request, response);
     	}
     	   	
     }

@@ -5,7 +5,6 @@
 <head>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css'  type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MVC</title>
 </head>
 <body>
 <CENTER>
@@ -13,8 +12,8 @@
 <Form Action="Select.do" method="POST">
 
           	  輸入帳號查詢:
-             <input type="text" name="Username" value="helloSnoopy" size="20">
-             <input type="submit" value="開始查詢">
+             <input type="text" name="Username" value="helloSnoopy" size="20" placeholder="不輸入搜尋全部" />
+             <input type="submit" value="開始查詢" />
              
 </Form>
 
