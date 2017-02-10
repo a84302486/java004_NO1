@@ -8,8 +8,7 @@
 <link rel="stylesheet" href="../css/test.css">
 <title>work</title>
 </head>
-
-<body>
+<body id="body">
 	<header class="container-fuild">
 		<h4 class="text-center">
 			<strong>Java004</strong>
@@ -18,10 +17,10 @@
 	<section class="container-fuild" id="about">
 		<div class="row">
 
-			<select class="col-md-3">
-				<option>商品資訊</option>
-				<option>會員資料</option>
-
+			<select class="col-md-3" onChange="selectMenu(this)">
+				<option selected>主 選 單</option>
+				<option value="../_14_Member/IndexMember.html">會員資料</option>
+				<option value="../_01_ProductTest/IndexProduct.jsp">商品資訊</option>
 
 			</select> <input type="text" name="TextBox1" value="TextBox1" class="col-md-6">
 			<input type="text" name="time" value="time" class="col-md-3">
@@ -35,23 +34,27 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="nav navbar-nav">
-					<button onclick="ajaxTag1('InsertMember.jsp');ajaxTag2('SelectMember.jsp');">
+					<button
+						onclick="ajaxButtonTag1('InsertMember.jsp');ajaxButtonTag2('Insert.jsp');">
 						<strong>F2<br>新增
 						</strong>
 					</button>
-					<button onclick="ajaxTag1('DeleteMember.jsp');ajaxTag2('SelectMember.jsp');">
+					<button
+						onclick="ajaxButtonTag1('DeleteMember.jsp');ajaxButtonTag2('Delete.jsp');">
 						<strong>F3<br>刪除
 						</strong>
 					</button>
-					<button onclick="ajaxTag1('UpdateMember.jsp');ajaxTag2('SelectMember.jsp');">
+					<button
+						onclick="ajaxButtonTag1('UpdateMember.jsp');ajaxButtonTag2('SelectMember.jsp');">
 						<strong>F4<br>修改
 						</strong>
 					</button>
-					<button onclick="ajaxTag1('SelectMember.jsp');ajaxTag2('SelectMember.jsp');">
+					<button
+						onclick="ajaxButtonTag1('SelectMember.jsp');ajaxButtonTag2('Select.jsp');">
 						<strong>F5<br>查詢
 						</strong>
 					</button>
-		
+
 				</div>
 				<ul class="nav navbar-nav navbar-right">
 
@@ -69,12 +72,45 @@
 	</div>
 
 
+	<footer class="container-fuild">footer</footer>
 
-	<script>			
+	<script src="../js/bootstrap.min.js"></script>
+	
+	<script type="text/JavaScript">
+	
+		function selectMenu(e){
+		window.open(e.options[e.selectedIndex].value);}
+	
+	</script>
+	
+	<script>
+		var tag0 = document.getElementById("body");
 		var tag1 = document.getElementById("resp");
 		var tag2 = document.getElementById("connect");
 		
-		function ajaxTag1(sendJsp) {
+		function ajaxButtonTag0(sendJsp) {
+			
+			// 步驟一: 新建XMLHttpRequest物件
+			var xhr = new XMLHttpRequest();
+			// 步驟二: 經由AJAX提出HTTP請求
+			if (xhr != null) {
+				xhr.onreadystatechange = function() {
+					// 步驟三: 處理伺服器送回的回應資料
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						tag0.innerHTML = "<h3>" + xhr.responseText
+								+ "</h3>";
+					}
+				}
+				xhr.open('GET', sendJsp, true);
+				xhr.send();
+			} else {
+				tag0.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
+			} 
+		}
+		
+		//-------------------------------------------------------
+		
+		function ajaxButtonTag1(sendJsp) {
 				
 				// 步驟一: 新建XMLHttpRequest物件
 				var xhr = new XMLHttpRequest();
@@ -96,7 +132,7 @@
 		
 		//-------------------------------------------------------
 		
-		function ajaxTag2(sendJsp) {
+		function ajaxButtonTag2(sendJsp) {
 			
 			// 步驟一: 新建XMLHttpRequest物件
 			var xhr = new XMLHttpRequest();
@@ -117,8 +153,6 @@
 		}
 				
 	</script>
-	<footer class="container-fuild">footer</footer>
-
-	<script src="../js/bootstrap.min.js"></script>
+	
 </body>
 </html>
