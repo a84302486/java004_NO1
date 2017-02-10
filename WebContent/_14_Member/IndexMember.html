@@ -1,172 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../css/test.css">
-    <title>work</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../asset/css/bootstrap.min.css">
+<link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../css/test.css">
+<title>work</title>
 </head>
 
 <body>
 	<header class="container-fuild">
-  		<h4 class="text-center"><strong>Java004</strong></h4> 
-</header>
-<section class="container-fuild" id="about">
-	<div class="row">
+		<h4 class="text-center">
+			<strong>Java004</strong>
+		</h4>
+	</header>
+	<section class="container-fuild" id="about">
+		<div class="row">
 
-		<select class="col-md-3">
-		<option>商品資訊</option>
-		<option>會員資料</option>
+			<select class="col-md-3">
+				<option>商品資訊</option>
+				<option>會員資料</option>
+
+
+			</select> <input type="text" name="TextBox1" value="TextBox1" class="col-md-6">
+			<input type="text" name="time" value="time" class="col-md-3">
+		</div>
+	</section>
+
+	<section class="container-fuild" id="services">Tab</section>
+
+	<section class="container-fuild" id="portfolio">
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="nav navbar-nav">
+					<button onclick="ajaxTag1('InsertMember.jsp');ajaxTag2('SelectMember.jsp');">
+						<strong>F2<br>新增
+						</strong>
+					</button>
+					<button onclick="ajaxTag1('DeleteMember.jsp');ajaxTag2('SelectMember.jsp');">
+						<strong>F3<br>刪除
+						</strong>
+					</button>
+					<button onclick="ajaxTag1('UpdateMember.jsp');ajaxTag2('SelectMember.jsp');">
+						<strong>F4<br>修改
+						</strong>
+					</button>
+					<button onclick="ajaxTag1('SelectMember.jsp');ajaxTag2('SelectMember.jsp');">
+						<strong>F5<br>查詢
+						</strong>
+					</button>
 		
+				</div>
+				<ul class="nav navbar-nav navbar-right">
 
-		</select>
-		<input type="text" name="TextBox1" value="TextBox1" class="col-md-6">
-		<input type="text" name="time" value="time" class="col-md-3">
-	</div>
-</section>
-
-<section class="container-fuild" id="services">Tab</section>
-
-<section class="container-fuild" id="portfolio">
-	
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="nav navbar-nav">											
-				<strong><input type='submit' id='btnJSP1' value="F1 新增"></strong>
-				<strong><input type='submit' id='btnJSP2' value="F2 刪除"></strong>
-				<strong><input type='submit' id='btnJSP3' value="F3 修改"></strong> 
-				<strong><input type='submit' id='btnJSP4' value="F4 查詢"></strong>  				
-			
+				</ul>
 			</div>
-			<ul class="nav navbar-nav navbar-right">
+		</nav>
+	</section>
+
+	<section class="container-fuild" id='resp'></section>
+
+	<section class="container-fuild" id="connect">contact</section>
+
+	<div id='control_Flow'>
+		<small> </small>
+	</div>
+
+
+
+	<script>			
+		var tag1 = document.getElementById("resp");
+		var tag2 = document.getElementById("connect");
+		
+		function ajaxTag1(sendJsp) {
 				
-			</ul>
-	  	</div>
-	</nav>		
-</section>
-<section class="container-fuild" id='resp'></section><p>
-
-<div id='control_Flow'>
-<small>
-
-</small>
-</div>
-
-<section class="container-fuild" id="connect">contact</section>
-
-
-<script>
-	var btnJSP1 = document.getElementById("btnJSP1");
-	var div1 = document.getElementById("resp");
-	btnJSP1.onclick = function() {
-		// ajax的同步請求
-		// 步驟一: 新建XMLHttpRequest物件
-		var xhr = new XMLHttpRequest();
-		// 步驟二: 經由AJAX提出HTTP請求
-		if (xhr != null) {
-			xhr.onreadystatechange = function(){
-				// 步驟三: 處理伺服器送回的回應資料
-				if  (xhr.readyState == 4 && xhr.status == 200) {
-					div1.innerHTML = "<h3>" +  xhr.responseText + "</h3>";
-				}
+				// 步驟一: 新建XMLHttpRequest物件
+				var xhr = new XMLHttpRequest();
+				// 步驟二: 經由AJAX提出HTTP請求
+				if (xhr != null) {
+					xhr.onreadystatechange = function() {
+						// 步驟三: 處理伺服器送回的回應資料
+						if (xhr.readyState == 4 && xhr.status == 200) {
+							tag1.innerHTML = "<h3>" + xhr.responseText
+									+ "</h3>";
+						}
+					}
+					xhr.open('GET', sendJsp, true);
+					xhr.send();
+				} else {
+					tag1.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
+				} 
 			}
-			xhr.open('GET', 'InsertMember.jsp', false);
-			xhr.send();
-		} else {
-			div1.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
-		}
-	}  
-	
-	var btnJSP2 = document.getElementById("btnJSP2");
-	var div1 = document.getElementById("resp");
-	btnJSP2.onclick = function() {
-		// ajax的同步請求
-		// 步驟一: 新建XMLHttpRequest物件
-		var xhr = new XMLHttpRequest();
-		// 步驟二: 經由AJAX提出HTTP請求
-		if (xhr != null) {
-			xhr.onreadystatechange = function(){
-				// 步驟三: 處理伺服器送回的回應資料
-				if  (xhr.readyState == 4 && xhr.status == 200) {
-					div1.innerHTML = "<h3>" +  xhr.responseText + "</h3>";
+		
+		//-------------------------------------------------------
+		
+		function ajaxTag2(sendJsp) {
+			
+			// 步驟一: 新建XMLHttpRequest物件
+			var xhr = new XMLHttpRequest();
+			// 步驟二: 經由AJAX提出HTTP請求
+			if (xhr != null) {
+				xhr.onreadystatechange = function() {
+					// 步驟三: 處理伺服器送回的回應資料
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						tag2.innerHTML = "<h3>" + xhr.responseText
+								+ "</h3>";
+					}
 				}
-			}
-			xhr.open('GET', 'DeleteMember.jsp', true);
-			xhr.send();
-		} else {
-			div1.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
+				xhr.open('GET', sendJsp, true);
+				xhr.send();
+			} else {
+				tag2.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
+			} 
 		}
-	}
-	
-	
-	var btnJSP3 = document.getElementById("btnJSP3");
-	var div1 = document.getElementById("resp");
-	btnJSP3.onclick = function() {
-		// ajax的同步請求
-		// 步驟一: 新建XMLHttpRequest物件
-		var xhr = new XMLHttpRequest();
-		// 步驟二: 經由AJAX提出HTTP請求
-		if (xhr != null) {
-			xhr.onreadystatechange = function(){
-				// 步驟三: 處理伺服器送回的回應資料
-				if  (xhr.readyState == 4 && xhr.status == 200) {
-					div1.innerHTML = "<h3>" +  xhr.responseText + "</h3>";
-				}
-			}
-			xhr.open('GET', 'UpdateMember.jsp', true);
-			xhr.send();
-		} else {
-			div1.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
-		}
-	}
-	
-	var btnJSP4 = document.getElementById("btnJSP4");
-	var div1 = document.getElementById("resp");
-	btnJSP4.onclick = function() {
-		// ajax的同步請求
-		// 步驟一: 新建XMLHttpRequest物件
-		var xhr = new XMLHttpRequest();
-		// 步驟二: 經由AJAX提出HTTP請求
-		if (xhr != null) {
-			xhr.onreadystatechange = function(){
-				// 步驟三: 處理伺服器送回的回應資料
-				if  (xhr.readyState == 4 && xhr.status == 200) {
-					div1.innerHTML = "<h3>" +  xhr.responseText + "</h3>";
-				}
-			}
-			xhr.open('GET', 'SelectMember.jsp', true);
-			xhr.send();
-		} else {
-			div1.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
-		}
-	}
-	
-	var btnJSP5 = document.getElementById("btnJSP1");
-	var div2 = document.getElementById("connect");
-	btnJSP5.onclick = function() {
-		// ajax的同步請求
-		// 步驟一: 新建XMLHttpRequest物件
-		var xhr = new XMLHttpRequest();
-		// 步驟二: 經由AJAX提出HTTP請求
-		if (xhr != null) {
-			xhr.onreadystatechange = function(){
-				// 步驟三: 處理伺服器送回的回應資料
-				if  (xhr.readyState == 4 && xhr.status == 200) {
-					div2.innerHTML = "<h3>" +  xhr.responseText + "</h3>";
-				}
-			}
-			xhr.open('GET', 'SelectMember.jsp', false);
-			xhr.send();
-		} else {
-			div2.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
-		}
-	}  
-	
-	
-</script>
-<footer class="container-fuild">footer</footer>
-<script src="../js/bootstrap.min.js"></script>
+				
+	</script>
+	<footer class="container-fuild">footer</footer>
+
+	<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
