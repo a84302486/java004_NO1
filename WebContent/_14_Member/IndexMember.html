@@ -72,7 +72,7 @@
 					div1.innerHTML = "<h3>" +  xhr.responseText + "</h3>";
 				}
 			}
-			xhr.open('GET', 'InsertMember.jsp', true);
+			xhr.open('GET', 'InsertMember.jsp', false);
 			xhr.send();
 		} else {
 			div1.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
@@ -157,7 +157,7 @@
 					div2.innerHTML = "<h3>" +  xhr.responseText + "</h3>";
 				}
 			}
-			xhr.open('GET', 'SelectMember.jsp', true);
+			xhr.open('GET', 'SelectMember.jsp', false);
 			xhr.send();
 		} else {
 			div2.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
