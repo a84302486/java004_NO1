@@ -13,12 +13,12 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class MemberDAO {
+public class MemberJDBC {
 
 	Context ctx;
 	DataSource ds;
 
-	public MemberDAO() {
+	public MemberJDBC() {
 
 		try {
 			ctx = new InitialContext();
@@ -130,7 +130,7 @@ public class MemberDAO {
 
 	}
 
-	public Collection<MemberBean> findAll() {
+	public Collection<MemberBean> getAllMembers() {
 
 		int n = 0;
 		String sql = "select * from Member;";
@@ -172,8 +172,11 @@ public class MemberDAO {
 		}
 		return null;
 	}
+	public Collection<MemberBean> getAllMembersJSON() {
+		return getAllMembers();
+	}
 	
-	public Collection<MemberBean> findByPrimaryKey(String username) {
+	public Collection<MemberBean> getOneMember(String username) {
 
 		int n = 0;
 		String sql = "select * from Member where M_username = ?;";

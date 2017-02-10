@@ -12,11 +12,12 @@
 <body>
 	<font size="4" color="red" face="Tahoma"> 
 	<CENTER>
-		<Form Action="SelectFindAll.do" method="POST">
+		<Form Action="SelectFindAll2" method="POST">
 			<div>			
 				列出所有產品資料:<input type="submit" value="開始查詢">
 			</div>
 		</Form>
+		
 		<Form Action="SelectFindByPrimaryKey.do" method="POST">
 			<div>
 				用序號查詢:<input type="text" name="productId" value="001" size="20">
