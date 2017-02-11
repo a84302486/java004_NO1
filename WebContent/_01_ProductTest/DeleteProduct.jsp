@@ -10,7 +10,7 @@
 <title>MVC</title>
 </head>
 <body>
-	<font size="4" color="red" face="Tahoma"> 
+	<font size="4" color="#cccc" face="Tahoma"> 
 	<CENTER>
 		<Form Action="Delete.do" method="POST">
 			<div>
