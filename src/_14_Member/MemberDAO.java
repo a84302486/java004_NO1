@@ -20,12 +20,9 @@ public class MemberDAO {
 	
 	Context ctx;
 	DataSource ds;
-	
 
-	
 	public MemberDAO(){
-
-		
+	
 		try {
 			ctx = new InitialContext();
 		} catch (NamingException e1) {
@@ -39,7 +36,7 @@ public class MemberDAO {
 		}
 	}
 	
-	synchronized public String insert(MemberBean mem){
+	synchronized public String insert(UserBean mem){
 	
 		int n =0;
 		String sql = "INSERT INTO Member "
@@ -100,7 +97,7 @@ public class MemberDAO {
 			return n;
 		}
 	}
-	synchronized public String update(MemberBean mem){
+	synchronized public String update(UserBean mem){
 		
 		int n =0;
 		String sql = "UPDATE Member SET "
@@ -170,18 +167,18 @@ public class MemberDAO {
 	}
 	
 	
-	public Collection<MemberBean> findAll() {
+	public Collection<UserBean> findAll() {
 
 		int n = 0;
 		String sql = "select * from Member;";
 
-		Collection<MemberBean> coll = new ArrayList<>();
+		Collection<UserBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			try (ResultSet rs = pstmt.executeQuery();) {
 
 				while (rs.next()) {
-					MemberBean pb = new MemberBean();
+					UserBean pb = new UserBean();
 					pb.setM_ID(rs.getString(1));
 					pb.setM_Username(rs.getString(2));
 					pb.setM_Password(rs.getString(3));

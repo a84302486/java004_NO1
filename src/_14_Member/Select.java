@@ -29,7 +29,7 @@ public class Select extends HttpServlet {
     	
     	if(M_Username == null || M_Username.trim().length() == 0){
     		
-    		Collection<MemberBean> coll = rs.findAll(); 		
+    		Collection<UserBean> coll = rs.findAll(); 		
     		request.setAttribute("memberColl", coll);
     		RequestDispatcher rd = request.getRequestDispatcher("SelectAll.jsp");
     		rd.forward(request, response);
