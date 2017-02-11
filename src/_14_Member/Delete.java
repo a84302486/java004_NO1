@@ -21,7 +21,7 @@ public class Delete extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	
-    	MemberJDBC rs = new MemberJDBC();
+    	MemberDAO rs = new MemberDAO();
     	String M_Username = request.getParameter("Username");
     	int success = rs.delete(M_Username);
     	System.out.println("刪除帳號: "+M_Username);
