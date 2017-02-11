@@ -78,7 +78,7 @@ public class Insert extends HttpServlet {
 
 		String insertError = null;
 		try {
-			MemberBean mem = new MemberBean(id, username, password, name, nick, sex, birthday, eMail, phone, cellPhone,
+			UserBean mem = new UserBean(id, username, password, name, nick, sex, birthday, eMail, phone, cellPhone,
 					address, line, faceBook, identityCard, invoice, uniformNumber, joinDate,0,0,0);
 			insertError = new MemberDAO().insert(mem);
 		} catch (Exception e) {

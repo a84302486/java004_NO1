@@ -280,6 +280,15 @@ CREATE TABLE Member(
 	
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+CREATE TABLE User(
+	userId 			VARCHAR(20) NOT NULL,
+	password		VARCHAR(20) NOT NULL,
+	name 			VARCHAR(20) NOT NULL,
+	grade			VARCHAR(4) NOT NULL
+	
+	
+)	CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 
 
 

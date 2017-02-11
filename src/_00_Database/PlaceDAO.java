@@ -30,7 +30,7 @@ public class PlaceDAO {
 	public PlaceDAO(String url) {
 	}
 	
-	public void createTables() {
+	public void setCreateTables() {
 		String[] dropStr = readSQLFile("dropPlace.sql");
 		String[] createStr = readSQLFile("CreateTables.sql");	
 		
@@ -68,15 +68,35 @@ public class PlaceDAO {
 			}
 			String[] CreateStatement = sb.toString().trim().split(";");
 			
-//			for(int n=0;n<CreateStatement.length;n++){
-//				CreateStatement[n] +=";";
-//			}
+			for(int n=0;n<CreateStatement.length;n++){
+				CreateStatement[n] +=";";
+			}
 			
 			return CreateStatement;
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
 		return null;
+	}
+	
+	public void setInsertUser() {
+
+		String[] insertStr = readSQLFile("InsertUser.sql");
+
+		try (Connection con = DriverManager.getConnection(dbURL); Statement stmt = con.createStatement();) {
+
+		
+			for (int n = 0; n < insertStr.length; n++) {
+
+				stmt.executeUpdate(insertStr[n]);
+				System.out.println("第" + (n + 1) + "個User Insert OK");
+
+			}
+			
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
 	}
 	
 	
