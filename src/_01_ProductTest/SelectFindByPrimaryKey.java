@@ -11,9 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_01_ProductTest/SelectFindByPrimaryKey.do")
+@WebServlet("/_01_ProductTest/SelectFindByPrimaryKey")
 public class SelectFindByPrimaryKey extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public void doGet(HttpServletRequest request,HttpServletResponse response)
+            throws IOException, ServletException {
+		doPost(request, response);
+	}
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {
     	

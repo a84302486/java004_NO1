@@ -1,0 +1,54 @@
+
+body {
+  margin: 0;
+  background-color: #ffffc4;
+  font-family: Tahoma;
+}
+
+header, section, aside, footer {
+	/* margin-inside: 10px;*/
+	border: solid 1px #808080;
+}
+
+table {
+	border:solid 1px; 
+	width: 80%;	
+}
+
+nav {
+	height: 60px;
+}
+
+button {
+	width: 50px;
+	height: 50px;
+}
+
+#window{
+	background-color: #6bc9fc;
+	background:-webkit-linear-gradient(Top,#6bc9fc 0%,#ffffff 70%);
+}
+
+#price {
+	height: 100px;
+}
+
+#connect {
+	height: 400px;
+}
+
+footer {
+	height: 100px;
+}
+
+tr:nth-child(odd){
+	background:#e7e7e7;
+}
+tr:nth-child(even){
+	background:#a4cfdf;
+}
+td{
+	font-family: Tahoma;
+	font-size: 20px;
+	border: solid 1px #000000;
+}

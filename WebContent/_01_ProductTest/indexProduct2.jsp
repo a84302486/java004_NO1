@@ -5,20 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/asset/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/test.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/test.css">
 <title>work</title>
 </head>
 <body>
-	<header class="container-fuild">
+	<header class="container-fuild" id="window">
 		<h4 class="text-center">
 			<strong>Window</strong>
 		</h4>
 	</header>
+
 	<section class="container-fuild" id="about">
 		<div class="row">
 			<select class="col-md-3">
@@ -100,6 +98,6 @@
 	</script>
 
 	<footer class="container-fuild">footer</footer>
-	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
 </body>
 </html>
