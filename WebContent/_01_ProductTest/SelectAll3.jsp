@@ -7,44 +7,13 @@
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css' type="text/css" />
 
 <script type="text/JavaScript">
-<<<<<<< HEAD
- window.onload = getQueryData();
- document.getElementById(btn).onclick = getQueryData();
-	 
-	 
-	 
-	 function getQueryData(){ 
-	
-=======
  window.onload = function(){ 
 
->>>>>>> 0fd5acbae8c10ca6b6955ceb8a03824ed9d03317
 	   	var xhr = new XMLHttpRequest();
-	   	xhr.open("GET", "SelectFindAll2", true);
+	   	xhr.open("POST", "SelectFindAll2", true);
 	   	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	   	xhr.send();
 	   	xhr.onreadystatechange = function() {
-<<<<<<< HEAD
-			if (xhr.readyState == 4 && xhr.status == 200) {
-				var content = "<table border='1'; height: 10%; width: 100%;>";
-				var data = JSON.parse(xhr.responseText);
-				for(var i=0; i < data.length; i++){
-					content += "<tr><td>" + data[i].productId + "</td>" + 
-					               "<td>" + data[i].pgPrice + "</td>" +
-					               "<td>" + data[i].name + "</td>" +
-					               "<td>" + data[i].avgCost + "</td>" +					              
-					               "<td>" + data[i].oplace + "</td>" +
-					               "<td>" + data[i].slife + "</td>" +
-					               "<td>" + data[i].suppierId + "</td>";
-					           "</tr>";    
-				}
-				content += "</table>";
-				var divs = document.getElementById("Result");
-				divs.innerHTML = content;
-		}
-	}
-}
-=======
 		// 向伺服器提出的請求已經收到回應
 	        if (xhr.readyState === 4) {
 	        // status: HTTP通訊協定的狀態碼伺服器，
@@ -53,11 +22,14 @@
 	          	// getResponseHeader: 取得回應內容的MIME Type
 	                var type = xhr.getResponseHeader("Content-Type");   
 	                // 判斷回應類型，這裡使用 JSON
+	                
+	                
+	                
 	                 if (type.indexOf("application/json") === 0) {               
 	                      var data = JSON.parse(xhr.responseText);
-	                        if (data.coll) {
+	                        if (data !=null) {
 	                            document.getElementById("Result").innerHTML =
-	                            	"<font color='red'>" + data + '</font> 您好，' + data ;
+	                            	"<font color='red'>" + date ;
 	                        } else {
 	                            document.getElementById("Result").innerHTML = "資料錯誤";
 	                        }
@@ -68,7 +40,6 @@
 	            } 
 	    	}
 };
->>>>>>> 0fd5acbae8c10ca6b6955ceb8a03824ed9d03317
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

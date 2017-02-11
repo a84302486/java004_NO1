@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -168,11 +170,11 @@ public class ProductDAO {
 			return null;
 		}
 		
-		public Collection<ProductBean> findAll() {
+		public List<ProductBean> findAll() {
 
 			String sql = "select * from Product;";
 
-			Collection<ProductBean> coll = new ArrayList<>();
+			List<ProductBean> coll = new ArrayList<>();
 			try (Connection con = ds.getConnection(); 
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
