@@ -2,8 +2,7 @@ package _14_Member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +26,7 @@ public class Select extends HttpServlet {
 		) {
 			MemberJDBC rs = new MemberJDBC();
 			String M_Username = request.getParameter("Username");
-			Collection<MemberBean> coll = null;
+			List<MemberBean> coll = null;
 			
 			if (M_Username == null || M_Username.trim().length() == 0) {
 
@@ -53,7 +52,7 @@ public class Select extends HttpServlet {
 
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doPost(request, response);
 	}

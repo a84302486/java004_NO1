@@ -1,12 +1,12 @@
 ﻿package _14_Member;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -130,12 +130,12 @@ public class MemberJDBC {
 
 	}
 
-	public Collection<MemberBean> getAllMembers() {
+	public List<MemberBean> getAllMembers() {
 
 		int n = 0;
 		String sql = "select * from Member;";
 		
-		Collection<MemberBean> coll = new ArrayList<>();
+		List<MemberBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			try (ResultSet rs = pstmt.executeQuery();) {
@@ -172,16 +172,16 @@ public class MemberJDBC {
 		}
 		return null;
 	}
-	public Collection<MemberBean> getAllMembersJSON() {
+	public List<MemberBean> getAllMembersJSON() {
 		return getAllMembers();
 	}
 	
-	public Collection<MemberBean> getOneMember(String username) {
+	public List<MemberBean> getOneMember(String username) {
 
 		int n = 0;
 		String sql = "select * from Member where M_username = ?;";
 		
-		Collection<MemberBean> coll = new ArrayList<>();
+		List<MemberBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			
 			pstmt.setString(1, username);
