@@ -27,6 +27,11 @@ function ajaxButtonTag(sendJsp, tag) {
 //-------------------------------------------------------
 
 function getQueryData(servelet) {
+//	var usernameID = document.getElementById("Username");
+//	var username = usernameID.value;
+//	if(usernameID!=null){
+//		alert(username);
+//	}
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", servelet, true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

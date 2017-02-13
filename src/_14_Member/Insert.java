@@ -91,14 +91,10 @@ public class Insert extends HttpServlet {
 
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
 		request.setAttribute("M_Username", username);
-		if (errorMsg.isEmpty()) {
-			RequestDispatcher rd = request.getRequestDispatcher("InsertSuccess.jsp");
+	
+			RequestDispatcher rd = request.getRequestDispatcher("InsertMember.jsp");
 			rd.forward(request, response);
-			return;
-		} else {
-			RequestDispatcher rd = request.getRequestDispatcher("InsertError.jsp");
-			rd.forward(request, response);
-			return;
-		}
+		
+		
 	}
 }

@@ -35,22 +35,25 @@
 			<div class="container-fluid">
 				<div class="nav navbar-nav">
 					<button
-						onclick="ajaxButtonTag('InsertMember.jsp','resp');ajaxButtonTag('Select.jsp','result');">
+						onclick="ajaxButtonTag('InsertMember.jsp','resp');getQueryData('Select');">
 						<strong>F2 新增
 						</strong>
 					</button>
 					<button
-						onclick="ajaxButtonTag('DeleteMember.jsp','resp');ajaxButtonTag('Select.jsp','result');">
+						onclick="ajaxButtonTag('DeleteMember.jsp','resp');getQueryData('Select');">
 						<strong>F3 刪除
 						</strong>
 					</button>
 					<button
-						onclick="ajaxButtonTag('UpdateMember.jsp','resp');ajaxButtonTag('Select.jsp','result');">
+						onclick="ajaxButtonTag('UpdateMember.jsp','resp');getQueryData('Select');">
 						<strong>F4 修改
 						</strong>
 					</button>
 					<button
-						onclick="ajaxButtonTag('SelectMember.jsp','resp');ajaxButtonTag('Select.jsp','result');">
+
+						onclick="ajaxButtonTag('SelectMember.jsp','resp');getQueryData('Select');">
+
+					
 						<strong>F5 查詢
 						</strong>
 					</button>
@@ -65,7 +68,7 @@
 
 	<section class="container-fuild" id='resp'></section>
 
-	<section class="container-fuild" id="result">contact</section>
+	<section class="container-fuild" id="result">contact</section> -->
 
 	<div id='control_Flow'>
 		<small> </small>
