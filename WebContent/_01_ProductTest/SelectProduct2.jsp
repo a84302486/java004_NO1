@@ -15,6 +15,7 @@
 	   	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	   	xhr.send();
 		}
+	 
 </script>
 
 <title>MVC</title>
@@ -29,7 +30,7 @@
 			
 		<Form  >
 			<div>
-				用序號查詢:<input type="text" name="productId" value="001" size="20" >
+				用序號查詢:<input type="text" name="productId"  size="20" placeholder="不輸入將搜尋全部">
 				<input type="submit" value="開始查詢" onclick="getQueryAction('SelectFindByPrimaryKey');">
 			</div>			
 		</Form>

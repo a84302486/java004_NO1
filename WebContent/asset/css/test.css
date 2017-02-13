@@ -13,6 +13,8 @@ header, section, aside, footer {
 table {
 	border:solid 1px; 
 	width: 80%;	
+	margin-left:30px;
+	text-align:center;
 }
 
 nav {

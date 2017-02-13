@@ -53,7 +53,7 @@
 						</strong>
 					</button>
 					<button
-						onclick="ajaxButtonTag1('SelectMember.jsp');ajaxButtonTag2('Select.jsp');">
+						onclick="ajaxButtonTag1('SelectMember.jsp');ajaxButtonTag2('SelectAll');">
 						<strong>F5 查詢
 						</strong>
 					</button>

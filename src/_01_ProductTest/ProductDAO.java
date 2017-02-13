@@ -170,11 +170,11 @@ public class ProductDAO {
 			return null;
 		}
 		
-		public List<ProductBean> findAll() {
+		public Collection<ProductBean> findAll() {
 
 			String sql = "select * from Product;";
 
-			List<ProductBean> coll = new ArrayList<>();
+			Collection<ProductBean> coll = new ArrayList<>();
 			try (Connection con = ds.getConnection(); 
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
