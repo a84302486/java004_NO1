@@ -2,7 +2,7 @@
 
 import java.io.Serializable;
 
-public class UserBean implements Serializable {
+public class MemberBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String M_ID;	
@@ -26,7 +26,7 @@ public class UserBean implements Serializable {
 	private int M_BonusPoints;				
 	private int M_Total;
 	
-	public UserBean(String m_ID, String m_Username, String m_Password, String m_Name, String m_Nick, String m_Sex,
+	public MemberBean(String m_ID, String m_Username, String m_Password, String m_Name, String m_Nick, String m_Sex,
 			String m_Birthday, String m_EMail, String m_Phone, String m_Cellphone, String m_Address, String m_Line,
 			String m_FaceBook, String m_IdentityCard, String m_Invoice, String m_UniformNumber, String m_Joindate,
 			int m_Level, int m_BonusPoints, int m_Total) {
@@ -53,7 +53,7 @@ public class UserBean implements Serializable {
 		M_Total = m_Total;
 	}	
 	
-	public UserBean(){
+	public MemberBean(){
 		
 	}
 

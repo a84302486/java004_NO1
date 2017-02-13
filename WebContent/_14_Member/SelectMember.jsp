@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<Form Action="Select.do" method="POST">
+<Form Action="Select" method="POST">
 
           	  輸入帳號查詢:
              <input type="text" name="Username" value="helloSnoopy" size="20" placeholder="不輸入搜尋全部" />
