@@ -13,12 +13,13 @@ header, section, aside, footer {
 table {
 	border:solid 1px; 
 	width: 80%;	
-	margin-left:30px;
+	margin-left:20px;
 	text-align:center;
 }
 
 nav {
-	height: 60px;
+	height: 50px;
+	overflow:auto;
 }
 
 button {
@@ -31,12 +32,14 @@ button {
 	background:-webkit-linear-gradient(Top,#6bc9fc 0%,#ffffff 70%);
 }
 
-#price {
-	height: 100px;
+#showDAOJsp {
+	height: 80px;
+	overflow:auto;
 }
 
-#connect {
-	height: 400px;
+#showResult {
+	height: 350px;
+	overflow:auto;
 }
 
 footer {

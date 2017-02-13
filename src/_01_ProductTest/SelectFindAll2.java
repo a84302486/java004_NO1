@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,21 +31,39 @@ public class SelectFindAll2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 	
-	
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
+		
 		PrintWriter out = response.getWriter();
-		try {
-		Collection<ProductBean> list = new ProductDAO().findAll();
-		String toJson = new Gson().toJson(list);
-		out.println(toJson);
-        out.flush();  
-
+		String productIdStr = request.getParameter("productId");
+		
+		try{
+			if(productIdStr != null){
+				Collection<ProductBean> coll =  new ProductDAO().findByPrimaryKey("productIdStr");
+				String toJson = new Gson().toJson(coll);
+				out.println(toJson);
+				out.flush();
+			}else if(!isInteger(productIdStr)){
+//					errorMsg.add("必須是整數");	
+				System.out.println("必須是整數");
+			}else if(productIdStr == null){
+			
+				Collection<ProductBean> collAll = new ProductDAO().findAll();
+				String toJson = new Gson().toJson(collAll);
+				out.println(toJson);
+				out.flush();  
+			}
+		}finally{
+				out.close();
+		}
+	}
+	
+	public static boolean isInteger(String value) {
+	    Pattern pattern = Pattern.compile("^[-+]?\\d+$");
+	    return pattern.matcher(value).matches();
+	}
+}
+	
 //		request.setAttribute("productColl", coll);
 //		RequestDispatcher rd = request.getRequestDispatcher("SelectAll.jsp");
 //		rd.forward(request, response);
-		} finally {
-			out.close();
-		}
-	}
-}

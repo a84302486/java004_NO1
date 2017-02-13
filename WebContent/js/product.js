@@ -38,8 +38,12 @@ function getQueryData(servelet) {
 						+ "<td>" + data[i].suppierId + "</td></tr>";
 			}
 			content += "</table>";
-			var divs = document.getElementById("showResult");
-			divs.innerHTML = content;
+			var result = document.getElementById("showResult");
+			result.innerHTML = content;
 		}
 	}
+}
+
+function selectMenu(e){
+	window.open(e.options[e.selectedIndex].value);
 }
