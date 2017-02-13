@@ -37,7 +37,7 @@
 			<div class="container-fluid">
 				<input type='submit' name='???' id='???'value="F1&#13;&#10;說明" />
 				<input type='submit'
-					onclick="getJsp('SelectProduct2.jsp','showDAOJsp');getQueryData('SelectFindAll2');"
+					onclick="getJsp('SelectProduct2.jsp','showDAOJsp');"
 					name='insertName' id='selectId' value="F2&#13;&#10;查詢">
 				<input type='submit'
 					onclick="getJsp('InsertProduct.jsp','showDAOJsp');getJsp('InsertSuccess.jsp','showResultJsp');"

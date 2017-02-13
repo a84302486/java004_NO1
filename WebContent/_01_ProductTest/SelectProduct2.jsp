@@ -3,34 +3,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css' type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/test.css">
+<script src="${pageContext.request.contextPath}/js/product.js" type="text/JavaScript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
-<!-- <script type="text/JavaScript">
-  
- 	 function getQueryAction(servlet){ 	
- 	   	var xhr = new XMLHttpRequest();
- 	   	xhr.open("POST", servlet, true);
- 	   	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
- 	   	xhr.send();
- 		}
-	 
-</script> -->
-
 <title>MVC</title>
-<body >
+<body>
 
-<CENTER>
-			<div>
-				用序號查詢:<input type="text" name="productId"  size="20" placeholder="不輸入將搜尋全部">
-				<input type="submit" value="開始查詢" onclick="getQueryData('SelectFindAll2');">
-			</div>		
-			<div class="container-fuild" >
-			</div>	
-	
+	<CENTER>
+		<div>用序號查詢:
+			<input type="text" id="productId" name="productId" value="002" size="20" placeholder="不輸入將搜尋全部"> 
+			<input type="button" value="開始查詢" onclick="getQueryData('SelectFindAll2');">
+		</div>		
 	</CENTER>
-	
 
 </body>
 </html>

@@ -15,10 +15,12 @@ function getJsp(jsp, sectionId) {
 }
 
 function getQueryData(servelet) {
+	var productId = document.getElementById("productId").value;
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", servelet, true);
+	xhr.open("POST", servelet, true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send();
+	xhr.send("productId=" + productId);
+	
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 
