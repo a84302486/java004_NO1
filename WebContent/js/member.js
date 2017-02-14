@@ -26,44 +26,44 @@ function ajaxButtonTag(sendJsp, tag) {
 
 //-------------------------------------------------------
 
-function getQueryData2(servelet) {
-	var usernameID = document.getElementById("Username");
-	var username = usernameID.value;
-	alert(username);
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", servelet, true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send("Username=" + username);
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState == 4 && xhr.status == 200) {
-			var content = "";
-			var data = JSON.parse(xhr.responseText);
-			alert(data);
-			
-			content += "<tr>;"
-			for (var i = 0; i < data.length; i++) {
-				for ( var name in data[i]) {
-					content += "<td>" + data[i].name + "</td>";
-				}
-			}
-
-			
-			content += "</tr>";
-			content += "<tr>;"
-
-			for (var i = 0; i < data.length; i++) {
-				for ( var key in data[i]) {
-					content += "<td>" + data[i].key + "</td>";
-				}
-			}
-			
-			content += "</tr>";
-			content += "</table>";
-			var divs = document.getElementById("result");
-			divs.innerHTML = content;
-		}
-	}
-}
+//function getQueryData2(servelet) {
+//	var usernameID = document.getElementById("Username");
+//	var username = usernameID.value;
+//	alert(username);
+//	var xhr = new XMLHttpRequest();
+//	xhr.open("POST", servelet, true);
+//	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//	xhr.send("Username=" + username);
+//	xhr.onreadystatechange = function() {
+//		if (xhr.readyState == 4 && xhr.status == 200) {
+//			var content = "";
+//			var data = JSON.parse(xhr.responseText);
+//			alert(data);
+//			
+//			content += "<tr>;"
+//			for (var i = 0; i < data.length; i++) {
+//				for ( var name in data[i]) {
+//					content += "<td>" + data[i].name + "</td>";
+//				}
+//			}
+//
+//			
+//			content += "</tr>";
+//			content += "<tr>;"
+//
+//			for (var i = 0; i < data.length; i++) {
+//				for ( var key in data[i]) {
+//					content += "<td>" + data[i].key + "</td>";
+//				}
+//			}
+//			
+//			content += "</tr>";
+//			content += "</table>";
+//			var divs = document.getElementById("result");
+//			divs.innerHTML = content;
+//		}
+//	}
+//}
 
 //-------------------------------------------------------
 function getQueryData(servelet) {

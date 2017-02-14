@@ -30,7 +30,7 @@ public class PlaceDAO {
 	public PlaceDAO(String url) {
 	}
 	
-	public void setCreateTables() {
+	public void setResetTables() {
 		String[] dropStr = readSQLFile("dropPlace.sql");
 		String[] createStr = readSQLFile("CreateTables.sql");	
 		
@@ -43,6 +43,28 @@ public class PlaceDAO {
 			for(int n =0; n < createStr.length;n++){
 			stmt.executeUpdate(dropStr[n]);
 			System.out.println("第"+(n+1)+"個Table Drop OK");
+			stmt.executeUpdate(createStr[n]);
+			System.out.println("第"+(n+1)+"個Table Create OK");
+			}
+			
+			stmt.executeUpdate("SET FOREIGN_KEY_CHECKS = 1");
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public void setCreateTables() {
+		
+		String[] createStr = readSQLFile("CreateTables.sql");	
+		
+		try (Connection con = DriverManager.getConnection(dbURL); 
+			Statement stmt = con.createStatement();) {
+			
+			stmt.executeUpdate("SET FOREIGN_KEY_CHECKS = 0");
+				//強制刪除FK
+			
+			for(int n =0; n < createStr.length;n++){
 			stmt.executeUpdate(createStr[n]);
 			System.out.println("第"+(n+1)+"個Table Create OK");
 			}

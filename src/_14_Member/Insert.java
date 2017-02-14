@@ -71,7 +71,7 @@ public class Insert extends HttpServlet {
 		}
 
 		if (!errorMsg.isEmpty()) {
-			RequestDispatcher rd = request.getRequestDispatcher("InsertError.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("InsertMember.jsp");
 			rd.forward(request, response);
 			return;
 		}
