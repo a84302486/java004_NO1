@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="../asset/css/test.css">
 <script src ="../js/member.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script>
+	window.addEventListener('load',getQueryData('Select'),false);
+</script>
 <title>work</title>
 </head>
 <body id="body">
@@ -51,7 +54,7 @@
 					</button>
 					<button
 
-						onclick="ajaxButtonTag('SelectMember.jsp','resp');getQueryData('Select');">
+						onclick="ajaxButtonTag('SelectMember.jsp','resp');">
 
 					
 						<strong>F5 查詢
