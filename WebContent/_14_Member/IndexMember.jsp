@@ -8,7 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/test.css">
+<link rel="stylesheet" href="../asset/css/test.css">
+<script src ="../js/member.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <title>work</title>
 </head>
 <body id="body">
@@ -19,14 +21,9 @@
 	</header>
 	<section class="container-fuild" id="about">
 		<div class="row">
-
-			<select class="col-md-3" onChange="selectMenu(this)">
-				<option selected>主 選 單</option>
-				<option value="../_14_Member/IndexMember.jsp">會員資料</option>
-				<option value="../_01_ProductTest/IndexProduct2.jsp">商品資訊</option>
-
-			</select> <input type="text" name="TextBox1" value="TextBox1" class="col-md-6">
-			<input type="text" name="time" value="time" class="col-md-3">
+		
+				<jsp:include page="..\_00_Util\SelectMenu.jsp"/>
+			
 		</div>
 	</section>
 
@@ -38,22 +35,25 @@
 			<div class="container-fluid">
 				<div class="nav navbar-nav">
 					<button
-						onclick="ajaxButtonTag1('InsertMember.jsp');ajaxButtonTag2('Insert.jsp');">
+						onclick="ajaxButtonTag('InsertMember.jsp','resp');getQueryData('Select');">
 						<strong>F2 新增
 						</strong>
 					</button>
 					<button
-						onclick="ajaxButtonTag1('DeleteMember.jsp');ajaxButtonTag2('Delete.jsp');">
+						onclick="ajaxButtonTag('DeleteMember.jsp','resp');getQueryData('Select');">
 						<strong>F3 刪除
 						</strong>
 					</button>
 					<button
-						onclick="ajaxButtonTag1('UpdateMember.jsp');ajaxButtonTag2('SelectMember.jsp');">
+						onclick="ajaxButtonTag('UpdateMember.jsp','resp');getQueryData('Select');">
 						<strong>F4 修改
 						</strong>
 					</button>
 					<button
-						onclick="ajaxButtonTag1('SelectMember.jsp');ajaxButtonTag2('SelectAll');">
+
+						onclick="ajaxButtonTag('SelectMember.jsp','resp');getQueryData('Select');">
+
+					
 						<strong>F5 查詢
 						</strong>
 					</button>
@@ -68,7 +68,7 @@
 
 	<section class="container-fuild" id='resp'></section>
 
-	<section class="container-fuild" id="connect">contact</section>
+	<section class="container-fuild" id="result">contact</section> -->
 
 	<div id='control_Flow'>
 		<small> </small>
@@ -77,64 +77,9 @@
 
 	<footer class="container-fuild">footer</footer>
 
-	<script src="../js/bootstrap.min.js"></script>
 	
-	<script type="text/JavaScript">
 	
-		function selectMenu(e){
-		window.open(e.options[e.selectedIndex].value);}
 	
-	</script>
-	
-	<script>
-		
-		var tag1 = document.getElementById("resp");
-		var tag2 = document.getElementById("connect");
-		
-		
-		function ajaxButtonTag1(sendJsp) {
-				
-				// 步驟一: 新建XMLHttpRequest物件
-				var xhr = new XMLHttpRequest();
-				// 步驟二: 經由AJAX提出HTTP請求
-				if (xhr != null) {
-					xhr.onreadystatechange = function() {
-						// 步驟三: 處理伺服器送回的回應資料
-						if (xhr.readyState == 4 && xhr.status == 200) {
-							tag1.innerHTML = "<h3>" + xhr.responseText
-									+ "</h3>";
-						}
-					}
-					xhr.open('GET', sendJsp, true);
-					xhr.send();
-				} else {
-					tag1.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
-				} 
-			}
-		
-		//-------------------------------------------------------
-		
-		function ajaxButtonTag2(sendJsp) {
-			
-			// 步驟一: 新建XMLHttpRequest物件
-			var xhr = new XMLHttpRequest();
-			// 步驟二: 經由AJAX提出HTTP請求
-			if (xhr != null) {
-				xhr.onreadystatechange = function() {
-					// 步驟三: 處理伺服器送回的回應資料
-					if (xhr.readyState == 4 && xhr.status == 200) {
-						tag2.innerHTML = "<h3>" + xhr.responseText
-								+ "</h3>";
-					}
-				}
-				xhr.open('GET', sendJsp, true);
-				xhr.send();
-			} else {
-				tag2.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
-			} 
-		}
-				
-	</script>
 	
 </body>
 </html>

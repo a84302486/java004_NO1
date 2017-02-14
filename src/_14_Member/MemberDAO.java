@@ -36,7 +36,7 @@ public class MemberDAO {
 		}
 	}
 	
-	synchronized public String insert(UserBean mem){
+	synchronized public String insert(MemberBean mem){
 	
 		int n =0;
 		String sql = "INSERT INTO Member "
@@ -97,7 +97,7 @@ public class MemberDAO {
 			return n;
 		}
 	}
-	synchronized public String update(UserBean mem){
+	synchronized public String update(MemberBean mem){
 		
 		int n =0;
 		String sql = "UPDATE Member SET "
@@ -140,12 +140,14 @@ public class MemberDAO {
 		
 	}
 	
-	public String findByPrimaryKey(String Username){
+	public Collection<MemberBean> select(String Username){
 		
 		int n =0;
-		String sql = "select M_Name from Member where M_Username =?;";
+		String sql = "select * from Member where M_Username =?;";
 				 		
 		String M_Name = null;	
+		
+		Collection<MemberBean> coll = new ArrayList<>();
 		try(
 			Connection con = ds.getConnection();
 			PreparedStatement pstmt	= con.prepareStatement(sql);){				
@@ -155,10 +157,31 @@ public class MemberDAO {
 				ResultSet rs = pstmt.executeQuery();
 			){
 				if (rs.next()){					
-					M_Name = rs.getString(1);					
+					MemberBean pb = new MemberBean();
+					pb.setM_ID(rs.getString(1));
+					pb.setM_Username(rs.getString(2));
+					pb.setM_Password(rs.getString(3));
+					pb.setM_Name(rs.getString(4));
+					pb.setM_Nick(rs.getString(5));
+					pb.setM_Sex(rs.getString(6));
+					pb.setM_Birthday(rs.getString(7));
+					pb.setM_EMail(rs.getString(8));
+					pb.setM_Phone(rs.getString(9));
+					pb.setM_Cellphone(rs.getString(10));
+					pb.setM_Address(rs.getString(11));
+					pb.setM_Line(rs.getString(12));
+					pb.setM_FaceBook(rs.getString(13));
+					pb.setM_IdentityCard(rs.getString(14));
+					pb.setM_Invoice(rs.getString(15));
+					pb.setM_UniformNumber(rs.getString(16));
+					pb.setM_Joindate(rs.getString(17));
+
+					coll.add(pb);					
 				}
+				
+				System.out.println("記錄 查詢單筆");
 			}
-			return M_Name;
+			return coll;
 		}catch (Exception e){
 			
 			e.printStackTrace();
@@ -167,18 +190,18 @@ public class MemberDAO {
 	}
 	
 	
-	public Collection<UserBean> findAll() {
+	public Collection<MemberBean> select() {
 
 		int n = 0;
 		String sql = "select * from Member;";
 
-		Collection<UserBean> coll = new ArrayList<>();
+		Collection<MemberBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			try (ResultSet rs = pstmt.executeQuery();) {
 
 				while (rs.next()) {
-					UserBean pb = new UserBean();
+					MemberBean pb = new MemberBean();
 					pb.setM_ID(rs.getString(1));
 					pb.setM_Username(rs.getString(2));
 					pb.setM_Password(rs.getString(3));

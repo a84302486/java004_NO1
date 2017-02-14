@@ -31,7 +31,7 @@
 
 				<TR>
 					<TD align="center"><input type="text" name="ID" value="001"
-						size="20"></TD>
+						size="20"><div style="color:#FF0000; font-size:60%; display: inline">${ErrorMsg.name}</div></TD>
 					<TD align="center"><input type="text" name="Username"
 						value="helloSnoopy" size="20"></TD>
 					<TD align="center"><input type="password" name="Password"
