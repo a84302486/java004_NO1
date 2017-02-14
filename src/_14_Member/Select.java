@@ -48,6 +48,7 @@ public class Select extends HttpServlet {
 			}
 		
 			String toJson = new Gson().toJson(coll);
+			System.out.println(toJson);
 			out.println(toJson);
 		}
 
