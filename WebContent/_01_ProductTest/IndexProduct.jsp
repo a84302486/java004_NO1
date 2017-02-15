@@ -11,7 +11,7 @@
 <script src="${pageContext.request.contextPath}/js/product.js" type="text/JavaScript"></script>
 <title>work</title>
 </head>
-<body>
+<body >
 	<header class="container-fuild" id='window'>
 		<h4 class="text-center">
 			<strong>Window</strong>
@@ -37,16 +37,16 @@
 			<div class="container-fluid">
 				<input type='submit' name='???' id='???'value="F1&#13;&#10;說明" />
 				<input type='submit'
-					onclick="getJsp('SelectProduct2.jsp','showDAOJsp');"
+					onclick="getAction('SelectProduct.jsp','showDAOJsp');"
 					name='insertName' id='selectId' value="F2&#13;&#10;查詢">
 				<input type='submit'
-					onclick="getJsp('InsertProduct.jsp','showDAOJsp');getJsp('InsertSuccess.jsp','showResultJsp');"
+					onclick="getAction('InsertProduct.jsp','showDAOJsp');"
 					name='deleteName' id='insertId' value="F3&#13;&#10;新增">
 				<input type='submit'
-					onclick="getJsp('UpdateProduct.jsp','showDAOJsp');getJsp('UpdateSuccess.jsp','showResultJsp');"
+					onclick="getAction('UpdateProduct.jsp','showDAOJsp');"
 					name='selectName' id='updateId' value="F4&#13;&#10;修改">
 				<input type='submit'
-					onclick="getJsp('DeleteProduct.jsp','showDAOJsp');getJsp('DeleteSuccess.jsp','showResultJsp');"
+					onclick="getAction('DeleteProduct.jsp','showDAOJsp');"
 					name='updateName' id='deleteId' value="F5&#13;&#10;刪除">
 				<input type='button' id='none' value="首頁">
 				<input type='button' id='none' value="上頁">
@@ -57,11 +57,11 @@
 	</section>
 
 	<section class="container-fuild" id='showDAOJsp'>
-		<h1>歡迎使用本系統</h1>
-<%-- 		<jsp:include page='SelectProduct2.jsp'/> --%>
+<%-- 		<jsp:include page='SelectProduct.jsp'/> --%>
 	</section>
-	<section class="container-fuild" id='showResult' >123
-<%--        <jsp:include page='SelectAll2.jsp'/>  --%>
+	
+	<section class="container-fuild" id='showResult'>
+<%--        <jsp:include page='SelectProduct.jsp'/>  --%>
 	</section>
 
 	<footer class="container-fuild">footer</footer>

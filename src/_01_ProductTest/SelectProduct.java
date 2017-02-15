@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-@WebServlet("/_01_ProductTest/SelectFindAll2")
-public class SelectFindAll2 extends HttpServlet {
+@WebServlet("/_01_ProductTest/SelectServelet")
+public class SelectProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public static boolean isInteger(String value) {

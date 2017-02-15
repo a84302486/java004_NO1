@@ -4,7 +4,7 @@ function selectMenu(e) {
 
 //-------------------------------------------------------
 
-function ajaxButtonTag(sendJsp, tag) {
+function ajaxButtonTag(sendJsp, tag){
 
 	var tagId = document.getElementById(tag);
 	// 步驟一: 新建XMLHttpRequest物件

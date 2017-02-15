@@ -13,8 +13,8 @@
 
 	<CENTER>
 		<div>用序號查詢:
-			<input type="text" id="productId" name="productId" value="002" size="20" placeholder="不輸入將搜尋全部"> 
-			<input type="button" value="開始查詢" onclick="getQueryData('SelectFindAll2');">
+			<input type="text" id="productId" name="productId" value="" size="20" placeholder="不輸入將搜尋全部"> 
+			<input type="button" value="開始查詢" onclick="getQueryData('SelectServelet');">
 		</div>		
 	</CENTER>
 

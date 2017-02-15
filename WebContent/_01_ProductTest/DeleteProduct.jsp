@@ -12,7 +12,7 @@
 <body>
 	<font size="4" color="#cccc" face="Tahoma"> 
 	<CENTER>
-		<Form Action="Delete.do" method="POST">
+		<Form Action="DeleteProduct" method="POST">
 			<div>
 				請輸入要刪除的產品序號: <input type="text" name="productId" value="001" size="20">
 				<input type="submit" value="開始刪除">

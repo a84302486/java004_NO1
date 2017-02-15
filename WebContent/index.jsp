@@ -93,7 +93,7 @@
 		
 	<section class="container-fuild" id="connect">contact
 		<c:set var="funcName" value="IND" scope="session"/>
-		<jsp:include page="/_14_Member/SelectAll.jsp" />	
+		
 	</section>
 
 	<footer class="container-fuild">footer</footer>
