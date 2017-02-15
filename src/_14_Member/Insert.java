@@ -78,14 +78,15 @@ public class Insert extends HttpServlet {
 
 		String insertError = null;
 		try {
-			for(int i=0;i<100000;i++){
+/*			for(int i=0;i<100000;i++){
 				id=String.valueOf(Integer.parseInt(id)+i);
 				username=String.valueOf(Integer.parseInt(username)+i);
-				identityCard=String.valueOf(Integer.parseInt(identityCard)+i);
+				identityCard=String.valueOf(Integer.parseInt(identityCard)+i);*/
+			
 			MemberBean mem = new MemberBean(id, username, password, name, nick, sex, birthday, eMail, phone, cellPhone,
-					address, line, faceBook, "F"+identityCard, invoice, uniformNumber, joinDate,0,0,0);
+					address, line, faceBook,identityCard, invoice, uniformNumber, joinDate,0,0,0);
 			insertError = new MemberDAO().insert(mem);
-			}
+			//}
 		} catch (Exception e) {
 			errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
 			e.printStackTrace();

@@ -30,8 +30,6 @@ public class Delete extends HttpServlet {
 
 		String M_Username = request.getParameter("Username");
 
-		
-
 		Collection<ResultBean> coll = new ArrayList<>();
 		if (M_Username == null || M_Username.trim().length() == 0) {
 			coll.add(new ResultBean("You must input username !"));

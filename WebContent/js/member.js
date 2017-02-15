@@ -68,7 +68,7 @@ function ajaxButtonTag(sendJsp, tag) {
 //-------------------------------------------------------
 function getQueryData(servelet) {
 
-	//var username = document.getElementById("Username").value;
+	var username = document.getElementById("Username").value;
 	var divs = document.getElementById("result");
 
 	var xhr = new XMLHttpRequest();
@@ -84,6 +84,14 @@ function getQueryData(servelet) {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 
 			var validation_messages = JSON.parse(xhr.responseText);//由servelet傳過來JSON格式的資料		
+			
+			if(validation_messages == null){//找不到
+				var content = "<font color='red'>"; 
+				content += username +" couldn't find.";
+				content += "</Font>";
+				divs.innerHTML = content;
+				return;
+			}
 			var content = "";
 
 			content += "<table>";
