@@ -1,7 +1,6 @@
 ﻿package _14_Member;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +12,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import _00_Util.SystemConstant;
+
+
 
 
 
@@ -20,6 +22,9 @@ public class MemberDAO {
 	
 	Context ctx;
 	DataSource ds;
+	private int recordsPerPage = SystemConstant.RECORDS_PER_PAGE; // 每頁?筆
+	private int pageNo = 0;
+	private int totalPages = -1;
 
 	public MemberDAO(){
 	
@@ -35,6 +40,32 @@ public class MemberDAO {
 			e1.printStackTrace();
 		}
 	}
+	
+	public int getRecordCounts() throws SQLException {
+		String sql = "SELECT count(*) FROM Member";
+		int result = 0;
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+
+			try (ResultSet rs = pstmt.executeQuery();) {
+
+				if (rs.next()) {
+					result = rs.getInt(1);
+				}
+			}
+		}
+		return result;
+	}
+	
+	public int getTotalPages() throws SQLException {
+		// 計算總共有幾頁
+		if (totalPages == -1) {
+			// 注意下一列的double型態轉換
+			totalPages = (int) (Math.ceil(getRecordCounts()
+					/ (double) recordsPerPage));
+		}
+		return totalPages;
+	}
+	
 	
 	synchronized public String insert(MemberBean mem){
 	
@@ -80,21 +111,21 @@ public class MemberDAO {
 		
 	}
 	public int delete(String username){
-		int n =0;
+	
 		String sql = "DELETE FROM Member WHERE M_Username =? ;";
 		try(
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);
 		){
 			pstmt.setString(1, username);
-			n = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 			System.out.println("成功 刪除 "+ username);
 			
-			return n;
+			return 1;
 		}catch (SQLException e){
 			System.out.println("失敗 刪除 "+ username);
 			e.printStackTrace();
-			return n;
+			return 0;
 		}
 	}
 	synchronized public String update(MemberBean mem){
@@ -143,10 +174,9 @@ public class MemberDAO {
 	public Collection<MemberBean> select(String Username){
 		
 		int n =0;
-		String sql = "select * from Member where M_Username =?;";
-				 		
-		String M_Name = null;	
-		
+		String sql = "select * from Member where M_Username =?"					
+					+ ";";
+						
 		Collection<MemberBean> coll = new ArrayList<>();
 		try(
 			Connection con = ds.getConnection();
@@ -193,7 +223,7 @@ public class MemberDAO {
 	public Collection<MemberBean> select() {
 
 		int n = 0;
-		String sql = "select * from Member;";
+		String sql = "select * from Member"+";";
 
 		Collection<MemberBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
@@ -232,4 +262,78 @@ public class MemberDAO {
 		}
 		return null;
 	}
+	
+public Boolean ifExist(String Username){
+		
+		String sql = "select * from Member where M_Username =?"					
+					+ ";";
+						
+		Collection<MemberBean> coll = new ArrayList<>();
+		try(
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);){				
+		
+			pstmt.setString(1, Username);
+			try(
+				ResultSet rs = pstmt.executeQuery();
+			){
+				if (rs.next()){					
+					return true;					
+				}else{
+					return false;
+				}
+				
+			}
+		}catch (Exception e){
+			
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public Collection<MemberBean> selectLimit() {
+
+		int n = 0;
+		String sql = "select * from Member "
+					+"limit ?, ?"	
+					+";";
+
+		Collection<MemberBean> coll = new ArrayList<>();
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+
+			try (ResultSet rs = pstmt.executeQuery();) {
+
+				while (rs.next()) {
+					MemberBean pb = new MemberBean();
+					pb.setM_ID(rs.getString(1));
+					pb.setM_Username(rs.getString(2));
+					pb.setM_Password(rs.getString(3));
+					pb.setM_Name(rs.getString(4));
+					pb.setM_Nick(rs.getString(5));
+					pb.setM_Sex(rs.getString(6));
+					pb.setM_Birthday(rs.getString(7));
+					pb.setM_EMail(rs.getString(8));
+					pb.setM_Phone(rs.getString(9));
+					pb.setM_Cellphone(rs.getString(10));
+					pb.setM_Address(rs.getString(11));
+					pb.setM_Line(rs.getString(12));
+					pb.setM_FaceBook(rs.getString(13));
+					pb.setM_IdentityCard(rs.getString(14));
+					pb.setM_Invoice(rs.getString(15));
+					pb.setM_UniformNumber(rs.getString(16));
+					pb.setM_Joindate(rs.getString(17));
+
+					coll.add(pb);
+				}
+
+				System.out.println("記錄 查詢all");
+			}
+			return coll;
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }

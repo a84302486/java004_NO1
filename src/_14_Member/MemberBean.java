@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class MemberBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+
 	private String M_ID;	
 	private String M_Username;
 	private String M_Password;			
@@ -26,6 +27,8 @@ public class MemberBean implements Serializable {
 	private int M_BonusPoints;				
 	private int M_Total;
 	
+	
+
 	public MemberBean(String m_ID, String m_Username, String m_Password, String m_Name, String m_Nick, String m_Sex,
 			String m_Birthday, String m_EMail, String m_Phone, String m_Cellphone, String m_Address, String m_Line,
 			String m_FaceBook, String m_IdentityCard, String m_Invoice, String m_UniformNumber, String m_Joindate,
@@ -56,6 +59,7 @@ public class MemberBean implements Serializable {
 	public MemberBean(){
 		
 	}
+	
 
 	public String getM_ID() {
 		return M_ID;

@@ -31,23 +31,27 @@ public class Select extends HttpServlet {
 		System.out.println("收到Username = "+M_Username);
 		
 		Collection<MemberBean> coll = null;
+		Collection<ResultBean> coll2 = new ArrayList<>();
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
-		
+		String toJson = null;
+		String notFind = null; 
 		try (PrintWriter out = response.getWriter();) {
 			if (M_Username == null || M_Username.trim().length() == 0) {
-
+				
 				coll = rs.select();
-				//System.out.println("搜尋全部");
-
-			} else {
-
+				
+			} else if(rs.ifExist(M_Username)){ 
+				
 				coll = rs.select(M_Username);
-				//System.out.println("搜尋單筆");
-
 			}
-		
-			String toJson = new Gson().toJson(coll);
+			else {
+				
+				notFind = new Gson().toJson(coll2.add(new ResultBean(M_Username+" couldn't find.")));
+				System.out.println(notFind);
+			}
+			//String test = "[{"+"&quot;"+"M_ID"+"&quot;"+":"+"&quot;"+"10012}]";
+			toJson = new Gson().toJson(coll) +notFind;
 			System.out.println(toJson);
 			out.println(toJson);
 		}

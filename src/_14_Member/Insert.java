@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/_14_Member/insert.do")
+@WebServlet("/_14_Member/Insert")
 public class Insert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -71,16 +71,21 @@ public class Insert extends HttpServlet {
 		}
 
 		if (!errorMsg.isEmpty()) {
-			RequestDispatcher rd = request.getRequestDispatcher("InsertError.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("InsertMember.jsp");
 			rd.forward(request, response);
 			return;
 		}
 
 		String insertError = null;
 		try {
+			for(int i=0;i<100000;i++){
+				id=String.valueOf(Integer.parseInt(id)+i);
+				username=String.valueOf(Integer.parseInt(username)+i);
+				identityCard=String.valueOf(Integer.parseInt(identityCard)+i);
 			MemberBean mem = new MemberBean(id, username, password, name, nick, sex, birthday, eMail, phone, cellPhone,
-					address, line, faceBook, identityCard, invoice, uniformNumber, joinDate,0,0,0);
+					address, line, faceBook, "F"+identityCard, invoice, uniformNumber, joinDate,0,0,0);
 			insertError = new MemberDAO().insert(mem);
+			}
 		} catch (Exception e) {
 			errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
 			e.printStackTrace();
