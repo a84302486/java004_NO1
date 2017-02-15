@@ -1,8 +1,11 @@
 package _14_Member;
+
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -13,27 +16,52 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 
-
-@WebServlet("/_14_Member/Delete.do")
+@WebServlet("/_14_Member/Delete")
 public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public void doPost(HttpServletRequest request,HttpServletResponse response)
-            throws IOException, ServletException {
-    	
-    	MemberDAO rs = new MemberDAO();
-    	String M_Username = request.getParameter("Username");
-    	int success = rs.delete(M_Username);
-    	System.out.println("刪除帳號: "+M_Username);
-    	
-    	request.setAttribute("M_Username", M_Username);
-    	if(success > 0){
-    		RequestDispatcher rd = request.getRequestDispatcher("DeleteSuccess.jsp");
-    		rd.forward(request, response);
-    	}else{
-    		RequestDispatcher rd = request.getRequestDispatcher("DeleteError.jsp");
-    		rd.forward(request, response);		
-    	}
-    }
-    	
-}   
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+		MemberDAO rs = new MemberDAO();
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=UTF-8");
+
+		String M_Username = request.getParameter("Username");
+
+		
+
+		Collection<ResultBean> coll = new ArrayList<>();
+		if (M_Username == null || M_Username.trim().length() == 0) {
+			coll.add(new ResultBean("You must input username !"));
+		}
+		else if (!rs.ifExist(M_Username)) {
+			coll.add(new ResultBean(M_Username+" couldn't find."));
+
+		} else {
+			int Result = rs.delete(M_Username);
+			System.out.println("刪除帳號: " + M_Username);
+
+			if (Result == 1) {
+				coll.add(new ResultBean("Delete "+M_Username+" success."));
+			} else {
+				coll.add(new ResultBean("Delete "+M_Username+" error!!!"));
+
+			}
+		}
+		try (PrintWriter out = response.getWriter();) {
+
+			String toJson = new Gson().toJson(coll);
+			System.out.println(toJson);
+			out.println(toJson);
+		}
+
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+}

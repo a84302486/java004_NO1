@@ -46,7 +46,7 @@ public class Select extends HttpServlet {
 				//System.out.println("搜尋單筆");
 
 			}
-		
+			//String test = "[{"+"&quot;"+"M_ID"+"&quot;"+":"+"&quot;"+"10012}]";
 			String toJson = new Gson().toJson(coll);
 			System.out.println(toJson);
 			out.println(toJson);

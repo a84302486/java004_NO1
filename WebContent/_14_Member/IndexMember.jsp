@@ -12,7 +12,7 @@
 <script src ="../js/member.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script>
-	window.addEventListener('load',getQueryData('Select'),false);
+// 	window.addEventListener('load',getQueryData('Select'),false);
 </script>
 <title>work</title>
 </head>

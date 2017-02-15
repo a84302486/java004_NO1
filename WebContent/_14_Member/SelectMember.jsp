@@ -10,16 +10,16 @@
 <body>
 
 <!-- <Form Action="Select" method="POST"> -->
-<Form Action="Javascript:%200" onsubmit="getQueryData('Select');return false;">
-
+<!-- <Form Action="Javascript:%200" onsubmit="getQueryData('Select');return false;"> -->
+<Form Action="Javascript:%200" >
           	  輸入帳號查詢:
              <input type="text" name="Username" id="Username"  value="helloSnoopy" size="20" placeholder="不輸入搜尋全部" />
-             <input type="submit" value="開始查詢" />
-             <br>
+             <input type="submit" value="開始查詢" onclick="getQueryData('Select');"/>
+             
 <!--              <input type="submit" value="開始查詢" onclick ="getQueryData('Select')"/> -->
 </Form>
 <div id ="result" >
-	
+	<br>
 </div>
 
 </body>
