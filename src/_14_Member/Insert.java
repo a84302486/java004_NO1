@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import _01_Product.ProductDAO;
+
 @WebServlet("/_14_Member/Insert")
 public class Insert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -50,7 +52,7 @@ public class Insert extends HttpServlet {
 		// 取得現在時間
 		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 		Date date = new Date();
-		String joinDate = sdFormat.format(date);
+		String insertDate = sdFormat.format(date);
 
 
 		// 3. 檢查使用者輸入資料
@@ -77,21 +79,20 @@ public class Insert extends HttpServlet {
 			return;
 		}
 
-		String insertError = null;
+		//String insertError = null;
 		try {
 		
 			MemberBean mem = new MemberBean(id, username, password, name, nick, sex, birthday, eMail, phone, cellPhone,
-					address, line, faceBook,identityCard, invoice, uniformNumber, joinDate,0,0,0);
+					address, line, faceBook,identityCard, invoice, uniformNumber, insertDate,insertDate,0,0,0);
 			insertError = new MemberDAO().insert(mem);
 			
 		} catch (Exception e) {
 			errorMsg.put("exception","資料庫存取錯誤");
+			System.out.println("資料庫存取錯誤");
 			e.printStackTrace();
 		}
-		if (insertError != null) {
-		
-		}
-
+	
+		System.out.println(username+" 新增成功");
 		request.setAttribute("M_Username", username);
 	
 			RequestDispatcher rd = request.getRequestDispatcher("InsertMember.jsp");

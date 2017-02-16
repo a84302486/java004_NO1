@@ -71,7 +71,7 @@ public class MemberDAO {
 	
 		int n =0;
 		String sql = "INSERT INTO Member "
-				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)";
+				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
 		
 		try(
 			Connection con = ds.getConnection();
@@ -93,10 +93,11 @@ public class MemberDAO {
 			pstmt.setString(14, mem.getM_IdentityCard());
 			pstmt.setString(15, mem.getM_Invoice());
 			pstmt.setString(16, mem.getM_UniformNumber());
-			pstmt.setString(17, mem.getM_Joindate());
-			pstmt.setInt(18, mem.getM_Level());
-			pstmt.setInt(19, mem.getM_BonusPoints());
-			pstmt.setInt(20, mem.getM_Total());
+			pstmt.setString(17, mem.getM_Insertdate());
+			pstmt.setString(18, mem.getM_Updatedate());
+			pstmt.setInt(19, mem.getM_Level());
+			pstmt.setInt(20, mem.getM_BonusPoints());
+			pstmt.setInt(21, mem.getM_Total());
 									
 			n = pstmt.executeUpdate();
 			
@@ -204,7 +205,8 @@ public class MemberDAO {
 					pb.setM_IdentityCard(rs.getString(14));
 					pb.setM_Invoice(rs.getString(15));
 					pb.setM_UniformNumber(rs.getString(16));
-					pb.setM_Joindate(rs.getString(17));
+					pb.setM_Insertdate(rs.getString(17));
+					pb.setM_Updatedate(rs.getString(18));
 
 					coll.add(pb);					
 				}
@@ -248,7 +250,8 @@ public class MemberDAO {
 					pb.setM_IdentityCard(rs.getString(14));
 					pb.setM_Invoice(rs.getString(15));
 					pb.setM_UniformNumber(rs.getString(16));
-					pb.setM_Joindate(rs.getString(17));
+					pb.setM_Insertdate(rs.getString(17));
+					pb.setM_Updatedate(rs.getString(18));
 
 					coll.add(pb);
 				}
@@ -326,12 +329,13 @@ public Boolean ifExist(String Username){
 					pb.setM_IdentityCard(rs.getString(14));
 					pb.setM_Invoice(rs.getString(15));
 					pb.setM_UniformNumber(rs.getString(16));
-					pb.setM_Joindate(rs.getString(17));
+					pb.setM_Insertdate(rs.getString(17));
+					pb.setM_Updatedate(rs.getString(18));
 
 					coll.add(pb);
 				}
 
-				System.out.println("記錄 查詢orderBy ? Limit ?,?");
+				System.out.println("記錄 查詢orderBy Limit");
 			}
 			return coll;
 		} catch (Exception e) {
@@ -369,7 +373,8 @@ public Boolean ifExist(String Username){
 					pb.setM_IdentityCard(rs.getString(14));
 					pb.setM_Invoice(rs.getString(15));
 					pb.setM_UniformNumber(rs.getString(16));
-					pb.setM_Joindate(rs.getString(17));
+					pb.setM_Insertdate(rs.getString(17));
+					pb.setM_Updatedate(rs.getString(18));
 
 					coll.add(pb);
 				}

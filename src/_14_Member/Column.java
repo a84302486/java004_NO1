@@ -20,8 +20,8 @@ import com.google.gson.Gson;
 
 
 
-@WebServlet("/_14_Member/LimitSelect")
-public class LimitSelect extends HttpServlet {
+@WebServlet("/_14_Member/Column")
+public class Column extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -36,7 +36,7 @@ public class LimitSelect extends HttpServlet {
 		try (PrintWriter out = response.getWriter();) {
 			
 				
-			coll = rs.selectLimit("M_Updatedate DESC", 0 , 10);		
+			coll = rs.column();		
 			toJson = new Gson().toJson(coll);
 			out.println(toJson);
 		}

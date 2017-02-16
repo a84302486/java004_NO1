@@ -6,7 +6,7 @@ function doFirst(){
 
 //-------------------------------------------------------
 function setInsertData(servelet,div) {
-
+	alert(insert);
 	var divs = document.getElementById(div);
 
 	var xhr = new XMLHttpRequest();
