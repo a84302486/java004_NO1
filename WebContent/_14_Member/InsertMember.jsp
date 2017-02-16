@@ -16,7 +16,7 @@
 <!-- 			<Form Action="Insert.do" method="POST"> -->
 			<Form Action="Javascript:%200" onsubmit="getQueryData('Insert');return false;">
 		
-			<table style="height: 10%; width: 85%; background-color: rgb(255, 255, 255); table-layout: fixed;">
+			<table>
 				<TR>
 					<TD align="left">會員卡號</TD>
 					<TD align="left">會員帳號</TD>

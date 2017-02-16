@@ -3,20 +3,20 @@
 	pageEncoding="UTF-8" import="java.util.*"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../css/test.css">
 <script src ="../js/member.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script>
-// 	window.addEventListener('load',getQueryData('Select'),false);
-</script>
-<title>work</title>
+<script src="../js/bootstrap.min.js"></script> 
+
+
+<title>會員管理首頁</title>
 </head>
-<body id="body">
+<body onload="getQueryDataLimit('LimitSelect','resultIndex');">
 	<header class="container-fuild">
 		<h4 class="text-center">
 			<strong>Java004</strong>
@@ -38,17 +38,17 @@
 			<div class="container-fluid">
 				<div class="nav navbar-nav">
 					<button
-						onclick="ajaxButtonTag('InsertMember.jsp','resp');getQueryData('Select');">
+						onclick="ajaxButtonTag('InsertMember.jsp','resp');">
 						<strong>F2 新增
 						</strong>
 					</button>
 					<button
-						onclick="ajaxButtonTag('DeleteMember.jsp','resp');getQueryData('Select');">
+						onclick="ajaxButtonTag('DeleteMember.jsp','resp');">
 						<strong>F3 刪除
 						</strong>
 					</button>
 					<button
-						onclick="ajaxButtonTag('UpdateMember.jsp','resp');getQueryData('Select');">
+						onclick="ajaxButtonTag('UpdateMember.jsp','resp');">
 						<strong>F4 修改
 						</strong>
 					</button>
@@ -69,9 +69,9 @@
 		</nav>
 	</section>
 
-	<section class="container-fuild" id='resp'></section>
+	<section class="container-fuild" id='resp' style="height: 50%; width:100%;overflow:scroll;"></section>
 
-	<section class="container-fuild" id="result">contact</section> -->
+	<section class="container-fuild" id="resultIndex">contact</section> -->
 
 	<div id='control_Flow'>
 		<small> </small>
@@ -80,9 +80,5 @@
 
 	<footer class="container-fuild">footer</footer>
 
-	
-	
-	
-	
 </body>
 </html>

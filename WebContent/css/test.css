@@ -14,14 +14,15 @@ table {
 	border:solid 1px; 
 /* 	margin-left:20px; */
 	text-align:center;
-	height: 10%; 
+	height: 30%; 
 	width: 250%; 
 	
 }
 
 nav {
-	height: 50px;
-	overflow:auto;
+	height: 30%;
+	width: 250%;
+	overflow:scroll;
 }
 
 button {

@@ -1,16 +1,21 @@
 function doFirst(){
 	
-	 //getQueryDataLoad('LimitSelect');
+	 load("Load!!!");
+	 getQueryDataLoad('LimitSelect');
 }
-
 
 //-------------------------------------------------------
 
+function load(data){
+	alert(data);
+}
+
+//-------------------------------------------------------
 function selectMenu(e) {
 	window.open(e.options[e.selectedIndex].value);
 }
 
-////-------------------------------------------------------
+//-------------------------------------------------------
 
 function ajaxButtonTag(sendJsp, tag) {
 
@@ -32,7 +37,7 @@ function ajaxButtonTag(sendJsp, tag) {
 	}
 }
 
-////-------------------------------------------------------
+//-------------------------------------------------------
 
 function getQueryData2(servelet) {
 	var usernameID = document.getElementById("Username");
@@ -72,6 +77,9 @@ function getQueryData2(servelet) {
 		}
 	}
 }
+
+
+//-------------------------------------------------------
 
 //-------------------------------------------------------
 function getQueryData(servelet) {
@@ -148,11 +156,11 @@ function getQueryData(servelet) {
 
 //-------------------------------------------------------
 
-function getQueryDataLimit(servelet,div) {
+function getQueryDataLoad(servelet) {
 
-	//alert("Load!!");
+	alert("Load!!");
 	//var username = document.getElementById("Username").value;
-	var divs = document.getElementById(div);
+	var divs = document.getElementById("result");
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", servelet, true);//send要傳參數一定要用POST
@@ -262,11 +270,7 @@ function setDeleteData(servelet) {
 			}
 
 		}
-		
-		getQueryDataLimit('LimitSelect','resultIndex');
 	}
-	
-	
 }
 
 //-------------------------------------------------------
@@ -294,6 +298,4 @@ function setQueryString() {
 
 //-------------------------------------------------------
 
-//window.addEventListener('load',doFirst,false);
-//document.onload=load("Load!!!");
-//window.onload=getQueryDataLoad('SelectLimit');
+window.addEventListener('load',doFirst,false);

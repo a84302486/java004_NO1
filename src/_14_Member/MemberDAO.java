@@ -263,12 +263,11 @@ public class MemberDAO {
 		return null;
 	}
 	
+	
 public Boolean ifExist(String Username){
 		
 		String sql = "select * from Member where M_Username =?"					
 					+ ";";
-						
-		Collection<MemberBean> coll = new ArrayList<>();
 		try(
 			Connection con = ds.getConnection();
 			PreparedStatement pstmt	= con.prepareStatement(sql);){				
@@ -291,18 +290,24 @@ public Boolean ifExist(String Username){
 		return null;
 	}
 	
-	public Collection<MemberBean> selectLimit() {
+	public Collection<MemberBean> selectLimit(String orderBy,int begin,int count) {
 
-		int n = 0;
-		String sql = "select * from Member "
-					+"limit ?, ?"	
-					+";";
+		String sql = "select * from Member "+
+					 "order by ? "+
+					 "limit ?,?"+	
+					 ";";
 
 		Collection<MemberBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
-
+			
+			pstmt.setString(1, orderBy);
+			pstmt.setInt(2, begin);
+			pstmt.setInt(3, count);
+			
 			try (ResultSet rs = pstmt.executeQuery();) {
-
+				
+				
+				
 				while (rs.next()) {
 					MemberBean pb = new MemberBean();
 					pb.setM_ID(rs.getString(1));
@@ -326,7 +331,7 @@ public Boolean ifExist(String Username){
 					coll.add(pb);
 				}
 
-				System.out.println("記錄 查詢all");
+				System.out.println("記錄 查詢orderBy ? Limit ?,?");
 			}
 			return coll;
 		} catch (Exception e) {
