@@ -30,21 +30,21 @@ public class Delete extends HttpServlet {
 
 		String M_Username = request.getParameter("Username");
 
-		Collection<ResultBean> coll = new ArrayList<>();
+		Collection<String> coll = new ArrayList<>();
 		if (M_Username == null || M_Username.trim().length() == 0) {
-			coll.add(new ResultBean("You must input username !"));
+			coll.add("null");//You must input username !
 		}
 		else if (!rs.ifExist(M_Username)) {
-			coll.add(new ResultBean(M_Username+" couldn't find."));
+			coll.add("miss");//M_Username+" couldn't find."
 
 		} else {
 			int Result = rs.delete(M_Username);
 			System.out.println("刪除帳號: " + M_Username);
 
 			if (Result == 1) {
-				coll.add(new ResultBean("Delete "+M_Username+" success."));
+				coll.add("true");//"Delete "+M_Username+" success."
 			} else {
-				coll.add(new ResultBean("Delete "+M_Username+" error!!!"));
+				coll.add("false");//"Delete "+M_Username+" error!!!"
 
 			}
 		}

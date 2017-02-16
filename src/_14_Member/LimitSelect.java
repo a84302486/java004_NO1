@@ -36,7 +36,7 @@ public class LimitSelect extends HttpServlet {
 		try (PrintWriter out = response.getWriter();) {
 			
 				
-			coll = rs.selectLimit("M_ID", 0 , 20);		
+			coll = rs.selectLimit("M_ID", 0 , 1);		
 			toJson = new Gson().toJson(coll);
 			out.println(toJson);
 		}

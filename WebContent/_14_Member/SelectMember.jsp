@@ -4,7 +4,7 @@
 <html>
 <head>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/test.css'  type="text/css" />
-<script src ="../js/member.js"></script>
+<script src ="../js/member/member.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>

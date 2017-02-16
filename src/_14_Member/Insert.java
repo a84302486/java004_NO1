@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,15 +22,17 @@ public class Insert extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		request.setCharacterEncoding("UTF-8");
 		// 準備存放錯誤訊息的 List 物件
-		List<String> errorMsg = new ArrayList<String>();
+		Map<String, String> errorMsg = new HashMap<>();
 
-		request.setAttribute("ErrorMsgKey", errorMsg);
+		request.setAttribute("ErrorMsg", errorMsg);
+		request.setCharacterEncoding("UTF-8");
 
 		// 1. 讀取使用者輸入資料
 
 		String id = request.getParameter("ID");
 		String username = request.getParameter("Username");
 		String password = request.getParameter("Password");
+		String password2 = request.getParameter("Password2");
 		String name = request.getParameter("Name");
 		String nick = request.getParameter("Nick");
 		String sex = request.getParameter("Sex");
@@ -48,27 +52,24 @@ public class Insert extends HttpServlet {
 		Date date = new Date();
 		String joinDate = sdFormat.format(date);
 
-		// 2. 進行必要的資料轉換
 
 		// 3. 檢查使用者輸入資料
 		if (id == null || id.trim().length() == 0) {
-			errorMsg.add("會員卡號必須輸入");
+			errorMsg.put("id","卡號必須輸入");
 		}
 		if (username == null || username.trim().length() == 0) {
-			errorMsg.add("帳號欄必須輸入");
+			errorMsg.put("username","帳號必須輸入");
 		}
 		if (password == null || password.trim().length() == 0) {
-			errorMsg.add("密碼欄必須輸入");
+			errorMsg.put("password","密碼必須輸入");
+		}
+		if (password2 == null || password2.trim().length() == 0) {
+			errorMsg.put("password2","確認密碼必須輸入");
 		}
 		if (name == null || name.trim().length() == 0) {
-			errorMsg.add("姓名欄必須輸入");
+			errorMsg.put("name","名稱必須輸入");
 		}
-		if (eMail == null || eMail.trim().length() == 0) {
-			errorMsg.add("EMail欄必須輸入");
-		}
-		if (phone == null || phone.trim().length() == 0) {
-			errorMsg.add("電話號碼欄必須輸入");
-		}
+		
 
 		if (!errorMsg.isEmpty()) {
 			RequestDispatcher rd = request.getRequestDispatcher("InsertMember.jsp");
@@ -78,24 +79,19 @@ public class Insert extends HttpServlet {
 
 		String insertError = null;
 		try {
-/*			for(int i=0;i<100000;i++){
-				id=String.valueOf(Integer.parseInt(id)+i);
-				username=String.valueOf(Integer.parseInt(username)+i);
-				identityCard=String.valueOf(Integer.parseInt(identityCard)+i);*/
-			
+		
 			MemberBean mem = new MemberBean(id, username, password, name, nick, sex, birthday, eMail, phone, cellPhone,
 					address, line, faceBook,identityCard, invoice, uniformNumber, joinDate,0,0,0);
 			insertError = new MemberDAO().insert(mem);
-			//}
+			
 		} catch (Exception e) {
-			errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
+			errorMsg.put("exception","資料庫存取錯誤");
 			e.printStackTrace();
 		}
 		if (insertError != null) {
-			errorMsg.add(insertError);
+		
 		}
 
-		// 5.依照 Business Logic 運算結果來挑選適當的畫面
 		request.setAttribute("M_Username", username);
 	
 			RequestDispatcher rd = request.getRequestDispatcher("InsertMember.jsp");

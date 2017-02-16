@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../css/test.css">
-<script src ="../js/member.js"></script>
+<script src ="../js/member/member.js"></script>
 <script src="../js/bootstrap.min.js"></script> 
 
 
@@ -71,7 +71,7 @@
 
 	<section class="container-fuild" id='resp' style="height: 50%; width:100%;overflow:scroll;"></section>
 
-	<section class="container-fuild" id="resultIndex">contact</section> -->
+	<section class="container-fuild" id="resultIndex" style="height: 70%; width:100%;overflow:scroll;">contact</section> -->
 
 	<div id='control_Flow'>
 		<small> </small>
