@@ -79,7 +79,7 @@ public class Insert extends HttpServlet {
 			return;
 		}
 
-		//String insertError = null;
+		String insertError = null;
 		try {
 		
 			MemberBean mem = new MemberBean(id, username, password, name, nick, sex, birthday, eMail, phone, cellPhone,

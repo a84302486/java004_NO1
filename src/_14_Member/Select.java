@@ -28,7 +28,7 @@ public class Select extends HttpServlet {
 
 		MemberDAO rs = new MemberDAO();
 		String M_Username = request.getParameter("Username");
-		//System.out.println("收到Username = "+M_Username);
+		System.out.println("收到Username = "+M_Username);
 		
 		Collection<MemberBean> coll = null;
 		request.setCharacterEncoding("UTF-8");

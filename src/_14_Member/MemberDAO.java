@@ -293,19 +293,17 @@ public Boolean ifExist(String Username){
 		return null;
 	}
 	
-	public Collection<MemberBean> selectLimit(String orderBy,int begin,int count) {
+	public Collection<MemberBean> selectLimit(String orderBy,String asc,int begin,int count) {
 
-		String sql = "select * from Member "+
-					 "order by ? "+
-					 "limit ?,?"+	
-					 ";";
+		String sql = "select * from Member order by ? ? limit ?,?;";
 
 		Collection<MemberBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			
 			pstmt.setString(1, orderBy);
-			pstmt.setInt(2, begin);
-			pstmt.setInt(3, count);
+			pstmt.setString(2, asc);
+			pstmt.setInt(3, begin);
+			pstmt.setInt(4, count);
 			
 			try (ResultSet rs = pstmt.executeQuery();) {
 				
@@ -345,16 +343,19 @@ public Boolean ifExist(String Username){
 		return null;
 	}
 	
-	public Collection<MemberBean> column() {
+	public Collection<MemberBean> selectLimit() {
 
-		String sql = "select * from Member where 1>2;";
-	
+		String sql = "SELECT * FROM Member ORDER BY M_Updatedate DESC LIMIT 0,12;";
 
 		Collection<MemberBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
-				
+			
+		
+			
 			try (ResultSet rs = pstmt.executeQuery();) {
-	
+				
+				
+				
 				while (rs.next()) {
 					MemberBean pb = new MemberBean();
 					pb.setM_ID(rs.getString(1));
@@ -379,7 +380,7 @@ public Boolean ifExist(String Username){
 					coll.add(pb);
 				}
 
-				System.out.println("記錄 查詢column");
+				System.out.println("記錄 查詢orderBy Limit");
 			}
 			return coll;
 		} catch (Exception e) {
@@ -388,5 +389,7 @@ public Boolean ifExist(String Username){
 		}
 		return null;
 	}
+	
+	
 	
 }

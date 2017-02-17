@@ -11,12 +11,16 @@
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../css/test.css">
 <script src ="../js/member/member.js"></script>
+<script src ="../js/member/insert.js"></script>
+<script src ="../js/member/delete.js"></script>
+<script src ="../js/member/select.js"></script>
 <script src="../js/bootstrap.min.js"></script> 
 
 
 <title>會員管理首頁</title>
 </head>
 <body onload="getQueryDataLimit('LimitSelect','resultIndex');">
+
 	<header class="container-fuild">
 		<h4 class="text-center">
 			<strong>Java004</strong>
@@ -36,7 +40,7 @@
 
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
-				<div class="nav navbar-nav">
+				<div class="nav navbar-nav" id="buttons">
 					<button
 						onclick="ajaxButtonTag('InsertMember.jsp','resp');">
 						<strong>F2 新增
@@ -60,7 +64,11 @@
 						<strong>F5 查詢
 						</strong>
 					</button>
-
+<!-- 					<button -->
+<!-- 						onclick="setDeleteData('Delete','Username','result');">> -->
+<!-- 						<strong>提交 -->
+<!-- 						</strong> -->
+<!-- 					</button> -->
 				</div>
 				<ul class="nav navbar-nav navbar-right">
 
@@ -69,9 +77,9 @@
 		</nav>
 	</section>
 
-	<section class="container-fuild" id='resp' style="height: 50%; width:100%;overflow:scroll;"></section>
+	<section class="container-fuild" id="resp"></section>
 
-	<section class="container-fuild" id="resultIndex" style="height: 70%; width:100%;overflow:scroll;">contact</section> -->
+	<section class="container-fuild" id="resultIndex"></section>  
 
 	<div id='control_Flow'>
 		<small> </small>

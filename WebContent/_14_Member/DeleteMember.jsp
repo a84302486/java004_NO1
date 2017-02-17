@@ -11,11 +11,12 @@
 
 <!-- <Form Action="Select" method="POST"> -->
 <!-- <Form Action="Javascript:%200" onsubmit="getQueryData('Select');return false;"> -->
-<Form Action="Javascript:%200" onsubmit="setDeleteData('Delete','Username','result');">
+<Form Action="Javascript:%200">
+
 <!-- setDeletData('Delete'); -->
           	   輸入帳號刪除:
-             <input type="text" name="Username" id="Username" value="" size="20">
-             <input type="submit" value="開始刪除">
+             <input type="text" name="Username" id="DeleteUsername" value="" size="20">
+             <input type="button" value="開始刪除" onclick="setDeleteData('Delete','DeleteUsername','result');">
 <!--              <input type="submit" value="開始查詢" onclick ="getQueryData('Select')"/> -->
 </Form>
 <div id ="result" >

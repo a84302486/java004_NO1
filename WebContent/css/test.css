@@ -1,19 +1,33 @@
 
+#resp{
+	height: 200px; 
+	width:100%;
+	overflow:scroll;
+	background-color:#b0c4de;
+}
+#resultIndex{
+	height: 600px; 
+	width:100%;
+	overflow:scroll;
+}
+
+
+
 body {
   margin: 0;
-  background-color: #ffffc4;
+  /*background-color: #ff8000;*/
   font-family: Tahoma;
 }
 
 header, section, aside, footer {
-	/* margin-inside: 10px;*/
+	 margin-inside: 10px; 
 	border: solid 1px #808080;
 }
 
 table {
 	border:solid 1px; 
-/* 	margin-left:20px; */
-	text-align:center;
+	margin-left:20px; 
+ 	text-align:center;
 	height: 30%; 
 	width: 250%; 
 	
@@ -35,14 +49,8 @@ button {
 	background:-webkit-linear-gradient(Top,#6bc9fc 0%,#ffffff 70%);
 }
 
-#showDAOJsp {
-	height: 80px;
-	overflow:auto;
-}
-
-#showResult {
-	height: 350px;
-	overflow:auto;
+.container-fuild{
+	background:#ddffdd;
 }
 
 footer {
