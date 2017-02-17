@@ -46,7 +46,7 @@ function setDeleteData(servelet,ID,div) {
 			}
 
 		}
-		
+		getQueryDataLimit('LimitSelect','resultIndex');
 //		getQueryDataLimit('LimitSelect','resultIndex');
 	}
 	

@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<link rel="stylesheet" href="../css/test.css" type="text/css">
+<link rel="stylesheet" href="../css/member.css" type="text/css">
 <script src ="../js/member/insert.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>MVC</title>
@@ -71,7 +71,14 @@
 						value="快樂股份有限公司" size="20"></TD>
 					<TD align="center"><input type="text" name="UniformNumber"
 						value="0999000999" size="20"></TD>
-					<TD colspan="1" align="left"><input type="submit"
+
+				</tr>
+					
+				<tr>
+				</tr>
+				
+				<tr>
+					<TD colspan="1" align="right" style="position:fixed;top:110px;right:250px;"><input type="submit"
 						value="新增會員" ></TD>
 				</tr>
 			

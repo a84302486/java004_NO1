@@ -5,6 +5,7 @@
 <%-- <%@ page language="java" contentType="text/html; charset=UTF-8" --%>
 <%-- 	pageEncoding="UTF-8"%> --%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../css/member.css">
 <!-- <link rel="stylesheet" href="../css/test.css"> -->
 <title>主選單</title>
 </head>
@@ -12,7 +13,7 @@
 	<select class="col-md-3" onChange="selectMenu(this)">
 				<option selected>主 選 單</option>
 				<option value="../_14_Member/IndexMember.jsp">會員資料</option>
-				<option value="../_01_ProductTest/IndexProduct.jsp">商品資訊</option>
+				<option value="../_01_Product/IndexProduct.jsp">商品資訊</option>
 	</select>
 	<input type="text" name="time" value="time" class="col-md-3">
 </body>

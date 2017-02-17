@@ -1,14 +1,15 @@
 
 #resp{
-	height: 200px; 
+	height: 130px; 
 	width:100%;
-	overflow:scroll;
+	overflow:auto;
 	background-color:#b0c4de;
 }
 #resultIndex{
-	height: 600px; 
+	height: 408px; 
 	width:100%;
-	overflow:scroll;
+	overflow:auto;
+	background-color:#77c749;
 }
 
 
@@ -21,7 +22,7 @@ body {
 
 header, section, aside, footer {
 	 margin-inside: 10px; 
-	border: solid 1px #808080;
+	border:inset 1px #808080;
 }
 
 table {
@@ -45,12 +46,13 @@ button {
 }
 
 #window{
-	background-color: #6bc9fc;
+	background-color: #dd5044;
 	background:-webkit-linear-gradient(Top,#6bc9fc 0%,#ffffff 70%);
 }
 
 .container-fuild{
-	background:#ddffdd;
+	background:#f2de76;
+	/*width: 100px;*/
 }
 
 footer {

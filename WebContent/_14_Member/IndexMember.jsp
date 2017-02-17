@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/test.css">
+<link rel="stylesheet" href="../css/member.css">
 <script src ="../js/member/member.js"></script>
 <script src ="../js/member/insert.js"></script>
 <script src ="../js/member/delete.js"></script>
@@ -19,7 +19,7 @@
 
 <title>會員管理首頁</title>
 </head>
-<body onload="getQueryDataLimit('LimitSelect','resultIndex');">
+<body onload="doFirstIndex();">
 
 	<header class="container-fuild">
 		<h4 class="text-center">
@@ -46,7 +46,7 @@
 						<strong>F2 新增
 						</strong>
 					</button>
-					<button
+					<button 
 						onclick="ajaxButtonTag('DeleteMember.jsp','resp');">
 						<strong>F3 刪除
 						</strong>
@@ -77,7 +77,7 @@
 		</nav>
 	</section>
 
-	<section class="container-fuild" id="resp"></section>
+	<section class="container-fuild" id="resp"><center><h2>歡迎使用本系統</h2></center></section>
 
 	<section class="container-fuild" id="resultIndex"></section>  
 
@@ -86,7 +86,7 @@
 	</div>
 
 
-	<footer class="container-fuild">footer</footer>
+	<footer class="container-fuild" style="position:fixed;">我是footer</footer>
 
 </body>
 </html>

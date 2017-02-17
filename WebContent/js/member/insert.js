@@ -49,6 +49,8 @@ function setInsertData(servelet,div) {
 			divs.innerHTML = content;
 		}
 	}
+	
+	getQueryDataLimit('LimitSelect','resultIndex');
 }
 
 

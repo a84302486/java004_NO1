@@ -27,7 +27,7 @@ function getQueryData(input,servelet,successdiv,errordiv) {
 				errorID.innerHTML = content;
 				return;
 			}
-			var content = "";
+			var content = "<h3>搜尋結果<br><br>";
 
 			content += "<table>";
 
