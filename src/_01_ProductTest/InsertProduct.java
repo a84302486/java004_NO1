@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/_01_ProductTest/InsertServelet")
+@WebServlet("/_01_ProductTest/InsertServlet")
 
 public class InsertProduct extends HttpServlet {
 		private static final long serialVersionUID = 1L;
@@ -28,28 +28,22 @@ public class InsertProduct extends HttpServlet {
 			// 讀取輸入的資料 , 檢查輸入的資料
 			
 			String productIdStr = request.getParameter("productId");
-			if(productIdStr ==null || productIdStr.trim().length()==0)
-			{
+			if(productIdStr ==null || productIdStr.trim().length()==0){
 				errorMsg.add("序號必須輸入");
 			}
-			else if(!isInteger(productIdStr))
-			{
+			else if(!isInteger(productIdStr)){
 				errorMsg.add("序號必須是整數");
 			}
 			
 			String PGPriceStr = request.getParameter("PGPrice");
-			int PGPrice = 
-					0;
-			if(PGPriceStr ==null || PGPriceStr.trim().length()==0)
-			{
+			int PGPrice = 0;
+			if(PGPriceStr ==null || PGPriceStr.trim().length()==0){
 				errorMsg.add("定價必須輸入");
 			}
-			else if(!isInteger(PGPriceStr))
-			{
+			else if(!isInteger(PGPriceStr)){
 				errorMsg.add("定價必須是整數");
 			}
-			else
-			{
+			else{
 				PGPrice = Integer.parseInt(PGPriceStr);
 			}		
 			
@@ -59,16 +53,12 @@ public class InsertProduct extends HttpServlet {
 			
 			String avgCostStr = request.getParameter("avgCost");
 			double avgCost = 0;
-			if(avgCostStr ==null || avgCostStr.trim().length()==0)
-			{
+			if(avgCostStr ==null || avgCostStr.trim().length()==0){
 				errorMsg.add("成本必須輸入");
 			}
-			else if(!isDouble(avgCostStr))
-			{
+			else if(!isDouble(avgCostStr)){
 				errorMsg.add("成本必須是小數");
-			}
-			else
-			{
+			}else{
 			    avgCost = Double.parseDouble(avgCostStr);
 			}
 			
@@ -78,16 +68,12 @@ public class InsertProduct extends HttpServlet {
 			
 			String sLifeStr = request.getParameter("sLife");
 			int sLife = 0;
-			if(sLifeStr ==null || sLifeStr.trim().length()==0)
-			{
+			if(sLifeStr ==null || sLifeStr.trim().length()==0){
 				errorMsg.add("保存期必須輸入");
 			}
-			else if(!isInteger(sLifeStr))
-			{
+			else if(!isInteger(sLifeStr)){
 				errorMsg.add("保存期必須是整數");
-			}
-			else
-			{
+			}else{
 				 sLife = Integer.parseInt(sLifeStr);
 			}
 			

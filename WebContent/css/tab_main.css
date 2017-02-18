@@ -1,0 +1,56 @@
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.abgne_tab {
+	clear: left;
+	margin: 10px 0;
+}
+ul.tabs {
+	width: 100%;
+	height: 20px;
+	border-bottom: 1px solid #847577;
+	border-left: 1px solid #999;
+}
+ul.tabs li {
+	float: left;
+	height: 21px;
+	line-height: 21px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: -1px;	/* 讓 li 往下移來遮住 ul 的部份 border-bottom */
+	border: 1px solid #999;
+	border-left: none;
+	background: #e1e1e1;
+}
+ul.tabs li a {
+	display: block;
+	padding: 0 20px;
+	color: #000;
+	border: 1px solid #fff;
+	text-decoration: none;
+}
+ul.tabs li a:hover {
+	background: #ccc;
+}
+ul.tabs li.active  {
+	background: #ffffb5;
+	border-bottom: 1px solid #ffffb5;
+}
+ul.tabs li.active a:hover {
+	background: #fff;
+}
+div.tab_container {
+	clear: left;
+	width: 100%;
+	border: 1px solid #999;
+	border-top: none;
+	background: #ffffb5;
+}
+div.tab_container .tab_content {
+	padding: 0px 15px ;
+}
+div.tab_container .tab_content h2 {
+	margin: 0 0 20px;
+}

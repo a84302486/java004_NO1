@@ -3,21 +3,23 @@
 <html>
 <head>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/test.css' type="text/css" />
-<script src="../js/product.js"></script>
+<script src="${pageContext.request.contextPath}/js/product_new.js" type="text/JavaScript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>MVC</title>
 </head>
 <body>
-
-	<Form Action="Javascript:%200" onsubmit="setDeleteData('Delete');">
+<CENTER>
+	<Form Action="Javascript:%200" >
 		<div>
+			<font size="4" color="blue" face="Tahoma"> 
 			請輸入要刪除的產品序號: 
-			<input type="text" name="productId" id="productId" value="" size="20"> 
-			<input type="submit" value="開始刪除">
+			<input type="text" id="productId" name="productId" value="" size="20" placeholder="請輸入序號"> 
+			<input type="button" value="開始刪除"  onclick="getMessage('DeleteServlet');">
+			</font>
 		</div>
 	</Form>
-
-	<div id="result"></div>
+		<div id="deleteResult"></div>
+</CENTER>
 
 </body>
 </html>
