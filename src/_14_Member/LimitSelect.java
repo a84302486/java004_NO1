@@ -18,40 +18,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-@WebServlet("/_14_Member/Delete")
-public class Delete extends HttpServlet {
+
+
+@WebServlet("/_14_Member/LimitSelect")
+public class LimitSelect extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 		MemberDAO rs = new MemberDAO();
+		
+		Collection<MemberBean> coll = null;
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
-
-		String M_Username = request.getParameter("Username");
-
-		Collection<String> coll = new ArrayList<>();
-		if (M_Username == null || M_Username.trim().length() == 0) {
-			coll.add("null");//You must input username !
-		}
-		else if (!rs.ifExist(M_Username)) {
-			coll.add("miss");//M_Username+" couldn't find."
-
-		} else {
-			int Result = rs.delete(M_Username);
-			System.out.println("刪除帳號: " + M_Username);
-
-			if (Result == 1) {
-				coll.add("true");//"Delete "+M_Username+" success."
-			} else {
-				coll.add("false");//"Delete "+M_Username+" error!!!"
-
-			}
-		}
+		String toJson = null;
+		
 		try (PrintWriter out = response.getWriter();) {
-
-			String toJson = new Gson().toJson(coll);
-			System.out.println(toJson);
+			
+				
+			coll = rs.selectLimit();		
+			toJson = new Gson().toJson(coll);
 			out.println(toJson);
 		}
 

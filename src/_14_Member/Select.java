@@ -31,11 +31,10 @@ public class Select extends HttpServlet {
 		System.out.println("收到Username = "+M_Username);
 		
 		Collection<MemberBean> coll = null;
-		Collection<ResultBean> coll2 = new ArrayList<>();
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
 		String toJson = null;
-		String notFind = null; 
+		
 		try (PrintWriter out = response.getWriter();) {
 			if (M_Username == null || M_Username.trim().length() == 0) {
 				
@@ -46,14 +45,14 @@ public class Select extends HttpServlet {
 				coll = rs.select(M_Username);
 			}
 			else {
-				
-				notFind = new Gson().toJson(coll2.add(new ResultBean(M_Username+" couldn't find.")));
-				System.out.println(notFind);
+	
+				//System.out.println(M_Username+" couldn't find.");
+
 			}
-			//String test = "[{"+"&quot;"+"M_ID"+"&quot;"+":"+"&quot;"+"10012}]";
-			toJson = new Gson().toJson(coll) +notFind;
-			System.out.println(toJson);
-			out.println(toJson);
+			
+			toJson = new Gson().toJson(coll);
+			//System.out.println(toJson);
+			out.println(toJson);//找不到會傳null
 		}
 
 	}

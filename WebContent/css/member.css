@@ -1,0 +1,57 @@
+body {
+  margin: 0.75em;
+  text-align:center;
+ /* color: #ebebeb;*/
+  font-family: Tahoma;
+  background-color: #292929;
+}
+
+header, section, aside, footer {
+	margin-inside: 0.625em; 
+	border:inset 1px transform;
+	background-color: #292929;
+	
+}
+
+#resp{
+	height:15em; 
+	width:100%;
+	overflow:auto;
+	color:#ffbf26;
+	/*background-color:#292929;*/
+}
+#resultIndex{
+	height:25.500em; 
+	width:100%;
+	overflow:auto;
+	background-color:#292929;	
+}
+table {
+	border:solid 1px; 
+	margin-left:1.250em; 
+ 	text-align:center;
+	height: 2em; 
+	width: 170em;
+	/*background-color:#ffe793;*/
+	color: #1290c3;
+	table-layout:fixed;
+	
+}
+
+
+tr{
+	background-color:white;
+	width: 15.625em;
+}
+
+tr:nth-child(1){
+	background-color:#ffe793; 
+}
+
+td{
+	width: 15.625em;
+}
+/* tr:nth-child(even){ */
+/* 	background-color::#a4cfdf; */
+/* } */
+
