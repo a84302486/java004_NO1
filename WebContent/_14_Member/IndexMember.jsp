@@ -42,23 +42,23 @@
 			<div class="container-fluid">
 				<div class="nav navbar-nav" id="buttons">
 					<button
-						onclick="ajaxButtonTag('InsertMember.jsp','resp');">
+						onclick="ajaxButtonTag('InsertMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex');">
 						<strong>F2 新增
 						</strong>
 					</button>
 					<button 
-						onclick="ajaxButtonTag('DeleteMember.jsp','resp');">
+						onclick="ajaxButtonTag('DeleteMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex');">
 						<strong>F3 刪除
 						</strong>
 					</button>
 					<button
-						onclick="ajaxButtonTag('UpdateMember.jsp','resp');">
+						onclick="ajaxButtonTag('UpdateMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex');">
 						<strong>F4 修改
 						</strong>
 					</button>
 					<button
 
-						onclick="ajaxButtonTag('SelectMember.jsp','resp');">
+						onclick="ajaxButtonTag('SelectMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex');"">
 
 					
 						<strong>F5 查詢

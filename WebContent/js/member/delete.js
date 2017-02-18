@@ -21,6 +21,7 @@ function setDeleteData(servelet,ID,div) {
 				
 				if (validation_messages != "true") {
 					var content = "<font color='red'>";
+						content += "<center>";
 					
 					if(validation_messages == "false"){
 						
@@ -31,13 +32,15 @@ function setDeleteData(servelet,ID,div) {
 					}else{
 						
 						content += "請輸入"+ID+"作刪除";
-					}			
+					}
+					content += "</center>";
 					content += "</Font>";
 				
 				} else{
 					
 					var content = "<font color='blue'>";					
 					content += "刪除 "+idValue+" 成功";
+					content += "</center>";
 					content += "</Font>";
 				}
 				
@@ -46,8 +49,8 @@ function setDeleteData(servelet,ID,div) {
 			}
 
 		}
-		getQueryDataLimit('LimitSelect','resultIndex');
-//		getQueryDataLimit('LimitSelect','resultIndex');
+		//getQueryDataLimit('LimitSelect','resultIndex');
+
 	}
 	
 	

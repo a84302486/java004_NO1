@@ -5,6 +5,7 @@
 <head>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/member.css'  type="text/css" />
 <script src ="../js/member/delete.js"></script>
+<script src ="../js/member/member.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
@@ -16,8 +17,10 @@
 <!-- setDeletData('Delete'); -->
           	   輸入帳號刪除:
              <input type="text" name="Username" id="DeleteUsername" value="" size="20" align="center">
-             <input type="button" value="開始刪除" onclick="setDeleteData('Delete','DeleteUsername','result');" style="position:fixed;top:110px;right:250px;">
-<!--              <input type="submit" value="開始查詢" onclick ="getQueryData('Select')"/> -->
+             <button onclick="setDeleteData('Delete','DeleteUsername','result');getQueryDataLimit('LimitSelect','resultIndex');" style="position:fixed;top:4em;right:15.625em;">
+           		刪除
+           	 </button>
+<!--  <input type="submit" value="開始查詢" onclick ="getQueryData('Select')"/> -->
 </center>
 </Form>
 <div id ="result" >
