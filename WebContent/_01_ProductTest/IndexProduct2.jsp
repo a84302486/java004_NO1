@@ -41,10 +41,13 @@
 	<section class="container-fuild" id="pageTab">
 		<div class="abgne_tab">
 			<ul class="tabs">
-				<li><a href="#tab1">testTab11111111 <i><img
+				<li><a href="#tab1">產品資料表 <i><img
 							src="../image/cross.svg" width="20" height="20" class="cross"></i>
 				</a></li>
-				<li><a href="#tab2">testTab222222222 <i><img
+				<li><a href="#tab2">我是測試工具Tab <i><img
+							src="../image/cross.svg" width="20" height="20" class="cross"></i>
+				</a></li>
+				<li><a href="#tab3">會員資料表 <i><img
 							src="../image/cross.svg" width="20" height="20" class="cross"></i>
 				</a></li>
 			</ul>
@@ -82,7 +85,7 @@
 						<%--        <jsp:include page='SelectProduct.jsp'/>  --%>
 					</section>
 
-					<footer class="container-fuild">還不知道要幹麻的footer</footer>
+					<footer class="container-fuild"><h2>還不知道要幹麻的footer</h2></footer>
 
 				</div>
 				<div id="tab2" class="tab_content">
@@ -90,8 +93,8 @@
 					<p>測試文字2測試文字2測試文字2測試文字2測試文字2測試文字2測試文字2</p>
 				</div>
 				<div id="tab3" class="tab_content">
-					<h2>測試文字2</h2>
-					<p>測試文字2測試文字2測試文字2測試文字2測試文字2測試文字2測試文字2</p>
+					<h2>會員資料表</h2>
+					<p>還沒放連結還沒放連結還沒放連結還沒放連結還沒放連結還沒放連結</p>
 				</div>
 			</div>
 		</div>

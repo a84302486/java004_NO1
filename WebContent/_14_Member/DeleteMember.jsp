@@ -15,18 +15,17 @@
 <center>
 <!-- setDeletData('Delete'); -->
           	   輸入帳號刪除:
-<<<<<<< HEAD
              <input type="text" name="Username" id="Username" value="" size="20">
              <input type="submit" value="開始刪除">
 <!-- <input type="submit" value="開始查詢" onclick ="getQueryData('Select')"/> -->
-=======
+
              <input type="text" name="Username" id="DeleteUsername" value="" size="20" align="center">
              <button onclick="setDeleteData('Delete','DeleteUsername','result');getQueryDataLimit('LimitSelect','resultIndex');" style="position:fixed;top:4em;right:15.625em;">
            		刪除
            	 </button>
 <!--  <input type="submit" value="開始查詢" onclick ="getQueryData('Select')"/> -->
 </center>
->>>>>>> 050a76e9b244aa8a8167b8f86285e203036efd18
+
 </Form>
 <div id ="result" >
 	<br>
