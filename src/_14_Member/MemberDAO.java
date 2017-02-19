@@ -69,7 +69,6 @@ public class MemberDAO {
 	
 	synchronized public String insert(MemberBean mem){
 	
-		int n =0;
 		String sql = "INSERT INTO Member "
 				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
 		
@@ -99,15 +98,20 @@ public class MemberDAO {
 			pstmt.setInt(20, mem.getM_BonusPoints());
 			pstmt.setInt(21, mem.getM_Total());
 									
-			n = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 			
-			System.out.println("成功 新增" + mem.getM_Username());
+			System.out.println("新增" + mem.getM_Username()+"成功 ");
 			
 			return null;
-		}catch (Exception e){		
-			System.out.println("失敗 新增" + mem.getM_Username());
+		}catch (Exception e){
+			
+			if(ifExist(mem.getM_Username())){
+				System.out.println(mem.getM_Username()+"已經存在");
+				return mem.getM_Username()+"已經存在";
+			}
+			System.out.println("新增" + mem.getM_Username()+"失敗");
 			e.printStackTrace();
-			return "失敗 新增" + mem.getM_Username();
+			return "新增" + mem.getM_Username()+"失敗";
 		}
 		
 	}
@@ -130,8 +134,7 @@ public class MemberDAO {
 		}
 	}
 	synchronized public String update(MemberBean mem){
-		
-		int n =0;
+	
 		String sql = "UPDATE Member SET "
 				+ "M_Password = ?, M_Name = ?, M_Nick = ?, M_Sex = ?, M_Birthday = ?, M_EMail = ?,"
 				+ "M_Phone = ?, M_Cellphone = ?, M_Address = ?, M_Line = ?, M_FaceBook = ?, M_IdentityCard = ?"
@@ -159,7 +162,7 @@ public class MemberDAO {
 			pstmt.setString(15, mem.getM_Invoice());
 			pstmt.setString(16, mem.getM_UniformNumber());
 					
-			n = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 			
 			System.out.println("成功 修改" + mem.getM_Username());
 			
@@ -224,7 +227,6 @@ public class MemberDAO {
 	
 	public Collection<MemberBean> select() {
 
-		int n = 0;
 		String sql = "select * from Member"+";";
 
 		Collection<MemberBean> coll = new ArrayList<>();
