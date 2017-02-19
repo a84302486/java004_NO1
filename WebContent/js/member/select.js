@@ -67,7 +67,8 @@ function getQueryData(input,servelet,successdiv,errordiv) {
 			}
 
 			content += "</table>";
-
+			
+			errorID.innerHTML ="";
 			successID.innerHTML = content;
 			
 			//alert("selet success");

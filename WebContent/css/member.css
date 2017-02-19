@@ -4,6 +4,7 @@ body {
  /* color: #ebebeb;*/
   font-family: Tahoma;
   background-color: #847577;
+/*   background-color: #000000; */
 }
 
 header, section, aside, footer {
@@ -24,6 +25,7 @@ header, section, aside, footer {
 	height:25.500em; 
 	width:100%;
 	overflow:auto;
+	color:#ffbf26;
 	background-color:#292929;	
 }
 table {

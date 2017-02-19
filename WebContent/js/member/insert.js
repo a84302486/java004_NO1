@@ -40,10 +40,12 @@ function setInsertData(input, servelet, middiv, botdiv) {
 				content += "<table>";
 				content += "<tr>";
 				content += "<font color='red'>";
-
+				var last = validation_messages;
+				
 				// 每一筆資料
 				for ( var key in validation_messages) {
 					// skip loop if the property is from prototype
+					
 					if (!validation_messages.hasOwnProperty(key))
 						continue;
 
@@ -53,7 +55,7 @@ function setInsertData(input, servelet, middiv, botdiv) {
 						// skip loop if the property is from prototype
 						if (!obj.hasOwnProperty(prop))
 							continue;
-						if(prop == (obj.length-1)){
+						if(prop =="DML_Result"){
 							alert(obj[prop]);
 							break;
 						}

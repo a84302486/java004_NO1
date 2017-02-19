@@ -14,6 +14,7 @@
 <script src ="../js/member/insert.js"></script>
 <script src ="../js/member/delete.js"></script>
 <script src ="../js/member/select.js"></script>
+<script src ="../js/member/update.js"></script>
 <script src="../js/bootstrap.min.js"></script> 
 
 
