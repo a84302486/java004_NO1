@@ -38,6 +38,7 @@ public class DeleteProduct extends HttpServlet {
 			coll.add("欄位必須輸入序號");
 	
 		} else {
+			
 			boolean success = new ProductDAO().delete(productIdStr);
 			System.out.println("刪除產品序號"+ productIdStr +"資料");
 

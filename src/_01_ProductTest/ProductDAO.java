@@ -55,9 +55,9 @@ public class ProductDAO {
 				
 				return null;
 			}catch (Exception e){		
-				System.out.println("失敗 新增" + pb.getProductId());
+				System.out.println("儲存資料"+ pb.getProductId()+"時發生錯誤，請檢查，例外=" + e.getMessage());
 				e.printStackTrace();
-				return "失敗 新增" + pb.getProductId();
+				return "儲存資料"+ pb.getProductId()+"時發生錯誤，請檢查，例外=" + e.getMessage();
 			}	
 		}
 		

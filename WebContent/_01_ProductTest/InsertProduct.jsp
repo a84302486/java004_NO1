@@ -10,7 +10,7 @@
 </head>
 <body>
 	<CENTER>
-<Form Action="InsertServlet" method="POST">	
+<Form Action="Javascript:%200">	
 			<div align="LEFT">
 				<font size="3" color="red" face="Tahoma"> 
 				產品序號： <input type="text" name="productId" value="001" size="7"> 
@@ -20,7 +20,7 @@
 				產品生產地： <input type="text" name="oPlace" value="台灣台北" size="25"><br>
 				產品保存期： <input type="text" name="sLife" value="360" size="5">
 				產品供應商： <input type="text" name="suppierId" value="A" size="5">
-				<input  type="submit" value="提交" onclick="getMessage('insertResult');">
+				<input  type="submit" value="提交" onclick="getInsertMessage('InsertServlet');">
 				</font> 
 			</div>
 </Form>			
