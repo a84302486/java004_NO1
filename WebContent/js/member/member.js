@@ -1,6 +1,6 @@
 function doFirstIndex(){
 
-	getQueryDataLimit('LimitSelect','resultIndex');
+	getQueryDataLimit('LimitSelect','resultIndex','M_ID');
 	
 }
 
@@ -33,77 +33,14 @@ function ajaxButtonTag(sendJsp, tag) {
 	}
 }
 
-function DeleteButton(){
-	  //新增按鈕
-	  var NewButton = document.createElement("INPUT");
-	  
-	  //按鈕屬性
-	  with(NewButton){
-	    type = "Button";
-	    style.position = "absolute";
-	    style.top = 100;
-	    style.left = 100;
-	    style.width = 200;
-	    style.height = 100;
-	    style.id = "DeleteButton";
-//	    style.fontSize = "16pt"; 
-//	    style.borderStyle = "solid";
-//	    style.borderColor = "#000000"; 
-	    value = "確認刪除"; 
-	  }
-	  
-	  //加入到畫面
-	  document.body.appendChild(NewButton);
-	  
-	  //參數設定
-	  //NewButton.XXX = "Clark";
-	  
-	  //click事件設定
-
-	}
-
-	//新的按鈕click事件處理
-//	function Test(){
-//	  alert(this.XXX);
-//	}
-
-
-
-function SeletButton(){
-	  //新增按鈕
-	  var NewButton = document.createElement("INPUT");
-	  
-	  //按鈕屬性
-	  with(NewButton){
-	    type = "Button";
-	    style.position = "absolute";
-	    style.top = 100;
-	    style.left = 100;
-	    style.width = 200;
-	    style.height = 100;
-//	    style.fontSize = "16pt"; 
-//	    style.borderStyle = "solid";
-//	    style.borderColor = "#000000"; 
-	    value = "確認搜尋"; 
-	  }
-	  
-	  //加入到畫面
-	  document.body.appendChild(NewButton);
-	  
-	  //參數設定
-	  //NewButton.XXX = "Clark";
-	  
-	  //click事件設定
-	  NewButton.onclick = getQueryData('Select','resultIndex'); 
-	}
 
 
 ////-------------------------------------------------------
 
 
-function getQueryDataLimit(servelet, div) {
+function getQueryDataLimit(servelet, div ,first) {
 
-	// alert("Load!!");
+	 //alert("Load!!");
 	// var username = document.getElementById("Username").value;
 	var divs = document.getElementById(div);
 
@@ -119,7 +56,7 @@ function getQueryDataLimit(servelet, div) {
 			var validation_messages = JSON.parse(xhr.responseText);// 由servelet傳過來JSON格式的資料
 			if (validation_messages != null) {
 
-				var content = "<h3>最新更新資料<br><br>";
+				var content = "<div>最新更新資料<br><br></div>";
 
 				content += "<table>";
 
@@ -128,7 +65,8 @@ function getQueryDataLimit(servelet, div) {
 					// skip loop if the property is from prototype
 					if (!validation_messages.hasOwnProperty(key))
 						continue;
-					content += "<tr>";
+				
+					content += "<tr><td>選擇</td>";
 					var obj = validation_messages[key];
 					for ( var prop in obj) {
 						// skip loop if the property is from prototype
@@ -153,8 +91,15 @@ function getQueryDataLimit(servelet, div) {
 						if (!obj.hasOwnProperty(prop))
 							continue;
 
-						content += "<td>" + obj[prop] + "</td>";
+						if(prop == first){
+							
+							content += "<td><input type = checkbox name = " + obj[prop] + 
+												" value ="  + obj[prop] +"</td>";			
+						}
+						content += "<td>"+ obj[prop] + "</td>";
 					}
+					
+					
 					content += "</tr>";
 				}
 
@@ -197,5 +142,19 @@ function setQueryString() {
 
 //----------------------------------------------------
 
+function appendit()  {  
+	var   nodes   =   document.getElementsByTagName("td");  
+	for   (var   i=0;   i<nodes.length;   i++)  
+	{  
+		 
+	 
+			nodes[i].onfocus   =   function   ()   {   this.style.backgroundColor='#018bbd';   }  
+			nodes[i].onblur   =   function   ()   {   this.style.backgroundColor='#3366FF';   }  
+ 
+	}
+}
 
-document.getElementById("DeleteButton").onclick = setDeleteData('Delete','DeleteUsername','result');
+
+
+
+//window.addEventListener('load',appendit,false);

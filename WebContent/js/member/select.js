@@ -1,4 +1,4 @@
-function getQueryData(input,servelet,successdiv,errordiv) {
+function getQueryData(input,servelet,successdiv,errordiv,first) {
 	
 	//alert("getQueryData "+input+" "+servelet+" "+div);
 	var username = document.getElementById(input).value;
@@ -22,12 +22,12 @@ function getQueryData(input,servelet,successdiv,errordiv) {
 			//alert(validation_messages);
 			if(validation_messages == null){//找不到
 				var content = "<font color='red'>"; 
-				content += username +" couldn't find.";
+				content += username +" 找不到!";
 				content += "</Font>";
 				errorID.innerHTML = content;
 				return;
 			}
-			var content = "<h3>搜尋結果<br><br>";
+			var content = "搜尋結果<br><br>";
 
 			content += "<table>";
 
@@ -36,7 +36,7 @@ function getQueryData(input,servelet,successdiv,errordiv) {
 				// skip loop if the property is from prototype
 				if (!validation_messages.hasOwnProperty(key))
 					continue;
-				content += "<tr>";
+				content += "<tr><td>選擇</td>";
 				var obj = validation_messages[key];
 				for ( var prop in obj) {
 					// skip loop if the property is from prototype
@@ -48,19 +48,27 @@ function getQueryData(input,servelet,successdiv,errordiv) {
 				content += "</tr>";
 				break;//欄位名稱只要一次
 			}
-
+		
+			
 			//每一筆資料
 			for ( var key in validation_messages) {
 				// skip loop if the property is from prototype
+				
 				if (!validation_messages.hasOwnProperty(key))
 					continue;
 				content += "<tr>";
+			
 				var obj = validation_messages[key];
 				for ( var prop in obj) {
 					// skip loop if the property is from prototype
 					if (!obj.hasOwnProperty(prop))
-						continue;
-
+						continue;	
+					
+					if(prop == first){
+			
+						content += "<td><input type = checkbox name = " + obj[prop] + 
+											" value ="  + obj[prop] +"</td>";			
+					}
 					content += "<td>" + obj[prop] + "</td>";
 				}
 				content += "</tr>";
