@@ -24,9 +24,6 @@ public class Insert extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
 
-		MemberBeanString error = new MemberBeanString("","","","","","","","","","","","","","","","","","");
-		Boolean hasError = false;
-
 		String id = request.getParameter("ID");
 		String username = request.getParameter("Username");
 		String password = request.getParameter("Password");
@@ -51,63 +48,70 @@ public class Insert extends HttpServlet {
 		String insertDate = sdFormat.format(date);
 
 		// 3. 檢查使用者輸入資料
+		
+		MemberBeanString errorMember = new MemberBeanString("","","","","","","","","","","","","","","","","","");
+		Boolean hasError = false;
+		
 		if (id == null || id.trim().length() == 0) {
-			error.setM_ID("卡號必須輸入");
+			errorMember.setM_ID("卡號必須輸入");
 			hasError = true;
 		}
 		if (username == null || username.trim().length() == 0) {
-			error.setM_Username("帳號必須輸入");
+			errorMember.setM_Username("帳號必須輸入");
 			hasError = true;
 		}
 		if (password == null || password.trim().length() == 0) {
-			error.setM_Password("密碼必須輸入");
+			errorMember.setM_Password("密碼必須輸入");
 			hasError = true;
 		}
 		if (password2 == null || password2.trim().length() == 0) {
-			error.setM_password2("確認密碼必須輸入");
+			errorMember.setM_password2("確認密碼必須輸入");
 			hasError = true;
 		}
 		if(!password.equals(password2)){
-			error.setM_Password("密碼必須和確認密碼相同");
-			error.setM_password2("確認密碼必須和密碼相同");
+			errorMember.setM_Password("密碼必須和確認密碼相同");
+			errorMember.setM_password2("確認密碼必須和密碼相同");
 			hasError = true;
 		}
 		if (name == null || name.trim().length() == 0) {
-			error.setM_Name("名稱必須輸入");
+			errorMember.setM_Name("名稱必須輸入");
 			hasError = true;
 		}
 
 		Collection<MemberBeanString> collError = new ArrayList<>();
-
+		
 		try (PrintWriter out = response.getWriter();) {
 
-			if (hasError) {
-				error.setDML_Result("發生錯誤");
-				collError.add(error);
+			if (hasError) {//輸入格式錯誤
+				errorMember.setDML_Result("輸入格式錯誤");
+				//stringResult="輸入格式錯誤";
+				collError.add(errorMember);
 
 				String toJson = new Gson().toJson(collError);
 				System.out.println(toJson);
 				out.println(toJson);
 				return;
 
-			} else {
+			} else {  //輸入格式正確
 				try {
 
 					MemberBean mem = new MemberBean(id, username, password, name, nick, sex, birthday, eMail, phone,
 							cellPhone, address, line, faceBook, identityCard, invoice, uniformNumber, insertDate,
 							insertDate, 0, 0, 0);
-					error.setDML_Result(new MemberDAO().insert(mem));
+					errorMember.setDML_Result(new MemberDAO().insert(mem));
 
 					String toJson = null;
-					if (error.getDML_Result() == null) {
-
-						Collection<String> collSuccess = new ArrayList<>();
-						collSuccess.add("Success");
-						toJson = new Gson().toJson(collSuccess);
+					if (errorMember.getDML_Result() == null) {
+						//新增成功
+						
+						String stringResult = null;
+						stringResult="Success";
+						toJson = new Gson().toJson(stringResult);
 
 					} else {
+						
 
-						collError.add(error);
+						collError.add(errorMember);
 						toJson = new Gson().toJson(collError);
 					}
 

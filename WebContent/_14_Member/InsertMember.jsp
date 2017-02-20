@@ -78,7 +78,7 @@
 					<TD align="center"><input type="text" name="UniformNumber"
 						value="0999000999" size="20"></TD>
 					<TD colspan="1" align="right" style="position:fixed;top:4em;right:15.625em;">
-						<button onclick="setInsertData('Username','Insert','resultInsert','resultIndex');getQueryDataLimit('LimitSelect','resultIndex');">
+						<button onclick="setInsertData('Username','Insert','resultInsert','LimitSelect','resultIndex');">
 						新增
 						</button>
 					</TD>

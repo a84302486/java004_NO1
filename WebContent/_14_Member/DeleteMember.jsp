@@ -20,14 +20,14 @@
 <!-- <input type="submit" value="開始查詢" onclick ="getQueryData('Select')"/> -->
 
              <input type="text" name="Username" id="DeleteUsername" value="" size="20" align="center">
-             <button onclick="setDeleteData('Delete','DeleteUsername','result');getQueryDataLimit('LimitSelect','resultIndex');" style="position:fixed;top:4em;right:15.625em;">
+             <button onclick="setDeleteData('Delete','DeleteUsername','resultDelete','LimitSelect','resultIndex');" style="position:fixed;top:4em;right:15.625em;">
            		刪除
            	 </button>
 <!--  <input type="submit" value="開始查詢" onclick ="getQueryData('Select')"/> -->
 </center>
 
 </Form>
-<div id ="result" >
+<div id ="resultDelete" >
 	<br>
 </div>
 
