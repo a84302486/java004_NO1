@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../css/dropDown_main.css">
+<script src="../jQuery/jquery-1.12.4.min.js" type="text/JavaScript"></script>
+<script src="../js/product_new.js" type="text/JavaScript"></script>
+
+
+<script type="text/javascript">
+$(function(){
+        $("#divTestArea3").load("SelectProduct.jsp");
+});
+
+</script>
+
+<!-- <script type="text/javascript">
+$(function()
+{
+        $("#divTestArea3").load("SelectProduct.jsp", function(responseText, statusText, xhr)
+        {
+                if(statusText == "success")
+                        alert("Successfully loaded the content!");
+                if(statusText == "error")
+                        alert("An error occurred: " + xhr.status + " - " + xhr.statusText);
+        });
+}); -->
+
+</script>
+</head>
+
+<body>
+<div id="divTestArea3"></div>
+
+
+</body>
+</html>
+
