@@ -1,16 +1,4 @@
 
-//點擊Text改變背景顏色------------------------------------------------------
-$(function(){
-$(':text').focus(function(){
-	$(this).css('background-color','yellow')
-			.css('font','normal 20px Tahoma');
-	});
-	$(':text').blur(function(){
-		$(this).css('background-color','#fff')
-				.css('font','normal 16px Tahoma');
-	});						
-});
-
 //主選單下拉功能------------------------------------------------------
 function optionsMenu(e){
 	window.open(e.options[e.selectedIndex].value);
@@ -33,7 +21,7 @@ function getAction(action, tagId) {
 	}
 }
 
-//讀取透過Servelet取出的Json資料,替換Section內容------------------------------
+//Select讀取透過Servelet取出的Json資料,替換Section內容------------------------------
 function getQueryData(servelet) {
 	if(document.getElementById("productId")){
 		var productId = document.getElementById("productId").value;
@@ -70,25 +58,39 @@ function getQueryData(servelet) {
 	}
 }
 
-//判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
-function getMessage(servelet) {	
-		var productId = document.getElementById("productId").value;
-		if (confirm("確定要刪除嗎?")) {
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", servelet, true);
-		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xhr.send("productId=" + productId);
-
+//Delete判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
+function getDeleteMessage(servelet) {	
+	var productId = document.getElementById("productId").value;
+	if((confirm("確定要刪除資料"+ productId +"嗎")))
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", servelet, true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.send("productId=" + productId);
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				var data = JSON.parse(xhr.responseText);
 				var result = document.getElementById("deleteResult");
 				result.innerHTML = data;
-			}
 		}
 	}
 }
 
+
+//Insert判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
+function getInsertMessage(servelet) {	
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", servelet, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send(setQueryString());
+
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var data = JSON.parse(xhr.responseText);
+				var result = document.getElementById("insertResult");
+				result.innerHTML = data;
+			}
+		}
+	}
 //以下方法無使用------------------------------------------------------
 
 function setQueryString() {
@@ -156,4 +158,15 @@ function setDeleteData(servelet) {
 	}
 }
 
+//點擊Text改變背景顏色------------------------------------------------------
+$(function(){
+$(':text').focus(function(){
+	$(this).css('background-color','yellow')
+			.css('font','normal 20px Tahoma');
+	});
+	$(':text').blur(function(){
+		$(this).css('background-color','#fff')
+				.css('font','normal 16px Tahoma');
+	});						
+});
 //------------------------------------------------------

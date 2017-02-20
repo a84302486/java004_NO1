@@ -95,6 +95,7 @@
 				<div id="tab3" class="tab_content">
 					<h2>會員資料表</h2>
 					<p>還沒放連結還沒放連結還沒放連結還沒放連結還沒放連結還沒放連結</p>
+<%-- 					<jsp:include page='../_14_Member/IndexMember.jsp'/>  --%>
 				</div>
 			</div>
 		</div>
