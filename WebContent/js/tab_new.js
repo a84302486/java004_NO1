@@ -47,3 +47,20 @@ $(function(){
 		});
     });
 });
+
+$(function(){
+	$('ul.drop-down-menu ul li').click(function(){
+		var $tab = $(this);
+		var _getHerf = $($tab).find('a').attr('class');
+		alert(_getHerf);
+		$('ul.tabs li:last').after("<li><a href=#tab4>會員資料表 <i><img id=cross></i></a></li>");
+//		$('#result').load(_getHerf);
+		
+//		var txt1="<b>I </b>";                    // 以 HTML 创建元素
+//		var txt2=$("<i></i>").text("love ");     // 通过 jQuery 创建元素
+//		var txt3=document.createElement("big");  // 通过 DOM 创建元素
+//		txt3.innerHTML="jQuery!";
+//		$("img").after(txt1,txt2,txt3);          // 在 img 之后插入新元素
+		
+		});
+	});	

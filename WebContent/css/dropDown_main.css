@@ -9,6 +9,7 @@
         display: inline-block;
         font-family: 'Open Sans', Arial, sans-serif;
         font-size: 15px;
+        border-style:outset;
     }
 
     ul.drop-down-menu li {
@@ -49,7 +50,7 @@
         z-index: 99;
         left: -1px;
         top: 100%;
-       min-width: 180px;
+       	min-width: 180px;
     }
 
     ul.drop-down-menu ul li {

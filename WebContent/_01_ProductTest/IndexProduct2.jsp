@@ -36,15 +36,15 @@
 	<section class="container-fuild" id="pageTab">
 		<div class="abgne_tab">
 			<ul class="tabs">
-				<li><a href="#tab1">產品資料表 <i><img
-							src="../image/cross.svg" width="20" height="20" class="cross"></i>
+				<li><a href="#tab1">產品資料表 <i><img id="cross"></i>
 				</a></li>
-				<li><a href="#tab2">我是測試工具Tab <i><img
-							src="../image/cross.svg" width="20" height="20" class="cross"></i>
+				<li><a href="#tab2">我是測試工具Tab <i><img id="cross"></i>
 				</a></li>
-				<li><a href="#tab3">會員資料表 <i><img
-							src="../image/cross.svg" width="20" height="20" class="cross"></i>
+				<li><a href="#tab3">會員資料表 <i><img id="cross"></i>
 				</a></li>
+				<li><a href="#tab4">111111111111 <i><img id="cross"></i>
+				</a></li>
+				
 			</ul>
 
 			<div class="tab_container">

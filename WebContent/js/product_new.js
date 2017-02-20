@@ -1,16 +1,6 @@
 
 
-$(function(){
-$('ul.drop-down-menu ul li').click(function(){
 
-	var $tab = $(this);
-	var _getHerf = $($tab).find('a').attr('class');
-	alert(_getHerf);
-	$('#result').load(_getHerf);
-	
-	
-	});
-});	
 //取得 checkbox 欄位的選取值
 $('input:checkbox:checked').val();
 
