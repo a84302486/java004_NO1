@@ -44,8 +44,16 @@ button{
 	background-color:#444444;
 	color: #ffc526;
 	border-radius: 1em;
+/* 	position: absolute;  */
+/* 	lefy: 15em; */
+/* 	margin:1em; */
 }
-
+#buttonsearch{
+	background-color:white;
+/* 	position: absolute;  */
+/* 	right: 30em; */
+/* 	margin:30em; */
+}
 input{
 	color: #444444;
 }

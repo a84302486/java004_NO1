@@ -57,7 +57,8 @@ function getQueryDataLimit(servelet, div ,first) {
 			if (validation_messages != null) {
 
 				var content = "<div>最新更新資料<br><br></div>";
-
+				
+				content += "<form>";
 				content += "<table>";
 
 				// 欄位名稱
@@ -93,7 +94,7 @@ function getQueryDataLimit(servelet, div ,first) {
 
 						if(prop == first){
 							
-							content += "<td><input type = checkbox name = " + obj[prop] + 
+							content += "<td><input type = 'radio' name = 'radio'" + 
 												" value ="  + obj[prop] +"</td>";			
 						}
 						content += "<td>"+ obj[prop] + "</td>";
@@ -102,8 +103,13 @@ function getQueryDataLimit(servelet, div ,first) {
 					
 					content += "</tr>";
 				}
+				content += "<button onclick=ajaxButtonTag(UpdateMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID);>" 
+							+"F3<br>修改</button>";
+				content += "<button onclick=ajaxButtonTag(DeleteMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID);>"
+							+"F4<br>刪除</button>";
 
 				content += "</table>";
+				content += "</form>";
 
 				divs.innerHTML = content;
 			}

@@ -5,8 +5,8 @@
 <html>
 <head>
 <!-- <link rel="stylesheet" href="../css/member.css" type="text/css"> -->
-<script src ="../js/member/insert.js"></script>
-<script src ="../js/member/member.js"></script>
+<!-- <script src ="../js/member/insert.js"></script> -->
+<!-- <script src ="../js/member/member.js"></script> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>MVC</title>
 </head>

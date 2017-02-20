@@ -12,13 +12,14 @@
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../css/member/member2.css?v1">
 <script src="../js/jquery-3.1.1.min.js"></script>
-<script src="../js/member/member.js?v1"></script>
-<script src="../js/member/insert.js?v1"></script>
-<script src="../js/member/delete.js?v1"></script>
-<script src="../js/member/select.js?v1"></script>
-<script src="../js/member/jquery.js?v1"></script>
-<script src="../js/member/update.js?v1"></script>
-<script src="../js/bootstrap.min.js?v1"></script>
+<script src="../asset/js/bootstrap.min.js"></script>
+<script src="../js/member/member.js?v12"></script>
+<script src="../js/member/insert.js?v12"></script>
+<script src="../js/member/delete.js?v12"></script>
+<script src="../js/member/select.js?v12"></script>
+<script src="../js/member/jquery.js?v12"></script>
+<script src="../js/member/update.js?v12"></script>
+
 
 
 
@@ -51,14 +52,14 @@
 						onclick="ajaxButtonTag('InsertMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');">
 						F2<br>新增
 					</button>
-					<button
-						onclick="ajaxButtonTag('UpdateMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');">
-						F3<br>修改
-					</button>
-					<button
-						onclick="ajaxButtonTag('DeleteMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');">
-						F4<br>刪除
-					</button>
+<!-- 					<button -->
+<!-- 						onclick="ajaxButtonTag('UpdateMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');"> -->
+<!-- 						F3<br>修改 -->
+<!-- 					</button> -->
+<!-- 					<button -->
+<!-- 						onclick="ajaxButtonTag('DeleteMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');"> -->
+<!-- 						F4<br>刪除 -->
+<!-- 					</button> -->
 
 				</div>
 				<Form Action="Javascript:%200"
@@ -68,7 +69,7 @@
 						value="helloSnoopy" size="20" placeholder="不輸入搜尋全部" />
 					<!--              <input type="submit" value="開始查詢" onclick="getQueryData('Select','resultIndex');"/> -->
 					<button
-						onclick="getQueryData('M_Username','Select','resultIndex','result','M_ID');">
+						onclick="getQueryData('M_Username','Select','resultIndex','result','M_ID');" id="buttonsearch">
 						<img src="../image/search.png">
 					</button>
 					<div id="result"></div>
