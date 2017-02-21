@@ -23,7 +23,7 @@ function ajaxButtonTag(sendJsp, tag) {
 		xhr.onreadystatechange = function() {
 			// 步驟三: 處理伺服器送回的回應資料
 			if (xhr.readyState == 4 && xhr.status == 200) {
-				tagId.innerHTML = "<h3>" + xhr.responseText + "</h3>";
+				tagId.innerHTML =  xhr.responseText;
 			}
 		}
 		xhr.open('GET', sendJsp, true);
@@ -56,8 +56,8 @@ function getQueryDataLimit(servelet, div ,first) {
 			var validation_messages = JSON.parse(xhr.responseText);// 由servelet傳過來JSON格式的資料
 			if (validation_messages != null) {
 
-				var content = "<div>最新更新資料<br><br></div>";
-				
+				var content = "";
+//				content += "<div><h4>最新更新資料</h4><br></div>";
 				content += "<form>";
 				content += "<table>";
 
@@ -67,7 +67,7 @@ function getQueryDataLimit(servelet, div ,first) {
 					if (!validation_messages.hasOwnProperty(key))
 						continue;
 				
-					content += "<tr><td>選擇</td>";
+					content += "<tr><td>#</td>";
 					var obj = validation_messages[key];
 					for ( var prop in obj) {
 						// skip loop if the property is from prototype
@@ -103,10 +103,12 @@ function getQueryDataLimit(servelet, div ,first) {
 					
 					content += "</tr>";
 				}
-				content += "<button onclick=ajaxButtonTag(UpdateMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID);>" 
-							+"F3<br>修改</button>";
-				content += "<button onclick=ajaxButtonTag(DeleteMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID);>"
-							+"F4<br>刪除</button>";
+				content += "<button onclick=ajaxButtonTag(UpdateMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID); id='buttonupdate';>" 
+							+"<img src='../image/update.png'><br>修改</button>";
+				content += "	";
+				content += "<button onclick=ajaxButtonTag(DeleteMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID); id='buttondelete';>"
+							+"<img src='../image/delete.png'><br>刪除</button>";
+//				content += "<br><br>";
 
 				content += "</table>";
 				content += "</form>";

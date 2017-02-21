@@ -3,7 +3,8 @@ body {
   text-align:center;
  /* color: #ebebeb;*/
   font-family: Tahoma;
-  background-color: #bec2c5;
+  font-size: 16px;
+  background-color: #444444;
 /*   background-color: #000000; */
 }
 
@@ -13,31 +14,30 @@ header, section, aside, footer {
 /* 	background-color: white; */
 	
 }
-
-/* #resp{ */
-/* 	height:15em;  */
-/* 	width:100%; */
-/* 	overflow:auto; */
-/* 	color:#ffc526; */
-/* 	background-color:#444444; */
-/* } */
-#resultIndex{
-	height:40em; 
-	width:115em;
-	overflow:auto;
+#indexheader{
+	
 	color:#ffc526;
-	background-color:#444444;
+}
+
+#resultIndex{
+	height:35em; 
+	width:95em;
+	overflow:auto;
+	color:#018bbd;
+/* 	background-color:#bec2c5; */
 	border-style:outset;
 	border: none;	
 }
 
 #portfolio{
-	width:115em;
+	width:95em;
 	
-	/*background-color:#444444;*/
+	background-color:#444444;
 	border-style:outset;
 	border: none;
 }
+
+
 table {
 	border:solid 1px; 
 	margin-left:1.250em; 
@@ -53,19 +53,49 @@ table {
 
 
 button{
-	background-color:#444444;
-	color: #ffc526;
-	border-radius: 1em;
-/* 	position: absolute;  */
-/* 	lefy: 15em; */
-/* 	margin:1em; */
-}
-#buttonsearch{
-	background-color:white;
+	font-weight:bold;
+	border-radius: 0.5em;
+	border-style:outset;
 
 }
-input{
-	color: #444444;
+#formSelect{
+	position: absolute; 
+	right: 8em;
+	margin:1em;
+}
+#buttonsearch{
+/* 	background-color:white; */
+	position: absolute; 
+	left: 19em;
+	top: 0em;
+	
+
+}
+#buttoninsert{
+	position: absolute; 
+	left: 7em;
+	top: -1em;
+	margin:1em;
+}
+#buttonupdate{
+	position: absolute; 
+	left: 15em;
+	top: 2.8em;
+	margin:1em;
+}
+#buttondelete{
+	position: absolute; 
+	left: 21em;
+	top: 2.8em;
+	margin:1em;
+	color:red;
+}
+
+#submitinsert{
+	position: absolute; 
+	left: 16em;
+	top: 9em;
+	margin:1em;
 }
 
 
@@ -93,3 +123,4 @@ td{
 .highlight{
 	background:#018bbd;
 }
+

@@ -10,17 +10,15 @@
 	charset="UTF-8">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v123">
+<link rel="stylesheet" href="../css/member/member2.css?v2">
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../asset/js/bootstrap.min.js"></script>
-<script src="../js/member/member.js?v22"></script>
-<script src="../js/member/insert.js?v22"></script>
+<script src="../js/member/member.js?v2"></script>
+<script src="../js/member/insert.js?v2"></script>
 <script src="../js/member/delete.js?v2"></script>
 <script src="../js/member/select.js?v2"></script>
 <!-- <script src="../js/member/jquery.js?v12"></script> -->
 <script src="../js/member/update.js?v2"></script>
-
-
 
 
 <title>會員管理首頁</title>
@@ -28,29 +26,26 @@
 <body onload="doFirstIndex();">
 	<!-- 	<h3>highlight test</h3> -->
 	<header class="container-fuild">
-		<h4 class="text-center">
-			<strong>Java004</strong>
+		<h4 class="text-center" id="indexheader">
+			<strong>資料管理系統</strong>
 		</h4>
 	</header>
-
-	<section class="container-fuild" id="services">Tab</section>
 
 	<section class="container-fuild" id="portfolio">
 
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
-				<div class="nav navbar-nav" id="buttons"
-					style="position: absolute; left: 25em;">
+				<div class="nav navbar-nav" id="buttons">
 					<section class="container-fuild" id="about">
-		<div class="row">
+<!-- 		<div class="row"> -->
 
-			<jsp:include page="..\_00_Util\SelectMenu.jsp" />
+<%-- 			<jsp:include page="..\_00_Util\SelectMenu.jsp" /> --%>
 
-		</div>
+<!-- 		</div> -->
 		</section>
 					<button
-						onclick="ajaxButtonTag('InsertMember.jsp','resultIndex');">
-						<span class="glyphicons glyphicons-plus-sign">新增</span>
+						onclick="ajaxButtonTag('InsertMember.jsp','resultIndex');" id='buttoninsert'>
+						<img src="../image/insert.png"><br>新增
 						
 					</button>
 <!-- 					<button -->
@@ -63,9 +58,8 @@
 <!-- 					</button> -->
 
 				</div>
-				<Form Action="Javascript:%200" id="formSelect"
-					style="position: absolute; right: 15em;margin:1em;">
-
+				<Form Action="Javascript:%200" id="formSelect">
+				
 					輸入帳號查詢: <input type="text" name="Username" id="M_Username"
 						value="helloSnoopy" size="20" placeholder="不輸入搜尋全部" />
 					<!--              <input type="submit" value="開始查詢" onclick="getQueryData('Select','resultIndex');"/> -->
@@ -73,6 +67,7 @@
 						onclick="getQueryData('M_Username','Select','resultIndex','result','M_ID');" id="buttonsearch">
 						<img src="../image/search.png">
 					</button>
+					
 					<div id="result"></div>
 
 				</Form>

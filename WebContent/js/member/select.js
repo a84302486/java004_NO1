@@ -27,8 +27,9 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 				errorID.innerHTML = content;
 				return;
 			}
-			var content = "搜尋結果<br><br>";
+			var content = "";
 			
+//			content += "<h3>搜尋結果<br></h3>";
 			content += "<form>";
 			content += "<table>";
 
@@ -75,10 +76,10 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 				content += "</tr>";
 			}
 			
-			content += "<button onclick=ajaxButtonTag(UpdateMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID);>"
-				+"F3<br>修改</button>";
-			content += "<button onclick=ajaxButtonTag(DeleteMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID);>"
-				+"F4<br>刪除</button>";
+			content += "<button onclick=ajaxButtonTag(UpdateMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID); id='buttonupdate';>"
+				+"<img src='../image/update.png'><br>修改</button>";
+			content += "<button onclick=ajaxButtonTag(DeleteMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID); id='buttondelete';>"
+				+"<img src='../image/delete.png'><br>刪除</button>";
 			
 			content += "</table>";
 			content += "</form>";
