@@ -28,7 +28,8 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 				return;
 			}
 			var content = "搜尋結果<br><br>";
-
+			
+			content += "<form>";
 			content += "<table>";
 
 			//欄位名稱
@@ -66,15 +67,21 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 					
 					if(prop == first){
 			
-						content += "<td><input type = checkbox name = " + obj[prop] + 
+						content += "<td><input type = 'radio' name = 'radio'" + 
 											" value ="  + obj[prop] +"</td>";			
 					}
 					content += "<td>" + obj[prop] + "</td>";
 				}
 				content += "</tr>";
 			}
-
+			
+			content += "<button onclick=ajaxButtonTag(UpdateMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID);>"
+				+"F3<br>修改</button>";
+			content += "<button onclick=ajaxButtonTag(DeleteMember.jsp,resp);getQueryDataLimit(LimitSelect,resultIndex,M_ID);>"
+				+"F4<br>刪除</button>";
+			
 			content += "</table>";
+			content += "</form>";
 			
 			errorID.innerHTML ="";
 			successID.innerHTML = content;
