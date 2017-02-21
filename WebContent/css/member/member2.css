@@ -1,5 +1,5 @@
 body {
-  margin: 0.75em;
+  margin: 2em;
   text-align:center;
  /* color: #ebebeb;*/
   font-family: Tahoma;
@@ -14,19 +14,29 @@ header, section, aside, footer {
 	
 }
 
-#resp{
-	height:15em; 
-	width:100%;
+/* #resp{ */
+/* 	height:15em;  */
+/* 	width:100%; */
+/* 	overflow:auto; */
+/* 	color:#ffc526; */
+/* 	background-color:#444444; */
+/* } */
+#resultIndex{
+	height:40em; 
+	width:115em;
 	overflow:auto;
 	color:#ffc526;
 	background-color:#444444;
+	border-style:outset;
+	border: none;	
 }
-#resultIndex{
-	height:40em; 
-	width:100%;
-	overflow:auto;
-	color:#ffc526;
-	background-color:#444444;	
+
+#portfolio{
+	width:115em;
+	
+	/*background-color:#444444;*/
+	border-style:outset;
+	border: none;
 }
 table {
 	border:solid 1px; 
@@ -37,8 +47,10 @@ table {
 	/*background-color:#ffe793;*/
 	color: #444444;
 	table-layout:fixed;
+	display: block;
 	
 }
+
 
 button{
 	background-color:#444444;
@@ -50,9 +62,7 @@ button{
 }
 #buttonsearch{
 	background-color:white;
-/* 	position: absolute;  */
-/* 	right: 30em; */
-/* 	margin:30em; */
+
 }
 input{
 	color: #444444;
@@ -63,11 +73,15 @@ tr{
 	background-color:white;
 	width: 15.625em;
 }
-
+tr:nth-child(odd){
+	background-color:#ffffbb;
+	 
+}
 tr:nth-child(1){
 	background-color:#d6eaf3;
 	color:#0699f0; 
 }
+
 
 td{
 	width: 15.625em;

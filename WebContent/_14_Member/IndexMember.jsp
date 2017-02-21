@@ -10,15 +10,15 @@
 	charset="UTF-8">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v1">
+<link rel="stylesheet" href="../css/member/member2.css?v123">
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../asset/js/bootstrap.min.js"></script>
-<script src="../js/member/member.js?v12"></script>
-<script src="../js/member/insert.js?v12"></script>
-<script src="../js/member/delete.js?v12"></script>
-<script src="../js/member/select.js?v12"></script>
-<script src="../js/member/jquery.js?v12"></script>
-<script src="../js/member/update.js?v12"></script>
+<script src="../js/member/member.js?v22"></script>
+<script src="../js/member/insert.js?v22"></script>
+<script src="../js/member/delete.js?v2"></script>
+<script src="../js/member/select.js?v2"></script>
+<!-- <script src="../js/member/jquery.js?v12"></script> -->
+<script src="../js/member/update.js?v2"></script>
 
 
 
@@ -32,13 +32,6 @@
 			<strong>Java004</strong>
 		</h4>
 	</header>
-	<section class="container-fuild" id="about">
-		<div class="row">
-
-			<jsp:include page="..\_00_Util\SelectMenu.jsp" />
-
-		</div>
-	</section>
 
 	<section class="container-fuild" id="services">Tab</section>
 
@@ -48,9 +41,17 @@
 			<div class="container-fluid">
 				<div class="nav navbar-nav" id="buttons"
 					style="position: absolute; left: 25em;">
+					<section class="container-fuild" id="about">
+		<div class="row">
+
+			<jsp:include page="..\_00_Util\SelectMenu.jsp" />
+
+		</div>
+		</section>
 					<button
-						onclick="ajaxButtonTag('InsertMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');">
-						F2<br>新增
+						onclick="ajaxButtonTag('InsertMember.jsp','resultIndex');">
+						<span class="glyphicons glyphicons-plus-sign">新增</span>
+						
 					</button>
 <!-- 					<button -->
 <!-- 						onclick="ajaxButtonTag('UpdateMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');"> -->
@@ -62,7 +63,7 @@
 <!-- 					</button> -->
 
 				</div>
-				<Form Action="Javascript:%200"
+				<Form Action="Javascript:%200" id="formSelect"
 					style="position: absolute; right: 15em;margin:1em;">
 
 					輸入帳號查詢: <input type="text" name="Username" id="M_Username"

@@ -170,23 +170,23 @@ function setUpdate(input, servelet, middiv, botdiv) {
 		}
 	}
 }
-
-function setQueryString() {
-	queryString = "";
-	var frm = document.forms[0];
-	var numberElements = frm.elements.length;
-	for (var i = 0; i < numberElements; i++) {
-		if (i < numberElements - 1) {
-			//            	alert(frm.elements[i].name);
-			//            	alert(frm.elements[i].value);
-			queryString += frm.elements[i].name + "="
-					+ encodeURIComponent(frm.elements[i].value) + "&";
-		} else {
-			queryString += frm.elements[i].name + "="
-					+ encodeURIComponent(frm.elements[i].value);
-		}
-
-	}
-	return queryString;
-}
+//
+//function setQueryString() {
+//	queryString = "";
+//	var frm = document.forms[0];
+//	var numberElements = frm.elements.length;
+//	for (var i = 0; i < numberElements; i++) {
+//		if (i < numberElements - 1) {
+//			//            	alert(frm.elements[i].name);
+//			//            	alert(frm.elements[i].value);
+//			queryString += frm.elements[i].name + "="
+//					+ encodeURIComponent(frm.elements[i].value) + "&";
+//		} else {
+//			queryString += frm.elements[i].name + "="
+//					+ encodeURIComponent(frm.elements[i].value);
+//		}
+//
+//	}
+//	return queryString;
+//}
 

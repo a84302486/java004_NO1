@@ -9,7 +9,7 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 	xhr.open("POST", servelet, true);//send要傳參數一定要用POST
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-	var queryString = setQueryString();
+	var queryString = setQueryString('formSelect');
 	//xhr.send("Username=" + username);//request.getParameter("Username");
 	//alert("send before");
 	xhr.send(queryString);
@@ -67,7 +67,7 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 					
 					if(prop == first){
 			
-						content += "<td><input type = 'radio' name = 'radio'" + 
+						content += "<td width='1em'><input type = 'radio' name = 'radio'" + 
 											" value ="  + obj[prop] +"</td>";			
 					}
 					content += "<td>" + obj[prop] + "</td>";
@@ -92,22 +92,22 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 }
 
 
-function setQueryString() {
-	queryString = "";
-	var frm = document.forms[0];
-	var numberElements = frm.elements.length;
-	for (var i = 0; i < numberElements; i++) {
-		if (i < numberElements - 1) {
-			//            	alert(frm.elements[i].name);
-			//            	alert(frm.elements[i].value);
-			queryString += frm.elements[i].name + "="
-					+ encodeURIComponent(frm.elements[i].value) + "&";
-		} else {
-			queryString += frm.elements[i].name + "="
-					+ encodeURIComponent(frm.elements[i].value);
-		}
-
-	}
-	return queryString;
-}
+//function setQueryString() {
+//	queryString = "";
+//	var frm = document.forms[0];
+//	var numberElements = frm.elements.length;
+//	for (var i = 0; i < numberElements; i++) {
+//		if (i < numberElements - 1) {
+//			//            	alert(frm.elements[i].name);
+//			//            	alert(frm.elements[i].value);
+//			queryString += frm.elements[i].name + "="
+//					+ encodeURIComponent(frm.elements[i].value) + "&";
+//		} else {
+//			queryString += frm.elements[i].name + "="
+//					+ encodeURIComponent(frm.elements[i].value);
+//		}
+//
+//	}
+//	return queryString;
+//}
 

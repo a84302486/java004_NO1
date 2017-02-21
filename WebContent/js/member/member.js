@@ -94,7 +94,7 @@ function getQueryDataLimit(servelet, div ,first) {
 
 						if(prop == first){
 							
-							content += "<td><input type = 'radio' name = 'radio'" + 
+							content += "<td width='1em'><input type = 'radio' name = 'radio'" + 
 												" value ="  + obj[prop] +"</td>";			
 						}
 						content += "<td>"+ obj[prop] + "</td>";
@@ -118,14 +118,15 @@ function getQueryDataLimit(servelet, div ,first) {
 }
 
 
-function setQueryString() {
+function setQueryString(formId) {
 	queryString = "";
-	var frm = document.forms[0];
+	//alert(formId);
+	var frm = document.forms.namedItem(formId);
 	var numberElements = frm.elements.length;
 	for (var i = 0; i < numberElements; i++) {
 		if (i < numberElements - 1) {
-			//            	alert(frm.elements[i].name);
-			//            	alert(frm.elements[i].value);
+			            	//alert(frm.elements[i].name);
+			            	//alert(frm.elements[i].value);
 			queryString += frm.elements[i].name + "="
 					+ encodeURIComponent(frm.elements[i].value) + "&";
 		} else {
@@ -136,6 +137,26 @@ function setQueryString() {
 	}
 	return queryString;
 }
+
+//
+//function setQueryString() {
+//	queryString = "";
+//	var frm = document.forms[0];
+//	var numberElements = frm.elements.length;
+//	for (var i = 0; i < numberElements; i++) {
+//		if (i < numberElements - 1) {
+//			//            	alert(frm.elements[i].name);
+//			//            	alert(frm.elements[i].value);
+//			queryString += frm.elements[i].name + "="
+//					+ encodeURIComponent(frm.elements[i].value) + "&";
+//		} else {
+//			queryString += frm.elements[i].name + "="
+//					+ encodeURIComponent(frm.elements[i].value);
+//		}
+//
+//	}
+//	return queryString;
+//}
 
 
 

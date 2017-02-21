@@ -1,4 +1,4 @@
-﻿package _14_Member;
+package _14_Member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 
-@WebServlet("/_14_Member/Insert")
-public class Insert extends HttpServlet {
+@WebServlet("/_14_Member/Insert2")
+public class Insert2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
