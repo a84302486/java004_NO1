@@ -28,7 +28,7 @@ ul.tabs li a {
 	display: block;
 	padding: 0 20px;
 	color: #000;
-	border: 1px solid #fff;
+/* 	border: 1px solid #fff; */
 	text-decoration: none;
 }
 ul.tabs li a:hover {
@@ -53,4 +53,16 @@ div.tab_container .tab_content {
 }
 div.tab_container .tab_content h2 {
 	margin: 0 0 20px;
+}
+#cross{
+	width:20px;
+	height:20px;
+	border: 1px solid transparent;
+    border-color: transparent;
+    border-color: rgba(0,0,0,0);
+	background-image:url(../image/cross.svg);
+}
+
+i{
+	border-color:#ffffb5;
 }
