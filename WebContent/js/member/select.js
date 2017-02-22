@@ -30,7 +30,7 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 			var content = "";
 			
 //			content += "<h3>搜尋結果<br></h3>";
-			content += "<form>";
+			content += "<form id='queryData'>";
 			content += "<table>";
 
 			//欄位名稱
