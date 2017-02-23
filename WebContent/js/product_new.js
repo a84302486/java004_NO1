@@ -66,7 +66,7 @@ function getAction(action, tagId) {
 	if (xhr != null) { // 步驟二: 經由AJAX提出HTTP請求
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) { // 步驟三: 處理伺服器送回的回應資料
-				showResult.innerHTML = "<h3>" + xhr.responseText + "</h3>";
+				showResult.innerHTML = xhr.responseText ;
 			}
 		}
 		xhr.open("POST", action, true);

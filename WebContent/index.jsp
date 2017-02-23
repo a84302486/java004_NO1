@@ -88,7 +88,7 @@
 	</section>
 	<section class="container-fuild" id="price">price
 		<c:set var="funcName" value="IND" scope="session"/>
-		<jsp:include page="/_14_Member/SelectMember.jsp" />	
+	
 	</section>
 		
 	<section class="container-fuild" id="connect">contact

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/product_main.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/indexMain.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tab_main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/toolBar.css">
 <script src="${pageContext.request.contextPath}/jQuery/jquery-1.12.4.min.js" type="text/JavaScript"></script>
@@ -38,6 +38,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- 插入工具列 -->
+	<!-- /頁籤與相對應之頁面-->
 </body>
 </html>
