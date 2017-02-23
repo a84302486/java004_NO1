@@ -6,10 +6,11 @@ public class MemberBeanString implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 
-	private String M_ID;	
+		
 	private String M_Username;
 	private String M_Password;
 	private String M_password2;
+	private String M_ID;
 	private String M_Name;
 	private String M_Nick;
 	private String M_Sex;
@@ -31,7 +32,7 @@ public class MemberBeanString implements Serializable {
 	}
 
 
-	public MemberBeanString(String m_ID, String m_Username, String m_Password, String m_password2, String m_Name,
+	public MemberBeanString(String m_Username, String m_Password, String m_password2, String m_ID, String m_Name,
 			String m_Nick, String m_Sex, String m_Birthday, String m_EMail, String m_Phone, String m_Cellphone,
 			String m_Address, String m_Line, String m_FaceBook, String m_IdentityCard, String m_Invoice,
 			String m_UniformNumber, String dML_Result) {

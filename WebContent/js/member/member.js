@@ -1,7 +1,16 @@
-function doFirstIndex(){
+function indexdofirst(){
 
-	getQueryDataLimit('LimitSelect','resultIndex','M_ID');
-	
+//	getQueryDataLimit('LimitSelect','resultIndex','M_ID');
+	getQueryData('M_Username','Select','resultIndex','result','M_Username');
+	document.getElementById('buttonremark').onclick = function(){
+		alert("remark");
+	}
+
+//	document.getElementById('buttonsearch').onclick = getQueryData('M_Username','Select','resultIndex','result','M_Username');
+
+//	document.getElementById('buttondelete').onclick = setDeleteData('Delete','Username','resultIndex','LimitSelect','resultLimit');
+
+
 }
 
 
@@ -58,7 +67,7 @@ function getQueryDataLimit(servelet, div ,first) {
 
 				var content = "";
 //				content += "<div><h4>最新更新資料</h4><br></div>";
-				content += "<form>";
+//				content += "<form id='queryData'>";
 				content += "<table>";
 
 				// 欄位名稱
@@ -111,7 +120,7 @@ function getQueryDataLimit(servelet, div ,first) {
 //				content += "<br><br>";
 
 				content += "</table>";
-				content += "</form>";
+//				content += "</form>";
 
 				divs.innerHTML = content;
 			}
@@ -140,50 +149,62 @@ function setQueryString(formId) {
 	return queryString;
 }
 
-//
-//function setQueryString() {
-//	queryString = "";
-//	var frm = document.forms[0];
+function check(formObj) {
+    var obj=formObj.fruit;
+    var selected=[];
+    for (var i=0; i<obj.length; i++) {
+      if (obj[i].checked) {
+        selected.push(obj[i].value);
+        }
+      }
+    alert("您要刪除的帳號: " + selected.join());
+    }
+
+
+
+//取得radio的值
+//function getCheckItem(formId){
+//	checkItem = "";
+//	var frm = document.forms.namedItem(formId);
+//	alert('getCheckItem '+frm);
+//	alert('getCheckItem '+frm.value);
 //	var numberElements = frm.elements.length;
 //	for (var i = 0; i < numberElements; i++) {
-//		if (i < numberElements - 1) {
-//			//            	alert(frm.elements[i].name);
-//			//            	alert(frm.elements[i].value);
-//			queryString += frm.elements[i].name + "="
-//					+ encodeURIComponent(frm.elements[i].value) + "&";
-//		} else {
-//			queryString += frm.elements[i].name + "="
-//					+ encodeURIComponent(frm.elements[i].value);
+//		alert("name "+frm.elements[i].name);
+//	
+//		alert("value "+frm.elements[i].value);
+//		if (frm.elements[i].checked){
+//				//被選到的資料
+//			checkItem += frm.elements[i].value;
+//			break;
+//				//只取一筆
 //		}
-//
 //	}
-//	return queryString;
+//	alert("getCheckItem");
+//	return checkItem;
+//}
+//
+////取得checkbox的值
+//function getCheckItems(formId){
+//	checkItem = "";
+//	var frm = document.forms.namedItem(formId);
+//	
+//	var numberElements = frm.elements.length;
+//	for (var i = 0; i < numberElements; i++) {
+//		
+//		if (frm.elements[i].checked){
+//				//被選到的資料
+//			checkItem += frm.elements[i].value;
+//		}
+//	}
+//	return checkItem;
 //}
 
 
 
-//-------------------------------------------------------
-
-//window.addEventListener('load',doFirst,false);
-//document.onload=load("Load!!!");
-//window.onload=getQueryDataLoad('SelectLimit');
-
 
 //----------------------------------------------------
 
-function appendit()  {  
-	var   nodes   =   document.getElementsByTagName("td");  
-	for   (var   i=0;   i<nodes.length;   i++)  
-	{  
-		 
-	 
-			nodes[i].onfocus   =   function   ()   {   this.style.backgroundColor='#018bbd';   }  
-			nodes[i].onblur   =   function   ()   {   this.style.backgroundColor='#3366FF';   }  
- 
-	}
-}
 
 
-
-
-//window.addEventListener('load',appendit,false);
+window.addEventListener('load',indexdofirst,false);
