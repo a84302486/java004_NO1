@@ -24,10 +24,11 @@ public class Insert extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
 
-		String id = request.getParameter("ID");
+		
 		String username = request.getParameter("Username");
 		String password = request.getParameter("Password");
 		String password2 = request.getParameter("Password2");
+		String id = request.getParameter("ID");
 		String name = request.getParameter("Name");
 		String nick = request.getParameter("Nick");
 		String sex = request.getParameter("Sex");
@@ -49,7 +50,7 @@ public class Insert extends HttpServlet {
 
 		// 3. 檢查使用者輸入資料
 		
-		MemberBeanString errorMember = new MemberBeanString("","","","","","","","","","","","","","","","","","");
+		MemberBeanString errorMember = new MemberBeanString();
 		Boolean hasError = false;
 		
 		if (id == null || id.trim().length() == 0) {
@@ -95,7 +96,7 @@ public class Insert extends HttpServlet {
 			} else {  //輸入格式正確
 				try {
 
-					MemberBean mem = new MemberBean(id, username, password, name, nick, sex, birthday, eMail, phone,
+					MemberBean mem = new MemberBean( username, password,id, name, nick, sex, birthday, eMail, phone,
 							cellPhone, address, line, faceBook, identityCard, invoice, uniformNumber, insertDate,
 							insertDate, 0, 0, 0);
 					errorMember.setDML_Result(new MemberDAO().insert(mem));

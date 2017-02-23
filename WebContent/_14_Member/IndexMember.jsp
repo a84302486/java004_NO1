@@ -10,15 +10,15 @@
 	charset="UTF-8">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v1">
+<link rel="stylesheet" href="../css/member/member2.css?v01">
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../asset/js/bootstrap.min.js"></script>
-<script src="../js/member/member.js?v12345"></script>
-<script src="../js/member/insert.js?v1"></script>
-<script src="../js/member/delete.js?v1234"></script>
-<script src="../js/member/select.js?v1"></script>
+<script src="../js/member/member.js?v01"></script>
+<script src="../js/member/insert.js?v1123411"></script>
+<script src="../js/member/delete.js?v01"></script>
+<script src="../js/member/select.js?v1213"></script>
 <!-- <script src="../js/member/jquery.js?v12"></script> -->
-<script src="../js/member/update.js?v1"></script>
+<script src="../js/member/update.js?v11"></script>
 
 
 <title>會員管理首頁</title>
@@ -48,6 +48,12 @@
 						<br>說明
 						
 					</button>
+					<button onclick="location.href='http://localhost:8080/java004/_14_Member/IndexMember.jsp'"">
+						
+						<br>首頁
+						
+					</button>
+					
 					<button
 						onclick="ajaxButtonTag('InsertMember.jsp','resultIndex');" id='buttoninsert'>
 						<img src="../image/insert.png"><br>新增
@@ -66,9 +72,9 @@
 				<Form Action="Javascript:%200" id="formSelect">
 				
 					輸入帳號查詢: <input type="text" name="Username" id="M_Username"
-						value="helloSnoopy" size="20" placeholder="不輸入搜尋全部" />
-					<!--              <input type="submit" value="開始查詢" onclick="getQueryData('Select','resultIndex');"/> -->
-					<button id="buttonsearch" onclick="getQueryData('M_Username','Select','resultIndex','result','M_ID');">
+						value="" size="20" placeholder="不輸入搜尋全部" />
+<!-- 					             <input type="submit" value="開始查詢" onclick="getQueryData('Select','resultIndex');"/> -->
+					<button id="buttonsearch" onclick="getQueryData('M_Username','Select','resultIndex','result','M_Username');">
 						<img src="../image/search.png">
 					</button>
 					
@@ -87,13 +93,19 @@
 	<%-- 	<section class="container-fuild" id="resp"><center><h2>歡迎使用本系統</h2></center></section> --%>
 
 	<section class="container-fuild" id="resultIndex">
-		<form id="queryData">
-		</form>
+
 	</section>
 
 	<div id='resultLimit'>
 		
 	</div>
+<!-- 	<form id='test'> -->
+<!-- 			喜歡的水果 : <br> -->
+<!--  		<input type="radio" name="fruit" value="蘋果" checked>蘋果 -->
+<!--  		<input type="radio" name="fruit" value="香蕉">香蕉 -->
+<!--  		<input type="radio" name="fruit" value="櫻桃">櫻桃<br> -->
+<!--  		<input type="button" name="ok" id="ok" value="確定"> -->
+<!-- 	</form> -->
 
 
 	<footer class="container-fuild" style="position: fixed;">我是footer</footer>

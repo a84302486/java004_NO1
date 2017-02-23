@@ -20,15 +20,19 @@ function setInsertData(input, servelet, middiv) {
 			//alert(xhr.responseText);
 			if (validation_messages == 'Success') {
 				//新增成功
-				
-				var content = "<font color='blue'>";
+			
+				var content = "";
+				content += "<div style='position: absolute ;left:52em;'>";
+				content += "<font color='#ffc526' weight='bold' size='3em'>";
 				content += username + "新增成功";
-				content += "</Font>";
+				content += "</font>";
+				content += "</div>";
+				
 				resultID.innerHTML = content;
 
 				// 清空輸入值
-				var frm = document.forms[0];
-				var numberElements = frm.elements.length;
+				var frm = document.forms.namedItem('formInsert');
+				var numberElements = frm.elements.length-1;//button不要清掉
 				for (var i = 0; i < numberElements; i++) {
 
 					frm.elements[i].value = "";
@@ -39,13 +43,14 @@ function setInsertData(input, servelet, middiv) {
 				//查詢最新更新資料
 
 			} else {
-				//新曾失敗
+				//新增失敗
 				
 				var content = "";
 
 				content += "<table>";
-				content += "<tr>";
-				content += "<font color='red'>";
+				content += "<font color='#ffc526' weight='bold' size='3em'>";
+				content += "<ul style='position: absolute ;left:42em;'>";
+//				content += "<font color='red'>";
 				
 				// 每一筆資料
 				for ( var key in validation_messages) {
@@ -65,13 +70,14 @@ function setInsertData(input, servelet, middiv) {
 								//顯示錯誤原因
 							break;
 						}
-						content += "<td width='15.625em'>" + obj[prop]
-								+ "</td>";
+						content += "<li width='15.625em'>" + obj[prop]
+								+ "</li>";
 
 					}
 
-					content += "</font>";
-					content += "</tr>";
+//					content += "</font>";
+//					content += "</tr>";
+					content += "</ul>";
 					content += "</table>";
 
 					resultID.innerHTML = content;
