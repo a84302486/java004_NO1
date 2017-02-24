@@ -36,7 +36,7 @@
 		<ul class="drop-down-menu">
 			<li><a href="#" data-toggle="dropdown">選單 <b class="caret"></b></a>
 				<ul>
-					<li><a href="#" class="InsertProduct.jsp">產品資訊</a>
+					<li><a href="#tab-product" class="InsertProduct.jsp">產品資訊</a>
 						<ul>
 							<li><a href="#">子功能1</a></li>
 						</ul></li>

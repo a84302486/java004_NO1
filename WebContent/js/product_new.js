@@ -41,7 +41,7 @@ $(function(){
 		var _getHerf = $(this).parent().attr('href');
 		//找出被點擊X所對應的li並刪除
 		$(this).parent().parent().remove();
-		$(_getHerf).contents().remove();
+		$(_getHerf).remove();
 		//此語法會找出第一個a連結內的herf
 		var _getfFstHerf = $('a').attr('href'); 
 		//顯示找到的herf(此連結是連到div#id),顯示此id對應的div並隱藏其他div
