@@ -12,12 +12,19 @@
 <title>MVC</title>
 </head>
 <body>
-	<Form Action="Javascript:%200" id="formInsert">
+	<button style="position: absolute ;left: 35em;top: 5em;"  onclick="toggle_visible('insertTable');toggle_visible('resultInsert');">
+				新增縮放
+			</button>
+			<button style="position: absolute ;right: 35em;top: 5em;"  onclick="toggle_visible('resultIndex');">
+				搜尋縮放
+			</button>
+	<Form Action="Javascript:%200" id="formInsert" style="position:fixed;">
 	
-		<table style="position: absolute ;left:15em;">
+			<table id="insertTable">
+		
 			<TR>
-				<TD align="center">欄位名稱</TD>
-				<TD align="center"></TD>
+				<TD colspan="2">新增會員</TD>
+			
 			</TR>
 			<TR>
 				<TD>會員帳號</TD>
@@ -113,23 +120,20 @@
 					</button>
 				</TD>
 				<TD colspan="1">
-					<Button id="submitinsert" onclick="setInsertData('Username','Insert','resultInsert');">
+					<Button id="submitinsert" onclick="setInsertData('Username','Insert','resultInsert'); getQueryData('M_Username','Select','resultIndex','result','M_Username');">
 						<font color="#018bbd">
 						確認新增
 						</font>
 					</Button>
 				</TD>
 			</TR>
-			<br>
-			
-			<!-- 					<TD align="center">會員等級</TD> -->
-				<!-- 					<TD align="center">紅利點數</TD> -->
-				<!-- 					<TD align="center">累積消費</TD> -->
 
 		</table>
 
 	</Form>
-	<div id="resultInsert"></div>
+<!-- 	<div id="resultIndex"></div> -->
+	<div id="resultInsert" style="bgcolor:white;position:fixed;"></div>
+		
 
 </body>
 

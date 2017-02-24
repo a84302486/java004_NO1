@@ -10,11 +10,11 @@
 	charset="UTF-8">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v01">
+<link rel="stylesheet" href="../css/member/member2.css?v0120">
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../asset/js/bootstrap.min.js"></script>
 <script src="../js/member/member.js?v01"></script>
-<script src="../js/member/insert.js?v1123411"></script>
+<script src="../js/member/insert.js?v010"></script>
 <script src="../js/member/delete.js?v01"></script>
 <script src="../js/member/select.js?v1213"></script>
 <!-- <script src="../js/member/jquery.js?v12"></script> -->
@@ -55,7 +55,7 @@
 					</button>
 					
 					<button
-						onclick="ajaxButtonTag('InsertMember.jsp','resultIndex');" id='buttoninsert'>
+						onclick="ajaxButtonTag('InsertMember.jsp','insertIndex');" id='buttoninsert'>
 						<img src="../image/insert.png"><br>新增
 						
 					</button>
@@ -91,7 +91,9 @@
 	</section>
 
 	<%-- 	<section class="container-fuild" id="resp"><center><h2>歡迎使用本系統</h2></center></section> --%>
+	<section class="container-fuild" id="insertIndex">
 
+	</section>
 	<section class="container-fuild" id="resultIndex">
 
 	</section>

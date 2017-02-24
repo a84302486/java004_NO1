@@ -1,6 +1,6 @@
 body {
   margin: 2em;
-  text-align:center;
+/*   text-align:center; */
  /* color: #ebebeb;*/
   font-family: Tahoma;
   font-size: 16px;
@@ -29,6 +29,13 @@ header, section, aside, footer {
 	border: none;	
 }
 
+#insertIndex{
+/* 	border:solid 3px #018bbd;  */
+/* 	height:38em;  */
+/* 	width:88em; */
+/* 	overflow:auto;	 */
+}
+
 #portfolio{
 	width:90em;
 	
@@ -39,13 +46,13 @@ header, section, aside, footer {
 
 
 table {
-	border:solid 1px; 
-	margin-left:1.250em; 
+	border:none 1px; 
+	margin-left:1em; 
  	text-align:center;
-	height: 2em; 
+/* 	height: 2em;  */
 	width: 170em;
 	/*background-color:#ffe793;*/
-	color: #444444;
+/* 	color: #444444; */
 	table-layout:fixed;
 	display: block;
 	
@@ -89,6 +96,13 @@ button{
 	top: 3em;
 	margin:1em;
 	color:red;
+}
+
+#insertTable{
+	position: absolute ;
+	left: 8em;
+	background-color:#444444;
+	
 }
 
 /* #submitinsert{ */
