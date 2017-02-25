@@ -9,7 +9,6 @@
 </head>
 <body>
 <CENTER>
-	<Form Action="Javascript:%200" >
 		<div>
 			<font size="4" color="blue" face="Tahoma"> 
 			請輸入要刪除的產品序號: 
@@ -17,7 +16,6 @@
 			<input type="button" value="開始刪除"  onclick="getDeleteMessage('DeleteServlet');">
 			</font>
 		</div>
-	</Form>
 		<div id="deleteResult"></div>
 </CENTER>
 

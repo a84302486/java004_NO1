@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/toolBar.css">
-<script
-	src="${pageContext.request.contextPath}/jQuery/jquery-1.12.4.min.js"
-	type="text/JavaScript"></script>
+<!-- <link rel="stylesheet" -->
+<%-- 	href="${pageContext.request.contextPath}/asset/css/bootstrap-theme.min.css"> --%>
+<!-- <link rel="stylesheet" -->
+<%-- 	href="${pageContext.request.contextPath}/css/toolBar.css"> --%>
+<!-- <script -->
+<%-- 	src="${pageContext.request.contextPath}/jQuery/jquery-1.12.4.min.js" --%>
+<!-- 	type="text/JavaScript"></script> -->
 
 <div class="SystemTitle">
 	<strong>資料管理系統</strong>
@@ -18,7 +18,9 @@
 			<button class="insert"
 				onclick="getAction('InsertProduct.jsp','showDAOJsp');"></button>
 			<button class="delete"
-				onclick="getAction('DeleteProduct.jsp','showDAOJsp');"></button>
+			onclick="setDeleteData('DeleteServlet','showDAOJsp');">
+<!-- 				onclick="getAction('DeleteProduct.jsp','showDAOJsp');"> -->
+			</button>
 			<button class="update"
 				onclick="getAction('UpdateProduct.jsp','showDAOJsp');"></button>
 			<button class="select"

@@ -1,24 +1,24 @@
 
-$(function(){
-	$('ul.drop-down-menu ul li').click(function(){
-	var $newTab = $(this);
-	var getJspLink = $($newTab).find('a').attr('class'); //讀取該筆下拉選單的網頁超連結
-	var getHref = $($newTab).find('a').attr('href'); //讀取點擊到的選單的Href,用來產生tab的Herf
-	var setTabId= getHref.substr(1); //去掉_getHref的#,用來產生div的id
-	
-		if($(getHref).length > 0){
-			alert('網頁已存在');
-
-		}else{
-			//最後一個li後面產生新頁籤
-			$('ul.tabs li:last').after("<li><a href="+getHref+"> 123 <i><img id=cross></i></a></li>");
-				//最後一個div後面產生新的div
-			$('div.abgne_tab div:last').after("<div id="+setTabId+" class=tab_content ></div>");
-			//將畫面載入新的div #id 且 _getHref內
-			$(getHref).load(getJspLink);			
-		}		
-	});
-});	
+//$(function(){
+//	$('ul.drop-down-menu ul li').click(function(){
+//	var $newTab = $(this);
+//	var getJspLink = $($newTab).find('a').attr('class'); //讀取該筆下拉選單的網頁超連結
+//	var getHref = $($newTab).find('a').attr('href'); //讀取點擊到的選單的Href,用來產生tab的Herf
+//	var setTabId= getHref.substr(1); //去掉_getHref的#,用來產生div的id
+//	
+//		if($(getHref).length > 0){
+//			alert('網頁已存在');
+//
+//		}else{
+//			//最後一個li後面產生新頁籤
+//			$('ul.tabs li:last').after("<li><a href="+getHref+"> 123 <i><img id=cross></i></a></li>");
+//				//最後一個div後面產生新的div
+//			$('div.abgne_tab div:last').after("<div id="+setTabId+" class=tab_content ></div>");
+//			//將畫面載入新的div #id 且 _getHref內
+//			$(getHref).load(getJspLink);			
+//		}		
+//	});
+//});	
 
 //------------------------------------------------------
 //$(function(){

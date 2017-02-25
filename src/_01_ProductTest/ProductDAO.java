@@ -201,5 +201,29 @@ public class ProductDAO {
 			}
 			return null;
 		}
+		public Boolean ifExist(String productId){
+			
+			String sql = "select * from product where product_id =?;";
+			try(
+				Connection con = ds.getConnection();
+				PreparedStatement pstmt	= con.prepareStatement(sql);){				
+			
+				pstmt.setString(1, productId);
+				try(
+					ResultSet rs = pstmt.executeQuery();
+				){
+					if (rs.next()){					
+						return true;					
+					}else{
+						return false;
+					}
+					
+				}
+			}catch (Exception e){
+				
+				e.printStackTrace();
+			}
+			return null;
+		}
 	}
 

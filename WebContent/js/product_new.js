@@ -1,11 +1,32 @@
 
 
-
-//取得 checkbox 欄位的選取值
+//取的checkbox欄位的值
 $('input:checkbox:checked').val();
 
+//----------<Tab功能>----------
+//選取下拉選單時,新增呼叫的網頁至頁籤---------------------------
+$(function(){
+	$('ul.drop-down-menu ul li').click(function(){
+	var $newTab = $(this);
+	var getJspLink = $($newTab).find('a').attr('class'); //讀取該筆下拉選單的網頁超連結
+	var getHref = $($newTab).find('a').attr('href'); //讀取點擊到的選單的Href,用來產生tab的Herf
+	var setTabId= getHref.substr(1); //去掉_getHref的#,用來產生div的id
+	
+		if($(getHref).length > 0){
+			alert('網頁已存在');
 
-//------------------------------------------------------
+		}else{
+			//最後一個li後面產生新頁籤
+			$('ul.tabs li:last').after("<li><a href="+getHref+"> 123 <i><img id=cross></i></a></li>");
+				//最後一個div後面產生新的div
+			$('div.abgne_tab div:last').after("<div id="+setTabId+" class=tab_content ></div>");
+			//將畫面載入新的div #id 且 _getHref內
+			$(getHref).load(getJspLink);			
+		}		
+	});
+});	
+
+//點擊Tab時切換畫面至被點擊的頁籤-----------------------------
 $(function(){
 	// 預設顯示第一個 Tab
 	var _showTab = 0;
@@ -54,11 +75,9 @@ $(function(){
     });
 });
 
-//主選單下拉功能------------------------------------------------------
-function optionsMenu(e){
-	window.open(e.options[e.selectedIndex].value);
-}
+//----------</Tab功能>----------
 
+//----------<Ajax新增改查功能>----------
 //載入頁面替換Section內容----------------------------------------------
 function getAction(action, tagId) {
 	var showResult = document.getElementById(tagId);
@@ -113,25 +132,72 @@ function getQueryData(servelet) {
 	}
 }
 
+
+
 //Delete判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
-function getDeleteMessage(servelet) {	
-	var productId = document.getElementById("productId").value;
-	if((confirm("確定要刪除資料"+ productId +"嗎")))
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", servelet, true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send("productId=" + productId);
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState == 4 && xhr.status == 200) {
-				var data = JSON.parse(xhr.responseText);
-				var result = document.getElementById("deleteResult");
-				result.innerHTML = data;
+function setDeleteData(servelet, div) {
+	var obj=document.getElementsByName("productId");
+		//<input type = 'radio' name = 'member' value ='帳號'>
+	var selected;
+	  for (var i=0; i<obj.length; i++) {
+	    if (obj[i].checked) { //如果被選取了	    	
+	    	 selected = obj[i].value;
+	    	 break;//只能單選
+	      }
+	    }
+	if (selected == null) {
+		alert("請選勾選要刪除的資料");
+		return;
+	} else {
+		if (confirm("確定要刪除"+selected+"嗎?")) {	
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", servelet, true);// send要傳參數一定要用POST
+			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xhr.send("productId="+selected);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var data = JSON.parse(xhr.responseText);
+					var result = document.getElementById("showDAOJsp");
+					result.innerHTML = "<h3>" + data + "<h3>";
+			getQueryData('SelectServlet');
+				}
+			}
 		}
 	}
 }
+//$(function(){
+//	$(".delete").click(function(){
+//		alert("123");
+//		if($("input[name='productId']").prop("checked")){
+//			alert($("input[name='productId']").prop("checked"));
+//			alert("已選取");
+//		}else{
+//			alert("請選勾選要刪除的資料");
+//		}
+//		
+//	});
+//});
 
 
-//Insert判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
+//舊功能Delete:在text內輸入序號並判斷是否刪除該筆資料,由Servelet回傳是否成功的json字串,再顯示至畫面----------------
+//function setDeleteData(servelet) {	
+//	var productId = document.getElementByName("productId").value;
+//	if((confirm("確定要刪除資料"+ productId +"嗎")))
+//	var xhr = new XMLHttpRequest();
+//	xhr.open("POST", servelet, true);
+//	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//	xhr.send("productId=" + productId);
+//		xhr.onreadystatechange = function() {
+//			if (xhr.readyState == 4 && xhr.status == 200) {
+//				var data = JSON.parse(xhr.responseText);
+//				var result = document.getElementById("showDAOJsp");
+//				result.innerHTML = data;
+//		}
+//	}
+//}
+
+
+//Insert:新增該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
 function getInsertMessage(servelet) {	
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", servelet, true);
@@ -143,11 +209,12 @@ function getInsertMessage(servelet) {
 				var data = JSON.parse(xhr.responseText);
 				var result = document.getElementById("insertResult");
 				result.innerHTML = data;
+		getQueryData('SelectServlet');
 			}
 		}
 	}
-//以下方法無使用------------------------------------------------------
 
+//Insert時使用的方法,會取出Form內每個name的value值----------------
 function setQueryString() {
 	queryString = "";
 	var frm = document.forms[0];
@@ -167,51 +234,9 @@ function setQueryString() {
 	return queryString;
 }
 
-function setDeleteData(servelet) {
+//----------</Ajax呼叫物件功能>----------
 
-	if (confirm("確定要刪除嗎?")) {
-		var divs = document.getElementById("result");
-	
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", servelet, true);// send要傳參數一定要用POST
-		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-
-		var queryString = setQueryString();
-		// xhr.send("Username=" + username);//request.getParameter("Username");
-		xhr.send(queryString);
-
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState == 4 && xhr.status == 200) {
-
-				var validation_messages = JSON.parse(xhr.responseText);// 由servelet傳過來JSON格式的資料
-				//alert(validation_messages);
-				if (validation_messages != null) {
-					var content = "<font color='blue'>";
-
-					// 每一筆資料
-					for( var key in validation_messages) {
-						// skip loop if the property is from prototype
-						if(!validation_messages.hasOwnProperty(key))
-							continue;
-						// content += "<tr>";
-						var obj = validation_messages[key];
-						for( var prop in obj) {
-							// skip loop if the property is from prototype
-							if (!obj.hasOwnProperty(prop))
-								continue;
-
-							content += " " + obj[prop] + " ";
-						}
-						// content += "</tr>";
-					}
-					content += "</Font>";
-					divs.innerHTML = content;
-					document.getElementById("productId").value = "";
-				} 
-			}
-		}
-	}
-}
+//以下方法無使用------------------------------------------------------
 
 //點擊Text改變背景顏色------------------------------------------------------
 $(function(){

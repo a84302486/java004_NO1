@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/toolBar.css">
 <script src="${pageContext.request.contextPath}/jQuery/jquery-1.12.4.min.js" type="text/JavaScript"></script>
 <script src="${pageContext.request.contextPath}/js/product_new.js" type="text/JavaScript"></script>
-<script src="${pageContext.request.contextPath}/js/tab_new.js" type="text/JavaScript"></script>
+
 
 <title>work</title>
 </head>
@@ -31,7 +31,7 @@
 		<div class="tab_container">
 			<div id="tab1" class="tab_content">
 				<section class="container-fuild" id='showDAOJsp'>
-					<h3>請選擇功能</h3>
+					<h4>請選擇功能</h4>
 				</section>
 				<section class="container-fuild" id='showResult'>
 				</section>
