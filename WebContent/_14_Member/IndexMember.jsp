@@ -10,7 +10,7 @@
 	charset="UTF-8">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v0120">
+<link rel="stylesheet" href="../css/member/member2.css?v01201">
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../asset/js/bootstrap.min.js"></script>
 <script src="../js/member/member.js?v01"></script>
@@ -98,19 +98,8 @@
 
 	</section>
 
-	<div id='resultLimit'>
-		
-	</div>
-<!-- 	<form id='test'> -->
-<!-- 			喜歡的水果 : <br> -->
-<!--  		<input type="radio" name="fruit" value="蘋果" checked>蘋果 -->
-<!--  		<input type="radio" name="fruit" value="香蕉">香蕉 -->
-<!--  		<input type="radio" name="fruit" value="櫻桃">櫻桃<br> -->
-<!--  		<input type="button" name="ok" id="ok" value="確定"> -->
-<!-- 	</form> -->
 
-
-	<footer class="container-fuild" style="position: fixed;">我是footer</footer>
+	<footer class="container-fuild" >我是footer</footer>
 
 </body>
 </html>
