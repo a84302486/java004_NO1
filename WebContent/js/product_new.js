@@ -1,27 +1,27 @@
 
 
 //----------<Tab功能>----------
-//選取下拉選單時,新增呼叫的網頁至頁籤---------------------------
-$(function(){
-	$('ul.drop-down-menu ul li').click(function(){
-	var $newTab = $(this);
-	var getJspLink = $($newTab).find('a').attr('class'); //讀取該筆下拉選單的網頁超連結
-	var getHref = $($newTab).find('a').attr('href'); //讀取點擊到的選單的Href,用來產生tab的Herf
-	var setTabId= getHref.substr(1); //去掉_getHref的#,用來產生div的id
-	
-		if($(getHref).length > 0){
-			alert('網頁已存在');
-
-		}else{
-			//最後一個li後面產生新頁籤
-			$('ul.tabs li:last').after("<li><a href="+getHref+"> 123 <i><img id=cross></i></a></li>");
-				//最後一個div後面產生新的div
-			$('div.abgne_tab div:last').after("<div id="+setTabId+" class=tab_content ></div>");
-			//將畫面載入新的div #id 且 _getHref內
-			$(getHref).load(getJspLink);			
-		}		
-	});
-});	
+//選取下拉選單時,新增呼叫的網頁至頁籤--------目前無使用
+//$(function(){
+//	$('ul.drop-down-menu ul li').click(function(){
+//	var $newTab = $(this);
+//	var getJspLink = $($newTab).find('a').attr('class'); //讀取該筆下拉選單的網頁超連結
+//	var getHref = $($newTab).find('a').attr('href'); //讀取點擊到的選單的Href,用來產生tab的Herf
+//	var setTabId= getHref.substr(1); //去掉_getHref的#,用來產生div的id
+//	
+//		if($(getHref).length > 0){
+//			alert('網頁已存在');
+//
+//		}else{
+//			//最後一個li後面產生新頁籤
+//			$('ul.tabs li:last').after("<li><a href="+getHref+"> 123 <i><img id=cross></i></a></li>");
+//				//最後一個div後面產生新的div
+//			$('div.abgne_tab div:last').after("<div id="+setTabId+" class=tab_content ></div>");
+//			//將畫面載入新的div #id 且 _getHref內
+//			$(getHref).load(getJspLink);			
+//		}		
+//	});
+//});	
 
 //點擊Tab時切換畫面至被點擊的頁籤-----------------------------
 $(function(){
@@ -131,15 +131,23 @@ function getQueryData(servelet) {
 
 //Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
 $(function(){
-$(".delete").click(function(){
+$('.delete').click(function(){
+	var setServlet;
 	var getName = $('input:checked').attr('name');
 	var selected = $('input[name=productId]:checked').val();
+	if(getName == "productId"){
+		setServlet="DeleteProduct.do";
+	} else if(getName == "tasteId"){
+		setServlet="DeleteTaste.do";
+	} else if(getName == "member"){
+		setServlet="";
+	}
 		 if (selected!=null) { //如果有被選取,不是空值	 
 //			$('input[name=productId]:checked').parent().parent().addClass('highlight')
 //				.siblings().removeClass('highlight');
 			 if (confirm("確定要刪除"+selected+"嗎?")) {
 				 var xhr = new XMLHttpRequest();
-					xhr.open("POST", 'DeleteServlet', true);// send要傳參數一定要用POST
+					xhr.open("POST", setServlet , true);// send要傳參數一定要用POST
 					xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					xhr.send(getName+"="+selected);
 					xhr.onreadystatechange = function() {
@@ -147,7 +155,7 @@ $(".delete").click(function(){
 							var data = JSON.parse(xhr.responseText);
 							var result = document.getElementById("showDAOJsp");
 							result.innerHTML = "<h3>" + data + "<h3>";
-					getQueryData('SelectServlet');
+					getQueryData('SelectProduct.do');
 						}
 					}
 			 	}
@@ -170,7 +178,7 @@ function getInsertData(servelet) {
 				var data = JSON.parse(xhr.responseText);
 				var result = document.getElementById("insertResult");
 				result.innerHTML = data;
-		getQueryData('SelectServlet');
+		getQueryData('SelectProduct.do');
 			}
 		}
 	}
@@ -211,16 +219,34 @@ function setQueryString() {
 
 //被點選的Radio改變背景顏色-------------------------
 function radCheck(obj) {
-	$(function(){
-	$("input:radio").change(function() {
+	$('input:radio').change(function() {
 		//$(this).parent().toggleClass("highlight");//切換背景色彩
-		if ( $(this).is(":checked")) {//判斷checkbox是否勾選
+		if ( $(this).is(':checked')) {//判斷checkbox是否勾選
 			$(this).parent().parent().addClass('highlight').siblings()
 				.removeClass('highlight');//被點擊的增加CSS樣式並移除其他radio的CSS樣式
-			}
-		});
+		}
 	});
 }
+
+//點擊insert按鈕跳出新頁籤-------------------------
+$(function(){
+	$('.insert').click(function(){
+		var tab = "#tab-insert";
+		if($(tab).length > 0){
+			alert('網頁已存在');
+		}else{
+			//最後一個li後面產生新頁籤
+			$('ul.tabs li:last').after("<li><a href=#tab-insert> 新增資料 <i><img id=cross></i></a></li>");
+				//最後一個div後面產生新的div
+			$('div.abgne_tab div:last').after("<div id=tab-insert class=tab_content ></div>");
+			//將畫面載入新的div #id 且 _getHref內
+			$('#tab-insert').load('InsertProduct.jsp');	
+			getQueryData('SelectProduct.do');
+		}	
+	});
+});	
+
+
 
 //以下功能無使用------------------------------------------------------
 

@@ -9,23 +9,48 @@
 <title>MVC</title>
 </head>
 <body>
-	<CENTER>
+
 <Form Action="Javascript:%200">	
-			<div align="LEFT">
-				<font size="3" color="red" face="Tahoma"> 
-				產品序號： <input type="text" name="productId" value="001" size="7"> 
-				產品定價： <input type="text" name="PGPrice" value="500" size="5"> 
-				產品品名： <input type="text" name="name" value="羊咩咩羊肉爐" size="23"> 
-				產品成本： <input type="text" name="avgCost" value="300" size="5"> 
-				產品生產地： <input type="text" name="oPlace" value="台灣台北" size="25"><br>
-				產品保存期： <input type="text" name="sLife" value="360" size="5">
-				產品供應商： <input type="text" name="suppierId" value="A" size="5">
-				<input  type="submit" value="提交" onclick="getInsertData('InsertServlet');">
-				</font> 
-			</div>
+	<center>
+		<div id="insertTable">
+			<table>
+				<tr>
+					<td>產品序號：</td> 
+					<td><input type="text" name="productId" value="001"></td>
+				</tr>
+				<tr> 
+					<td >產品定價： </td> 
+					<td><input type="text" name="PGPrice" value="500" ></td>
+				</tr>
+				<tr>
+					<td >產品品名：</td> 
+					<td><input type="text" name="name" value="羊咩咩羊肉爐" ></td>
+				<tr> 
+					<td>產品成本： </td> 
+					<td><input type="text" name="avgCost" value="300"></td>
+				</tr>
+				<tr>
+					<td>產品生產地：</td>
+					<td><input type="text" name="oPlace" value="台灣台北"></td>
+				</tr>
+				<tr>
+					<td>產品保存期： </td>
+					<td><input type="text" name="sLife" value="360" ></td>
+				</tr>
+				<tr>
+					<td>產品供應商：</td> 
+					<td><input type="text" name="suppierId" value="A"></td>	
+				</tr>
+			</table>	
+		</div>
+		<div>
+			<input type="submit" value="提交" onclick="getInsertData('InsertProduct.do');">
+			<div id="insertResult"></div>
+		</div>
+	</center>
 </Form>			
-	<div id="insertResult"></div>
-	</CENTER>
+	
+
 </body>
 
 </html>

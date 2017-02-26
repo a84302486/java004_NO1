@@ -15,8 +15,9 @@
 	<div class="container-fluid" id="toolBar">
 		<span class="nav navbar-nav navbar" id="btn-left">
 			<button class="information"></button>
-			<button class="insert"
-				onclick="getAction('InsertProduct.jsp','showDAOJsp');"></button>
+			<button class="insert">
+<!-- 				onclick="getAction('InsertProduct.jsp','showDAOJsp');"> -->
+			</button>
 			<button class="delete">
 <!-- 			onclick="setDeleteData('DeleteServlet','showDAOJsp');"> -->
 <!-- 				onclick="getAction('DeleteProduct.jsp','showDAOJsp');"> -->

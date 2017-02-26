@@ -168,6 +168,42 @@ public class ProductDAO {
 			return null;
 		}
 		
+		
+		public Collection<ProductBean> findByName(String productName) {
+
+			String sql = "select * from Product where product_id like '%?%';";
+			System.out.println(sql);
+			Collection<ProductBean> coll = new ArrayList<>();
+			try (Connection con = ds.getConnection(); 
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+				
+				pstmt.setString(1, productName);
+				
+				try (ResultSet rs = pstmt.executeQuery();) {
+					
+					while (rs.next()) {
+						ProductBean pb = new ProductBean();
+						pb.setProductId(rs.getString(1));
+						pb.setPgPrice(rs.getInt(2));
+						pb.setName(rs.getString(3));
+						pb.setAvgCost(rs.getDouble(4));
+						pb.setOplace(rs.getString(5));
+						pb.setSlife(rs.getInt(6));
+						pb.setSuppierId(rs.getString(7));
+						coll.add(pb);
+					}
+					System.out.println("品名查詢資料");
+				}
+				return coll;
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+			return null;
+		}
+		
+		
 		public Collection<ProductBean> findAll() {
 
 			String sql = "select * from Product;";

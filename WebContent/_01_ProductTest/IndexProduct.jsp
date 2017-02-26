@@ -15,7 +15,7 @@
 
 <title>work</title>
 </head>
-<body onload="getQueryData('SelectServlet');">
+<body onload="getQueryData('SelectProduct.do');">
 	
 	<!-- 插入工具列 -->
 	<div>

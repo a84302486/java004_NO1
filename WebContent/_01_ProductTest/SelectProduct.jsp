@@ -15,9 +15,9 @@
 	<Form Action="Javascript:%200" >
 		<div>
 			序號查詢:<input type="text" id="productId" name="productId" value="" size="20" placeholder="不輸入將搜尋全部"> 
-					<input type="button" value="開始查詢" onclick="getQueryData('SelectServlet');">
-			品名查詢:<input type="text" id="productId" name="productId" value="" size="20" placeholder="不輸入將搜尋全部"> 
-			<input type="button" value="開始查詢" onclick="getQueryData('SelectServlet');">
+					<input type="button" value="開始查詢" onclick="getQueryData('SelectProduct.do');">
+			品名查詢:<input type="text" id="productName" name="productName" value="" size="20"> 
+			<input type="button" value="開始查詢" onclick="getQueryData('SelectProduct.do');">
 		</div>	
 	</Form>
 		<div id="selectResult"></div>

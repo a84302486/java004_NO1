@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-@WebServlet("/_01_ProductTest/SelectServlet")
+@WebServlet("/_01_ProductTest/SelectProduct.do")
 public class SelectProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

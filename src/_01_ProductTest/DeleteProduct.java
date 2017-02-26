@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 
 
 
-@WebServlet("/_01_ProductTest/DeleteServlet")
+@WebServlet("/_01_ProductTest/DeleteProduct.do")
 public class DeleteProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 
 import _01_ProductTest.ProductDAO;
 
-@WebServlet("/_01_ProductTest/InsertServlet")
+@WebServlet("/_01_ProductTest/InsertProduct.do")
 
 public class InsertProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;

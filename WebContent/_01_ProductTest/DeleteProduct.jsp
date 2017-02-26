@@ -11,7 +11,7 @@
 			<font size="4" color="blue" face="Tahoma"> 
 			請輸入要刪除的產品序號: 
 			<input type="text" id="productId" name="productId" value="" size="20" placeholder="請輸入序號"> 
-			<input type="button" value="開始刪除"  onclick="getDeleteMessage('DeleteServlet');">
+			<input type="button" value="開始刪除"  onclick="getDeleteMessage('DeleteProduct.do');">
 			</font>
 		</div>
 		<div id="deleteResult"></div>
