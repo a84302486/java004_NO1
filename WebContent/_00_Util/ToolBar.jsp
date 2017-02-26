@@ -17,8 +17,8 @@
 			<button class="information"></button>
 			<button class="insert"
 				onclick="getAction('InsertProduct.jsp','showDAOJsp');"></button>
-			<button class="delete"
-			onclick="setDeleteData('DeleteServlet','showDAOJsp');">
+			<button class="delete">
+<!-- 			onclick="setDeleteData('DeleteServlet','showDAOJsp');"> -->
 <!-- 				onclick="getAction('DeleteProduct.jsp','showDAOJsp');"> -->
 			</button>
 			<button class="update"
@@ -27,8 +27,11 @@
 				onclick="getAction('SelectProduct.jsp','showDAOJsp');"></button>
 			<button class="refresh" onclick=""></button>
 			<button class="export" onclick=""></button>
-			<button class="import" onclick=""></button>
+			<button class="import" 
+				onclick="getAction('ImportProduct.jsp','showDAOJsp');"></button>
 			<button class="printer" onclick=""></button>
+			
+			
 		</span> <span class="nav navbar-nav navbar-right" id="btn-right">
 			<button class="forward" onclick=""></button>
 			<button class="back" onclick=""></button>
@@ -42,10 +45,8 @@
 						<ul>
 							<li><a href="#">子功能1</a></li>
 						</ul></li>
-					<li><a href="#" class="#">會員系統</a>
-						<ul>
-							<li><a href="#">子功能1</a></li>
-						</ul></li>
+					<li><a href="#tab-Taste" class="../_02_Taste/IndexTaste.jsp">口味資訊</a>
+					<li><a href="#tab-member" class="../_14_Member/IndexMember.jsp">會員系統</a>
 				</ul>
 			<li>
 		</ul>

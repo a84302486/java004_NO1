@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/_02_Taste/Delete.do")
-public class Delete extends HttpServlet {
+@WebServlet("/_02_Taste/DeleteTaste.do")
+public class DeleteTaste extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws IOException, ServletException {

@@ -1,43 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css'  type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/tab_main.css">
+<%-- <script src="${pageContext.request.contextPath}/js/product_new.js" type="text/JavaScript"></script> --%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MVC</title>
 </head>
+
+<title>MVC</title>
 <body>
-<CENTER>
-<H1>口味查詢</H1>
-  
-<HR>
-<Form Action="SelectFindAll.do" method="POST">
-<Table>
-		
-         <TR>
-            <TD colspan="2" align="center">列出所有口味資料 <br><br><input type="submit" value="開始查詢"> </TD>
-         </TR>
-</Table>
-</Form>
-<HR>
 
-<Form Action="SelectFindByPrimaryKey.do" method="POST">
-<Table>
-		<br>
-		<TR>
-             <TD align="RIGHT">用序號查詢</TD>
-             <TD align="LEFT"><input type="text" name=tasteId value="ABCD" size="20"></TD>
-         </TR>
-         <TR>
-            <TD colspan="2" align="center"><br><input type="submit" value="開始查詢"> </TD>
-         </TR>
-</Table>
-</Form>
-<HR>
+	<CENTER>
+	<Form Action="Javascript:%200" >
+		<div>
+			序號查詢:<input type="text" id="tasteId" name="tasteId" value="" size="20" placeholder="不輸入將搜尋全部"> 
+					<input type="button" value="開始查詢" onclick="getQueryData('SelectTaste.do');">
+			口味查詢:<input type="text" id="tasteId" name="tasteId" value="" size="20" placeholder="不輸入將搜尋全部"> 
+			<input type="button" value="開始查詢" onclick="getQueryData('SelectTaste.do');">
+		</div>	
+	</Form>
+		<div id="selectResult"></div>
+	</CENTER>
 
-
-</CENTER>
 </body>
-
 </html>

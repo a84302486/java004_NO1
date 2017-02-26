@@ -39,6 +39,7 @@ table {
 	border-bottom: 2px solid #999;
 }
 
+
 tr:nth-child(odd){
 	background:#e7e7e7;
 }
@@ -49,4 +50,7 @@ td{
 	font-family: Tahoma;
 	font-size: 20px;
 	border: solid 1px #000000;
+}
+tr.highlight {
+background-color: #ffff99;
 }

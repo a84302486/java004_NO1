@@ -15,7 +15,7 @@
 
 <title>work</title>
 </head>
-<body onload="getQueryData('SelectServlet');">
+<body onload="getQueryData('SelectTaste.do');">
 	
 	<!-- 插入工具列 -->
 	<div>
@@ -26,10 +26,10 @@
 	<!-- 頁籤與相對應之頁面-->
 	<div class="abgne_tab">
 		<ul class="tabs">
-			<li><a href="#product1">資料表 <i><img id="cross"></i></a></li>
+			<li><a href="#taste1">資料表 <i><img id="cross"></i></a></li>
 		</ul>
 		<div class="tab_container">
-			<div id="product1" class="tab_content">
+			<div id="#taste1" class="tab_content">
 				<section class="container-fuild" id='showDAOJsp'>
 					<h4>請選擇功能</h4>
 				</section>

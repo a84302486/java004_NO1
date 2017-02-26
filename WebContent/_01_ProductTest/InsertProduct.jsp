@@ -20,7 +20,7 @@
 				產品生產地： <input type="text" name="oPlace" value="台灣台北" size="25"><br>
 				產品保存期： <input type="text" name="sLife" value="360" size="5">
 				產品供應商： <input type="text" name="suppierId" value="A" size="5">
-				<input  type="submit" value="提交" onclick="getInsertMessage('InsertServlet');">
+				<input  type="submit" value="提交" onclick="getInsertData('InsertServlet');">
 				</font> 
 			</div>
 </Form>			
