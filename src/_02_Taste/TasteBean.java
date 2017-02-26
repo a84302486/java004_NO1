@@ -1,8 +1,6 @@
 package _02_Taste;
 
-import java.io.Serializable;
-
-public class TasteBean implements Serializable {
+public class TasteBean  {
 	private String tasteId;
 	private String tasteName;
 	

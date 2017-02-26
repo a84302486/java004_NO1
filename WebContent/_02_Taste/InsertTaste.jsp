@@ -3,32 +3,25 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css'  type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' href='${pageContext.request.contextPath}/css/product_main.css' type="text/css" />
+<script src="${pageContext.request.contextPath}/js/product_new.js" type="text/JavaScript"></script>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>MVC</title>
 </head>
 <body>
-<CENTER>
-<H1>新增資料</H1>
-  
-<HR>
-<Form Action="Insert.do" method="POST">
-    <Table>
-    	 <TR>
-             <TD align="RIGHT">口味序號：</TD>
-             <TD align="LEFT"><input	type="text" name="tasteId" value="ABCD" size="20"></TD>
-         </TR>
-         <TR>
-             <TD align="RIGHT">口味名稱：</TD>
-             <TD align="LEFT"><input	type="text" name="tasteName" value="原味" size="20"></TD>
-         </TR>
-         <TR>
-            <TD colspan="2" align="center"> 
-            <input type="submit" value="提交"> </TD>
-         </TR>
-         </Table>
-</Form>
-</CENTER>
+	<CENTER>
+<Form Action="Javascript:%200">	
+			<div align="LEFT">
+				<font size="3" color="red" face="Tahoma"> 
+				口味序號： <input type="text" name="tasteId" value="001" size="7"> 
+				口味名稱： <input type="text" name="tasteName" value="大包" size="5"> 
+
+				<input  type="submit" value="提交" onclick="getInsertMessage('InsertTaste.do');">
+				</font> 
+			</div>
+</Form>			
+	<div id="insertResult"></div>
+	</CENTER>
 </body>
 
 </html>

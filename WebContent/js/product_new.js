@@ -1,11 +1,29 @@
 
 
+//----------<Tab功能>----------
+//選取下拉選單時,新增呼叫的網頁至頁籤---------------------------
+$(function(){
+	$('ul.drop-down-menu ul li').click(function(){
+	var $newTab = $(this);
+	var getJspLink = $($newTab).find('a').attr('class'); //讀取該筆下拉選單的網頁超連結
+	var getHref = $($newTab).find('a').attr('href'); //讀取點擊到的選單的Href,用來產生tab的Herf
+	var setTabId= getHref.substr(1); //去掉_getHref的#,用來產生div的id
+	
+		if($(getHref).length > 0){
+			alert('網頁已存在');
 
-//取得 checkbox 欄位的選取值
-$('input:checkbox:checked').val();
+		}else{
+			//最後一個li後面產生新頁籤
+			$('ul.tabs li:last').after("<li><a href="+getHref+"> 123 <i><img id=cross></i></a></li>");
+				//最後一個div後面產生新的div
+			$('div.abgne_tab div:last').after("<div id="+setTabId+" class=tab_content ></div>");
+			//將畫面載入新的div #id 且 _getHref內
+			$(getHref).load(getJspLink);			
+		}		
+	});
+});	
 
-
-//------------------------------------------------------
+//點擊Tab時切換畫面至被點擊的頁籤-----------------------------
 $(function(){
 	// 預設顯示第一個 Tab
 	var _showTab = 0;
@@ -41,7 +59,7 @@ $(function(){
 		var _getHerf = $(this).parent().attr('href');
 		//找出被點擊X所對應的li並刪除
 		$(this).parent().parent().remove();
-		$(_getHerf).contents().remove();
+		$(_getHerf).remove();
 		//此語法會找出第一個a連結內的herf
 		var _getfFstHerf = $('a').attr('href'); 
 		//顯示找到的herf(此連結是連到div#id),顯示此id對應的div並隱藏其他div
@@ -54,11 +72,9 @@ $(function(){
     });
 });
 
-//主選單下拉功能------------------------------------------------------
-function optionsMenu(e){
-	window.open(e.options[e.selectedIndex].value);
-}
+//----------</Tab功能>----------
 
+//----------<Ajax新增改查功能>----------
 //載入頁面替換Section內容----------------------------------------------
 function getAction(action, tagId) {
 	var showResult = document.getElementById(tagId);
@@ -97,7 +113,7 @@ function getQueryData(servelet) {
 
 			var data = JSON.parse(xhr.responseText);
 			for (var i = 0; i < data.length; i++) {
-				content += "<tr><td><input type=checkbox name = productId value=" + data[i].productId +"></td>"
+				content += "<tr><td><input type=radio name=productId value=" + data[i].productId +" onclick=radCheck(this);></td>"
 						+ "<td>" + data[i].productId + "</td>"
 						+ "<td>" + data[i].pgPrice   + "</td>"
 						+ "<td>" + data[i].name      + "</td>"
@@ -113,26 +129,37 @@ function getQueryData(servelet) {
 	}
 }
 
-//Delete判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
-function getDeleteMessage(servelet) {	
-	var productId = document.getElementById("productId").value;
-	if((confirm("確定要刪除資料"+ productId +"嗎")))
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", servelet, true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send("productId=" + productId);
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState == 4 && xhr.status == 200) {
-				var data = JSON.parse(xhr.responseText);
-				var result = document.getElementById("deleteResult");
-				result.innerHTML = data;
-		}
-	}
-}
+//Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
+$(function(){
+$(".delete").click(function(){
+	var getName = $('input:checked').attr('name');
+	var selected = $('input[name=productId]:checked').val();
+		 if (selected!=null) { //如果有被選取,不是空值	 
+//			$('input[name=productId]:checked').parent().parent().addClass('highlight')
+//				.siblings().removeClass('highlight');
+			 if (confirm("確定要刪除"+selected+"嗎?")) {
+				 var xhr = new XMLHttpRequest();
+					xhr.open("POST", 'DeleteServlet', true);// send要傳參數一定要用POST
+					xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+					xhr.send(getName+"="+selected);
+					xhr.onreadystatechange = function() {
+						if (xhr.readyState == 4 && xhr.status == 200) {
+							var data = JSON.parse(xhr.responseText);
+							var result = document.getElementById("showDAOJsp");
+							result.innerHTML = "<h3>" + data + "<h3>";
+					getQueryData('SelectServlet');
+						}
+					}
+			 	}
+		 }else{
+		 		alert("請選勾選要刪除的資料");
+		 	} 
+	});
+});
 
 
-//Insert判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
-function getInsertMessage(servelet) {	
+//Insert:新增該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
+function getInsertData(servelet) {	
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", servelet, true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -143,11 +170,12 @@ function getInsertMessage(servelet) {
 				var data = JSON.parse(xhr.responseText);
 				var result = document.getElementById("insertResult");
 				result.innerHTML = data;
+		getQueryData('SelectServlet');
 			}
 		}
 	}
-//以下方法無使用------------------------------------------------------
 
+//Insert時使用的方法,會取出Form內每個name的value值----------------
 function setQueryString() {
 	queryString = "";
 	var frm = document.forms[0];
@@ -167,51 +195,34 @@ function setQueryString() {
 	return queryString;
 }
 
-function setDeleteData(servelet) {
+//Import選取要寫入的檔案----------------
+//$(function(){
+//	$('#importProduct').change(function(){
+//		$('#importBtn').removeAttr('disabled');
+//	});
+//});
+//----------</Ajax呼叫物件功能>----------
 
-	if (confirm("確定要刪除嗎?")) {
-		var divs = document.getElementById("result");
-	
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", servelet, true);// send要傳參數一定要用POST
-		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//----------<>----------
+//$(function(){
+//	
+//	
+//});
 
-		var queryString = setQueryString();
-		// xhr.send("Username=" + username);//request.getParameter("Username");
-		xhr.send(queryString);
-
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState == 4 && xhr.status == 200) {
-
-				var validation_messages = JSON.parse(xhr.responseText);// 由servelet傳過來JSON格式的資料
-				//alert(validation_messages);
-				if (validation_messages != null) {
-					var content = "<font color='blue'>";
-
-					// 每一筆資料
-					for( var key in validation_messages) {
-						// skip loop if the property is from prototype
-						if(!validation_messages.hasOwnProperty(key))
-							continue;
-						// content += "<tr>";
-						var obj = validation_messages[key];
-						for( var prop in obj) {
-							// skip loop if the property is from prototype
-							if (!obj.hasOwnProperty(prop))
-								continue;
-
-							content += " " + obj[prop] + " ";
-						}
-						// content += "</tr>";
-					}
-					content += "</Font>";
-					divs.innerHTML = content;
-					document.getElementById("productId").value = "";
-				} 
+//被點選的Radio改變背景顏色-------------------------
+function radCheck(obj) {
+	$(function(){
+	$("input:radio").change(function() {
+		//$(this).parent().toggleClass("highlight");//切換背景色彩
+		if ( $(this).is(":checked")) {//判斷checkbox是否勾選
+			$(this).parent().parent().addClass('highlight').siblings()
+				.removeClass('highlight');//被點擊的增加CSS樣式並移除其他radio的CSS樣式
 			}
-		}
-	}
+		});
+	});
 }
+
+//以下功能無使用------------------------------------------------------
 
 //點擊Text改變背景顏色------------------------------------------------------
 $(function(){
@@ -224,4 +235,51 @@ $(':text').focus(function(){
 				.css('font','normal 16px Tahoma');
 	});						
 });
+
+//舊功能Delete:在text內輸入序號並判斷是否刪除該筆資料,由Servelet回傳是否成功的json字串,再顯示至畫面----------------
+//function setDeleteData(servelet) {	
+//	var productId = document.getElementByName("productId").value;
+//	if((confirm("確定要刪除資料"+ productId +"嗎")))
+//	var xhr = new XMLHttpRequest();
+//	xhr.open("POST", servelet, true);
+//	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//	xhr.send("productId=" + productId);
+//		xhr.onreadystatechange = function() {
+//			if (xhr.readyState == 4 && xhr.status == 200) {
+//				var data = JSON.parse(xhr.responseText);
+//				var result = document.getElementById("showDAOJsp");
+//				result.innerHTML = data;
+//		}
+//	}
+//}
+
+//舊功能Delete判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
+//function setDeleteData(servelet, div) {
+//	var obj=document.getElementsByName("productId");
+//	var selected;
+//	  for (var i=0; i<obj.length; i++) {
+//	    if (obj[i].checked) { //如果被選取了	    	
+//	    	 selected = obj[i].value;
+//	      }
+//	    }
+//	if (selected == null) {
+//		alert("請選勾選要刪除的資料");
+//		return;
+//	} else {
+//		if (confirm("確定要刪除"+selected+"嗎?")) {	
+//			var xhr = new XMLHttpRequest();
+//			xhr.open("POST", servelet, true);// send要傳參數一定要用POST
+//			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//			xhr.send("productId="+selected);
+//			xhr.onreadystatechange = function() {
+//				if (xhr.readyState == 4 && xhr.status == 200) {
+//					var data = JSON.parse(xhr.responseText);
+//					var result = document.getElementById("showDAOJsp");
+//					result.innerHTML = "<h3>" + data + "<h3>";
+//			getQueryData('SelectServlet');
+//				}
+//			}
+//		}
+//	}
+//}
 //------------------------------------------------------

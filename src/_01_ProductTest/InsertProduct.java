@@ -3,7 +3,6 @@ package _01_ProductTest;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.regex.Pattern;
 import javax.servlet.ServletException;
@@ -25,19 +24,19 @@ public class InsertProduct extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
-    	
+    	ProductDAO pd = new ProductDAO();
 
 		// 準備存放錯誤訊息的 List 物件
 		List<String> errorMsg = new ArrayList<String>();
 		// 傳送成功訊息的 coll 物件
-		Collection<String> coll = new ArrayList<String>();
-		// 讀取輸入的資料 , 檢查輸入的資料
 
 		String productIdStr = request.getParameter("productId");
 		if (productIdStr == null || productIdStr.trim().length() == 0) {
 			errorMsg.add("序號必須輸入");
 		} else if (!isInteger(productIdStr)) {
 			errorMsg.add("序號必須是整數");
+		}else if (pd.ifExist(productIdStr)){
+			errorMsg.add("序號已存在請重新輸入");
 		}
 
 		String PGPriceStr = request.getParameter("PGPrice");
@@ -87,13 +86,13 @@ public class InsertProduct extends HttpServlet {
 			String toJson = null;
 			
 			ProductBean pb = new ProductBean(productIdStr, PGPrice, name, avgCost, oPlaceStr, sLife, suppierIdStr);
-			insertError = new ProductDAO().insert(pb);
+			insertError = pd.insert(pb);
 			
 			if (insertError == null) {
-				coll.add(("資料 " + productIdStr + "新增成功"));
-				toJson = new Gson().toJson(coll);
+				String s = "資料 " + productIdStr + "新增成功";
+				toJson = new Gson().toJson(s);
 			} else if (errorMsg != null){
-				errorMsg.add(insertError);
+//				errorMsg.add(insertError);
 				toJson = new Gson().toJson(errorMsg);
 			}
 			
