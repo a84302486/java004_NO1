@@ -8,17 +8,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1"
 	charset="UTF-8">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v01201">
+<link rel="stylesheet" href="../css/member/member2.css?v00">
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../asset/js/bootstrap.min.js"></script>
-<script src="../js/member/member.js?v01"></script>
-<script src="../js/member/insert.js?v010"></script>
-<script src="../js/member/delete.js?v01"></script>
-<script src="../js/member/select.js?v1213"></script>
+<script src="../js/member/member.js?v001"></script>
+<script src="../js/member/insert.js?v00"></script>
+<script src="../js/member/delete.js?v00100"></script>
+<script src="../js/member/select.js?v00"></script>
 <!-- <script src="../js/member/jquery.js?v12"></script> -->
-<script src="../js/member/update.js?v11"></script>
+<script src="../js/member/update.js?v010"></script>
 
 
 <title>會員管理首頁</title>
@@ -26,9 +27,14 @@
 <body>
 	<!-- 	<h3>highlight test</h3> -->
 	<header class="container-fuild">
-		<h4 class="text-center" id="indexheader">
-			<strong>資料管理系統</strong>
-		</h4>
+		<div class="row">
+
+			<h4 class="text-center" id="indexheader">
+				<strong>資料管理系統</strong>
+			</h4>
+
+		</div>
+		
 	</header>
 
 	<section class="container-fuild" id="portfolio">
@@ -37,18 +43,14 @@
 			<div class="container-fluid">
 				<div class="nav navbar-nav" id="buttons">
 					<section class="container-fuild" id="about">
-<!-- 		<div class="row"> -->
-
-<%-- 			<jsp:include page="..\_00_Util\SelectMenu.jsp" /> --%>
-
-<!-- 		</div> -->
+		
 		</section>
 					<button
 						id='buttonremark'>
 						<br>說明
 						
 					</button>
-					<button onclick="location.href='http://localhost:8080/java004/_14_Member/IndexMember.jsp'"">
+					<button onclick="location.href='http://localhost:8080/java004/_14_Member/IndexMember.jsp'">
 						
 						<br>首頁
 						

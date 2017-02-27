@@ -86,14 +86,14 @@ button{
 }
 #buttonupdate{
 	position: absolute; 
-	left: 12.5em;
-	top: 3em;
+	left: 12.500em;
+	top: 3.5em;
 	margin:1em;
 }
 #buttondelete{
 	position: absolute; 
-	left: 16em;
-	top: 3em;
+	left: 15.750em;
+	top: 3.5em;
 	margin:1em;
 	color:red;
 }

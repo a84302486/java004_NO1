@@ -13,8 +13,9 @@ function setDeleteData(servelet, ID, div, botdiv) {
 	    }
 	
 	if (selected == null) {
-		//找不到選取的帳號 沒有回應
-		return;
+		
+		alert("請先選取要刪除的資料");
+		return false;
 	} else {
 		if (confirm("確定要刪除"+selected+"嗎?")) {
 	
@@ -22,7 +23,7 @@ function setDeleteData(servelet, ID, div, botdiv) {
 			var divId = document.getElementById(div);// result
 
 			var xhr = new XMLHttpRequest();
-			xhr.open("POST", servelet, true);// send要傳參數一定要用POST
+			xhr.open("POST", servelet, false);// send要傳參數一定要用POST
 			xhr.setRequestHeader("Content-type",
 					"application/x-www-form-urlencoded");
 
@@ -35,21 +36,13 @@ function setDeleteData(servelet, ID, div, botdiv) {
 					var validation_messages = JSON.parse(xhr.responseText);// 由servelet傳過來JSON格式的資料
 
 					if (validation_messages != "true") {
-						var content = "<font color='red'>";
-						content += "<center>";
+						var content = "<font color='red' weight='bold' size='3em'>";
+						//content += "<center>";
 
-						if (validation_messages == "false") {
-
-							content += "刪除 " + idValue + " 發生錯誤 !!";
-						} else if (validation_messages == "miss") {
-
-							content += "找不到 " + idValue + "!";
-						} else {
-
-							content += "請輸入" + ID + "作刪除";
-						}
-						content += "</center>";
-						content += "</Font>";
+						content += "刪除 " + idValue + " 發生錯誤 !!";
+						
+						//content += "</center>";
+					    content += "</Font>";
 
 					} else {
 						// 刪除成功
@@ -59,8 +52,7 @@ function setDeleteData(servelet, ID, div, botdiv) {
 						content += "</center>";
 						content += "</Font>";
 
-						// 查詢最新更新資料
-//						getQueryDataLimit(serveletLimit, botdiv);
+
 					}
 
 					divId.innerHTML = content;
@@ -69,6 +61,8 @@ function setDeleteData(servelet, ID, div, botdiv) {
 
 			}
 
+		}else{
+			return false;
 		}
 
 	}
