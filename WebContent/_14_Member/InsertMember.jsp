@@ -12,14 +12,14 @@
 <title>MVC</title>
 </head>
 <body>
-	<button style="position: absolute ;left: 35em;top: 5em;"  onclick="toggle_visible('insertTable');toggle_visible('resultInsert');">
+	<button style="position: absolute ;left: 35em;top: 5em;"  onclick="toggle_visible('formInsert');toggle_visible('resultInsert');">
 				新增縮放
 			</button>
-			<button style="position: absolute ;right: 35em;top: 5em;"  onclick="toggle_visible('resultIndex');">
+			<button style="position: absolute ;right: 45em;top: 5em;"  onclick="toggle_visible('resultIndex');">
 				搜尋縮放
 			</button>
 	<Form Action="Javascript:%200" id="formInsert" style="position:fixed;">
-	
+<!-- 	<Form Action="Javascript:%200" > -->
 			<table id="insertTable">
 		
 			<TR>

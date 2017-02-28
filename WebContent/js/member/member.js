@@ -1,7 +1,7 @@
 function indexdofirst(){
 
 //	getQueryDataLimit('LimitSelect','resultIndex','M_ID');
-	getQueryData('M_Username','Select','resultIndex','result','M_Username');
+	//getQueryData('M_Username','Select','resultIndex','result','M_Username');
 	document.getElementById('buttonremark').onclick = function(){
 		alert("remark");
 	}
@@ -149,55 +149,16 @@ function setQueryString(formId) {
 	return queryString;
 }
 
-function check(formObj) {
-    var obj=formObj.fruit;
-    var selected=[];
-    for (var i=0; i<obj.length; i++) {
-      if (obj[i].checked) {
-        selected.push(obj[i].value);
-        }
-      }
-    alert("您要刪除的帳號: " + selected.join());
-    }
 
-
-
-//取得radio的值
-//function getCheckItem(formId){
-//	checkItem = "";
-//	var frm = document.forms.namedItem(formId);
-//	alert('getCheckItem '+frm);
-//	alert('getCheckItem '+frm.value);
-//	var numberElements = frm.elements.length;
-//	for (var i = 0; i < numberElements; i++) {
-//		alert("name "+frm.elements[i].name);
-//	
-//		alert("value "+frm.elements[i].value);
-//		if (frm.elements[i].checked){
-//				//被選到的資料
-//			checkItem += frm.elements[i].value;
-//			break;
-//				//只取一筆
-//		}
-//	}
-//	alert("getCheckItem");
-//	return checkItem;
-//}
-//
-////取得checkbox的值
-//function getCheckItems(formId){
-//	checkItem = "";
-//	var frm = document.forms.namedItem(formId);
-//	
-//	var numberElements = frm.elements.length;
-//	for (var i = 0; i < numberElements; i++) {
-//		
-//		if (frm.elements[i].checked){
-//				//被選到的資料
-//			checkItem += frm.elements[i].value;
-//		}
-//	}
-//	return checkItem;
+//function check(formObj) {
+//    var obj=formObj.fruit;
+//    var selected=[];
+//    for (var i=0; i<obj.length; i++) {
+//      if (obj[i].checked) {
+//        selected.push(obj[i].value);
+//        }
+//      }
+//    alert("您要刪除的帳號: " + selected.join());
 //}
 
 

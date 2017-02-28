@@ -50,8 +50,7 @@ function setInsertData(input, servelet, middiv) {
 				content += "<table>";
 				content += "<font color='#ffc526' weight='bold' size='3em'>";
 				content += "<ul style='position: absolute ;left:42em;'>";
-//				content += "<font color='red'>";
-				
+			
 				// 每一筆資料
 				for ( var key in validation_messages) {
 					// skip loop if the property is from prototype
@@ -74,10 +73,9 @@ function setInsertData(input, servelet, middiv) {
 								+ "</li>";
 
 					}
-
-//					content += "</font>";
-//					content += "</tr>";
+					
 					content += "</ul>";
+					content += "</font>";
 					content += "</table>";
 
 					resultID.innerHTML = content;
@@ -91,6 +89,7 @@ function setInsertData(input, servelet, middiv) {
 
 
 // -------------------------------------------------------
+// 彈跳縮放
 
 function toggle_visible(elName){
 	
@@ -101,9 +100,6 @@ function toggle_visible(elName){
 	el.style.display = isVisible ? 'inline' : 'none';
 	
 }
-
-
-
 
 
 //-------------------------------------------------------

@@ -20,8 +20,8 @@ header, section, aside, footer {
 }
 
 #resultIndex{
-	height:38em; 
-	width:88em;
+	height:50em; 
+	width:103em;
 	overflow:auto;
 	color:#018bbd;
 /* 	background-color:#bec2c5; */
@@ -37,7 +37,7 @@ header, section, aside, footer {
 }
 
 #portfolio{
-	width:90em;
+	width:105em;
 	
 	background-color:#444444;
 	border-style:outset;
@@ -86,21 +86,21 @@ button{
 }
 #buttonupdate{
 	position: absolute; 
-	left: 12.5em;
-	top: 3em;
+	left: 12.500em;
+	top: 3.5em;
 	margin:1em;
 }
 #buttondelete{
 	position: absolute; 
-	left: 16em;
-	top: 3em;
+	left: 15.750em;
+	top: 3.5em;
 	margin:1em;
 	color:red;
 }
 
 #insertTable{
 	position: absolute ;
-	left: 8em;
+	left: 0em;
 	background-color:#444444;
 	
 }
