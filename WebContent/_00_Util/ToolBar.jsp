@@ -23,10 +23,12 @@
 <!-- 				onclick="getAction('DeleteProduct.jsp','showDAOJsp');"> -->
 			</button>
 			<button class="update"
-				onclick="getAction('UpdateProduct.jsp','showDAOJsp');"></button>
+				onclick="getAction('UpdateProduct.jsp','showDAOJsp');">
+				</button>
 			<button class="select"
 				onclick="getAction('SelectProduct.jsp','showDAOJsp');"></button>
-			<button class="refresh" onclick=""></button>
+			<button class="refresh" 
+				onclick="location.href='http://localhost:8080/java004/_01_ProductTest/IndexProduct.jsp'"></button>
 			<button class="export" onclick=""></button>
 			<button class="import" 
 				onclick="getAction('ImportProduct.jsp','showDAOJsp');"></button>

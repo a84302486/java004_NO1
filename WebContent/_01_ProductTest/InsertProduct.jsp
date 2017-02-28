@@ -1,14 +1,14 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
+<!-- <html> -->
+<!-- <head> -->
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/product_main.css' type="text/css" />
 <script src="${pageContext.request.contextPath}/js/product_new.js" type="text/JavaScript"></script>
- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MVC</title>
-</head>
-<body>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+<!-- <title>MVC</title> -->
+<!-- </head> -->
+<!-- <body> -->
 
 <Form Action="Javascript:%200">	
 	<center>
@@ -44,13 +44,13 @@
 			</table>	
 		</div>
 		<div>
-			<input type="submit" value="提交" onclick="getInsertData('InsertProduct.do');">
+			<input type="submit" value="提交" onclick="getInsertData('InsertProduct.do');"/>
 			<div id="insertResult"></div>
 		</div>
 	</center>
 </Form>			
 	
 
-</body>
+<!-- </body> -->
 
-</html>
+<!-- </html> -->

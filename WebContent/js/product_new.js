@@ -30,7 +30,6 @@ $(function(){
 	$('.abgne_tab').each(function(){
 		// 目前的頁籤區塊
 		var $tab = $(this);
- 
 		var $defaultLi = $('ul.tabs li', $tab).eq(_showTab).addClass('active');
 		$($defaultLi.find('a').attr('href')).siblings().hide();
  
@@ -75,6 +74,24 @@ $(function(){
 //----------</Tab功能>----------
 
 //----------<Ajax新增改查功能>----------
+//Insert:新增該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
+function getInsertData(servelet) {	
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", servelet, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send(setQueryString());
+
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var data = JSON.parse(xhr.responseText);
+				var result = document.getElementById("insertResult");
+				result.innerHTML = data;
+		getQueryData('SelectProduct.do');
+			}
+		}
+	}
+
+
 //載入頁面替換Section內容----------------------------------------------
 function getAction(action, tagId) {
 	var showResult = document.getElementById(tagId);
@@ -134,7 +151,7 @@ $(function(){
 $('.delete').click(function(){
 	var setServlet;
 	var getName = $('input:checked').attr('name');
-	var selected = $('input[name=productId]:checked').val();
+	var selected = $("input[name="+getName+"]:checked").val();
 	if(getName == "productId"){
 		setServlet="DeleteProduct.do";
 	} else if(getName == "tasteId"){
@@ -161,29 +178,51 @@ $('.delete').click(function(){
 			 	}
 		 }else{
 		 		alert("請選勾選要刪除的資料");
-		 	} 
+		 } 
 	});
 });
 
+//Update:取出被點選的radio內的值,並傳到updata畫面內對應的input:value內
+function getData() {
+	var setServlet;
+	var getName = $('input:checked').attr('name');
+	var selected = $("input[name="+getName+"]:checked").val();
+	 	
+		 if (selected!=null) { //如果有被選取,不是空值	
+			
+			 if (confirm("確定要選取"+selected+"嗎?")) {
+				var TextArray = new Array();
+				for(i=1; i< $('.highlight > td').size();i++){
+					TextArray[i] = $(".highlight > td:eq("+i+")").text();
+				}
 
-//Insert:新增該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
-function getInsertData(servelet) {	
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", servelet, true);
-		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xhr.send(setQueryString());
+				for(i=0; i<= $('#updateTable :input').size();i++){
+					$("#updateTable input:eq("+i+")").val(TextArray[i+1]);
+				}
+			 }
+		 }else{
+		 		alert("請選勾選要更新的資料");
+	} 
+}
 
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState == 4 && xhr.status == 200) {
-				var data = JSON.parse(xhr.responseText);
-				var result = document.getElementById("insertResult");
-				result.innerHTML = data;
-		getQueryData('SelectProduct.do');
-			}
+function getUpdateData(servelet) {	
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", servelet, true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.send(setQueryString());
+
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			var data = JSON.parse(xhr.responseText);
+			var result = document.getElementById("updateResult");
+			result.innerHTML = data;
+	getQueryData('SelectProduct.do');
 		}
 	}
+}
+//----------</Ajax新增改查功能>----------
 
-//Insert時使用的方法,會取出Form內每個name的value值----------------
+//Insert跟Update時使用的方法,會取出Form內每個name的value值----------------
 function setQueryString() {
 	queryString = "";
 	var frm = document.forms[0];
@@ -198,24 +237,10 @@ function setQueryString() {
 			queryString += frm.elements[i].name + "="
 					+ encodeURIComponent(frm.elements[i].value);
 		}
-
 	}
 	return queryString;
 }
 
-//Import選取要寫入的檔案----------------
-//$(function(){
-//	$('#importProduct').change(function(){
-//		$('#importBtn').removeAttr('disabled');
-//	});
-//});
-//----------</Ajax呼叫物件功能>----------
-
-//----------<>----------
-//$(function(){
-//	
-//	
-//});
 
 //被點選的Radio改變背景顏色-------------------------
 function radCheck(obj) {
@@ -238,29 +263,60 @@ $(function(){
 			//最後一個li後面產生新頁籤
 			$('ul.tabs li:last').after("<li><a href=#tab-insert> 新增資料 <i><img id=cross></i></a></li>");
 				//最後一個div後面產生新的div
-			$('div.abgne_tab div:last').after("<div id=tab-insert class=tab_content ></div>");
-			//將畫面載入新的div #id 且 _getHref內
-			$('#tab-insert').load('InsertProduct.jsp');	
-			getQueryData('SelectProduct.do');
+			$('#product1').after("<div id=tab-insert class=tab_content ></div>");
+			//將畫面載入新的div
+			$('#tab-insert').load('InsertProduct.jsp');				
+			// 把目前點擊到的 li 頁籤加上 .active, 並把兄弟元素中有 .active 的都移除 class
+//			$('ul.tabs li:last').addClass('active').siblings('.active').removeClass('active');
+//			// 淡入相對應的內容並隱藏兄弟元素		
+//			$('#tab-insert').stop(false, true).fadeIn().siblings().hide();
 		}	
 	});
 });	
 
 
 
+//點擊insert頁籤時,隱藏其他按鈕-------------------------
+$(function(){
+	  $("[href='#tab-insert']").click(function () {
+			  $('.insert,.delete ,.select,.update,.export,.import,.printer').hide();
+	});
+});
+
+//點擊主頁頁籤時,顯示其他按鈕-------------------------
+$(function(){
+	  $("[href='#product1']").click(function () {
+			  $('.insert,.delete ,.select,.update,.export,.import,.printer').show();
+	});
+});
+
 //以下功能無使用------------------------------------------------------
 
+//Import選取要寫入的檔案----------------
+//$(function(){
+//	$('#importProduct').change(function(){
+//		$('#importBtn').removeAttr('disabled');
+//	});
+//});
+//----------</Ajax呼叫物件功能>----------
+
+//----------<>----------
+//$(function(){
+//	
+//	
+//});
+
 //點擊Text改變背景顏色------------------------------------------------------
-$(function(){
-$(':text').focus(function(){
-	$(this).css('background-color','yellow')
-			.css('font','normal 20px Tahoma');
-	});
-	$(':text').blur(function(){
-		$(this).css('background-color','#fff')
-				.css('font','normal 16px Tahoma');
-	});						
-});
+//$(function(){
+//$(':text').focus(function(){
+//	$(this).css('background-color','yellow')
+//			.css('font','normal 20px Tahoma');
+//	});
+//	$(':text').blur(function(){
+//		$(this).css('background-color','#fff')
+//				.css('font','normal 16px Tahoma');
+//	});						
+//});
 
 //舊功能Delete:在text內輸入序號並判斷是否刪除該筆資料,由Servelet回傳是否成功的json字串,再顯示至畫面----------------
 //function setDeleteData(servelet) {	

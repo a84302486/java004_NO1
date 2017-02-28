@@ -82,30 +82,30 @@ public class ProductDAO {
 		synchronized public String update(ProductBean pb){
 			
 			String sql = "UPDATE Product SET "
-					+ "product_id = ?, p_g_price = ?, name = ?, "
-					+ "avg_cost = ?, o_place = ?, s_life = ?, suppier_id = ?"
-					+ "WHERE product_id = ?;";
-			
+					+ " p_g_price = ?, name = ?, "
+					+ " avg_cost = ?, o_place = ?, s_life = ?, suppier_id = ?"
+					+ " WHERE product_id = ?;";
+		
 			try(
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);){				
-			
-				pstmt.setString(1, pb.getProductId());
-				pstmt.setInt(2, pb.getPgPrice());
-				pstmt.setString(3, pb.getName());
-				pstmt.setDouble(4, pb.getAvgCost());
-				pstmt.setString(5, pb.getOplace());
-				pstmt.setInt(6,  pb.getSlife());
-				pstmt.setString(7, pb.getSuppierId());		
+							
+				pstmt.setInt(1, pb.getPgPrice());
+				pstmt.setString(2, pb.getName());
+				pstmt.setDouble(3, pb.getAvgCost());
+				pstmt.setString(4, pb.getOplace());
+				pstmt.setInt(5,  pb.getSlife());
+				pstmt.setString(6, pb.getSuppierId());
+				pstmt.setString(7, pb.getProductId());
 				pstmt.executeUpdate();
 				
-				System.out.println("成功 修改" + pb.getProductId());
+				System.out.println("成功修改" + pb.getProductId());
 				
-				return null;
-			}catch (Exception e){		
-				System.out.println("失敗 修改" + pb.getProductId());
+				return "成功修改" + pb.getProductId();
+			}catch (SQLException e){		
+				System.out.println("儲存資料"+ pb.getProductId()+"時發生錯誤，請檢查，例外=" + e.getMessage());
 				e.printStackTrace();
-				return "失敗 修改" + pb.getProductId();
+				return "儲存資料"+ pb.getProductId()+"時發生錯誤，請檢查，例外=" + e.getMessage();
 			}
 		}
 		
