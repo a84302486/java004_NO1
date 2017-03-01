@@ -39,6 +39,8 @@ function setInsertData(input, servelet, middiv) {
 
 				}
 				
+				getQueryData('M_Username','Select','resultIndex','result','M_Username');
+				
 				//getQueryDataLimit(serveletQuery,botdiv);
 				//查詢最新更新資料
 

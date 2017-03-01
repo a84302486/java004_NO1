@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebFilter(urlPatterns = { "/*" }, initParams = {
 		@WebInitParam(name = "url_1", value = "/_14_Member/*"),
-		@WebInitParam(name = "url_1", value = "/_01_ProductTest/*")
+		@WebInitParam(name = "url_2", value = "/_01_ProductTest/*")
 		})
 public class LoginFilter implements Filter {
 	Collection<String> url = new ArrayList<String>();

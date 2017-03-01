@@ -11,15 +11,15 @@
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v001202010">
+<link rel="stylesheet" href="../css/member/member2.css?v01031">
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../asset/js/bootstrap.min.js"></script>
-<script src="../js/member/member.js?v001"></script>
-<script src="../js/member/insert.js?v00"></script>
-<script src="../js/member/delete.js?v00100"></script>
-<script src="../js/member/select.js?v00"></script>
+<script src="../js/member/member.js?v0011"></script>
+<script src="../js/member/insert.js?v001"></script>
+<script src="../js/member/delete.js?v001001"></script>
+<script src="../js/member/select.js?v0011"></script>
 <!-- <script src="../js/member/jquery.js?v12"></script> -->
-<script src="../js/member/update.js?v010"></script>
+<script src="../js/member/update.js?v01011"></script>
 
 
 <title>會員管理首頁</title>
@@ -61,14 +61,14 @@
 						<img src="../image/insert.png"><br>新增
 						
 					</button>
-<!-- 					<button -->
-<!-- 						onclick="ajaxButtonTag('UpdateMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');"> -->
-<!-- 						F3<br>修改 -->
-<!-- 					</button> -->
-<!-- 					<button -->
-<!-- 						onclick="ajaxButtonTag('DeleteMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');"> -->
-<!-- 						F4<br>刪除 -->
-<!-- 					</button> -->
+					<button onclick = "updateData();" id='buttonupdate'>
+						<img src='../image/update.png'><br>修改
+						
+					</button>
+					<button onclick = "setDeleteData('Delete','Username','resultIndex','resultLimit');" id='buttondelete'>
+						<img src='../image/delete.png'><br>刪除
+						
+					</button>
 
 				</div>
 				<Form Action="Javascript:%200" id="formSelect">
@@ -93,12 +93,16 @@
 	</section>
 
 	<%-- 	<section class="container-fuild" id="resp"><center><h2>歡迎使用本系統</h2></center></section> --%>
-	<section class="container-fuild" id="insertIndex" >
+	<section class="container-fuild" id="resultIndex">
 
 	</section>
-	<section class="container-fuild" id="resultIndex" style="position:absolute;left:35em">
+	<section class="container-fuild" id="insertIndex">
 
 	</section>
+	
+	
+	
+	
 
 
 	<footer class="container-fuild" >我是footer</footer>

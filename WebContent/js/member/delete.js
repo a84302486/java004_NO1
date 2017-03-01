@@ -23,7 +23,7 @@ function setDeleteData(servelet, ID, div, botdiv) {
 			var divId = document.getElementById(div);// result
 
 			var xhr = new XMLHttpRequest();
-			xhr.open("POST", servelet, false);// send要傳參數一定要用POST
+			xhr.open("POST", servelet, true);// send要傳參數一定要用POST
 			xhr.setRequestHeader("Content-type",
 					"application/x-www-form-urlencoded");
 

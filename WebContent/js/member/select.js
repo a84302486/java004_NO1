@@ -74,10 +74,7 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 			}
 			
 			//產生修改和刪除button
-			content += "<button onclick = updateData(); id='buttonupdate';>"
-				+"<img src='../image/update.png'><br>修改</button>";
-			content += "<button onclick = setDeleteData('Delete','Username','resultIndex','resultLimit'); id='buttondelete';>"
-				+"<img src='../image/delete.png'><br>刪除</button>";
+			
 			
 			content += "</table>";
 			content += "</form>";

@@ -3,14 +3,23 @@ body {
 /*   text-align:center; */
  /* color: #ebebeb;*/
   font-family: Tahoma;
-  font-size: 16px;
+/*   font-size: 1em; */
   background-color: #444444;
 /*   background-color: #000000; */
+}
+label{
+/* 	width:150px; */
+/* 	float:right; */
+	position: absolute;
+	left:10em;
+/* 	color:#3c1408; */
+	font:bold 1em Sans-serif;
+	line-height:1.25em;	
 }
 
 header, section, aside, footer {
 	margin-inside: 0.625em; 
-	border:inset 1px transform;
+	border:inset 0.5em transform;
 /* 	background-color: white; */
 	
 }
@@ -24,29 +33,43 @@ header, section, aside, footer {
 	width:75em;
 	overflow:auto;
 	color:#018bbd;
-/* 	background-color:#bec2c5; */
-	border-style:outset;
-	border: none;	
+	
+	position:absolute;
+
+	padding-top:1em;
+/* 	padding-right:1em; */
+	background-color:#b2b2b2;
+/* 	border-style:outset; */
+	border: none outset;
+	border-radius: 0.5em;	
 }
 
 #insertIndex{
-/* 	border:solid 3px #018bbd;  */
-/* 	height:38em;  */
-/* 	width:88em; */
-/* 	overflow:auto;	 */
+	height:43em;
+	width:30em;
+	padding-top:2em;
+	background-color:#018bbd;
+	color:#191919;
+	position:absolute;
+	top:10em;
+	left:80em;
+	border: none outset;
+	border-radius: 0.5em;
+    font-size:1em;
 }
 
 #portfolio{
 	width:110em;
-	
-	background-color:#444444;
+/*  	background-color:#018bbd;  */
+/* 	background-color:#444444; */
 	border-style:outset;
 	border: none;
+	border-radius: 0.5em;
 }
 
 
 table {
-	border:none 1px; 
+	border:none 0.25px; 
 	margin-left:1em; 
  	text-align:center;
 /* 	height: 2em;  */
@@ -55,6 +78,7 @@ table {
 /* 	color: #444444; */
 	table-layout:fixed;
 	display: block;
+	color:#191919;
 	
 }
 
@@ -80,21 +104,21 @@ button{
 }
 #buttoninsert{
 	position: absolute; 
-	left: 7em;
+	left: 6.5em;
 	top: -1em;
 	margin:1em;
 }
 #buttonupdate{
 	position: absolute; 
-	left: 12.500em;
-	top: 3.5em;
-	margin:1em;
+	left: 10.750em;
+	top: 0em;
+/* 	margin:1em; */
 }
 #buttondelete{
 	position: absolute; 
-	left: 15.750em;
-	top: 3.5em;
-	margin:1em;
+	left: 13.750em;
+	top: 0em;
+/* 	margin:1em; */
 	color:red;
 }
 
@@ -118,12 +142,13 @@ tr{
 	width: 15.625em;
 }
 tr:nth-child(odd){
-	background-color:#ffffbb;
+	background-color:#ffffa8;
+/* 	color:#191919; */
 	 
 }
 tr:nth-child(1){
-	background-color:#d6eaf3;
-	color:#0699f0; 
+	background-color:#9dceff;
+/* 	color:#191919;  */
 }
 
 
@@ -138,5 +163,8 @@ td{
 	background:#018bbd;
 }
 
+#insertTable {
+	width: 27em;
+}
 
 
