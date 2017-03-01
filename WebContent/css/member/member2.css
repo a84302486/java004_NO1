@@ -20,8 +20,8 @@ header, section, aside, footer {
 }
 
 #resultIndex{
-	height:50em; 
-	width:103em;
+	height:45em; 
+	width:75em;
 	overflow:auto;
 	color:#018bbd;
 /* 	background-color:#bec2c5; */
@@ -37,7 +37,7 @@ header, section, aside, footer {
 }
 
 #portfolio{
-	width:105em;
+	width:110em;
 	
 	background-color:#444444;
 	border-style:outset;
@@ -137,4 +137,6 @@ td{
 .highlight{
 	background:#018bbd;
 }
+
+
 

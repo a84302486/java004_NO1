@@ -18,8 +18,12 @@
 			<button style="position: absolute ;right: 45em;top: 5em;"  onclick="toggle_visible('resultIndex');">
 				搜尋縮放
 			</button>
-	<Form Action="Javascript:%200" id="formInsert" style="position:fixed;">
+	<Form Action="Javascript:%200" id="formInsert" >
 <!-- 	<Form Action="Javascript:%200" > -->
+		<ul>
+			<li>會員
+			</li>
+		</ul>
 			<table id="insertTable">
 		
 			<TR>

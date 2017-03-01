@@ -11,7 +11,7 @@
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v00">
+<link rel="stylesheet" href="../css/member/member2.css?v001202010">
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../asset/js/bootstrap.min.js"></script>
 <script src="../js/member/member.js?v001"></script>
@@ -93,10 +93,10 @@
 	</section>
 
 	<%-- 	<section class="container-fuild" id="resp"><center><h2>歡迎使用本系統</h2></center></section> --%>
-	<section class="container-fuild" id="insertIndex">
+	<section class="container-fuild" id="insertIndex" >
 
 	</section>
-	<section class="container-fuild" id="resultIndex">
+	<section class="container-fuild" id="resultIndex" style="position:absolute;left:35em">
 
 	</section>
 
