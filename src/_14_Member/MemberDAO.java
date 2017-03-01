@@ -76,9 +76,9 @@ public class MemberDAO {
 			Connection con = ds.getConnection();
 			PreparedStatement pstmt	= con.prepareStatement(sql);){				
 		
-			pstmt.setString(1, mem.getM_ID());
-			pstmt.setString(2, mem.getM_Username());
-			pstmt.setString(3, mem.getM_Password());
+			pstmt.setString(1, mem.getM_Username());
+			pstmt.setString(2, mem.getM_Password());
+			pstmt.setString(3, mem.getM_ID());
 			pstmt.setString(4, mem.getM_Name());
 			pstmt.setString(5, mem.getM_Nick());
 			pstmt.setString(6, mem.getM_Sex());
@@ -176,8 +176,7 @@ public class MemberDAO {
 	}
 	
 	public Collection<MemberBean> select(String Username){
-		
-		int n =0;
+	
 		String sql = "select * from Member where M_Username =?"					
 					+ ";";
 						
@@ -192,9 +191,10 @@ public class MemberDAO {
 			){
 				if (rs.next()){					
 					MemberBean pb = new MemberBean();
-					pb.setM_ID(rs.getString(1));
-					pb.setM_Username(rs.getString(2));
-					pb.setM_Password(rs.getString(3));
+					
+					pb.setM_Username(rs.getString(1));
+					pb.setM_Password(rs.getString(2));
+					pb.setM_ID(rs.getString(3));
 					pb.setM_Name(rs.getString(4));
 					pb.setM_Nick(rs.getString(5));
 					pb.setM_Sex(rs.getString(6));
@@ -210,9 +210,6 @@ public class MemberDAO {
 					pb.setM_UniformNumber(rs.getString(16));
 					pb.setM_Insertdate(rs.getString(17));
 					pb.setM_Updatedate(rs.getString(18));
-					pb.setM_Level(rs.getInt(19));
-					pb.setM_BonusPoints(rs.getInt(20));
-					pb.setM_Total(rs.getInt(21));
 
 					coll.add(pb);					
 				}
@@ -228,8 +225,6 @@ public class MemberDAO {
 	}
 	
 	
-	
-	
 	public Collection<MemberBean> select() {
 
 		String sql = "select * from Member"+";";
@@ -241,9 +236,10 @@ public class MemberDAO {
 
 				while (rs.next()) {
 					MemberBean pb = new MemberBean();
-					pb.setM_ID(rs.getString(1));
-					pb.setM_Username(rs.getString(2));
-					pb.setM_Password(rs.getString(3));
+					
+					pb.setM_Username(rs.getString(1));
+					pb.setM_Password(rs.getString(2));
+					pb.setM_ID(rs.getString(3));
 					pb.setM_Name(rs.getString(4));
 					pb.setM_Nick(rs.getString(5));
 					pb.setM_Sex(rs.getString(6));
@@ -259,9 +255,6 @@ public class MemberDAO {
 					pb.setM_UniformNumber(rs.getString(16));
 					pb.setM_Insertdate(rs.getString(17));
 					pb.setM_Updatedate(rs.getString(18));
-					pb.setM_Level(rs.getInt(19));
-					pb.setM_BonusPoints(rs.getInt(20));
-					pb.setM_Total(rs.getInt(21));
 
 					coll.add(pb);
 				}
@@ -277,9 +270,8 @@ public class MemberDAO {
 	}
 	
 	
-public Collection<MemberBean> selectToUpdate(String Username){
+	public Collection<MemberBean> selectToUpdate(String Username){
 		
-
 		String sql = "select * from Member where M_Username =?"					
 					+ ";";
 						
@@ -294,9 +286,10 @@ public Collection<MemberBean> selectToUpdate(String Username){
 			){
 				if (rs.next()){					
 					MemberBean pb = new MemberBean();
-					pb.setM_ID(rs.getString(1));
-					pb.setM_Username(rs.getString(2));
-					pb.setM_Password(rs.getString(3));
+					
+					pb.setM_Username(rs.getString(1));
+					pb.setM_Password(rs.getString(2));
+					pb.setM_ID(rs.getString(3));
 					pb.setM_Name(rs.getString(4));
 					pb.setM_Nick(rs.getString(5));
 					pb.setM_Sex(rs.getString(6));
@@ -312,9 +305,6 @@ public Collection<MemberBean> selectToUpdate(String Username){
 					pb.setM_UniformNumber(rs.getString(16));
 					pb.setM_Insertdate(rs.getString(17));
 					pb.setM_Updatedate(rs.getString(18));
-					pb.setM_Level(rs.getInt(19));
-					pb.setM_BonusPoints(rs.getInt(20));
-					pb.setM_Total(rs.getInt(21));
 
 					coll.add(pb);					
 				}
@@ -328,8 +318,8 @@ public Collection<MemberBean> selectToUpdate(String Username){
 		}
 		return null;
 	}
-
-
+	
+	
 	
 	
 public Boolean ifExist(String Username){
@@ -358,6 +348,56 @@ public Boolean ifExist(String Username){
 		return null;
 	}
 	
+	public Collection<MemberBean> selectLimit(String orderBy,String asc,int begin,int count) {
+
+		String sql = "select * from Member order by ? ? limit ?,?;";
+
+		Collection<MemberBean> coll = new ArrayList<>();
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+			
+			pstmt.setString(1, orderBy);
+			pstmt.setString(2, asc);
+			pstmt.setInt(3, begin);
+			pstmt.setInt(4, count);
+			
+			try (ResultSet rs = pstmt.executeQuery();) {
+				
+				
+				
+				while (rs.next()) {
+					MemberBean pb = new MemberBean();
+					
+					pb.setM_Username(rs.getString(1));
+					pb.setM_Password(rs.getString(2));
+					pb.setM_ID(rs.getString(3));
+					pb.setM_Name(rs.getString(4));
+					pb.setM_Nick(rs.getString(5));
+					pb.setM_Sex(rs.getString(6));
+					pb.setM_Birthday(rs.getString(7));
+					pb.setM_EMail(rs.getString(8));
+					pb.setM_Phone(rs.getString(9));
+					pb.setM_Cellphone(rs.getString(10));
+					pb.setM_Address(rs.getString(11));
+					pb.setM_Line(rs.getString(12));
+					pb.setM_FaceBook(rs.getString(13));
+					pb.setM_IdentityCard(rs.getString(14));
+					pb.setM_Invoice(rs.getString(15));
+					pb.setM_UniformNumber(rs.getString(16));
+					pb.setM_Insertdate(rs.getString(17));
+					pb.setM_Updatedate(rs.getString(18));
+
+					coll.add(pb);
+				}
+
+				System.out.println("記錄 查詢orderBy Limit");
+			}
+			return coll;
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	public Collection<MemberBean> selectLimit() {
 
@@ -374,9 +414,10 @@ public Boolean ifExist(String Username){
 				
 				while (rs.next()) {
 					MemberBean pb = new MemberBean();
-					pb.setM_ID(rs.getString(1));
-					pb.setM_Username(rs.getString(2));
-					pb.setM_Password(rs.getString(3));
+			
+					pb.setM_Username(rs.getString(1));
+					pb.setM_Password(rs.getString(2));
+					pb.setM_ID(rs.getString(3));
 					pb.setM_Name(rs.getString(4));
 					pb.setM_Nick(rs.getString(5));
 					pb.setM_Sex(rs.getString(6));
@@ -392,9 +433,6 @@ public Boolean ifExist(String Username){
 					pb.setM_UniformNumber(rs.getString(16));
 					pb.setM_Insertdate(rs.getString(17));
 					pb.setM_Updatedate(rs.getString(18));
-					pb.setM_Level(rs.getInt(19));
-					pb.setM_BonusPoints(rs.getInt(20));
-					pb.setM_Total(rs.getInt(21));
 
 					coll.add(pb);
 				}
