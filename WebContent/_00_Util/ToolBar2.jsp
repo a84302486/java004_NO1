@@ -16,7 +16,7 @@
 					<li><a href="#" data-toggle="dropdown">基本資料管理 <b
 							class="caret"></b></a>
 						<ul>
-							<li ><a href="#tab-product" onclick="getAction('IndexProduct2.jsp','loadPageDiv');getQueryData('SelectProduct.do');setTab();">產品資訊</a>
+							<li ><a href="#tab-product" onclick="getAction('IndexProduct2.jsp','loadPageDiv');getQueryData('SelectProduct.do');getJS();">產品資訊</a>
 								<ul>
 									<li><a href="#">子功能1</a></li>
 								</ul></li>

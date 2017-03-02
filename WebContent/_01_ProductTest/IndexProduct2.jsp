@@ -19,9 +19,10 @@
 			<td>
 				<ul class="tabs">
 					<li><a href="#product1">資料表 </a></li>
+					<li><a href="#product2">資料表 </a></li>
 				</ul>
 			</td>
-		
+
 			<td id="toolBar">
 				<button class="select"
 					onclick="getAction('SelectProduct.jsp','showDAOJsp');"></button>
@@ -44,6 +45,9 @@
 				<h4>請選擇功能</h4>
 			</section>
 			<section class="container-fuild" id='showResult'></section>
+		</div>
+		<div id="product2" class="tab_content">
+		123
 		</div>
 	</div>
 </div>

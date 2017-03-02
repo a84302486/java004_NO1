@@ -1,9 +1,12 @@
-
-
-
+function getJS(){
+	var url = 'http://localhost:8080/java004/js/product_new2.js';
+	$.getScript( url, function() {
+		setTab()
+	});
+}
 
 //點擊Tab時切換畫面至被點擊的頁籤-----------------------------
-$(function(){
+function setTab(){
 	// 預設顯示第一個 Tab
 	var _showTab = 0;
 	$('.abgne_tab').each(function(){
@@ -21,13 +24,12 @@ $(function(){
 			$this.addClass('active').siblings('.active').removeClass('active');
 			// 淡入相對應的內容並隱藏兄弟元素
 			$(_clickTab).stop(false, true).fadeIn().siblings().hide();
- 
 			return false;
 		}).find('a').focus(function(){
 			this.blur();
 		});
 	});
-});
+};
 
 
 //----------<Ajax新增改查功能>----------
