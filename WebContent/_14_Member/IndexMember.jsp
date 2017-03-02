@@ -11,15 +11,15 @@
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v00">
+<link rel="stylesheet" href="../css/member/member2.css?v010301">
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../asset/js/bootstrap.min.js"></script>
-<script src="../js/member/member.js?v001"></script>
-<script src="../js/member/insert.js?v00"></script>
-<script src="../js/member/delete.js?v00100"></script>
-<script src="../js/member/select.js?v00"></script>
+<script src="../js/member/member.js?v00101"></script>
+<script src="../js/member/insert.js?v0001"></script>
+<script src="../js/member/delete.js?v0010001"></script>
+<script src="../js/member/select.js?v00110"></script>
 <!-- <script src="../js/member/jquery.js?v12"></script> -->
-<script src="../js/member/update.js?v010"></script>
+<script src="../js/member/update.js?v010110"></script>
 
 
 <title>會員管理首頁</title>
@@ -61,14 +61,14 @@
 						<img src="../image/insert.png"><br>新增
 						
 					</button>
-<!-- 					<button -->
-<!-- 						onclick="ajaxButtonTag('UpdateMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');"> -->
-<!-- 						F3<br>修改 -->
-<!-- 					</button> -->
-<!-- 					<button -->
-<!-- 						onclick="ajaxButtonTag('DeleteMember.jsp','resp');getQueryDataLimit('LimitSelect','resultIndex','M_ID');"> -->
-<!-- 						F4<br>刪除 -->
-<!-- 					</button> -->
+					<button onclick = "updateData();" id='buttonupdate'>
+						<img src='../image/update.png'><br>修改
+						
+					</button>
+					<button onclick = "setDeleteData('Delete','Username','resultIndex','resultLimit');" id='buttondelete'>
+						<img src='../image/delete.png'><br>刪除
+						
+					</button>
 
 				</div>
 				<Form Action="Javascript:%200" id="formSelect">
@@ -76,6 +76,14 @@
 					輸入帳號查詢: <input type="text" name="Username" id="M_Username"
 						value="" size="20" placeholder="不輸入搜尋全部" />
 <!-- 					             <input type="submit" value="開始查詢" onclick="getQueryData('Select','resultIndex');"/> -->
+					
+
+
+
+				<input type="text" name="pageNo" id="pageNo" value="1"
+					readonly="readonly"  />
+				
+				
 					<button id="buttonsearch" onclick="getQueryData('M_Username','Select','resultIndex','result','M_Username');">
 						<img src="../image/search.png">
 					</button>
@@ -91,14 +99,32 @@
 			</div>
 		</nav>
 	</section>
+	<div id="pageControl">
+		<button id="pageBack" onclick="pageBack();">
+			<img src="../image/back.png" style="width: 2.5em; height: 1.5em;">
+			
+		</button>
+		
+		<input type="text" name="totalPages" id="totalPages" value="0"
+			readonly="readonly" /> 
+
+		<button id="pageNext" onclick="pageNext();">
+			<img src="../image/next.png" style="width: 2.5em; height: 1.5em;">
+		
+		</button>
+	</div>
 
 	<%-- 	<section class="container-fuild" id="resp"><center><h2>歡迎使用本系統</h2></center></section> --%>
-	<section class="container-fuild" id="insertIndex">
-
-	</section>
 	<section class="container-fuild" id="resultIndex">
 
 	</section>
+	<section class="container-fuild" id="insertIndex">
+
+	</section>
+	
+	
+	
+	
 
 
 	<footer class="container-fuild" >我是footer</footer>

@@ -23,7 +23,7 @@ public class MemberDAO {
 	Context ctx;
 	DataSource ds;
 	private int recordsPerPage = SystemConstant.RECORDS_PER_PAGE; // 每頁?筆
-	private int pageNo = 0;
+	private int pageNo = 1;
 	private int totalPages = -1;
 
 	public MemberDAO(){
@@ -39,6 +39,25 @@ public class MemberDAO {
 		} catch (NamingException e1) {
 			e1.printStackTrace();
 		}
+	}
+	
+//-------------------頁數區塊     begin------------------------------------------------------
+	
+	
+	public int getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	public int getRecordsPerPage() {
+		return recordsPerPage;
+	}
+
+	public void setRecordsPerPage(int recordsPerPage) {
+		this.recordsPerPage = recordsPerPage;
 	}
 	
 	public int getRecordCounts() throws SQLException {
@@ -66,6 +85,10 @@ public class MemberDAO {
 		return totalPages;
 	}
 	
+	//-------------------頁數區塊     end------------------------------------------------------
+	
+	
+	
 	
 	synchronized public String insert(MemberBean mem){
 	
@@ -76,9 +99,9 @@ public class MemberDAO {
 			Connection con = ds.getConnection();
 			PreparedStatement pstmt	= con.prepareStatement(sql);){				
 		
-			pstmt.setString(1, mem.getM_ID());
-			pstmt.setString(2, mem.getM_Username());
-			pstmt.setString(3, mem.getM_Password());
+			pstmt.setString(1, mem.getM_Username());
+			pstmt.setString(2, mem.getM_Password());
+			pstmt.setString(3, mem.getM_ID());
 			pstmt.setString(4, mem.getM_Name());
 			pstmt.setString(5, mem.getM_Nick());
 			pstmt.setString(6, mem.getM_Sex());
@@ -133,6 +156,7 @@ public class MemberDAO {
 			return 0;
 		}
 	}
+	
 	synchronized public String update(MemberBean mem){
 	
 		String sql = "UPDATE Member SET "
@@ -176,8 +200,7 @@ public class MemberDAO {
 	}
 	
 	public Collection<MemberBean> select(String Username){
-		
-		int n =0;
+	
 		String sql = "select * from Member where M_Username =?"					
 					+ ";";
 						
@@ -192,9 +215,10 @@ public class MemberDAO {
 			){
 				if (rs.next()){					
 					MemberBean pb = new MemberBean();
-					pb.setM_ID(rs.getString(1));
-					pb.setM_Username(rs.getString(2));
-					pb.setM_Password(rs.getString(3));
+					
+					pb.setM_Username(rs.getString(1));
+					pb.setM_Password(rs.getString(2));
+					pb.setM_ID(rs.getString(3));
 					pb.setM_Name(rs.getString(4));
 					pb.setM_Nick(rs.getString(5));
 					pb.setM_Sex(rs.getString(6));
@@ -213,7 +237,7 @@ public class MemberDAO {
 					pb.setM_Level(rs.getInt(19));
 					pb.setM_BonusPoints(rs.getInt(20));
 					pb.setM_Total(rs.getInt(21));
-
+					
 					coll.add(pb);					
 				}
 				
@@ -228,8 +252,6 @@ public class MemberDAO {
 	}
 	
 	
-	
-	
 	public Collection<MemberBean> select() {
 
 		String sql = "select * from Member"+";";
@@ -241,9 +263,10 @@ public class MemberDAO {
 
 				while (rs.next()) {
 					MemberBean pb = new MemberBean();
-					pb.setM_ID(rs.getString(1));
-					pb.setM_Username(rs.getString(2));
-					pb.setM_Password(rs.getString(3));
+					
+					pb.setM_Username(rs.getString(1));
+					pb.setM_Password(rs.getString(2));
+					pb.setM_ID(rs.getString(3));
 					pb.setM_Name(rs.getString(4));
 					pb.setM_Nick(rs.getString(5));
 					pb.setM_Sex(rs.getString(6));
@@ -277,9 +300,8 @@ public class MemberDAO {
 	}
 	
 	
-public Collection<MemberBean> selectToUpdate(String Username){
+	public Collection<MemberBean> selectToUpdate(String Username){
 		
-
 		String sql = "select * from Member where M_Username =?"					
 					+ ";";
 						
@@ -294,9 +316,10 @@ public Collection<MemberBean> selectToUpdate(String Username){
 			){
 				if (rs.next()){					
 					MemberBean pb = new MemberBean();
-					pb.setM_ID(rs.getString(1));
-					pb.setM_Username(rs.getString(2));
-					pb.setM_Password(rs.getString(3));
+					
+					pb.setM_Username(rs.getString(1));
+					pb.setM_Password(rs.getString(2));
+					pb.setM_ID(rs.getString(3));
 					pb.setM_Name(rs.getString(4));
 					pb.setM_Nick(rs.getString(5));
 					pb.setM_Sex(rs.getString(6));
@@ -328,8 +351,8 @@ public Collection<MemberBean> selectToUpdate(String Username){
 		}
 		return null;
 	}
-
-
+	
+	
 	
 	
 public Boolean ifExist(String Username){
@@ -358,15 +381,20 @@ public Boolean ifExist(String Username){
 		return null;
 	}
 	
-	
-	public Collection<MemberBean> selectLimit() {
+	public Collection<MemberBean> getPageMembers() {
 
-		String sql = "SELECT * FROM Member ORDER BY M_Updatedate DESC LIMIT 0,12;";
+		String sql = "select * from Member limit ?,?;";
 
 		Collection<MemberBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			
+			
+			int startRecordNo = (pageNo - 1) * recordsPerPage ;
+			//第一頁:0~9   共10筆
 		
+			pstmt.setInt(1, startRecordNo);
+			pstmt.setInt(2, recordsPerPage);
+			
 			
 			try (ResultSet rs = pstmt.executeQuery();) {
 				
@@ -374,9 +402,10 @@ public Boolean ifExist(String Username){
 				
 				while (rs.next()) {
 					MemberBean pb = new MemberBean();
-					pb.setM_ID(rs.getString(1));
-					pb.setM_Username(rs.getString(2));
-					pb.setM_Password(rs.getString(3));
+					
+					pb.setM_Username(rs.getString(1));
+					pb.setM_Password(rs.getString(2));
+					pb.setM_ID(rs.getString(3));
 					pb.setM_Name(rs.getString(4));
 					pb.setM_Nick(rs.getString(5));
 					pb.setM_Sex(rs.getString(6));
@@ -408,6 +437,7 @@ public Boolean ifExist(String Username){
 		}
 		return null;
 	}
+	
 	
 	
 	

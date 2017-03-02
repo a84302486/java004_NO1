@@ -25,7 +25,7 @@ function updateData() {
 		var tr = td.parentElement;
 		var context = "<tr>";
 		var temp = td;
-
+		
 		var tempLast = temp.parentNode.lastChild; //取得node的最後一個節點
 		while (true) {
 			temp = nextSib(temp,tempLast);
@@ -41,10 +41,10 @@ function updateData() {
 					+ "'></td>";
 		}
 		context += "</tr>";
-		alert(context);
+		//alert(context);
 		//alert(td.parentElement.parentElement.parentElement.nodeName);
-		td.parentElement.parentElement.innerHTML = context;
-		//document.getElementById('resultIndex').innerHTML = context;
+//		td.parentElement.parentElement.innerHTML = context;
+		document.getElementById('insertIndex').innerHTML = context;
 		
 		
 	   }else{
