@@ -10,7 +10,7 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 	var queryString = setQueryString('formSelect');
-	
+	//alert(queryString);
 	xhr.send(queryString);
 
 	xhr.onreadystatechange = function() {

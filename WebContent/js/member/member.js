@@ -2,10 +2,12 @@ function indexdofirst(){
 
 //	getQueryDataLimit('LimitSelect','resultIndex','M_ID');
 	getQueryData('M_Username','Select','resultIndex','result','M_Username');
+	
 	document.getElementById('buttonremark').onclick = function(){
 		alert("remark");
 	}
-
+	
+	totalPages('TotalPages');
 //	document.getElementById('buttonsearch').onclick = getQueryData('M_Username','Select','resultIndex','result','M_Username');
 
 //	document.getElementById('buttondelete').onclick = setDeleteData('Delete','Username','resultIndex','LimitSelect','resultLimit');
@@ -35,7 +37,7 @@ function ajaxButtonTag(sendJsp, tag) {
 				tagId.innerHTML =  xhr.responseText;
 			}
 		}
-		xhr.open('GET', sendJsp, true);
+		xhr.open('POST', sendJsp, true);
 		xhr.send();
 	} else {
 		tagId.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
@@ -150,18 +152,49 @@ function setQueryString(formId) {
 }
 
 
-//function check(formObj) {
-//    var obj=formObj.fruit;
-//    var selected=[];
-//    for (var i=0; i<obj.length; i++) {
-//      if (obj[i].checked) {
-//        selected.push(obj[i].value);
-//        }
-//      }
-//    alert("您要刪除的帳號: " + selected.join());
-//}
+
+function totalPages(servelet){
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", servelet, true);//send要傳參數一定要用POST
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+	xhr.send();
+
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+
+			var validation_messages = JSON.parse(xhr.responseText);//由servelet傳過來JSON格式的資料		
+			
+			alert(validation_messages);
+		}
+	}
+}
 
 
+function pageBack(){
+	
+	var pageNoId = document.getElementById("pageNo");
+	var num =  Number(pageNoId.value); 
+	
+	if(num >=2){
+		pageNoId.value = num-1;
+	}
+	
+	getQueryData('M_Username','Select','resultIndex','result','M_Username');
+}
+
+function pageNext(){
+	
+	var pageNoId = document.getElementById("pageNo");
+	var num =  Number(pageNoId.value);  
+	
+	if(num >=1){
+		pageNoId.value = num+1;
+	}
+	
+	getQueryData('M_Username','Select','resultIndex','result','M_Username');
+}
 
 
 //----------------------------------------------------

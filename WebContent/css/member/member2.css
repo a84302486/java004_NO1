@@ -27,10 +27,11 @@ header, section, aside, footer {
 	
 	color:#ffc526;
 }
+	
 
 #resultIndex{
-	height:45em; 
-	width:75em;
+	height:42em; 
+	width:76em;
 	overflow:auto;
 	color:#018bbd;
 	
@@ -45,8 +46,8 @@ header, section, aside, footer {
 }
 
 #insertIndex{
-	height:43em;
-	width:30em;
+	height:42em;
+	width:27em;
 	padding-top:2em;
 	background-color:#018bbd;
 	color:#191919;
@@ -59,7 +60,7 @@ header, section, aside, footer {
 }
 
 #portfolio{
-	width:110em;
+	width:105em;
 /*  	background-color:#018bbd;  */
 /* 	background-color:#444444; */
 	border-style:outset;
@@ -92,13 +93,14 @@ button{
 #formSelect{
 	position: absolute; 
 	right: 8em;
+	top: -1em;
 	margin:1em;
 }
 #buttonsearch{
 /* 	background-color:white; */
 	position: absolute; 
 	left: 19em;
-	top: 0em;
+	top: 1.25em;
 	
 
 }
@@ -165,6 +167,18 @@ td{
 
 #insertTable {
 	width: 27em;
+}
+
+#pageBack{
+	position: absolute;
+	left: 70.5em;
+	top: 5em;
+}
+
+#pageNext{
+	position: absolute;
+	left: 74em;
+	top: 5em;
 }
 
 

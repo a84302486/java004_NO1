@@ -23,7 +23,7 @@ public class MemberDAO {
 	Context ctx;
 	DataSource ds;
 	private int recordsPerPage = SystemConstant.RECORDS_PER_PAGE; // 每頁?筆
-	private int pageNo = 0;
+	private int pageNo = 1;
 	private int totalPages = -1;
 
 	public MemberDAO(){
@@ -39,6 +39,25 @@ public class MemberDAO {
 		} catch (NamingException e1) {
 			e1.printStackTrace();
 		}
+	}
+	
+//-------------------頁數區塊     begin------------------------------------------------------
+	
+	
+	public int getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	public int getRecordsPerPage() {
+		return recordsPerPage;
+	}
+
+	public void setRecordsPerPage(int recordsPerPage) {
+		this.recordsPerPage = recordsPerPage;
 	}
 	
 	public int getRecordCounts() throws SQLException {
@@ -65,6 +84,10 @@ public class MemberDAO {
 		}
 		return totalPages;
 	}
+	
+	//-------------------頁數區塊     end------------------------------------------------------
+	
+	
 	
 	
 	synchronized public String insert(MemberBean mem){
@@ -133,6 +156,7 @@ public class MemberDAO {
 			return 0;
 		}
 	}
+	
 	synchronized public String update(MemberBean mem){
 	
 		String sql = "UPDATE Member SET "
@@ -210,7 +234,10 @@ public class MemberDAO {
 					pb.setM_UniformNumber(rs.getString(16));
 					pb.setM_Insertdate(rs.getString(17));
 					pb.setM_Updatedate(rs.getString(18));
-
+					pb.setM_Level(rs.getInt(19));
+					pb.setM_BonusPoints(rs.getInt(20));
+					pb.setM_Total(rs.getInt(21));
+					
 					coll.add(pb);					
 				}
 				
@@ -255,6 +282,9 @@ public class MemberDAO {
 					pb.setM_UniformNumber(rs.getString(16));
 					pb.setM_Insertdate(rs.getString(17));
 					pb.setM_Updatedate(rs.getString(18));
+					pb.setM_Level(rs.getInt(19));
+					pb.setM_BonusPoints(rs.getInt(20));
+					pb.setM_Total(rs.getInt(21));
 
 					coll.add(pb);
 				}
@@ -305,6 +335,9 @@ public class MemberDAO {
 					pb.setM_UniformNumber(rs.getString(16));
 					pb.setM_Insertdate(rs.getString(17));
 					pb.setM_Updatedate(rs.getString(18));
+					pb.setM_Level(rs.getInt(19));
+					pb.setM_BonusPoints(rs.getInt(20));
+					pb.setM_Total(rs.getInt(21));
 
 					coll.add(pb);					
 				}
@@ -348,17 +381,20 @@ public Boolean ifExist(String Username){
 		return null;
 	}
 	
-	public Collection<MemberBean> selectLimit(String orderBy,String asc,int begin,int count) {
+	public Collection<MemberBean> getPageMembers() {
 
-		String sql = "select * from Member order by ? ? limit ?,?;";
+		String sql = "select * from Member limit ?,?;";
 
 		Collection<MemberBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			
-			pstmt.setString(1, orderBy);
-			pstmt.setString(2, asc);
-			pstmt.setInt(3, begin);
-			pstmt.setInt(4, count);
+			
+			int startRecordNo = (pageNo - 1) * recordsPerPage ;
+			//第一頁:0~9   共10筆
+		
+			pstmt.setInt(1, startRecordNo);
+			pstmt.setInt(2, recordsPerPage);
+			
 			
 			try (ResultSet rs = pstmt.executeQuery();) {
 				
@@ -385,6 +421,9 @@ public Boolean ifExist(String Username){
 					pb.setM_UniformNumber(rs.getString(16));
 					pb.setM_Insertdate(rs.getString(17));
 					pb.setM_Updatedate(rs.getString(18));
+					pb.setM_Level(rs.getInt(19));
+					pb.setM_BonusPoints(rs.getInt(20));
+					pb.setM_Total(rs.getInt(21));
 
 					coll.add(pb);
 				}
@@ -399,53 +438,6 @@ public Boolean ifExist(String Username){
 		return null;
 	}
 	
-	public Collection<MemberBean> selectLimit() {
-
-		String sql = "SELECT * FROM Member ORDER BY M_Updatedate DESC LIMIT 0,12;";
-
-		Collection<MemberBean> coll = new ArrayList<>();
-		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
-			
-		
-			
-			try (ResultSet rs = pstmt.executeQuery();) {
-				
-				
-				
-				while (rs.next()) {
-					MemberBean pb = new MemberBean();
-			
-					pb.setM_Username(rs.getString(1));
-					pb.setM_Password(rs.getString(2));
-					pb.setM_ID(rs.getString(3));
-					pb.setM_Name(rs.getString(4));
-					pb.setM_Nick(rs.getString(5));
-					pb.setM_Sex(rs.getString(6));
-					pb.setM_Birthday(rs.getString(7));
-					pb.setM_EMail(rs.getString(8));
-					pb.setM_Phone(rs.getString(9));
-					pb.setM_Cellphone(rs.getString(10));
-					pb.setM_Address(rs.getString(11));
-					pb.setM_Line(rs.getString(12));
-					pb.setM_FaceBook(rs.getString(13));
-					pb.setM_IdentityCard(rs.getString(14));
-					pb.setM_Invoice(rs.getString(15));
-					pb.setM_UniformNumber(rs.getString(16));
-					pb.setM_Insertdate(rs.getString(17));
-					pb.setM_Updatedate(rs.getString(18));
-
-					coll.add(pb);
-				}
-
-				System.out.println("記錄 查詢orderBy Limit");
-			}
-			return coll;
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-		return null;
-	}
 	
 	
 	
