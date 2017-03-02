@@ -170,15 +170,21 @@ td{
 }
 
 #pageBack{
-	position: absolute;
-	left: 70.5em;
-	top: 5em;
+/* 	position: absolute; */
+/* 	left: 70.5em; */
+/* 	top: 5em; */
 }
 
 #pageNext{
+/* 	position: absolute; */
+/* 	left: 74em; */
+/* 	top: 5em; */
+}
+
+#pageControl{
 	position: absolute;
-	left: 74em;
-	top: 5em;
+	left: -20em;
+	top: 0em;
 }
 
 

@@ -11,15 +11,15 @@
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v01031">
+<link rel="stylesheet" href="../css/member/member2.css?v010301">
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../asset/js/bootstrap.min.js"></script>
-<script src="../js/member/member.js?v0011"></script>
-<script src="../js/member/insert.js?v001"></script>
-<script src="../js/member/delete.js?v001001"></script>
-<script src="../js/member/select.js?v0011"></script>
+<script src="../js/member/member.js?v00101"></script>
+<script src="../js/member/insert.js?v0001"></script>
+<script src="../js/member/delete.js?v0010001"></script>
+<script src="../js/member/select.js?v00110"></script>
 <!-- <script src="../js/member/jquery.js?v12"></script> -->
-<script src="../js/member/update.js?v01011"></script>
+<script src="../js/member/update.js?v010110"></script>
 
 
 <title>會員管理首頁</title>
@@ -76,6 +76,26 @@
 					輸入帳號查詢: <input type="text" name="Username" id="M_Username"
 						value="" size="20" placeholder="不輸入搜尋全部" />
 <!-- 					             <input type="submit" value="開始查詢" onclick="getQueryData('Select','resultIndex');"/> -->
+					
+					<div id="pageControl">
+				<button id="pageBack" onclick="pageBack();">
+					<img src="../image/back.png" style="width: 2em; height: 1.5em;">
+					<br> 上頁
+				</button>
+
+
+				<input type="text" name="pageNo" id="pageNo" value="1"
+					readonly="readonly" style="width: 3em;" /> / 
+				
+				<input type="text"
+					name="totalPages" id="totalPages" value="0" readonly="readonly"
+					style="width: 3em;" />
+
+				<button id="pageNext" onclick="pageNext();">
+					<img src="../image/next.png" style="width: 2em; height: 1.5em;">
+					<br> 下頁
+				</button>
+			</div>
 					<button id="buttonsearch" onclick="getQueryData('M_Username','Select','resultIndex','result','M_Username');">
 						<img src="../image/search.png">
 					</button>
