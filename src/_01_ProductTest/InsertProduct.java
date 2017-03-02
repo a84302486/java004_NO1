@@ -28,7 +28,6 @@ public class InsertProduct extends HttpServlet {
 
 		// 準備存放錯誤訊息的 List 物件
 		List<String> errorMsg = new ArrayList<String>();
-		// 傳送成功訊息的 coll 物件
 
 		String productIdStr = request.getParameter("productId");
 		if (productIdStr == null || productIdStr.trim().length() == 0) {
@@ -92,7 +91,6 @@ public class InsertProduct extends HttpServlet {
 				String s = "資料 " + productIdStr + "新增成功";
 				toJson = new Gson().toJson(s);
 			} else if (errorMsg != null){
-//				errorMsg.add(insertError);
 				toJson = new Gson().toJson(errorMsg);
 			}
 			
