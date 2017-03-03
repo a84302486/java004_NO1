@@ -164,9 +164,9 @@ function totalPages(servelet){
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 
-			var validation_messages = JSON.parse(xhr.responseText);//由servelet傳過來JSON格式的資料		
+			var validation_messages = xhr.responseText;//由servelet傳過來JSON格式的資料		
 			
-			alert(validation_messages);
+			document.getElementById("totalPages").value = validation_messages;
 		}
 	}
 }
@@ -174,10 +174,11 @@ function totalPages(servelet){
 
 function pageBack(){
 	
-	var pageNoId = document.getElementById("pageNo");
-	var num =  Number(pageNoId.value); 
+	var pageNoId = document.getElementById("pageNo");	
+	var num =  Number(pageNoId.value);
 	
-	if(num >=2){
+	
+	if(num >=2 ){
 		pageNoId.value = num-1;
 	}
 	
@@ -187,9 +188,11 @@ function pageBack(){
 function pageNext(){
 	
 	var pageNoId = document.getElementById("pageNo");
-	var num =  Number(pageNoId.value);  
+	var num =  Number(pageNoId.value); 
 	
-	if(num >=1){
+	var total =  Number(document.getElementById("totalPages").value);
+	
+	if(num < total && total>=2){
 		pageNoId.value = num+1;
 	}
 	

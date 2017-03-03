@@ -77,25 +77,13 @@
 						value="" size="20" placeholder="不輸入搜尋全部" />
 <!-- 					             <input type="submit" value="開始查詢" onclick="getQueryData('Select','resultIndex');"/> -->
 					
-					<div id="pageControl">
-				<button id="pageBack" onclick="pageBack();">
-					<img src="../image/back.png" style="width: 2em; height: 1.5em;">
-					<br> 上頁
-				</button>
+
 
 
 				<input type="text" name="pageNo" id="pageNo" value="1"
-					readonly="readonly" style="width: 3em;" /> / 
+					readonly="readonly"  />
 				
-				<input type="text"
-					name="totalPages" id="totalPages" value="0" readonly="readonly"
-					style="width: 3em;" />
-
-				<button id="pageNext" onclick="pageNext();">
-					<img src="../image/next.png" style="width: 2em; height: 1.5em;">
-					<br> 下頁
-				</button>
-			</div>
+				
 					<button id="buttonsearch" onclick="getQueryData('M_Username','Select','resultIndex','result','M_Username');">
 						<img src="../image/search.png">
 					</button>
@@ -111,6 +99,20 @@
 			</div>
 		</nav>
 	</section>
+	<div id="pageControl">
+		<button id="pageBack" onclick="pageBack();">
+			<img src="../image/back.png" style="width: 2.5em; height: 1.5em;">
+			
+		</button>
+		
+		<input type="text" name="totalPages" id="totalPages" value="0"
+			readonly="readonly" /> 
+
+		<button id="pageNext" onclick="pageNext();">
+			<img src="../image/next.png" style="width: 2.5em; height: 1.5em;">
+		
+		</button>
+	</div>
 
 	<%-- 	<section class="container-fuild" id="resp"><center><h2>歡迎使用本系統</h2></center></section> --%>
 	<section class="container-fuild" id="resultIndex">

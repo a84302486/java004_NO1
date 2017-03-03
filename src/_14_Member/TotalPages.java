@@ -34,7 +34,7 @@ public class TotalPages extends HttpServlet {
 		MemberDAO rs = new MemberDAO();
 		
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("application/json; charset=UTF-8");
+		//response.setContentType("application/json; charset=UTF-8");
 		String toJson = null;
 		
 		try (PrintWriter out = response.getWriter();) {

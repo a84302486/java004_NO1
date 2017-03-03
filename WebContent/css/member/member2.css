@@ -7,15 +7,6 @@ body {
   background-color: #444444;
 /*   background-color: #000000; */
 }
-label{
-/* 	width:150px; */
-/* 	float:right; */
-	position: absolute;
-	left:10em;
-/* 	color:#3c1408; */
-	font:bold 1em Sans-serif;
-	line-height:1.25em;	
-}
 
 header, section, aside, footer {
 	margin-inside: 0.625em; 
@@ -30,7 +21,7 @@ header, section, aside, footer {
 	
 
 #resultIndex{
-	height:42em; 
+	height:41em; 
 	width:76em;
 	overflow:auto;
 	color:#018bbd;
@@ -69,21 +60,6 @@ header, section, aside, footer {
 }
 
 
-table {
-	border:none 0.25px; 
-	margin-left:1em; 
- 	text-align:center;
-/* 	height: 2em;  */
-	width: 170em;
-	/*background-color:#ffe793;*/
-/* 	color: #444444; */
-	table-layout:fixed;
-	display: block;
-	color:#191919;
-	
-}
-
-
 button{
 	font-weight:bold;
 	border-radius: 0.5em;
@@ -92,21 +68,21 @@ button{
 }
 #formSelect{
 	position: absolute; 
-	right: 8em;
-	top: -1em;
+	right: 3em;
+	top: 0em;
 	margin:1em;
 }
 #buttonsearch{
 /* 	background-color:white; */
 	position: absolute; 
 	left: 19em;
-	top: 1.25em;
+	top: 0em;
 	
 
 }
 #buttoninsert{
 	position: absolute; 
-	left: 6.5em;
+	left: 6.70em;
 	top: -1em;
 	margin:1em;
 }
@@ -125,19 +101,28 @@ button{
 }
 
 #insertTable{
-	position: absolute ;
-	left: 0em;
-	background-color:#444444;
+/* 	position: absolute ; */
+/* 	left: 0em; */
+/* 	background-color:#444444; */
+	width: 25em;
 	
 }
 
-/* #submitinsert{ */
-/* 	position: absolute;  */
-/* 	left: 16em; */
-/* 	top: 9em; */
-/* 	margin:1em; */
-/* } */
+/*------------------table-------------------------*/
 
+table {
+	border:none 0.25px; 
+	margin-left:1em; 
+ 	text-align:center;
+/* 	height: 2em;  */
+	width: 170em;
+	/*background-color:#ffe793;*/
+/* 	color: #444444; */
+	table-layout:fixed;
+	display: block;
+	color:#191919;
+	
+}
 
 tr{
 	background-color:white;
@@ -161,30 +146,53 @@ td{
 /* 	background-color::#a4cfdf; */
 /* } */
 
+/*----------------------------------------------*/
+
 .highlight{
 	background:#018bbd;
 }
 
-#insertTable {
-	width: 27em;
-}
+
+
+/*-------------------換頁button--------------------*/
 
 #pageBack{
-/* 	position: absolute; */
-/* 	left: 70.5em; */
-/* 	top: 5em; */
+	position: absolute;
+	left: 62.5em;
+	top: 5.5em;
 }
 
 #pageNext{
-/* 	position: absolute; */
-/* 	left: 74em; */
-/* 	top: 5em; */
+	position: absolute;
+	left: 74em;
+	top: 5.5em;
 }
 
-#pageControl{
+#pageNo{
+	width: 3em;
+	height:1.25em;
+	
 	position: absolute;
-	left: -20em;
+	right: 33.25em;
 	top: 0em;
+	text-align:center;
+
+	
 }
+
+
+#totalPages{
+	width: 3em;
+	height:1.25em;
+	
+	position: absolute;
+	left: 70.5em;
+	top: 5.9em;
+	text-align:center;
+	
+}
+
+
+/*-------------------------------------------*/
 
 
