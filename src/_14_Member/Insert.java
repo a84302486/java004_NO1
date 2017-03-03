@@ -94,20 +94,20 @@ public class Insert extends HttpServlet {
 				return;
 
 			} else {  //輸入格式正確
-				try {
-                    for(int i=0;i<100;i++){
-					MemberBean mem = new MemberBean( String.valueOf(Integer.parseInt(username)+i), password,String.valueOf(Integer.parseInt(id)+i), name, nick, sex, birthday, eMail, phone,
-							cellPhone, address, line, faceBook, String.valueOf(Integer.parseInt(identityCard)+i), invoice, uniformNumber, insertDate,
-							insertDate, 0, 0, 0);
+				try{
+//                    for(int i=0;i<100;i++){
+//					MemberBean mem = new MemberBean( String.valueOf(Integer.parseInt(username)+i), password,String.valueOf(Integer.parseInt(id)+i), name, nick, sex, birthday, eMail, phone,
+//							cellPhone, address, line, faceBook, String.valueOf(Integer.parseInt(identityCard)+i), invoice, uniformNumber, insertDate,
+//							insertDate, 0, 0, 0);
+//                    
+//					errorMember.setDML_Result(new MemberDAO().insert(mem)); }
+				
                     
-					errorMember.setDML_Result(new MemberDAO().insert(mem));
-				}
-                    
-//    					MemberBean mem = new MemberBean( username, password,id, name, nick, sex, birthday, eMail, phone,
-//    							cellPhone, address, line, faceBook, identityCard, invoice, uniformNumber, insertDate,
-//    							insertDate, 0, 0, 0);
-//                        
-//    					errorMember.setDML_Result(new MemberDAO().insert(mem));
+    					MemberBean mem = new MemberBean( username, password,id, name, nick, sex, birthday, eMail, phone,
+    							cellPhone, address, line, faceBook, identityCard, invoice, uniformNumber, insertDate,
+    							insertDate, 0, 0, 0);
+                        
+    					errorMember.setDML_Result(new MemberDAO().insert(mem));
     				
 					String toJson = null;
 					if (errorMember.getDML_Result() == null) {

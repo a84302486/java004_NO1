@@ -4,9 +4,9 @@
 <div class="SystemMain">
 	<table class="SystemTitle">
 		<tr>
-			<td>Java004</td>
+			<td> </td>
 			<td>資料管理系統</td>
-			<td><a href="#">登出</a></td>
+			<td><a href="../_00_Login/logout.jsp">登出</a></td>
 		</tr>
 	</table>
 	<table class="menuBar">

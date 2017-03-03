@@ -92,6 +92,8 @@ public class InsertProduct extends HttpServlet {
 				toJson = new Gson().toJson(s);
 			} else if (errorMsg != null){
 				toJson = new Gson().toJson(errorMsg);
+			}else{
+				
 			}
 			
 			System.out.println(toJson);

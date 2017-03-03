@@ -11,15 +11,8 @@
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?v010301">
-<script src="../js/jquery-3.1.1.min.js"></script>
-<script src="../asset/js/bootstrap.min.js"></script>
-<script src="../js/member/member.js?v00101"></script>
-<script src="../js/member/insert.js?v0001"></script>
-<script src="../js/member/delete.js?v0010001"></script>
-<script src="../js/member/select.js?v00110"></script>
-<!-- <script src="../js/member/jquery.js?v12"></script> -->
-<script src="../js/member/update.js?v010110"></script>
+<link rel="stylesheet" href="../css/member/member2.css?">
+
 
 
 <title>會員管理首頁</title>
@@ -27,14 +20,19 @@
 <body>
 	<!-- 	<h3>highlight test</h3> -->
 	<header class="container-fuild">
+
 		<div class="row">
 
 			<h4 class="text-center" id="indexheader">
 				<strong>資料管理系統</strong>
+				<a href="../_00_Login/logout.jsp" style="position: absolute;right:10em;color:white;">登出</a>
 			</h4>
-
+			
 		</div>
-		
+<!-- 				<div> -->
+<%-- 					<jsp:include page='../_00_Util/IndexMain.jsp' /> --%>
+<!-- 				</div> -->
+
 	</header>
 
 	<section class="container-fuild" id="portfolio">
@@ -42,52 +40,52 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="nav navbar-nav" id="buttons">
-					<section class="container-fuild" id="about">
-		
-		</section>
-					<button
-						id='buttonremark'>
+					<section class="container-fuild" id="about"></section>
+					<button id='buttonremark'>
 						<br>說明
-						
+
 					</button>
-					<button onclick="location.href='http://localhost:8080/java004/_14_Member/IndexMember.jsp'">
-						
-						<br>首頁
-						
-					</button>
-					
 					<button
-						onclick="ajaxButtonTag('InsertMember.jsp','insertIndex');" id='buttoninsert'>
+						onclick="location.href='http://localhost:8080/java004/_14_Member/IndexMember.jsp'">
+
+						<br>首頁
+
+					</button>
+
+					<button onclick="ajaxButtonTag('InsertMember.jsp','insertIndex');"
+						id='buttoninsert'>
 						<img src="../image/insert.png"><br>新增
-						
+
 					</button>
-					<button onclick = "updateData();" id='buttonupdate'>
+					<button onclick="updateData();" id='buttonupdate'>
 						<img src='../image/update.png'><br>修改
-						
+
 					</button>
-					<button onclick = "setDeleteData('Delete','Username','resultIndex','resultLimit');" id='buttondelete'>
+					<button
+						onclick="setDeleteData('Delete','Username','resultIndex','resultLimit');"
+						id='buttondelete'>
 						<img src='../image/delete.png'><br>刪除
-						
+
 					</button>
 
 				</div>
 				<Form Action="Javascript:%200" id="formSelect">
-				
-					輸入帳號查詢: <input type="text" name="Username" id="M_Username"
-						value="" size="20" placeholder="不輸入搜尋全部" />
-<!-- 					             <input type="submit" value="開始查詢" onclick="getQueryData('Select','resultIndex');"/> -->
-					
+
+					輸入帳號查詢: <input type="text" name="Username" id="M_Username" value=""
+						size="20" placeholder="不輸入搜尋全部" />
+					<!-- 					             <input type="submit" value="開始查詢" onclick="getQueryData('Select','resultIndex');"/> -->
 
 
 
-				<input type="text" name="pageNo" id="pageNo" value="1"
-					readonly="readonly"  />
-				
-				
-					<button id="buttonsearch" onclick="getQueryData('M_Username','Select','resultIndex','result','M_Username');">
+
+					<input type="text" name="pageNo" id="pageNo" value="1" />
+
+
+					<button id="buttonsearch"
+						onclick="getQueryData('M_Username','Select','resultIndex','result','M_Username');">
 						<img src="../image/search.png">
 					</button>
-					
+
 					<div id="result"></div>
 
 				</Form>
@@ -102,32 +100,38 @@
 	<div id="pageControl">
 		<button id="pageBack" onclick="pageBack();">
 			<img src="../image/back.png" style="width: 2.5em; height: 1.5em;">
-			
+
 		</button>
-		
+
 		<input type="text" name="totalPages" id="totalPages" value="0"
-			readonly="readonly" /> 
+			readonly="readonly" />
 
 		<button id="pageNext" onclick="pageNext();">
 			<img src="../image/next.png" style="width: 2.5em; height: 1.5em;">
-		
+
 		</button>
 	</div>
 
 	<%-- 	<section class="container-fuild" id="resp"><center><h2>歡迎使用本系統</h2></center></section> --%>
-	<section class="container-fuild" id="resultIndex">
-
-	</section>
-	<section class="container-fuild" id="insertIndex">
-
-	</section>
-	
-	
-	
-	
+	<section class="container-fuild" id="resultIndex"></section>
+	<section class="container-fuild" id="insertIndex"></section>
 
 
-	<footer class="container-fuild" >我是footer</footer>
+
+
+
+
+	<footer class="container-fuild">我是footer</footer>
+
+
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../asset/js/bootstrap.min.js"></script>
+	<script src="../js/member/member.js?v00101"></script>
+	<script src="../js/member/insert.js?v0001"></script>
+	<script src="../js/member/delete.js?v0010001"></script>
+	<script src="../js/member/select.js?v00110"></script>
+	<!-- <script src="../js/member/jquery.js?v12"></script> -->
+	<script src="../js/member/update.js?v010110"></script>
 
 </body>
 </html>
