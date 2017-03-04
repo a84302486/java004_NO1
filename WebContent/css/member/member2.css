@@ -124,19 +124,34 @@ table {
 	
 }
 
-tr{
+#resultIndex tr{
 	background-color:white;
 	width: 15.625em;
 }
-tr:nth-child(odd){
+#resultIndex tr:nth-child(odd){
 	background-color:#ffffa8;
 /* 	color:#191919; */
 	 
 }
-tr:nth-child(1){
+#resultIndex tr:nth-child(1){
 	background-color:#9dceff;
 /* 	color:#191919;  */
 }
+
+#insertIndex tr{
+	background-color:white;
+	width: 15.625em;
+}
+#insertIndex tr:nth-child(odd){
+	background-color:#ffffa8;
+/* 	color:#191919; */
+	 
+}
+#insertIndex tr:nth-child(1){
+	background-color:#9dceff;
+/* 	color:#191919;  */
+}
+
 
 
 td{

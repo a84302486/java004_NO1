@@ -35,6 +35,12 @@
 			<section class="container-fuild" id='showResult'></section>
 		</div>
 		<div id="product2" class="tab_content">
+		測試文字<br>
+		測試文字<br>	
+		測試文字<br>	
+		測試文字<br>	
+		測試文字<br>	
+		測試文字<br>	
 		測試文字		
 		</div>
 	</div>
