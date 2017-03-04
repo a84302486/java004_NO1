@@ -20,6 +20,7 @@ import _01_ProductTest.ProductDAO;
 public class InsertProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		request.setCharacterEncoding("UTF-8");
@@ -28,8 +29,15 @@ public class InsertProduct extends HttpServlet {
 
 		// 準備存放錯誤訊息的 List 物件
 		List<String> errorMsg = new ArrayList<String>();
-
+		
 		String productIdStr = request.getParameter("productId");
+		String PGPriceStr = request.getParameter("PGPrice");
+		String name = request.getParameter("name");
+		String avgCostStr = request.getParameter("avgCost");
+		String oPlaceStr = request.getParameter("oPlace");
+		String sLifeStr = request.getParameter("sLife");
+		String suppierIdStr = request.getParameter("suppierId");
+
 		if (productIdStr == null || productIdStr.trim().length() == 0) {
 			errorMsg.add("序號必須輸入");
 		} else if (!isInteger(productIdStr)) {
@@ -38,7 +46,6 @@ public class InsertProduct extends HttpServlet {
 			errorMsg.add("序號已存在請重新輸入");
 		}
 
-		String PGPriceStr = request.getParameter("PGPrice");
 		int PGPrice = 0;
 		if (PGPriceStr == null || PGPriceStr.trim().length() == 0) {
 			errorMsg.add("定價必須輸入");
@@ -48,11 +55,9 @@ public class InsertProduct extends HttpServlet {
 			PGPrice = Integer.parseInt(PGPriceStr);
 		}
 
-		String name = request.getParameter("name");
 		if (name == null || name.trim().length() == 0)
 			errorMsg.add("產品名稱必須輸入");
 
-		String avgCostStr = request.getParameter("avgCost");
 		double avgCost = 0;
 		if (avgCostStr == null || avgCostStr.trim().length() == 0) {
 			errorMsg.add("成本必須輸入");
@@ -62,11 +67,9 @@ public class InsertProduct extends HttpServlet {
 			avgCost = Double.parseDouble(avgCostStr);
 		}
 
-		String oPlaceStr = request.getParameter("oPlace");
 		if (oPlaceStr == null || oPlaceStr.trim().length() == 0)
 			errorMsg.add("生產地必須輸入");
 
-		String sLifeStr = request.getParameter("sLife");
 		int sLife = 0;
 		if (sLifeStr == null || sLifeStr.trim().length() == 0) {
 			errorMsg.add("保存期必須輸入");
@@ -76,22 +79,20 @@ public class InsertProduct extends HttpServlet {
 			sLife = Integer.parseInt(sLifeStr);
 		}
 
-		String suppierIdStr = request.getParameter("suppierId");
 		if (suppierIdStr == null || suppierIdStr.trim().length() == 0)
 			errorMsg.add("供應商必須輸入");
-
-		String insertError = null;
+		
 		try (PrintWriter out = response.getWriter();) {
 			String toJson = null;
 			
 			ProductBean pb = new ProductBean(productIdStr, PGPrice, name, avgCost, oPlaceStr, sLife, suppierIdStr);
-			insertError = pd.insert(pb);
-			
-			if (insertError == null) {
-				String s = "資料 " + productIdStr + "新增成功";
-				toJson = new Gson().toJson(s);
-			} else if (errorMsg != null){
+		
+			if (!errorMsg.isEmpty()) {
 				toJson = new Gson().toJson(errorMsg);
+			} else{			
+				String s = "資料 " + productIdStr + "新增成功";
+				pd.insert(pb);
+				toJson = new Gson().toJson(s);
 			}
 			
 			System.out.println(toJson);

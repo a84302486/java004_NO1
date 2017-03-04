@@ -3,11 +3,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <!-- <html> -->
 <!-- <head> -->
-<link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/product_main2.css'
-	type="text/css" />
-<script src="${pageContext.request.contextPath}/js/product_new2.js"
-	type="text/JavaScript"></script>
+<!-- <link rel='stylesheet' -->
+<!-- 	href='${pageContext.request.contextPath}/css/product_main2.css' -->
+<!-- 	type="text/css" /> -->
+<!-- <script src="${pageContext.request.contextPath}/js/product_new2.js" -->
+<!-- 	type="text/JavaScript"></script> -->
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <!-- <title>MVC</title> -->
 <!-- </head> -->

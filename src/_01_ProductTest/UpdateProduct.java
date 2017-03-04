@@ -19,6 +19,11 @@ import _01_ProductTest.ProductDAO;
 
 public class UpdateProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		doPost(request, response);
+	}
+	
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
@@ -28,8 +33,7 @@ public class UpdateProduct extends HttpServlet {
 
 		// 準備存放錯誤訊息的 List 物件
 		List<String> errorMsg = new ArrayList<String>();
-		// 傳送成功訊息的 coll 物件
-	
+		
 		String productIdStr = request.getParameter("productId");
 		String PGPriceStr = request.getParameter("PGPrice");
 		String name = request.getParameter("name");
@@ -87,14 +91,16 @@ public class UpdateProduct extends HttpServlet {
 			
 		
 		try (PrintWriter out = response.getWriter();) {
-			String insertError = null;
 			String toJson = null;
 			
 			ProductBean pb = new ProductBean(productIdStr, PGPrice, name, avgCost, oPlaceStr, sLife, suppierIdStr);
-			insertError=pd.update(pb);		
-			toJson = new Gson().toJson(insertError);
-			if (errorMsg != null){
+	
+			if (!errorMsg.isEmpty()) {
 				toJson = new Gson().toJson(errorMsg);
+			} else{			
+				String s = "資料 " + productIdStr + "修改成功";
+				pd.update(pb);
+				toJson = new Gson().toJson(s);
 			}
 			
 			System.out.println(toJson);

@@ -1,9 +1,3 @@
-function getJS(){
-	var url = 'http://localhost:8080/java004/js/product_new2.js';
-	$.getScript( url, function() {
-		setTab()
-	});
-}
 
 //點擊Tab時切換畫面至被點擊的頁籤-----------------------------
 function setTab(){
@@ -63,6 +57,10 @@ function getAction(action, tagId) {
 		}
 		xhr.open("POST", action, true);
 		xhr.send();
+		var url = 'http://localhost:8080/java004/js/product_new2.js';
+		$.getScript( url, function() {
+			setTab();
+		});
 	} else {
 		showResult.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
 	}
@@ -104,41 +102,75 @@ function getQueryData(servelet) {
 		}
 	}
 }
+//Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
+
+	$('.delete').on("click",(function(){
+		var setServlet;
+		var getName = $('input:checked').attr('name');
+		var selected = $("input[name="+getName+"]:checked").val();
+		if(getName == "productId"){
+			setServlet="DeleteProduct.do";
+		} else if(getName == "tasteId"){
+			setServlet="DeleteTaste.do";
+		} else if(getName == "member"){
+			setServlet="";
+		}
+			 if (selected!=null) { //如果有被選取,不是空值	 
+				 if (confirm("確定要刪除"+selected+"嗎?")) {
+					 var xhr = new XMLHttpRequest();
+						xhr.open("POST", setServlet , true);// send要傳參數一定要用POST
+						xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+						xhr.send(getName+"="+selected);
+						xhr.onreadystatechange = function() {
+							if (xhr.readyState == 4 && xhr.status == 200) {
+								var data = JSON.parse(xhr.responseText);
+								var result = document.getElementById("showDAOJsp");
+								result.innerHTML = "<h3>" + data + "<h3>";
+						getQueryData('SelectProduct.do');
+							}
+						}
+				 	}
+				 return false;
+			 }else{
+			 		alert("請選勾選要刪除的資料"); 
+			 		return false;
+			 } 
+		}));
 
 //Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
-function setDeleteData(){
-	var setServlet;
-	var getName = $('input:checked').attr('name');
-	var selected = $("input[name="+getName+"]:checked").val();
-	if(getName == "productId"){
-		setServlet="DeleteProduct.do";
-	} else if(getName == "tasteId"){
-		setServlet="DeleteTaste.do";
-	} else if(getName == "member"){
-		setServlet="";
-	}
-		 if (selected!=null) { //如果有被選取,不是空值	 
-//			$('input[name=productId]:checked').parent().parent().addClass('highlight')
-//				.siblings().removeClass('highlight');
-			 if (confirm("確定要刪除"+selected+"嗎?")) {
-				 var xhr = new XMLHttpRequest();
-					xhr.open("POST", setServlet , true);// send要傳參數一定要用POST
-					xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-					xhr.send(getName+"="+selected);
-					xhr.onreadystatechange = function() {
-						if (xhr.readyState == 4 && xhr.status == 200) {
-							var data = JSON.parse(xhr.responseText);
-							var result = document.getElementById("showDAOJsp");
-							result.innerHTML = "<h3>" + data + "<h3>";
-					getQueryData('SelectProduct.do');
-						}
-					}
-			 	}
-		 }else{
-		 		alert("請選勾選要刪除的資料");
-		 } 
-	};
-
+//$(function(){
+//	$('.delete').click(function(){
+//		var setServlet;
+//		var getName = $('input:checked').attr('name');
+//		var selected = $("input[name="+getName+"]:checked").val();
+//		if(getName == "productId"){
+//			setServlet="DeleteProduct.do";
+//		} else if(getName == "tasteId"){
+//			setServlet="DeleteTaste.do";
+//		} else if(getName == "member"){
+//			setServlet="";
+//		}
+//			 if (selected!=null) { //如果有被選取,不是空值	 
+//				 if (confirm("確定要刪除"+selected+"嗎?")) {
+//					 var xhr = new XMLHttpRequest();
+//						xhr.open("POST", setServlet , true);// send要傳參數一定要用POST
+//						xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//						xhr.send(getName+"="+selected);
+//						xhr.onreadystatechange = function() {
+//							if (xhr.readyState == 4 && xhr.status == 200) {
+//								var data = JSON.parse(xhr.responseText);
+//								var result = document.getElementById("showDAOJsp");
+//								result.innerHTML = "<h3>" + data + "<h3>";
+//						getQueryData('SelectProduct.do');
+//							}
+//						}
+//				 	}
+//			 }else{
+//			 		alert("請選勾選要刪除的資料"); 
+//			 		return;
+//			 } 
+//		});
+//	});
 
 //Update:取出被點選的radio內的值,並傳到updata畫面內對應的input:value內
 function getData() {

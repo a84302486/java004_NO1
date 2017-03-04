@@ -1,43 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap.min.css"> --%>
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap-theme.min.css"> --%>
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/product_main.css"> --%>
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tab_main.css"> --%>
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/toolBar.css"> --%>
-<%-- <script src="${pageContext.request.contextPath}/jQuery/jquery-1.12.4.min.js" type="text/JavaScript"></script> --%>
-<script src="${pageContext.request.contextPath}/js/product_new.js" type="text/JavaScript"></script>
-
-
-<title>work</title>
-</head>
-<body onload="getQueryData('SelectTaste.do');">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 	
-	<!-- 插入工具列 -->
-<!-- 	<div> -->
-<%-- 		<jsp:include page='../_00_Util/ToolBar.jsp' /> --%>
-<!-- 	</div> -->
-	<!-- /插入工具列 -->
-	
-	<!-- 頁籤與相對應之頁面-->
-<!-- 	<div class="abgne_tab"> -->
-<!-- 		<ul class="tabs"> -->
-<!-- 			<li><a href="#taste1">資料表 <i><img id="cross"></i></a></li> -->
-<!-- 		</ul> -->
-<!-- 		<div class="tab_container"> -->
-			<div id="#taste1" class="tab_content">
-				<section class="container-fuild" id='showDAOJsp'>
-					<h4>請選擇功能</h4>
-				</section>
-				<section class="container-fuild" id='showResult'>
-				</section>
-			</div>
+	<div>
+	<table id="navBar">
+		<tr class="abgne_tab">
+			<td>
+				<ul class="tabs">
+					<li><a href="#taste1">資料表 </a></li>
+					<li><a href="#taste2">資料表 </a></li>
+				</ul>
+			</td>
+
+			<td id="toolBar">
+				<button class="select"
+					onclick="getAction('../_02_Taste/SelectTaste.jsp','showDAOJsp');"></button>
+				<button class="insert"
+					onclick="getAction('../_02_Taste/InsertTaste.jsp','showDAOJsp');"></button>
+				<button class="delete"></button>
+<!-- 					onclick="setDeleteData();" -->
+				<button class="update"
+					onclick="getAction('../_02_Taste/UpdateTaste.jsp','showDAOJsp');"></button>
+				<button class="export" onclick=""></button>
+				<button class="import"
+					onclick="getAction('../_02_Taste/ImportTaste.jsp','showDAOJsp');"></button>
+				<button class="printer" onclick=""></button>
+			<td>
+		</tr>
+	</table>
+	<div class="tab_container">
+		<div id="taste1" class="tab_content">
+			<section class="container-fuild" id='showDAOJsp'>
+				<h4>請選擇功能</h4>
+			</section>
+			<section class="container-fuild" id='showResult'></section>
+		</div>
+		<div id="taste2" class="tab_content">
+		測試文字		
 		</div>
 	</div>
-	<!-- 插入工具列 -->
-</body>
-</html>
+</div>

@@ -11,7 +11,7 @@
 			<font size="4" color="blue" face="Tahoma"> 
 			請輸入要刪除的產品序號: 
 			<input type="text" id="tasteId" name="tasteId" value="" size="20" placeholder="請輸入序號"> 
-			<input type="button" value="開始刪除"  onclick="getDeleteMessage('DeleteTaste.do');">
+			<input type="button" value="開始刪除"  onclick="getDeleteMessage('../_02_Taste/DeleteTaste.do');">
 			</font>
 		</div>
 		<div id="deleteResult"></div>

@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 
-
-
-
 @WebServlet("/_01_ProductTest/DeleteProduct.do")
 public class DeleteProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;

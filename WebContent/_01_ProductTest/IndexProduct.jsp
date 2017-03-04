@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/product_main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tab_main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/toolBar.css">
-<script src="${pageContext.request.contextPath}/jQuery/jquery-1.12.4.min.js" type="text/JavaScript"></script>
-<script src="${pageContext.request.contextPath}/js/product_new.js" type="text/JavaScript"></script>
 
 
 <title>work</title>
@@ -40,4 +38,7 @@
 	</div>
 	<!-- 插入工具列 -->
 </body>
+<script src="${pageContext.request.contextPath}/jQuery/jquery-1.12.4.min.js" type="text/JavaScript"></script>
+<script src="${pageContext.request.contextPath}/js/product_new.js" type="text/JavaScript"></script>
+
 </html>
