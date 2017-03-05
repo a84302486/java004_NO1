@@ -23,7 +23,6 @@
 				<th>金額</th>
 				<th>操作</th>
 			</tr>
-
 			<tr>
 				<td>1</td>
 				<td></td>
@@ -33,10 +32,10 @@
 				<td class="price">200</td>
 				<td>
 					<button class="minus" onclick="changeAmount($(this));">－</button> 
-					<input class="count" value="1" type="text" size="1" >
+					<input class="count" value="2" type="text" size="1" readonly>
 					<button class="plus"  onclick="changeAmount($(this));">＋</button>
 				</td>
-				<td class="total">200</td>
+				<td class="total"></td>
 				<td>
 					<button type="button" class="delete" onclick="setDel($(this));">刪除</button>
 				</td>
@@ -50,18 +49,21 @@
 				<td class="price">100</td>
 				<td>
 					<button class="minus" onclick="changeAmount($(this));">－</button> 
-						<input class="count" value="2" type="text" size="1" >
+						<input class="count" value="3" type="text" size="1" readonly >
 					<button class="plus" onclick="changeAmount($(this));" >＋</button>
 				</td>
-				<td class="total">100</td>
+				<td class="total"></td>
 				<td>
 					<button type="button" class="delete" onclick="setDel($(this));">刪除</button>
 				</td>
 			</tr>
 		</table>
 		<div class="details">
-			已選商品：<span class="amount"></span><br>
-			合計： <span class="subtotal"></span><br>
+			已選商品：
+			<span class="amount"></span><br>
+			合計： 
+			<span class="subtotal"></span><br>
+			折扣： 
 			<span class="mark">
 				<span class="discount"></span>
 				<span class="discounted"></span>

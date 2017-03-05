@@ -8,30 +8,26 @@ function changeAmount(obj) {
 	var tr = td.parent(), p = tr.find('.price').text(), t = tr.find('.total');
 	v <= 1 ? t.text(p) : t.text(p * v);
 
-	var subtotal = 0;
-	$('.total').each(function() {
-		var t = parseInt($(this).text());
-		subtotal += t;
-	});
-	$('.subtotal').text(subtotal);
-
-	var amount = 0;
-	$('.count').each(function() {
-		var c = parseInt($(this).val());
-		amount += c;
-	});
-	$('.amount').text(amount);
+	updateData();
 }
 
 //刪除該項產品-----------------------------
 function setDel(obj) {
 	if (confirm("確定刪除此項商品 ? ")) {
 		obj.parents('tr').remove().children().remove();
+	updateData();
 	}
 }
 
-//畫面載入時先讀取資訊-----------------------------
-$(function() {
+function updateData(){
+	
+	//畫面載入時計算單項物品的總金額	
+	for(i=0; i< $('.price').size();i++){
+		var p = $('.price').eq(i).text();
+		var c = $('.count').eq(i).val();
+		var total = p * c;
+		var p = $('.total').eq(i).text(total);
+	}
 	//畫面載入時計算物品總金額
 	var subtotal = 0;
 	$('.total').each(function() {
@@ -46,5 +42,11 @@ $(function() {
 		var c = parseInt($(this).val());
 		amount += c;
 	});
-	$('.amount').text(amount);
+	$('.amount').text(amount)
+}
+
+//畫面載入時先讀取資訊-----------------------------
+$(function() {
+	 updateData();
 });
+
