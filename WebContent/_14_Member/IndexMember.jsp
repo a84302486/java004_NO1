@@ -11,7 +11,7 @@
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
 <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/member/member2.css?">
+<link rel="stylesheet" href="../css/member/member2.css?110">
 
 
 
@@ -129,7 +129,7 @@
 	<script src="../js/member/member.js?v00101"></script>
 	<script src="../js/member/insert.js?v0001"></script>
 	<script src="../js/member/delete.js?v0010001"></script>
-	<script src="../js/member/select.js?v00110"></script>
+	<script src="../js/member/select.js?v001100"></script>
 	<!-- <script src="../js/member/jquery.js?v12"></script> -->
 	<script src="../js/member/update.js?v010110"></script>
 

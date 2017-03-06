@@ -37,13 +37,13 @@ header, section, aside, footer {
 }
 
 #insertIndex{
-	height:42em;
+	height:38em;
 	width:27em;
 	padding-top:2em;
 	background-color:#018bbd;
 	color:#191919;
 	position:absolute;
-	top:10em;
+	top:13em;
 	left:80em;
 	border: none outset;
 	border-radius: 0.5em;
@@ -104,7 +104,8 @@ button{
 /* 	position: absolute ; */
 /* 	left: 0em; */
 /* 	background-color:#444444; */
-	width: 25em;
+	width: 24em;
+/* 	height: 30em; */
 	
 }
 

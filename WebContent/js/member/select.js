@@ -19,9 +19,12 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 			var validation_messages = JSON.parse(xhr.responseText);//由servelet傳過來JSON格式的資料		
 			
 			if(validation_messages == null){//找不到
-				var content = "<font color='#ffc526' weight='bold' size='3em'>"; 
+				var content = '<div class="alert alert-danger" role="alert" style="positive:absolute;margin-top:1em;"><a href="#" class="alert-link">';
+				
+//				content +=	"<font color='#ffc526' weight='bold' size='3em'>"; 
 				content += username +" 找不到!";
-				content += "</Font>";
+//				content += "</Font>";
+				content += "</a></div>";
 				errorID.innerHTML = content;
 				return;
 			}
