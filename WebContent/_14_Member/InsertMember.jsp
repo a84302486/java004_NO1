@@ -30,6 +30,11 @@
 				<TD>會員帳號</TD>
 				<TD align="center"><input type="text" name="Username"
 					id="Username" value="helloSnoopy"></TD>
+<!-- 				<TD style="background-color:transform;"> -->
+<!-- 					<button id="checkId"> -->
+<!-- 					檢 查 -->
+<!-- 					</button> -->
+<!-- 				</TD> -->
 			</TR>
 			<TR>
 				<TD align="center">會員密碼</TD>
