@@ -1,3 +1,7 @@
+a{
+	text-align:center;
+	font-size:30px;
+}
 th{
 	text-align:center;
 }
@@ -17,7 +21,6 @@ td{
 	border:hidden;
 	font-weight:600;
 }
-
 .red{
 	color:red;
 }
@@ -27,4 +30,9 @@ td{
 .billing{
 	position:absolute;
 	right:17em;
+}
+.alertMsg{
+	font-size:20px;
+	color:red;
+	text-align:center;
 }

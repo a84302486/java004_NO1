@@ -145,11 +145,8 @@
 				<i class="glyphicon glyphicon-remove red"> </i>
 				</button>
 			</td>
-		  </tr>
-		  
+			
 		</tbody>
-		<hr>
-		<footer>
 		  <tr class="footer">
 				<td colspan="5" style="text-align:right;">商品數量 :</td>
 				<td style="text-align:right;" class="amount"></td>
@@ -175,7 +172,7 @@
 					<button type="button">確認結帳</button>
 				</td>
 		  </tr>
-		<footer>
+		  
 	  </table>  
 	</div>
 		

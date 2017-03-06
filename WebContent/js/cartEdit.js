@@ -43,6 +43,13 @@ function updateData(){
 		amount += c;
 	});
 	$('.amount').text(amount)
+	
+	//如果沒有商品顯示以下內容
+	if( $('.price').size()==0){
+		var txt1=$("<tr class=alertMsg><td></td></tr>").text("購物車空空如也，趕快去購物吧！");
+		var txt2=$("<a href=index.html></a>").text("回購物網");
+		$('tbody').eq(0).append(txt1,txt2);
+	}
 }
 
 //doFirst--------------------------------
