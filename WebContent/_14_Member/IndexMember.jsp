@@ -62,8 +62,7 @@
 
 					</button>
 					<button
-						onclick="setDeleteData('Delete','Username','resultIndex','resultLimit');"
-						id='buttondelete'>
+						onclick="setDeleteData('Delete','sqlResult');" id='buttondelete'>
 						<img src='../image/delete.png'><br>刪除
 
 					</button>
@@ -82,11 +81,11 @@
 
 
 					<button id="buttonsearch"
-						onclick="getQueryData('M_Username','Select','resultIndex','result','M_Username');">
+						onclick="getQueryData('M_Username','Select','resultIndex','sqlResult','M_Username');">
 						<img src="../image/search.png">
 					</button>
 
-					<div id="result"></div>
+					<div id="sqlResult"></div>
 
 				</Form>
 
@@ -126,12 +125,12 @@
 
 	<script src="../js/jquery-3.1.1.min.js"></script>
 	<script src="../asset/js/bootstrap.min.js"></script>
-	<script src="../js/member/member.js?v00101"></script>
+	
 	<script src="../js/member/insert.js?v0001"></script>
-	<script src="../js/member/delete.js?v0010001"></script>
-	<script src="../js/member/select.js?v001100"></script>
-	<!-- <script src="../js/member/jquery.js?v12"></script> -->
-	<script src="../js/member/update.js?v010110"></script>
+	<script src="../js/member/delete.js?v014"></script>
+	<script src="../js/member/select.js?v014"></script>
+	<script src="../js/member/update.js?v014"></script>
+	<script src="../js/member/member.js?v014"></script>
 
 </body>
 </html>
