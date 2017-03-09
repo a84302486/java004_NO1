@@ -65,10 +65,10 @@ $(function() {
 		prev_charges = parseInt(prev_charges)- parseInt(p);
 		$('.cd-cart-total span').html(prev_charges);
 		
-		var id = $(this).prevAll().eq(1).attr('id');
-		var idx = arr.indexOf(id.substr(5));
-		arr.splice(idx,1)
-		$(this).parent().remove().children().remove(); 	
+		var id = $(this).prevAll().eq(1).attr('id').replace('each-','');;
+		var idx = arr.indexOf(id);
+		arr.splice(idx,1,0)
+		$(this).parent().remove(); 	
 	});	
 	
 	//點擊結算商品--------------------------------

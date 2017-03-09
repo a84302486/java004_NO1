@@ -29,18 +29,15 @@ function createCarList(itemKey,itemValue){
 		+ "            <h4 class=media-heading><a href=# class=name>"+ itemName +"</a></h4>"
 		+ "            <h5 class=media-heading> by <a href=#>包裝</a></h5>"
 		+ "            <span>Status: </span><span class=text-success><strong>In Stock</strong></span>"           	
-		+ "</div></div></td>"
-		
-		
-		
+		+ " </div></div></td>"	
 		+ " <td class=price>" + itemPrice + "</td>"
-		+ " <td><button class=minus onclick=changeAmount($(this));>－</button>" 
-		+ "	 <input class=count type=text size=1 value=" + itemQty +">"
-		+ "	 <button class=plus  onclick=changeAmount($(this));>＋</button>"
+		+ " <td class=countTd><button class=minus onclick=changeAmount($(this));>－</button>" 
+		+ "	<input class=count type=text size=1 value=" + itemQty +">"
+		+ "	<button class=plus  onclick=changeAmount($(this));>＋</button>"
 		+ " </td> <td class=total>" + itemTotal + "</td>"
-		+ " <td>"
-		+ "	 <button type=button class='btn btn-danger' onclick=setDel($(this));>"
-		+ "	 <span class='glyphicon glyphicon-remove'></span> Remove</button>"
+		+ " <td class=remove>"
+		+ "	<button type=button class='btn btn-danger' onclick=setDel($(this));>"
+		+ "	<span class='glyphicon glyphicon-remove'></span> Remove</button>"
 		+ " </td></tr>");
 	}
 	

@@ -6,6 +6,9 @@
 	font-weight:800;
 	text-align:center;
 }
+.table th{
+	text-align:center;
+}
 .footer{
 	font-size:1em;
 	border:hidden;
@@ -23,9 +26,6 @@
 	position:absolute;
 	right:17em;
 }
-.count{
+.price,.count,.countTd,.total,.remove{
 	text-align:center;
-}
-.btn btn-default{
-	text-align:left;
 }
