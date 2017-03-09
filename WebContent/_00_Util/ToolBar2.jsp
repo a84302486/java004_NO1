@@ -21,8 +21,8 @@
 									<li><a href="#">子功能1</a></li>
 								</ul>
 							</li>
-							<li><a href="#tab-Taste" onclick="getAction('../_02_Taste/IndexTaste.jsp','loadPageDiv');getQueryData('../_02_Taste/SelectTaste.do');">口味資訊</a>
-							<li><a href="#tab-member" onclick="">會員系統</a>
+<!-- 							<li><a href="#tab-Taste" onclick="getAction('../_02_Taste/IndexTaste.jsp','loadPageDiv');getQueryData('../_02_Taste/SelectTaste.do');">口味資訊</a> -->
+							<li><a href="../_14_Member/IndexMember.jsp" onclick="">會員系統</a>
 						</ul>
 					<li>
 				</ul>
