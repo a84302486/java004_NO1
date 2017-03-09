@@ -10,8 +10,11 @@
 	font-size:1em;
 	border:hidden;
 	font-weight:600;
+	text-align:right;
 }
-
+.footer td(3){
+	text-align:center;
+}
 .red{
 	color:red;
 }
@@ -19,4 +22,10 @@
 #billing{
 	position:absolute;
 	right:17em;
+}
+.count{
+	text-align:center;
+}
+.btn btn-default{
+	text-align:left;
 }

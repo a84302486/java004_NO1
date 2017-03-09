@@ -161,9 +161,9 @@
 													class="form-control"> <span class="help-block">
 													
 												
-															<button id='usernameCheck'>檢查帳號 </button>
+															<a href='#' id='accountlink'>檢查帳號 </a>
 															
-															<div class="form-group text-center" id='usernameCheckResult' style="height: 0.75em;color:#FF0000;">錯誤訊息</div>
+															<div class="form-group text-center" id='result0' style="height: 0.75em;color:#FF0000;">錯誤訊息</div>
 						
 												</span>
 											</div>

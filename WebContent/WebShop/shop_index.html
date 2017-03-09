@@ -7,33 +7,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	
-	<title>registered</title>
-</head>
-
-<body>
-
-<!DOCTYPE html>
-<html lang="en">
+	<link href="css/shopcart.css" rel="stylesheet">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>Java004_NO1 購物平台</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-
-    <link href="css/shopcart.css" rel="stylesheet">
-
-   
-
 </head>
 
 <body>
@@ -96,8 +73,27 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
+        <!-- .side-cart -->
+		<div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">購物車</a></div>
+		<!-- /.side-cart -->
     </nav>
 
+<!-- .side-cart -->
+	<div id="cd-cart">
+		<h2>購物車</h2>
+		<ul class="cd-cart-items"></ul> 
+	<!-- cd-cart-items -->
+
+		<div class="cd-cart-total">
+			<b>總計  NT :<span>0</span></b>
+		</div> <!-- cd-cart-total -->
+
+		<a href="cartEdit.html" class="checkout-btn">結算</a>
+		
+		<p>#結算後購物清單可再修改數量!</p>
+	</div> 
+	<!-- /.side-cart -->
+	
     <!-- Page Content -->
     <div class="container">
 
@@ -120,17 +116,19 @@
         <!-- /.row -->
 
         <!-- Page Features -->
-        <div class="row text-center">
+        <div id="warp" class="row text-center">
 
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
                     <img src="images/beaf.jpg" alt="">
                     <div class="caption">
-                        <h3>牛肉</h3>
-                        <p>【買新鮮】美國濕式熟成牛肉</p>
-						<p>$333</p>
+						<span class="name">牛肉</span>: NT<span class="price">200 </span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                            <button id="1" class="btn btn-primary">加入購物車
+								<input type="hidden" value="牛肉|images/beaf.jpg|200">
+							</button> 
+							<a href="#" class="btn btn-default">More Info</a>
                         </p>
                     </div>
                 </div>
@@ -140,11 +138,13 @@
                 <div class="thumbnail">
                     <img src="images/chicken.jpg" alt="">
                     <div class="caption">
-                        <h3>去骨雞腿</h3>
-                        <p>鮮嫩去骨雞腿真空包</p>
-						<p>$256</p>
+						<span class="name">去骨雞腿</span>: NT<span class="price">300 </span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                            <button id="2" class="btn btn-primary">加入購物車
+									<input type="hidden" value="去骨雞腿|images/chicken.jpg|300">
+							</button> 
+							<a href="#" class="btn btn-default">More Info</a>
                         </p>
                     </div>
                 </div>
@@ -154,11 +154,13 @@
                 <div class="thumbnail">
                     <img src="images/Lambchops.jpg" alt="">
                     <div class="caption">
-                        <h3>羊小排</h3>
-                        <p>法式老師推薦法式羊小排(嚐鮮)</p>
-						<p>$367</p>
+						<span class="name">羊小排</span>: NT<span class="price">400 </span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                            <button id="3" class="btn btn-primary">加入購物車
+								<input type="hidden" value="羊小排|images/Lambchops.jpg|400">
+							</button> 
+							<a href="#" class="btn btn-default">More Info</a>
                         </p>
                     </div>
                 </div>
@@ -168,16 +170,17 @@
                 <div class="thumbnail">
                     <img src="images/food.jpg" alt="">
                     <div class="caption">
-                        <h3>豬肉</h3>
-                        <p>【優鮮配】匈牙利頂級松阪豬肉</p>
-						<p>$222</p>
+						<span class="name">肉類</span>: NT<span class="price">500 </span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                            <button id="4" class="btn btn-primary">加入購物車
+									<input type="hidden" value="肉類|images/food.jpg|500">
+							</button> 
+							<a href="#" class="btn btn-default">More Info</a>
                         </p>
                     </div>
                 </div>
-            </div>
-
+            </div>		
         </div>
         <!-- /.row -->
 
@@ -200,7 +203,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
+	<script src="js/shop_index.js"></script>
 
 	
 </body>
