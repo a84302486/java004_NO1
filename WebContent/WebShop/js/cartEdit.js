@@ -22,6 +22,7 @@ function createCarList(itemKey,itemValue){
 	var itemTotal = itemPrice * itemQty;
 	
 	//建立每個品項的清單區域 ==tr:
+<<<<<<< HEAD
 	$('.table tbody').eq(0).append(" <tr id=" + itemId + "><td>"
 		+ " <div class=media> <a class='thumbnail pull-left' href=#>"
 		+ " <img class=media-object src="+ itemImage + ">"
@@ -33,14 +34,23 @@ function createCarList(itemKey,itemValue){
 		
 		
 		
+=======
+	$('.table tbody').eq(0).append(" <tr id="+ itemId +"><td><img src=" + itemImage +"></td>"
+		+ " <td class=name>" + itemName + "</td>"
+>>>>>>> a0cc0b6b09b86bca26db11e0ae89284c5219302c
 		+ " <td class=price>" + itemPrice + "</td>"
 		+ " <td><button class=minus onclick=changeAmount($(this));>－</button>" 
 		+ "	 <input class=count type=text size=1 value=" + itemQty +">"
 		+ "	 <button class=plus  onclick=changeAmount($(this));>＋</button>"
 		+ " </td> <td class=total>" + itemTotal + "</td>"
 		+ " <td>"
+<<<<<<< HEAD
 		+ "	 <button type=button class='btn btn-danger' onclick=setDel($(this));>"
 		+ "	 <span class='glyphicon glyphicon-remove'></span> Remove</button>"
+=======
+		+ "	 <button type=button class=delete onclick=setDel($(this));>"
+		+ "	 <i class='glyphicon glyphicon-remove'></i></button>"
+>>>>>>> a0cc0b6b09b86bca26db11e0ae89284c5219302c
 		+ " </td></tr>");
 	}
 	
