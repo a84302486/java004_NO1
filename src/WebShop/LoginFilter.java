@@ -1,4 +1,4 @@
-package _00_Login;
+package WebShop;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,9 +23,8 @@ import javax.servlet.http.HttpSession;
  * Servlet Filter implementation class LoginFilter
  */
 @WebFilter(urlPatterns = { "/*" }, initParams = {
-		@WebInitParam(name = "url_1", value = "/_14_Member/*"),
-		@WebInitParam(name = "url_2", value = "/_01_ProductTest/*"),
-		@WebInitParam(name = "url_3", value = "/_00_Util/*")
+		@WebInitParam(name = "url_1", value = "/WebShop/cartEdit.html"),
+		
 		})
 public class LoginFilter implements Filter {
 	Collection<String> url = new ArrayList<String>();
@@ -69,7 +68,7 @@ public class LoginFilter implements Filter {
 					//System.out.println("需要Login, 尚未Login , ServletPath="
 							//+ req.getServletPath());
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/_00_Login/login.jsp");
+							.getRequestDispatcher("/WebShop/login_and_register.jsp");
 					rd.forward(req, resp);
 				}
 			} else {
@@ -105,7 +104,7 @@ public class LoginFilter implements Filter {
 
 	private boolean checkLogin(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		UserBean loginToken = (UserBean) session.getAttribute("LoginOK");
+		MemberBean loginToken = (MemberBean) session.getAttribute("MemberLoginOK");
 		if (loginToken == null) {
 			return false;
 		} else {
