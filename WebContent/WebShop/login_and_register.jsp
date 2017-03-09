@@ -150,20 +150,19 @@
 
 
 
-								<form id="register-form" action="member.do" method="post" role="form" style="display: none;">
+								<form id="register-form"  method="post" role="form" style="display: none;">
 <!-- 									<form class="form-horizontal" role="form"> -->
 
 
 										<div class="form-group">
 											<label for="email" class="col-sm-3 control-label">會員帳號</label>
 											<div class="col-sm-9">
-												<input type="text" id="Username" placeholder=""
+												<input type="text" id="Username123" placeholder=""
 													class="form-control"> <span class="help-block">
-													
 												
-															<a href='#' id='accountlink'>檢查帳號 </a>
+															<a id='usernameCheck'>檢查帳號 </a>
 															
-															<div class="form-group text-center" id='result0' style="height: 0.75em;color:#FF0000;">錯誤訊息</div>
+															<div class="form-group text-center" id='usernameCheckResult' style="height: 3em;"></div>
 						
 												</span>
 											</div>
@@ -192,6 +191,8 @@
 													class="form-control" autofocus>
 											</div>
 										</div>
+										<br>
+										<br>
 										<div class="form-group">
 											<label for="EMail" class="col-sm-3 control-label">信箱</label>
 											<div class="col-sm-9">
@@ -199,33 +200,36 @@
 													placeholder="abc@yahoo.com.tw" class="form-control"
 													autofocus>
 											</div>
-											<div class="form-group text-center" id='result3' style="height: 0.75em;color:#FF0000;">錯誤訊息</div>
+											<br>
+												<br>
+											<div class="form-group text-center" id='result3' style="height: 0.75em;color:#FF0000;"></div>
 										</div>
-										<div class="form-group">
-											<label for="birthDate" class="col-sm-3 control-label">生日</label>
-											<div class="col-sm-9">
-												<input type="date" id="Birthday" class="form-control">
-											</div>
-										</div>
+										
+<!-- 										<div class="form-group"> -->
+<!-- 											<label for="birthDate" class="col-sm-3 control-label">生日</label> -->
+<!-- 											<div class="col-sm-9"> -->
+<!-- 												<input type="date" id="Birthday" class="form-control"> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
 
-										<div class="form-group">
-											<label class="control-label col-sm-3">性別</label>
-											<div class="col-sm-6">
-												<div class="row">
-													<div class="col-sm-4">
-														<label class="radio-inline"> <input type="radio"
-															id="Gender" value="Female">女生
-														</label>
-													</div>
-													<div class="col-sm-4">
-														<label class="radio-inline"> <input type="radio"
-															id="Gender" value="Male">男生
-														</label>
-													</div>
+<!-- 										<div class="form-group"> -->
+<!-- 											<label class="control-label col-sm-3">性別</label> -->
+<!-- 											<div class="col-sm-6"> -->
+<!-- 												<div class="row"> -->
+<!-- 													<div class="col-sm-4"> -->
+<!-- 														<label class="radio-inline"> <input type="radio" -->
+<!-- 															id="Gender" value="Female">女生 -->
+<!-- 														</label> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-sm-4"> -->
+<!-- 														<label class="radio-inline"> <input type="radio" -->
+<!-- 															id="Gender" value="Male">男生 -->
+<!-- 														</label> -->
+<!-- 													</div> -->
 
-												</div>
-											</div>
-										</div>
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
 										<!-- /.form-group -->
 
 										<div class="form-group">
