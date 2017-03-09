@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/cartEdit.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/cartEdit.css">
 	<title>registered</title>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -63,7 +63,7 @@
                         <a href="#">會員管理</a>
                     </li>
                     <li>
-                        <a href="">註冊</a>
+                        <a href="register.html">註冊</a>
                     </li>
                     <li>
                         <a href="login.html">登入</a>
@@ -84,13 +84,12 @@
 	  <br>
 	  <br>
 	  <div class="container">
-	  <h2 id="header">購物車</h2>
-	  <br>            
+	  <h2 id="header">購物車</h2>           
 	  <table class="table">
 		<thead>
 		  <tr>
-			<th> </th>
 			<th>商品描述</th>
+			<th> </th>
 			<th>單價</th>
 			<th>數量</th>
 			<th>小計</th>
@@ -99,8 +98,18 @@
 		</thead>
 		<tbody>
 		  <tr>
-			<td><img src="../image/beaf.jpg"></td>
-			<td class="name">牛小排</td>
+			<td colspan="2">
+			<div class="media">
+                <a class="thumbnail pull-left" href="#"> 
+					<img class="media-object" src="images/beaf.jpg">
+				</a>
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="#" class="name">牛小排</a></h4>
+                    <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
+                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                </div>
+            </div>
+			</td>
 			<td class="price">333</td>
 			<td>
 				<button class="minus" onclick="changeAmount($(this));">－</button> 
@@ -108,15 +117,25 @@
 				<button class="plus"  onclick="changeAmount($(this));">＋</button>
 			</td>
 			<td class="total"></td>
-			<td>
-				<button type="button" class="delete" onclick="setDel($(this));">
-				<i class="glyphicon glyphicon-remove red"> </i>
-				</button>
+			<td class="col-md-1">
+                <button type="button" class="btn btn-danger" id="delete" onclick="setDel($(this));">
+                    <span class="glyphicon glyphicon-remove"></span> Remove
+                </button>
 			</td>
 		  </tr>
 		  <tr>
-			<td><img src="../image/food.jpg"></td>
-			<td class="name">豬肉</td>
+			<td colspan="2">
+			<div class="media">
+                <a class="thumbnail pull-left" href="#"> 
+					<img class="media-object" src="images/food.jpg">
+				</a>
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="#" class="name">豬肉</a></h4>
+                    <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
+                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                </div>
+            </div>
+			</td>
 			<td class="price">222</td>
 			<td>
 				<button class="minus" onclick="changeAmount($(this));">－</button> 
@@ -124,15 +143,25 @@
 				<button class="plus"  onclick="changeAmount($(this));">＋</button>
 			</td>
 			<td class="total"></td>
-			<td>
-				<button type="button" class="delete" onclick="setDel($(this));">
-				<i class="glyphicon glyphicon-remove red"> </i>
-				</button>
+			<td class="col-md-1">
+                <button type="button" class="btn btn-danger" id="delete" onclick="setDel($(this));">
+                    <span class="glyphicon glyphicon-remove"></span> Remove
+                </button>
 			</td>
 		  </tr>
 		  <tr>
-			<td><img src="../image/chicken.jpg"></td>
-			<td class="name">去骨雞腿</td>
+			<td colspan="2">
+			<div class="media">
+                <a class="thumbnail pull-left" href="#"> 
+					<img class="media-object" src="images/chicken.jpg">
+				</a>
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="#" class="name">去骨雞腿</a></h4>
+                    <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
+                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                </div>
+            </div>
+			</td>
 			<td class="price">256</td>
 			<td>
 				<button class="minus" onclick="changeAmount($(this));">－</button> 
@@ -140,13 +169,23 @@
 				<button class="plus"  onclick="changeAmount($(this));">＋</button>
 			</td>
 			<td class="total"></td>
-			<td>
-				<button type="button" class="delete" onclick="setDel($(this));">
-				<i class="glyphicon glyphicon-remove red"> </i>
-				</button>
+	
+			<td class="col-md-1">
+                <button type="button" class="btn btn-danger" id="delete" onclick="setDel($(this));">
+                    <span class="glyphicon glyphicon-remove"></span> Remove
+                </button>
 			</td>
 			
+<<<<<<< HEAD
 		</tbody>
+=======
+		  </tr>
+		  
+		</tbody>
+		<hr>
+		<footer>
+			
+>>>>>>> 0bdbfa299c22b5c4c71a35dea05bbf2c00039be1
 		  <tr class="footer">
 				<td colspan="5" style="text-align:right;">商品數量 :</td>
 				<td style="text-align:right;" class="amount"></td>
@@ -168,17 +207,33 @@
 				<td>元</td>
 		  </tr>
 		  <tr class="footer">
+<<<<<<< HEAD
 				<td colspan="6" style="text-align:right;" id="billing">
 					<button type="button">確認結帳</button>
 				</td>
 		  </tr>
 		  
+=======
+                        <td colspan="4"></td>
+           
+                        <td colspan="3" style="text-align:center;">
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> 繼續購物
+                        </button>
+						&nbsp;
+                        <button type="button" class="btn btn-success">
+                            確定結帳 <span class="glyphicon glyphicon-play"></span>
+                        </button></td>
+                    </tr>
+		  
+		<footer>
+>>>>>>> 0bdbfa299c22b5c4c71a35dea05bbf2c00039be1
 	  </table>  
 	</div>
 		
-<script src="${pageContext.request.contextPath}/jQuery/jquery-2.2.4.min.js" type="text/JavaScript"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/cartEdit.js"></script>
+<script src="jQuery/jquery-2.2.4.min.js" type="text/JavaScript"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/cartEdit.js"></script>
 	
 </body>
 </html>

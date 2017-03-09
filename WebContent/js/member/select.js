@@ -19,8 +19,9 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 			var validation_messages = JSON.parse(xhr.responseText);//由servelet傳過來JSON格式的資料		
 			
 			if(validation_messages == null){//找不到
-				var content = '<div class="alert alert-danger" role="alert" style="positive:absolute;margin-top:1em;"><a href="#" class="alert-link">';
-				
+				var content="";
+				content += '<div class="alert alert-danger" role="alert" style="positive:absolute;margin-top:1em;">';
+				content += '<a href="#" class="alert-link">';				
 //				content +=	"<font color='#ffc526' weight='bold' size='3em'>"; 
 				content += username +" 找不到!";
 //				content += "</Font>";
@@ -82,7 +83,7 @@ function getQueryData(input,servelet,successdiv,errordiv,first) {
 			content += "</table>";
 			content += "</form>";
 			
-			errorID.innerHTML ="";
+			errorID.innerHTML ='<div class="alert alert-success" role="alert" style="positive:absolute;margin-top:1em;"><a href="#" class="alert-link">成功查詢</a></div>';
 			successID.innerHTML = content;
 			
 			//alert("selet success");
