@@ -58,7 +58,7 @@ public class LoginMember extends HttpServlet {
 		// 如果變數mb的值不等於 null,表示資料庫含有userId搭配password的紀錄
 		if (mb != null) {
 			// OK, 將mb物件放入Session範圍內，識別字串為"LoginOK"，表示此使用者已經登入
-			session.setAttribute("LoginOK", mb);
+			session.setAttribute("MemberLoginOK", mb);
 		} else {
 			// NG, userid與密碼的組合錯誤，放錯誤訊息"該帳號不存在或密碼錯誤"到 errorMsgMap 之內
 			// 對應的識別字串為 "LoginError"
