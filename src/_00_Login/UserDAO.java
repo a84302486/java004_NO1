@@ -22,13 +22,13 @@ public class UserDAO {
 	public UserDAO() {
 		try {
 			Context context = new InitialContext();
-			ds = (DataSource) context.lookup("java:comp/env/jdbc/java004");
+			ds = (DataSource) context.lookup("java:comp/env/jdbc/Java004NO1");
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private static final String SELECT_BY_ID = "Select * from user where userId = ?";
+	private static final String SELECT_BY_ID = "Select * from User where userId = ?";
 
 	public UserBean select(String id) {
 		UserBean result = null;

@@ -46,7 +46,7 @@
 
 					</button>
 					<button
-						onclick="location.href='http://localhost:8080/java004/_14_Member/IndexMember.jsp'">
+						onclick="location.href='http://localhost:8080/Java004NO1/_14_Member/IndexMember.jsp'">
 
 						<br>首頁
 

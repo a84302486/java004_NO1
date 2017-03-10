@@ -24,7 +24,7 @@ public class TRDTDAO {
 			e1.printStackTrace();
 		}	
 		try {
-			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/java004");
+			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/Java004NO1");
 		} catch (NamingException e1) {
 			e1.printStackTrace();
 		}

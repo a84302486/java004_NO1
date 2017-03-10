@@ -10,7 +10,7 @@
     
      String username = (String) session.getAttribute("username");
      if(username == null) {
-         response.setHeader("Refresh", "0; " + "http://localhost:8080/java004/_00_Login/Home.jsp");
+         response.setHeader("Refresh", "0; " + "http://localhost:8080/Java004NO1/_00_Login/Home.jsp");
          return;
     }
      else {

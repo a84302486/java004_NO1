@@ -24,7 +24,7 @@ public class CommissionDAO {
 			e1.printStackTrace();
 		}	
 		try {
-			ds = (DataSource) ctx.lookup("java:comp/env/jcbc/java004");
+			ds = (DataSource) ctx.lookup("java:comp/env/jcbc/Java004NO1");
 		} catch (NamingException e1) {
 			e1.printStackTrace();
 		}
