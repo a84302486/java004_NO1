@@ -40,6 +40,7 @@ public class PlaceDAO {
 			stmt.executeUpdate("SET FOREIGN_KEY_CHECKS = 0");
 				//強制刪除FK
 			
+			
 			for(int n =0; n < createStr.length;n++){
 			stmt.executeUpdate(dropStr[n]);
 			System.out.println("第"+(n+1)+"個Table Drop OK");
@@ -62,7 +63,7 @@ public class PlaceDAO {
 			Statement stmt = con.createStatement();) {
 			
 			stmt.executeUpdate("SET FOREIGN_KEY_CHECKS = 0");
-				//強制刪除FK
+				
 			
 			for(int n =0; n < createStr.length;n++){
 			stmt.executeUpdate(createStr[n]);

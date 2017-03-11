@@ -24,7 +24,7 @@ public class StockUpdateDAO {
 			e1.printStackTrace();
 		}	
 		try {
-			ds = (DataSource) ctx.lookup("java:comp/env/jsubc/java004");
+			ds = (DataSource) ctx.lookup("java:comp/env/jsubc/Java004NO1");
 		} catch (NamingException e1) {
 			e1.printStackTrace();
 		}

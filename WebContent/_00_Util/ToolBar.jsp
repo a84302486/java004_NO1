@@ -28,7 +28,7 @@
 			<button class="select"
 				onclick="getAction('SelectProduct.jsp','showDAOJsp');"></button>
 			<button class="refresh" 
-				onclick="location.href='http://localhost:8080/java004/_01_ProductTest/IndexProduct.jsp'"></button>
+				onclick="location.href='http://localhost:8080/Java004NO1/_01_ProductTest/IndexProduct.jsp'"></button>
 			<button class="export" onclick=""></button>
 			<button class="import" 
 				onclick="getAction('ImportProduct.jsp','showDAOJsp');"></button>

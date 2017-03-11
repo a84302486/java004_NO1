@@ -24,7 +24,7 @@ public class WarehouseDAO {
 			e1.printStackTrace();
 		}	
 		try {
-			ds = (DataSource) ctx.lookup("java:comp/env/jwbc/java004");
+			ds = (DataSource) ctx.lookup("java:comp/env/jwbc/Java004NO1");
 		} catch (NamingException e1) {
 			e1.printStackTrace();
 		}

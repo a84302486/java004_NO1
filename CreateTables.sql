@@ -160,6 +160,34 @@ CREATE TABLE Warehouse(
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
+CREATE TABLE `Member`(
+
+			
+	M_Username		VARCHAR(20) NOT NULL,
+	M_Password		VARCHAR(60) NOT NULL,
+	M_ID			VARCHAR(20) ,
+	M_Name			VARCHAR(20) NOT NULL,
+	M_Nick			VARCHAR(20),
+	M_Sex			CHAR(1),
+	M_Birthday		DATE,
+	M_EMail			VARCHAR(20),
+	M_Phone			VARCHAR(20),
+	M_Cellphone		VARCHAR(20),
+	M_Address		VARCHAR(60),
+	M_Line			VARCHAR(20),
+	M_FaceBook		VARCHAR(20),
+	M_IdentityCard	VARCHAR(10) UNIQUE,			
+	M_Invoice		VARCHAR(20),			
+	M_UniformNumber VARCHAR(20),		
+	M_Insertdate	DATETIME,
+	M_Updatedate	DATETIME,
+	M_Level			CHAR(1) default 0,		
+	M_BonusPoints	INT,					
+	M_Total			NUMERIC(15,2),			
+	
+	CONSTRAINT Member_M_Username PRIMARY KEY (M_Username)
+	
+)	CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE StockUpdate(
 	
@@ -230,7 +258,7 @@ CREATE TABLE TRDT(
 	Sales			CHAR(1),
 	Shift			CHAR(1),
 	Disc_AMT		NUMERIC (15,2),
-	M_ID			VARCHAR(20),
+	M_Username		VARCHAR(20),
 	
 	IUser			VARCHAR(20),
 	IDate			DATE,
@@ -239,8 +267,8 @@ CREATE TABLE TRDT(
 	MDate			DATE,
 	MTime			DATETIME,
 	
-	CONSTRAINT TRDT_M_ID_FK FOREIGN KEY (M_ID) 
-		REFERENCES Member(M_ID),
+	CONSTRAINT TRDT_M_Username_FK FOREIGN KEY (M_Username) 
+		REFERENCES Member(M_Username),
 	CONSTRAINT TRDT_Product_id_FK FOREIGN KEY (Product_id) 
 		REFERENCES `Product`(`Product_id`), 
 	CONSTRAINT TRDT_Taste_ID_FK FOREIGN KEY (Taste_ID) 
@@ -255,45 +283,14 @@ CREATE TABLE TRDT(
 
 
 
-CREATE TABLE Member(
 
-			
-	M_Username		VARCHAR(20) NOT NULL,
-	M_Password		VARCHAR(60) NOT NULL,
-	M_ID			VARCHAR(20) NOT NULL,
-	M_Name			VARCHAR(20) NOT NULL,
-	M_Nick			VARCHAR(20),
-	M_Sex			CHAR(1),
-	M_Birthday		DATE,
-	M_EMail			VARCHAR(20),
-	M_Phone			VARCHAR(20),
-	M_Cellphone		VARCHAR(20),
-	M_Address		VARCHAR(60),
-	M_Line			VARCHAR(20),
-	M_FaceBook		VARCHAR(20),
-	M_IdentityCard	VARCHAR(10) UNIQUE,			
-	M_Invoice		VARCHAR(20),			
-	M_UniformNumber VARCHAR(20),		
-	M_Insertdate	DATETIME,
-	M_Updatedate	DATETIME,
-	M_Level			CHAR(1) default 0,		
-	M_BonusPoints	INT,					
-	M_Total			NUMERIC(15,2),			
-	
-	CONSTRAINT Member_M_Username PRIMARY KEY (M_ID)
-	
-)	CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-CREATE TABLE User(
+CREATE TABLE `User`(
 	userId 			VARCHAR(20) NOT NULL,
 	password		VARCHAR(20) NOT NULL,
 	name 			VARCHAR(20) NOT NULL,
-	grade			VARCHAR(4) NOT NULL
+	grade			VARCHAR(4) NOT NULL,
 	
+	CONSTRAINT User_userId PRIMARY KEY (userId)
 	
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;
-
-
-
-
-
