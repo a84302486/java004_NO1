@@ -12,7 +12,7 @@
 <title>MVC</title>
 <body>
 <CENTER>
-	<form>
+	<form  id="form1" name="form1" method="post" action=".do"  enctype="multipart/form-data" >
 			<input type="file" name="importProduct" id="importProduct">
 			<input type="submit" name="importBtn" id="importBtn" disabled>
 				<div id="importResult"></div>

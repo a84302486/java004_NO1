@@ -1,6 +1,5 @@
 
 
-
 //點擊呼叫購物清單--------------------------------
 $(function(){
 	var list = $('#cd-cart'),
@@ -87,3 +86,8 @@ function include(arr, obj) {
     if (arr[i] == obj) return true;
   }
 }
+
+//Ajax接收後端Json資料，動態產生產品列--------------------
+$(document).ready(function() {
+	
+});

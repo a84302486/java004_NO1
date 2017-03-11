@@ -22,10 +22,10 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(urlPatterns = { "/*" }, initParams = {
-		@WebInitParam(name = "url_1", value = "/WebShop/cartEdit.html"),
-		
-		})
+//@WebFilter(urlPatterns = { "/*" }, initParams = {
+//		@WebInitParam(name = "url_1", value = "/WebShop/cartEdit.html"),
+//		
+//		})
 public class LoginFilter implements Filter {
 	Collection<String> url = new ArrayList<String>();
 

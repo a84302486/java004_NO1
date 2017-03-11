@@ -1,5 +1,6 @@
 package _01_ProductTest;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,10 +31,12 @@ public class ProductDAO {
 		}
 	}
 	
-		synchronized public String insert(ProductBean pb){
+
+	
+		synchronized public String insert(ProductBean pb, InputStream is, long size){
 			
 			String sql = "INSERT INTO Product "
-					+ " VALUES(? ,?, ?, ?, ?, ?, ?)";
+					+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			try(
 				Connection con = ds.getConnection();
@@ -46,7 +49,9 @@ public class ProductDAO {
 				pstmt.setDouble(4, pb.getAvgCost());
 				pstmt.setString(5, pb.getOplace());
 				pstmt.setInt(6,  pb.getSlife());
-				pstmt.setString(7, pb.getSuppierId());		
+				pstmt.setString(7, pb.getSuppierId());	
+				pstmt.setString(8,  pb.getFileName());
+				pstmt.setBinaryStream(9, is, size);
 				pstmt.executeUpdate();
 				
 				System.out.println("成功 新增" + pb.getProductId());

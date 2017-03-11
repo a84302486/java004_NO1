@@ -23,7 +23,7 @@ public class GlobalService {
 	public static final String host = "127.0.0.1";
 	//public static final String host = "192.168.11.22";
 	public static final String USERID = "root";
-	public static final String PASSWORD = "password";
+	public static final String PASSWORD = "215060";
 	public static final String SYSTEM_NAME = "java004";
 	public static final String JNDI_DB_NAME = "java:comp/env/jdbc/BookDataSQLver";
 	public static final int IMAGE_FILENAME_LENGTH = 20;
@@ -137,6 +137,7 @@ public class GlobalService {
 		}
 		return null;
 	}
+
 	// 此方法可檢視上傳資料的每個欄位與每個檔案，
 	public static void exploreParts(Collection<Part> parts, HttpServletRequest req){
 		try {

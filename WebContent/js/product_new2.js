@@ -31,7 +31,7 @@ function setTab(){
 function getInsertData(servelet) {	
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", servelet, true);
-		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.setRequestHeader("Content-type", "multipart/form-data");
 		xhr.send(setQueryString());
 
 		xhr.onreadystatechange = function() {
@@ -248,9 +248,9 @@ function radCheck(obj) {
 
 //Import選取要寫入的檔案----------------
 //$(function(){
-//	$('#importProduct').change(function(){
-//		$('#importBtn').removeAttr('disabled');
+//	$('#ProductPic').change(function(){
+//		$('#ProductPic').removeAttr('disabled');
 //	});
 //});
-//----------</Ajax呼叫物件功能>----------
+
 
