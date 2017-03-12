@@ -33,13 +33,13 @@ $(document).ready(function() {
         var result = $('#usernameCheckResult');
         if(!id){
         	//沒有輸入帳號馬上回傳錯誤訊息
-        	context='<div class="alert alert-danger" role="alert">請先輸入帳號</div>';
+        	context='<div class="alert-danger">請先輸入帳號</div>';
         	result.html(context);
         
         	return;
         }
         if(!input_Check.Validate.chkAccount(id)){
-        	context='<div class="alert alert-danger" role="alert">帳號必須為英數或底線組成，且必須為4碼以上</div>';
+        	context='<div class="alert-danger">帳號必須為英數或底線組成，且必須為4碼以上</div>';
         	result.html(context);
         
         	return;
@@ -55,14 +55,14 @@ $(document).ready(function() {
             	
                 if(msg.match('usable')){
                 	
-                	context='<div class="alert alert-success" role="alert">'+id+'可使用</div>';
+                	context='<div class="alert-success">'+id+'可使用</div>';
                 }else{
                 
                 	if(msg.match('exist')){
                 		
-                	context='<div class="alert alert-danger" role="alert">'+id+'已存在</div>';	
+                	context='<div class="alert-danger">'+id+'已存在</div>';	
                 	}else{
-                	context='<div class="alert alert-danger" role="alert">請先輸入帳號</div>';	
+                	context='<div class="alert-danger">請先輸入帳號</div>';	
                 	}
                 }
                 result.html(context);
