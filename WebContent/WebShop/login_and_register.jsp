@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/login_and_register.css">
+<link rel="stylesheet" href="css/login_and_register.css?v1">
 <title>registered</title>
 </head>
 
@@ -99,30 +99,34 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="wrapper">
-									
-									<form id="login-form" Action="<c:url value='/WebShop/LoginMember' />" method="post" role="form" style="display: block;">
+
+									<form id="login-form"
+										Action="<c:url value='/WebShop/LoginMember' />" method="post"
+										role="form" style="display: block;">
 
 										<h3 class="form-signin-heading">歡迎回來! 請先登入!</h3>
 										<hr class="colorgraph">
-										<br> 
-										<input type="text" class="form-control" name="Username" id="Username" placeholder="帳號" value="${param.Username}"/> 
-									
-										<div class="form-group text-center" style="color:#FF0000;">
-												${ErrorMsgKey.AccountEmptyError}<br>
+										<br> <input type="text" class="form-control"
+											name="Username" id="Username" placeholder="帳號"
+											value="${param.Username}" />
+
+										<div class="form-group text-center" style="color: #FF0000;">
+											${ErrorMsgKey.AccountEmptyError}<br>
 										</div>
-						
-										<input type="password" class="form-control" name="Password" id="Password" placeholder="密碼" value="${param.Password}" />
-										
-										<div class="form-group text-center" style="color:#FF0000;">
-												${ErrorMsgKey.PasswordEmptyError}<br>
+
+										<input type="password" class="form-control" name="Password"
+											id="Password" placeholder="密碼" value="${param.Password}" />
+
+										<div class="form-group text-center" style="color: #FF0000;">
+											${ErrorMsgKey.PasswordEmptyError}<br>
 										</div>
-			
+
 										<div class="form-group text-center">
 											<input type="checkbox" tabindex="3" class="" name="remember"
 												id="remember"> <label for="remember">
 												Remember Me</label>
 										</div>
-										
+
 										<div class="form-group">
 											<div class="row">
 												<div class="col-sm-6 col-sm-offset-3">
@@ -141,101 +145,90 @@
 												</div>
 											</div>
 										</div>
-										<div class="form-group text-center" style="color:#FF0000;">
-												${ErrorMsgKey.LoginError}<br>
+										<div class="form-group text-center" style="color: #FF0000;">
+											${ErrorMsgKey.LoginError}<br>
 										</div>
-								
-								</form>
+
+									</form>
 
 
 
 
-								<form id="register-form"  method="post" role="form" style="display: none;">
-<!-- 									<form class="form-horizontal" role="form"> -->
+									<form id="register-form" method="post" role="form"
+										style="display: none;">
+										<!-- 									<form class="form-horizontal" role="form"> -->
 
 
 										<div class="form-group">
-											<label for="email" class="col-sm-3 control-label">會員帳號</label>
-											<div class="col-sm-9">
-												<input type="text" id="Username123" placeholder=""
-													class="form-control"> <span class="help-block">
-												
-															<a id='usernameCheck'>檢查帳號 </a>
-															
-															<div class="form-group text-center" id='usernameCheckResult' style="height: 3em;"></div>
-						
-												</span>
+											<label for="text" class="col-sm-3 control-label">會員帳號</label>
+											<div class="col-sm-8">
+												<input type="text" id="member_Username" placeholder=""
+													class="form-control">
+
+												<div class="form-group text-center" id='usernameCheckResult'
+													style="height: 2em;">
+													</div>
+
+
 											</div>
 										</div>
 										<div class="form-group">
 											<label for="password" class="col-sm-3 control-label">會員密碼</label>
-											<div class="col-sm-9">
-												<input type="password" id="Password" placeholder=""
-													class="form-control">
-													
+											<div class="col-sm-8">
+												<input type="password" id="Password" placeholder="6～20個數字和英文組成的字元"
+													class="form-control" required pattern="(?=^.{6,20}$)(?=.*[a-zA-Z])(?=.*[0-9])(?!.*\s).*$"
+													oninvalid="this.setCustomValidity('6～20個數字和英文組成的字元')"
+													oninput="setCustomValidity('')">
+
 											</div>
-											<div class="form-group text-center" id='result1' style="height: 0.75em;color:#FF0000;">錯誤訊息</div>
+											<br>
 										</div>
 										<div class="form-group">
 											<label for="password" class="col-sm-3 control-label">密碼確認</label>
-											<div class="col-sm-9">
+											<div class="col-sm-8">
 												<input type="password" id="Password2" placeholder=""
-													class="form-control">
-											</div>
-											<div class="form-group text-center" id='result2' style="height: 0.75em;color:#FF0000;">錯誤訊息</div>
-										</div>
-										<div class="form-group">
-											<label for="Name" class="col-sm-3 control-label">姓名</label>
-											<div class="col-sm-9">
-												<input type="text" id="Name" placeholder=""
-													class="form-control" autofocus>
-											</div>
-										</div>
-										<br>
-										<br>
-										<div class="form-group">
-											<label for="EMail" class="col-sm-3 control-label">信箱</label>
-											<div class="col-sm-9">
-												<input type="text" id="EMail"
-													placeholder="abc@yahoo.com.tw" class="form-control"
-													autofocus>
+													class="form-control" required="required">
 											</div>
 											<br>
-												<br>
-											<div class="form-group text-center" id='result3' style="height: 0.75em;color:#FF0000;"></div>
+										</div>
+										<div class="form-group">
+											<label for="Name" class="col-sm-3 control-label">會員姓名</label>
+											<div class="col-sm-8">
+												<input type="text" id="Name" placeholder=""
+													class="form-control" autofocus required="required">
+											</div>
+											<br>
 										</div>
 										
-<!-- 										<div class="form-group"> -->
-<!-- 											<label for="birthDate" class="col-sm-3 control-label">生日</label> -->
-<!-- 											<div class="col-sm-9"> -->
-<!-- 												<input type="date" id="Birthday" class="form-control"> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
+										<div class="form-group">
+											<label for="EMail" class="col-sm-3 control-label"><br>電子信箱</label>
+											<div class="col-sm-8">
+												<br>
+												<input type="email" id="EMail" placeholder="example@abc.com.tw"
+													class="form-control" required pattern="^[^\s]+@[^\s]+\.[^\s]{2,3}$"
+													oninvalid="this.setCustomValidity('EMail格式錯誤')"
+													oninput="setCustomValidity('')" autofocus required="required">
+											</div>
+											<br> 
+										</div>
+										<div class="form-group">
+											<label for="birthday" class="col-sm-3 control-label"><br>會員生日</label>
+											<div class="col-sm-8">
+												<br>
+												<input type="date" name="birthday" id="birthday" class="form-control" oninvalid="this.setCustomValidity('生日輸入不完整')"
+													oninput="setCustomValidity('')" autofocus required="required">
+											</div>
+											<br> 
+										</div>
+											
 
-<!-- 										<div class="form-group"> -->
-<!-- 											<label class="control-label col-sm-3">性別</label> -->
-<!-- 											<div class="col-sm-6"> -->
-<!-- 												<div class="row"> -->
-<!-- 													<div class="col-sm-4"> -->
-<!-- 														<label class="radio-inline"> <input type="radio" -->
-<!-- 															id="Gender" value="Female">女生 -->
-<!-- 														</label> -->
-<!-- 													</div> -->
-<!-- 													<div class="col-sm-4"> -->
-<!-- 														<label class="radio-inline"> <input type="radio" -->
-<!-- 															id="Gender" value="Male">男生 -->
-<!-- 														</label> -->
-<!-- 													</div> -->
-
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-										<!-- /.form-group -->
 
 										<div class="form-group">
-											<div class="col-sm-9 col-sm-offset-3">
+											<div class="col-sm-8 col-sm-offset-3">
 												<div class="checkbox">
-													<label> <input type="checkbox"> <span>我已仔細閱讀並明瞭
+													<label> 
+													<br>
+													<input type="checkbox" required="required"> <span>我已仔細閱讀並明瞭
 															「<a href="#">網站使用條款</a>」、 「<a href="#">隱私權政策</a>」、 「<a
 															href="#">免責聲明</a>」
 															等所載內容及其意義，茲同意該等條款規定，並願遵守網站現今、嗣後規範的各種規則。
@@ -246,23 +239,23 @@
 										</div>
 										<!-- /.form-group -->
 										<div class="form-group">
-											<div class="col-sm-9 col-sm-offset-3">
+											<div class="col-sm-6 col-sm-offset-3">
 												<button type="submit" class="btn btn-primary btn-block">註
 													冊</button>
 											</div>
 										</div>
 									</form>
 									<!-- /form -->
+								</div>
+								<!-- ./container -->
+
+
 							</div>
-							<!-- ./container -->
-
-
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 
 
