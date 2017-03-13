@@ -162,7 +162,7 @@
 										<div class="form-group">
 											<label for="text" class="col-sm-3 control-label">會員帳號</label>
 											<div class="col-sm-8">
-												<input type="text" id="member_Username" placeholder=""
+												<input type="text" id="member_Username" placeholder="4~20個英數或底線組成的字元"
 													class="form-control">
 
 												<div class="form-group text-center" id='usernameCheckResult'
@@ -186,8 +186,9 @@
 										<div class="form-group">
 											<label for="password" class="col-sm-3 control-label">密碼確認</label>
 											<div class="col-sm-8">
-												<input type="password" id="Password2" placeholder=""
-													class="form-control" required="required">
+												<input type="password" id="Password2" placeholder="再輸入一次密碼"
+													class="form-control" required="required" required pattern="$(#Password).val()"oninvalid="this.setCustomValidity('必須和密碼相同')"
+													oninput="setCustomValidity('')">
 											</div>
 											<br>
 										</div>
