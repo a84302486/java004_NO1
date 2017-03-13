@@ -12,5 +12,7 @@
 	<classpathentry kind="lib" path="D:/_JSP/workspace/java004/WebContent/WEB-INF/lib/gson-2.3.jar"/>
 	<classpathentry kind="lib" path="D:/_JSP/workspace/java004/WebContent/WEB-INF/lib/javax.json-1.0.4.jar"/>
 	<classpathentry kind="lib" path="D:/_JSP/workspace/java004/WebContent/WEB-INF/lib/javax.json-api-1.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate5.2.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commons-logging-1.2"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
