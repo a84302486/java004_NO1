@@ -44,10 +44,10 @@ $(document).ready(function() {
         
         	return;
         }
-        var queryString = 'Username='+id;
+        var querystring = 'Username='+id;
         $.ajax({
             url: URLs,
-            data: queryString,
+            data: querystring,//$(this).serialize()
             type:"POST",
             dataType:'text',
 
@@ -75,14 +75,32 @@ $(document).ready(function() {
         });
     });
     
-    //密碼檢查
-    $('#Password').blur(function(){
-    	$('#Password').setCustomValidity("自訂訊息");
-    });
     
-    
+   
+   
     
 });
+
+
+$(function(){
+
+	
+	
+	$("#register-form").validate({
+		rules:{
+			Password: {
+				minlength: 6
+			},
+			Password2:{
+				minlength: 6,equalTo: "#Password"
+			},
+			Name:{
+					
+			}
+		}
+	});
+});
+
 
 //輸入檢查
 
