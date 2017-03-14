@@ -155,7 +155,7 @@
 
 
 									<form id="register-form" method="post" role="form"
-										style="display: none;">
+										style="display: none;"  action="POST的網址" enctype="multipart/form-data">
 										<!-- 									<form class="form-horizontal" role="form"> -->
 
 
@@ -175,47 +175,45 @@
 											<label for="Password" class="col-sm-3 control-label">會員密碼</label>
 											<div class="col-sm-8">
 												<input type="password" id="Password"
-													placeholder="6～20個數字和英文組成的字元" class="form-control"
+													placeholder="6～20個數字和英文組成的字元" class="form-control required"
 													name="Password">
 
 											</div>
-											<br>
+											
 										</div>
 										<div class="form-group">
 											<label for="Password2" class="col-sm-3 control-label">密碼確認</label>
 											<div class="col-sm-8">
 												<input type="password" id="Password2" placeholder="再輸入一次密碼"
-													class="form-control" name="Password2">
+													class="form-control required" name="Password2">
 
 
 											</div>
-											<br>
+											
 										</div>
-										<div class="form-group">
-											<label for="Name" class="col-sm-3 control-label">會員姓名</label>
+									    <div class="form-group">
+											<label for="memberName" class="col-sm-3 control-label">會員姓名</label>
 											<div class="col-sm-8">
-												<input type="text" id="Name" placeholder=""
-													class="form-control required">
+												 <input type="text" id="memberName" placeholder="" class="form-control required">
 											</div>
-											<br>
+											
 										</div>
-
 										<div class="form-group">
-											<label for="Email" class="col-sm-3 control-label"><br>電子信箱</label>
+											<label for="Email" class="col-sm-3 control-label">電子信箱</label>
 											<div class="col-sm-8">
-												<br> <input type="email" id="EMail" name="Email"
+												 <input type="email" id="Email" name="Email"
 													placeholder="example@abc.com.tw"
 													class="form-control required email">
 											</div>
-											<br>
+											
 										</div>
 										<div class="form-group">
-											<label for="birthday" class="col-sm-3 control-label"><br>會員生日</label>
+											<label for="birthday" class="col-sm-3 control-label">會員生日</label>
 											<div class="col-sm-8">
-												<br> <input type="date" name="birthday" id="birthday"
+												 <input type="date" name="birthday" id="birthday"
 													class="form-control required date">
 											</div>
-											<br>
+										
 										</div>
 
 

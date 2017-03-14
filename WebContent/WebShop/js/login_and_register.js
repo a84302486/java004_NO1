@@ -73,33 +73,44 @@ $(document).ready(function() {
                 
              }
         });
+        
+        
     });
     
-    
-   
-   
-    
-});
-
-
-$(function(){
-
-	
-	
-	$("#register-form").validate({
-		rules:{
+    $("#register-form").validate({
+    	submitHandler: function(form) {
+            //驗證成功之後就會進到這邊：
+            //方法一：直接把表單 POST 或 GET 到你的 Action URL
+            //方法二：讀取某些欄位的資料，ajax 給別的 API。
+            //此處測試方法一的寫法如下：
+//            form.submit();
+         },
+         errorPlacement: function(error, element) {
+             //你可以自己決定錯誤訊息要放在什麼地方
+             //預設的是 element.after(error);
+        	 error.addClass("alert-danger");
+        	 error.css("text-align","center");
+        	 element.after(error);
+         },
+    	rules:{
 			Password: {
 				minlength: 6
 			},
 			Password2:{
 				minlength: 6,equalTo: "#Password"
-			},
-			Name:{
-					
 			}
+			
 		}
 	});
+    
+    
+   
+   
+    
 });
+
+
+
 
 
 //輸入檢查
