@@ -39,15 +39,15 @@ $(document).ready(function() {
         	return;
         }
         if(!input_Check.Validate.chkAccount(id)){
-        	context='<div class="alert-danger">帳號必須為英數或底線組成，且必須為4碼以上</div>';
+        	context='<div class="alert-danger">4~20個英數或底線組成的字元</div>';
         	result.html(context);
         
         	return;
         }
-        var queryString = 'Username='+id;
+        var querystring = 'Username='+id;
         $.ajax({
             url: URLs,
-            data: queryString,
+            data: querystring,//$(this).serialize()
             type:"POST",
             dataType:'text',
 
@@ -55,12 +55,12 @@ $(document).ready(function() {
             	
                 if(msg.match('usable')){
                 	
-                	context='<div class="alert-success">'+id+'可使用</div>';
+                	context='<div class="alert-success">帳號 '+id+'可使用</div>';
                 }else{
                 
                 	if(msg.match('exist')){
                 		
-                	context='<div class="alert-danger">'+id+'已存在</div>';	
+                	context='<div class="alert-danger">帳號 '+id+'已存在</div>';	
                 	}else{
                 	context='<div class="alert-danger">請先輸入帳號</div>';	
                 	}
@@ -75,14 +75,32 @@ $(document).ready(function() {
         });
     });
     
-    //密碼檢查
-    $('#Password').blur(function(){
-    	$('#Password').setCustomValidity("自訂訊息");
-    });
     
-    
+   
+   
     
 });
+
+
+$(function(){
+
+	
+	
+	$("#register-form").validate({
+		rules:{
+			Password: {
+				minlength: 6
+			},
+			Password2:{
+				minlength: 6,equalTo: "#Password"
+			},
+			Name:{
+					
+			}
+		}
+	});
+});
+
 
 //輸入檢查
 
@@ -113,7 +131,7 @@ input_Check = {
 	                return false;
 	            }
 	        }, chkAccount: function (para) {
-	            return para == '' ? false : /^[0-9a-zA-Z_]{4,}$/.test(para);
+	            return para == '' ? false : /^[0-9a-zA-Z_]{4,20}$/.test(para);
 	        }, chkPassword: function (para) {
 	            return para == '' ? false : /(?=^.{6,20}$)(?=.*[a-zA-Z])(?=.*[0-9])(?!.*\s).*$/.test(para);
 	        }

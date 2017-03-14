@@ -162,32 +162,32 @@
 										<div class="form-group">
 											<label for="text" class="col-sm-3 control-label">會員帳號</label>
 											<div class="col-sm-8">
-												<input type="text" id="member_Username" placeholder=""
-													class="form-control">
+												<input type="text" id="member_Username"
+													placeholder="4~20個英數或底線組成的字元" class="form-control">
 
 												<div class="form-group text-center" id='usernameCheckResult'
-													style="height: 2em;">
-													</div>
+													style="height: 2em;"></div>
 
 
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="password" class="col-sm-3 control-label">會員密碼</label>
+											<label for="Password" class="col-sm-3 control-label">會員密碼</label>
 											<div class="col-sm-8">
-												<input type="password" id="Password" placeholder="6～20個數字和英文組成的字元"
-													class="form-control" required pattern="(?=^.{6,20}$)(?=.*[a-zA-Z])(?=.*[0-9])(?!.*\s).*$"
-													oninvalid="this.setCustomValidity('6～20個數字和英文組成的字元')"
-													oninput="setCustomValidity('')">
+												<input type="password" id="Password"
+													placeholder="6～20個數字和英文組成的字元" class="form-control"
+													name="Password">
 
 											</div>
 											<br>
 										</div>
 										<div class="form-group">
-											<label for="password" class="col-sm-3 control-label">密碼確認</label>
+											<label for="Password2" class="col-sm-3 control-label">密碼確認</label>
 											<div class="col-sm-8">
-												<input type="password" id="Password2" placeholder=""
-													class="form-control" required="required">
+												<input type="password" id="Password2" placeholder="再輸入一次密碼"
+													class="form-control" name="Password2">
+
+
 											</div>
 											<br>
 										</div>
@@ -195,41 +195,37 @@
 											<label for="Name" class="col-sm-3 control-label">會員姓名</label>
 											<div class="col-sm-8">
 												<input type="text" id="Name" placeholder=""
-													class="form-control" autofocus required="required">
+													class="form-control required">
 											</div>
 											<br>
 										</div>
-										
+
 										<div class="form-group">
-											<label for="EMail" class="col-sm-3 control-label"><br>電子信箱</label>
+											<label for="Email" class="col-sm-3 control-label"><br>電子信箱</label>
 											<div class="col-sm-8">
-												<br>
-												<input type="email" id="EMail" placeholder="example@abc.com.tw"
-													class="form-control" required pattern="^[^\s]+@[^\s]+\.[^\s]{2,3}$"
-													oninvalid="this.setCustomValidity('EMail格式錯誤')"
-													oninput="setCustomValidity('')" autofocus required="required">
+												<br> <input type="email" id="EMail" name="Email"
+													placeholder="example@abc.com.tw"
+													class="form-control required email">
 											</div>
-											<br> 
+											<br>
 										</div>
 										<div class="form-group">
 											<label for="birthday" class="col-sm-3 control-label"><br>會員生日</label>
 											<div class="col-sm-8">
-												<br>
-												<input type="date" name="birthday" id="birthday" class="form-control" oninvalid="this.setCustomValidity('生日輸入不完整')"
-													oninput="setCustomValidity('')" autofocus required="required">
+												<br> <input type="date" name="birthday" id="birthday"
+													class="form-control required date">
 											</div>
-											<br> 
+											<br>
 										</div>
-											
+
 
 
 										<div class="form-group">
 											<div class="col-sm-8 col-sm-offset-3">
 												<div class="checkbox">
-													<label> 
-													<br>
-													<input type="checkbox" required="required"> <span>我已仔細閱讀並明瞭
-															「<a href="#">網站使用條款</a>」、 「<a href="#">隱私權政策</a>」、 「<a
+													<label> <br> <input type="checkbox"
+														class="required"> <span>我已仔細閱讀並明瞭 「<a
+															href="#">網站使用條款</a>」、 「<a href="#">隱私權政策</a>」、 「<a
 															href="#">免責聲明</a>」
 															等所載內容及其意義，茲同意該等條款規定，並願遵守網站現今、嗣後規範的各種規則。
 													</span>
@@ -244,6 +240,7 @@
 													冊</button>
 											</div>
 										</div>
+										
 									</form>
 									<!-- /form -->
 								</div>
@@ -261,6 +258,8 @@
 
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	<script src="js/jquery.ajaxupload.js"></script>
 	<script src="js/login_and_register.js"></script>
 </body>
 
