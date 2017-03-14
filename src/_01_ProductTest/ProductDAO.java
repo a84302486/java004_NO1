@@ -25,14 +25,12 @@ public class ProductDAO {
 			e1.printStackTrace();
 		}	
 		try {
-			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/Java004NO1");
+			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/Java004");
 		} catch (NamingException e1) {
 			e1.printStackTrace();
 		}
 	}
-	
 
-	
 		synchronized public String insert(ProductBean pb, InputStream is, long size){
 			
 			String sql = "INSERT INTO Product "

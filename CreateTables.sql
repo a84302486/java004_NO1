@@ -7,7 +7,7 @@ CREATE TABLE `Product` (
   `S_life` 		    int(10) DEFAULT NULL,
   `Suppier_id` 	    char(4) DEFAULT NULL,
   `fileName`   varchar (60) DEFAULT NULL,
-  `productImage`     blob     DEFAULT NULL,
+  `productImage`     longblob     DEFAULT NULL,
   
 	CONSTRAINT Product_product_id_PK PRIMARY KEY (`product_Id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
