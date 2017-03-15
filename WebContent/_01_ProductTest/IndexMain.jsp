@@ -24,6 +24,8 @@
 		<h2>請選擇管理清單</h2>
 	</div>
 </body>
-<script src="${pageContext.request.contextPath}/jQuery/jquery-2.2.4.min.js" type="text/JavaScript"></script>
+<script src="${pageContext.request.contextPath}/jQuery/jquery-3.1.1.js" type="text/JavaScript"></script>
+<script src="${pageContext.request.contextPath}/jQuery/jqueryform.js" type="text/JavaScript"></script>
 <script src="${pageContext.request.contextPath}/js/product_new2.js" type="text/JavaScript"></script>
+
 </html>

@@ -101,7 +101,7 @@ public class InsertProduct extends HttpServlet {
 				toJson = new Gson().toJson(errorMsg);
 			} else{			
 				String s = "資料 " + productIdStr + "新增成功";
-				pd.insert(pb, is, sizeInBytes);
+//				pd.insert(pb, is, sizeInBytes);
 				toJson = new Gson().toJson(s);
 			}
 			
@@ -134,41 +134,41 @@ public class InsertProduct extends HttpServlet {
                      + fileName.substring(n+1); 
 		return fileName;
 	}
-	public static String getFileName( String fileName) {
-		for (String content : part.getHeader("content-disposition").split(";")) {
-			if (content.trim().startsWith("filename")) {
-				return content.substring(content.indexOf('=') + 1).trim()
-						.replace("\"", "");
-			}
-		}
-		return null;
-	}
-	
-	public void exploreParts(Collection<Part> parts, HttpServletRequest req){
-		try {
-			for (Part part: parts){
-				String name = part.getName();
-				String contentType = part.getContentType();
-				String value = "";
-				long size = part.getSize(); // 上傳資料的大小，即上傳資料的位元組數
-				InputStream is =part.getInputStream();
-				if (contentType != null) {	// 表示該part為檔案
-				   // 取出上傳檔案的檔名
-				   String filename = getFileName(part);
-				// 將上傳的檔案寫入到location屬性所指定的資料夾
-				   part.write(filename);		
-				} else {	// 表示該part為一般的欄位
-				   // 將上傳的欄位資料寫入到location屬性所指定的資料夾，檔名為"part_"+ name
-				   part.write("part_"+ name);	
-				   value = req.getParameter(name);    
-				}
-				System.out.printf("%-15s %-15s %8d  %-20s \n", name, contentType, size, value);
-				
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-	}
+//	public static String getFileName( String fileName) {
+//		for (String content : part.getHeader("content-disposition").split(";")) {
+//			if (content.trim().startsWith("filename")) {
+//				return content.substring(content.indexOf('=') + 1).trim()
+//						.replace("\"", "");
+//			}
+//		}
+//		return null;
+//	}
+//	
+//	public void exploreParts(Collection<Part> parts, HttpServletRequest req){
+//		try {
+//			for (Part part: parts){
+//				String name = part.getName();
+//				String contentType = part.getContentType();
+//				String value = "";
+//				long size = part.getSize(); // 上傳資料的大小，即上傳資料的位元組數
+//				InputStream is =part.getInputStream();
+//				if (contentType != null) {	// 表示該part為檔案
+//				   // 取出上傳檔案的檔名
+////				   String filename = getFileName(part);
+//				// 將上傳的檔案寫入到location屬性所指定的資料夾
+//				   part.write(filename);		
+//				} else {	// 表示該part為一般的欄位
+//				   // 將上傳的欄位資料寫入到location屬性所指定的資料夾，檔名為"part_"+ name
+//				   part.write("part_"+ name);	
+//				   value = req.getParameter(name);    
+//				}
+//				System.out.printf("%-15s %-15s %8d  %-20s \n", name, contentType, size, value);
+//				
+//			}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//	}
 	
 }

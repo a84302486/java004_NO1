@@ -47,16 +47,17 @@ import _00_Util.GlobalService;
 		* 1024 * 500 * 5)
 public class InsertProduct2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doPost(request, response);
 	}
-	
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
-
-
+		
 		ProductDAO pd = new ProductDAO();
 
 		// 準備存放錯誤訊息的 List 物件
@@ -72,7 +73,7 @@ public class InsertProduct2 extends HttpServlet {
 		String fileNameStr = "";
 		int PGPrice = 0;
 		double avgCost = 0;
-		int sLife = 0;		
+		int sLife = 0;
 		long sizeInBytes = 0;
 		InputStream is = null;
 
@@ -90,66 +91,65 @@ public class InsertProduct2 extends HttpServlet {
 						} else if (!isInteger(productIdStr)) {
 							errorMsg.add("序號必須是整數");
 						} else if (pd.ifExist(productIdStr)) {
-							errorMsg.add("序號已存在請重新輸入");						
+							errorMsg.add("序號已存在請重新輸入");
 						}
-					}else if (fldName.equals("PGPrice")) {
-							PGPriceStr = value;
-							if (PGPriceStr == null || PGPriceStr.trim().length() == 0) {
-								errorMsg.add("定價必須輸入");
-							} else if (!isInteger(PGPriceStr)) {
-								errorMsg.add("定價必須是整數");
-							} else {
-								PGPrice = Integer.parseInt(PGPriceStr);
-							}
-					} else if (fldName.equals("name")) {
-							nameStr = value;
-							if (nameStr == null || nameStr.trim().length() == 0)
-								errorMsg.add("產品名稱必須輸入");
-					} else if (fldName.equals("avgCost")) {
-							avgCostStr = value;
-							if (avgCostStr == null || avgCostStr.trim().length() == 0) {
-								errorMsg.add("成本必須輸入");
-							} else if (!isDouble(avgCostStr)) {
-								errorMsg.add("成本必須是小數");
-							} else {
-								avgCost = Double.parseDouble(avgCostStr);
-							}
-					} else if (fldName.equals("oPlace")) {
-							oPlaceStr = value;
-							if (oPlaceStr == null || oPlaceStr.trim().length() == 0)
-								errorMsg.add("生產地必須輸入");
-						} else if (fldName.equals("sLife")) {
-							sLifeStr = value;
-							if (sLifeStr == null || sLifeStr.trim().length() == 0) {
-								errorMsg.add("保存期必須輸入");
-							} else if (!isInteger(sLifeStr)) {
-								errorMsg.add("保存期必須是整數");
-							} else {
-								sLife = Integer.parseInt(sLifeStr);
-							}
-						} else if (fldName.equals("suppierId")) {
-							suppierIdStr = value;
-							if (suppierIdStr == null || suppierIdStr.trim().length() == 0)
-								errorMsg.add("供應商必須輸入");
+					} else if (fldName.equals("PGPrice")) {
+						PGPriceStr = value;
+						if (PGPriceStr == null || PGPriceStr.trim().length() == 0) {
+							errorMsg.add("定價必須輸入");
+						} else if (!isInteger(PGPriceStr)) {
+							errorMsg.add("定價必須是整數");
 						} else {
-				
-							System.out.println("123");
-							fileNameStr  = GlobalService.getFileName(p); // 此為圖片檔的檔名;
-							fileNameStr = GlobalService.adjustFileName(fileNameStr,
-									GlobalService.IMAGE_FILENAME_LENGTH);
-
-							if (fileNameStr != null && fileNameStr.trim().length() > 0) {
-								sizeInBytes = p.getSize();
-								is = p.getInputStream();
-							} 
-//							else {
-//								errorMsg.add("必須挑選圖片檔");
-//							}
+							PGPrice = Integer.parseInt(PGPriceStr);
 						}
+					} else if (fldName.equals("name")) {
+						nameStr = value;
+						if (nameStr == null || nameStr.trim().length() == 0)
+							errorMsg.add("產品名稱必須輸入");
+					} else if (fldName.equals("avgCost")) {
+						avgCostStr = value;
+						if (avgCostStr == null || avgCostStr.trim().length() == 0) {
+							errorMsg.add("成本必須輸入");
+						} else if (!isDouble(avgCostStr)) {
+							errorMsg.add("成本必須是小數");
+						} else {
+							avgCost = Double.parseDouble(avgCostStr);
+						}
+					} else if (fldName.equals("oPlace")) {
+						oPlaceStr = value;
+						if (oPlaceStr == null || oPlaceStr.trim().length() == 0)
+							errorMsg.add("生產地必須輸入");
+					} else if (fldName.equals("sLife")) {
+						sLifeStr = value;
+						if (sLifeStr == null || sLifeStr.trim().length() == 0) {
+							errorMsg.add("保存期必須輸入");
+						} else if (!isInteger(sLifeStr)) {
+							errorMsg.add("保存期必須是整數");
+						} else {
+							sLife = Integer.parseInt(sLifeStr);
+						}
+					} else if (fldName.equals("suppierId")) {
+						suppierIdStr = value;
+						if (suppierIdStr == null || suppierIdStr.trim().length() == 0)
+							errorMsg.add("供應商必須輸入");
 					}
+
+				} else {
+			
+					fileNameStr = GlobalService.getFileName(p); // 此為圖片檔的檔名;
+					fileNameStr = GlobalService.adjustFileName(fileNameStr, GlobalService.IMAGE_FILENAME_LENGTH);
+					System.out.println(fileNameStr);
+					if (fileNameStr != null && fileNameStr.trim().length() > 0) {
+						sizeInBytes = p.getSize();
+						is = p.getInputStream();
+					}
+					 else {
+					 errorMsg.add("必須挑選圖片檔");
+					 }
 				}
 			}
-		
+		}
+
 		try (PrintWriter out = response.getWriter();) {
 			String toJson = null;
 
