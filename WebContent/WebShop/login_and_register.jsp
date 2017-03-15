@@ -162,11 +162,11 @@
 										<div class="form-group">
 											<label for="text" class="col-sm-3 control-label">會員帳號</label>
 											<div class="col-sm-8">
-												<input type="text" id="member_Username"
+												<input type="text" id="member_Username" name="member_Username"
 													placeholder="4~20個英數或底線組成的字元" class="form-control">
 
-												<div class="form-group text-center" id='usernameCheckResult'
-													style="height: 2em;"></div>
+												<div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'
+													></div>
 
 
 											</div>
@@ -177,7 +177,7 @@
 												<input type="password" id="Password"
 													placeholder="6～20個數字和英文組成的字元" class="form-control required"
 													name="Password">
-
+												
 											</div>
 											
 										</div>
@@ -186,7 +186,7 @@
 											<div class="col-sm-8">
 												<input type="password" id="Password2" placeholder="再輸入一次密碼"
 													class="form-control required" name="Password2">
-
+											
 
 											</div>
 											
@@ -195,7 +195,9 @@
 											<label for="memberName" class="col-sm-3 control-label">會員姓名</label>
 											<div class="col-sm-8">
 												 <input type="text" id="memberName" placeholder="" class="form-control required">
+												
 											</div>
+											
 											
 										</div>
 										<div class="form-group">
@@ -204,37 +206,27 @@
 												 <input type="email" id="Email" name="Email"
 													placeholder="example@abc.com.tw"
 													class="form-control required email">
+												
 											</div>
 											
 										</div>
 										<div class="form-group">
 											<label for="birthday" class="col-sm-3 control-label">會員生日</label>
 											<div class="col-sm-8">
-												 <input type="date" name="birthday" id="birthday"
-													class="form-control required date">
+												 <input type="date" name="Birthday" id="birthday"
+													class="form-control required date dayCheck">
+												 
 											</div>
 										
 										</div>
-
-
-
 										<div class="form-group">
-											<div class="col-sm-8 col-sm-offset-3">
-												<div class="checkbox">
-													<label> <br> <input type="checkbox"
-														class="required"> <span>我已仔細閱讀並明瞭 「<a
-															href="#">網站使用條款</a>」、 「<a href="#">隱私權政策</a>」、 「<a
-															href="#">免責聲明</a>」
-															等所載內容及其意義，茲同意該等條款規定，並願遵守網站現今、嗣後規範的各種規則。
-													</span>
-													</label>
-												</div>
+											<div class="col-sm-12">
+												<hr class="colorgraph">
 											</div>
-										</div>
-										<!-- /.form-group -->
+										</div>									
 										<div class="form-group">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" class="btn btn-primary btn-block">註
+												<button type="submit" id="register-form-submit" class="btn btn-primary btn-block">註
 													冊</button>
 											</div>
 										</div>
