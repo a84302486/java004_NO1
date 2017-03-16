@@ -53,34 +53,28 @@ $(document).ready(function() {
 	//帳號檢查  
 	//$('#member_Username').blur(usernameCheck);
 //	$('#register-form-submit').click(usernameCheck());
-	$.validator.addMethod("usernameCheck", function(value, element) {
-		var URLs = "usernameCheck.do";
-	
-		var querystring = 'member_Username=' + value;
+	var check ="true";
+	$.validator.addMethod("usernameCheck", function(value) {
+		
 		$.ajax({
-			url : URLs,
-			data : querystring,//$(this).serialize()
+			url : "usernameCheck.do",
+			cache: false,
+			data : {member_Username:value},//$(this).serialize()
 			type : "POST",
 			dataType : 'text',
 
-			success : function(msg) {
-
-				if (/^usable*$/.test(msg)) {
-
-					return true;
-				} else {
-
-					return false;
-				}
-				
-			}
-//			,
-//
-//			error : function(xhr, ajaxOptions, thrownError) {
-//				return false;
-//
-//			}
+			success : function(response){
+		    		check = response;
+					//alert(check);	
+		    }
+			
 		});
+		
+		if(check.match('usable')){
+            return true;
+        }else{  
+            return false;//顯示錯誤訊息      
+        }
 	}, "帳號已註冊");
 	
 
@@ -153,6 +147,10 @@ $(document).ready(function() {
 				maxlength : 20
 			}
 		},//rules
+		validClass: "checked",  
+		success: function(label) {  
+		    label.remove("error").addClass("checked");  
+		},
 		submitHandler : function(form) {
 			//驗證成功之後就會進到這邊：
 			//方法一：直接把表單 POST 或 GET 到你的 Action URL
@@ -164,51 +162,6 @@ $(document).ready(function() {
 
 });
 
-//帳號檢查
-//function usernameCheck() {
-//	var URLs = "usernameCheck.do";
-//	var context = null;
-//	var id = $('#member_Username').val();
-//	var result = $('#usernameCheckResult');
-//
-////	if(!id || id.trim().length==0){
-////		console.log("請輸入帳號");
-////		return;
-////	}
-//	
-//	var querystring = 'member_Username=' + id;
-//	$.ajax({
-//		url : URLs,
-//		data : querystring,//$(this).serialize()
-//		type : "POST",
-//		dataType : 'text',
-//
-//		success : function(msg) {
-//
-//			if (msg.match('usable')) {
-//
-//				context = '<div class="alert-success">帳號 ' + id + '可使用</div>';
-//			} else {
-//
-//				if (msg.match('exist')) {
-//
-//					context = '<div class="alert-danger">帳號 ' + id
-//							+ '已存在</div>';
-//				} 
-//				else {
-//					context = '<div class="alert-danger">請先輸入帳號</div>';
-//				}
-//			}
-//			result.html(context);
-//		},
-//
-//		error : function(xhr, ajaxOptions, thrownError) {
-//			alert('發生錯誤 ' + xhr.status + ' ' + thrownError + ',請洽詢工程師');
-//
-//		}
-//	});
-//
-//}
 
 
 

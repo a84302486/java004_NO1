@@ -1,8 +1,9 @@
 package _01_ProductTest;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Collection;
+import java.io.OutputStream;
+import java.util.Base64;
+import java.util.List;
 import java.util.regex.Pattern;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,31 +30,49 @@ public class SelectProduct extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-
-	
 		request.setCharacterEncoding("UTF-8");
-		
-		ProductDAO pd= new ProductDAO();
 		String productIdStr = request.getParameter("productId");
-		Collection<ProductBean> coll = null;
+
+		ProductDAO pd= new ProductDAO();
+		//list輸出純文字資料
+		List<ProductBean> list = null;
 		response.setContentType("application/json; charset=UTF-8");
+		//輸出圖片資料
+//		String mimeType = getServletContext().getMimeType(fileNameStr);
+//		response.setContentType(mimeType);
+//		String idStr = request.getParameter("id");
+//		System.out.println(idStr);
+//		byte[] bytes = null ;
 		
-		try (PrintWriter out = response.getWriter();) {
+		try (
+			//PrintWriter pw = response.getWriter();
+			OutputStream os = response.getOutputStream();	
+			) {
+			
 			if (productIdStr == null || productIdStr.trim().length() == 0) {
 				System.out.println("判定為null");
-				coll = pd.findAll();	
+				list = pd.findAll();
+//				bytes = pd.getAllImage();
 			} else if (!isInteger(productIdStr)) {
-				// errorMsg.add("必須是整數");
+//				 errorMsg.add("必須是整數");
 				System.out.println("必須是整數");
 			}else {
-				coll = pd.findByPrimaryKey(productIdStr);
+				list = pd.findByPrimaryKey(productIdStr);
+//				bytes = pd.getImage(idStr);
 			}	
-			String toJson = new Gson().toJson(coll);
-			out.println(toJson);
+			
+			
+			//listToJson寫出純文字資料
+			String listToJson = new Gson().toJson(list);
+			os.write(listToJson.getBytes("UTF-8"));	
+			System.out.println(listToJson);
+			//輸出圖片資料
+//			Base64.Encoder be = Base64.getEncoder();
+//			os.write(be.encode(bytes));	
+//			System.out.println(be.encode(bytes));
 		}
 	}
 }
-
 
 // request.setAttribute("productColl", coll);
 // RequestDispatcher rd = request.getRequestDispatcher("SelectAll.jsp");

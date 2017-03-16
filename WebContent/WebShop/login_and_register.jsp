@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/login_and_register.css?v12010">
+<link rel="stylesheet" href="css/login_and_register.css?v017">
 <title>registered</title>
 </head>
 
@@ -248,7 +248,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.validate.js"></script>
 	<script src="js/jquery.ajaxupload.js"></script>
-	<script src="js/login_and_register.js?v005"></script>
+	<script src="js/login_and_register.js?v013"></script>
 </body>
 
 </html>

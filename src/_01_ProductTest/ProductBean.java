@@ -1,8 +1,14 @@
 package _01_ProductTest;
 
-import java.sql.Blob;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
 
-public class ProductBean {
+import com.mysql.jdbc.Blob;
+
+
+public class  ProductBean implements Serializable{
 	private String productId;
 	private int pgPrice;
 	private String name;
@@ -11,7 +17,7 @@ public class ProductBean {
 	private int slife;
 	private String suppierId;
 	private String  fileName;
-	private Blob  coverImage;
+	private Blob  productImage;
 	
 	public ProductBean() {
 	}
@@ -39,6 +45,20 @@ public class ProductBean {
 		this.slife = slife;
 		this.suppierId = suppierId;
 		this.fileName = fileName;
+	}
+	
+	public ProductBean(String productId, int pgPrice, String name, double avgCost, String oplace, int slife,
+			String suppierId, String fileName , Blob  productImage) {
+		super();
+		this.productId = productId;
+		this.pgPrice = pgPrice;
+		this.name = name;
+		this.avgCost = avgCost;
+		this.oplace = oplace;
+		this.slife = slife;
+		this.suppierId = suppierId;
+		this.fileName = fileName;
+		this.productImage = productImage;
 	}
 
 	public String getProductId() {
@@ -104,11 +124,11 @@ public class ProductBean {
 		this.fileName = fileName;
 	}
 	
-	public Blob getCoverImage() {
-		return coverImage;
-	}
-	public void setCoverImage(Blob productImage) {
-		this.coverImage = productImage;
+	public Blob getProductImage() {
+		return productImage;
 	}
 	
+	public void setProductImage(Blob productImage) {
+		this.productImage = productImage;
+	}
 }
