@@ -1,11 +1,37 @@
-
+(function($) {
+	$.extend(
+		$.validator.messages,
+			{
+						required : "*必填欄位",
+						remote : "Please fix this field.",
+						email : "email格式錯誤",
+						url : "Please enter a valid URL.",
+						date : "日期格式錯誤",
+						dateISO : "Please enter a valid date (ISO).",
+						number : "Please enter a valid number.",
+						digits : "Please enter only digits.",
+						equalTo : "密碼不相同",
+						maxlength : $.validator.format("長度最多{0}個字元"),
+						minlength : $.validator.format("長度最少{0}個字元"),
+						rangelength : $.validator
+								.format("Please enter a value between {0} and {1} characters long."),
+						range : $.validator
+								.format("Please enter a value between {0} and {1}."),
+						max : $.validator
+								.format("Please enter a value less than or equal to {0}."),
+						min : $.validator
+								.format("Please enter a value greater than or equal to {0}."),
+						step : $.validator
+								.format("Please enter a multiple of {0}.")
+					});
+}(jQuery));
 
 $(document).ready(function() {
 
-    $('#login-form-link').click(function(e) {
+	$('#login-form-link').click(function(e) {
 
 		$("#login-form").delay(100).fadeIn(100);
- 		$("#register-form").fadeOut(100);
+		$("#register-form").fadeOut(100);
 		$('#register-form-link').removeClass('active');
 		$(this).addClass('active');
 		e.preventDefault();
@@ -13,158 +39,160 @@ $(document).ready(function() {
 	$('#register-form-link').click(function(e) {
 
 		$("#register-form").delay(100).fadeIn(100);
- 		$("#login-form").fadeOut(100);
+		$("#login-form").fadeOut(100);
 		$('#login-form-link').removeClass('active');
 		$(this).addClass('active');
 		e.preventDefault();
 	});
 
 	//Handles menu drop down
-    $('.dropdown-menu').find('form').click(function (e) {
-        e.stopPropagation();
-    });
-    
-    //帳號檢查
-   
-    $('#member_Username').blur(function(){
-    	var URLs = "usernameCheck.do";
-        var context = null;
-        var id = $(this).val();
-        var result = $('#usernameCheckResult');
-        if(!id){
-        	//沒有輸入帳號馬上回傳錯誤訊息
-        	context='<div class="alert-danger">請先輸入帳號</div>';
-        	result.html(context);
-        
-        	return;
-        }
-        if(!input_Check.Validate.chkAccount(id)){
-        	context='<div class="alert-danger">4~20個英數或底線組成的字元</div>';
-        	result.html(context);
-        
-        	return;
-        }
-        var querystring = 'Username='+id;
-        $.ajax({
-            url: URLs,
-            data: querystring,//$(this).serialize()
-            type:"POST",
-            dataType:'text',
-
-            success: function(msg){
-            	
-                if(msg.match('usable')){
-                	
-                	context='<div class="alert-success">帳號 '+id+'可使用</div>';
-                }else{
-                
-                	if(msg.match('exist')){
-                		
-                	context='<div class="alert-danger">帳號 '+id+'已存在</div>';	
-                	}else{
-                	context='<div class="alert-danger">請先輸入帳號</div>';	
-                	}
-                }
-                result.html(context);
-            },
-
-             error:function(xhr, ajaxOptions, thrownError){ 
-                alert('發生錯誤 '+xhr.status+' '+thrownError+',請洽詢工程師'); 
-                
-             }
-        });
-    });
-    
-    
-   
-   
-    
-});
-
-
-$(function(){
-
+	$('.dropdown-menu').find('form').click(function(e) {
+		e.stopPropagation();
+	});
+	
+	//帳號檢查  
+	$('#member_Username').blur(usernameCheck());
+//	$('#register-form-submit').click(usernameCheck());
+//	$.validator.addMethod("usernameCheck", function(value, element) {
+//		var URLs = "usernameCheck.do";
+//	
+//		var querystring = 'member_Username=' + value;
+//		$.ajax({
+//			url : URLs,
+//			data : querystring,//$(this).serialize()
+//			type : "POST",
+//			dataType : 'text',
+//
+//			success : function(msg) {
+//
+//				if (msg.match('usable')) {
+//
+//					return true;
+//				} else {
+//
+//					return false;
+//				}
+//				
+//			},
+//
+//			error : function(xhr, ajaxOptions, thrownError) {
+//				return false;
+//
+//			}
+//		});
+//	}, "帳號已存在");
 	
 	
+	//生日檢查
+	$.validator.addMethod("dayCheck", function(value, element) {
+		var dtToday = new Date();
+		var mydate = new Date(value);
+		var result;
+		if (mydate <= dtToday) {
+			result = true;
+		} else { //日期必需要小於今天
+			result = false;
+		}
+		return this.optional(element) || result;
+	}, "生日輸入錯誤");
+	
+	$.validator.addMethod("atoz_number", function (value, element) {
+        if (/^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$/.test(value)) {
+            return true;
+        } else {
+            return false;
+        };
+    }, "英文字母和數字組成");
+	
+
+	//註冊欄位檢查
 	$("#register-form").validate({
-		rules:{
-			Password: {
-				minlength: 6
+		
+		event: "keyup",
+		errorPlacement : function(error, element) {
+			
+			error.addClass("col-sm-8 col-sm-offset-4 alert-danger text-center");
+			element.after(error);
+		},
+		rules : {
+			member_Username:{
+				minlength : 4,
+				maxlength : 20
+			},
+			Password:{
+				minlength : 6,
+				maxlength : 20
 			},
 			Password2:{
-				minlength: 6,equalTo: "#Password"
+				minlength : 6,
+				maxlength : 20,
+				equalTo : "#Password"
 			},
 			Name:{
-					
+				maxlength : 20
+			},
+			Email:{
+				maxlength : 20
 			}
+		},//rules
+		submitHandler : function(form) {
+			//驗證成功之後就會進到這邊：
+			//方法一：直接把表單 POST 或 GET 到你的 Action URL
+			//方法二：讀取某些欄位的資料，ajax 給別的 API。
+			//此處測試方法一的寫法如下：
+			$(this).submit();
 		}
 	});
+
 });
 
+//帳號檢查
+function usernameCheck() {
+	var URLs = "usernameCheck.do";
+	var context = null;
+	var id = $('#member_Username').val();
+	var result = $('#usernameCheckResult');
 
-//輸入檢查
+//	if(!id || id.trim().length==0){
+//		console.log("請輸入帳號");
+//		return;
+//	}
+	
+	var querystring = 'member_Username=' + id;
+	$.ajax({
+		url : URLs,
+		data : querystring,//$(this).serialize()
+		type : "POST",
+		dataType : 'text',
 
-//input_Check.Validate 
-//isEmail:email格式檢查 return true、false 
-//isDate:日期格式檢查 return true、false 
-//chkAccount:檢查帳號必須為英數或底線組成，且必須為4碼以上 
-//chkPassword:6～20個字元，需包含數字及英文，勿使用特殊字元或符號 
-//----------------------------------------------------------------
-//input_Check.String 
-//trimSymbol:去除字串左右兩邊的指定符號  
-//ex: Check.String.trimSymbol(',test,', ","); // test 
-//----------------------------------------------------------------
-input_Check = {
-	    Validate: {
-	        isEmail: function (para) {
-	            return para == '' ? false : !(!/^[^\s]+@[^\s]+\.[^\s]{2,3}$/.test(para));
-	        }, isDate: function (para) {
-	            try {
-	                var D, d = para.split(/\D+/);
-	                d[0] *= 1;
-	                d[1] -= 1;
-	                d[2] *= 1;
-	                D = new Date(d[0], d[1], d[2]);
-	                return (D.getFullYear() == d[0] && D.getMonth() == d[1] && D.getDate() == d[2]) ? true : false;
-	            }
-	            catch (er) {
-	                return false;
-	            }
-	        }, chkAccount: function (para) {
-	            return para == '' ? false : /^[0-9a-zA-Z_]{4,20}$/.test(para);
-	        }, chkPassword: function (para) {
-	            return para == '' ? false : /(?=^.{6,20}$)(?=.*[a-zA-Z])(?=.*[0-9])(?!.*\s).*$/.test(para);
-	        }
-	    }, String: {
-	        trimSymbol: function (para, symbol) {
-	            return (para == '' || symbol == '') ? '' : (function () {
-	                para = para.substr(0, 1) == symbol ? para.substr(1, para.length - 1) : para;
-	                para = para.substr(para.length - 1, 1) == symbol ? para.substr(0, para.length - 1) : para;
-	                return para;
-	            })(para);
-	        }
-	    }, DateAndTime: {
-	        dateAdd: function (timeU, byMany, dateObj) {
-	            var millisecond = 1;
-	            var second = millisecond * 1000;
-	            var minute = second * 60;
-	            var hour = minute * 60;
-	            var day = hour * 24;
-	            var year = day * 365;
+		success : function(msg) {
 
-	            var newDate;
-	            var dVal = dateObj.valueOf();
-	            switch (timeU) {
-	                case "ms": newDate = new Date(dVal + millisecond * byMany); break;
-	                case "s": newDate = new Date(dVal + second * byMany); break;
-	                case "mi": newDate = new Date(dVal + minute * byMany); break;
-	                case "h": newDate = new Date(dVal + hour * byMany); break;
-	                case "d": newDate = new Date(dVal + day * byMany); break;
-	                case "y": newDate = new Date(dVal + year * byMany); break;
-	            }
-	            return newDate;
-	        }, getDateFormat: function (nextDate) {
-	            return nextDate.getFullYear() + "/" + (nextDate.getMonth() + 1) + "/" + nextDate.getDate();
-	        }
-	    }
-	}
+			if (msg.match('usable')) {
+
+				context = '<div class="alert-success">帳號 ' + id + '可使用</div>';
+			} else {
+
+				if (msg.match('exist')) {
+
+					context = '<div class="alert-danger">帳號 ' + id
+							+ '已存在</div>';
+				} 
+//				else {
+//					context = '<div class="alert-danger">請先輸入帳號</div>';
+//				}
+			}
+			result.html(context);
+		},
+
+		error : function(xhr, ajaxOptions, thrownError) {
+			alert('發生錯誤 ' + xhr.status + ' ' + thrownError + ',請洽詢工程師');
+
+		}
+	});
+
+}
+
+
+
+
+

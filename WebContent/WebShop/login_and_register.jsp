@@ -6,14 +6,14 @@
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset=UTF-8>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
 	rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lato"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/login_and_register.css?v1">
+<link rel="stylesheet" href="css/login_and_register.css?v12010">
 <title>registered</title>
 </head>
 
@@ -155,18 +155,18 @@
 
 
 									<form id="register-form" method="post" role="form"
-										style="display: none;">
+										style="display: none;"  action="POST的網址" enctype="multipart/form-data" class="form-horizontal">
 										<!-- 									<form class="form-horizontal" role="form"> -->
 
 
 										<div class="form-group">
 											<label for="text" class="col-sm-3 control-label">會員帳號</label>
 											<div class="col-sm-8">
-												<input type="text" id="member_Username"
-													placeholder="4~20個英數或底線組成的字元" class="form-control">
+												<input type="text" id="member_Username" 
+													placeholder="4~20個英數組成的字元" class="form-control required usernameCheck atoz_number" name="member_Username">
 
-												<div class="form-group text-center" id='usernameCheckResult'
-													style="height: 2em;"></div>
+												<div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'
+													></div>
 
 
 											</div>
@@ -175,68 +175,58 @@
 											<label for="Password" class="col-sm-3 control-label">會員密碼</label>
 											<div class="col-sm-8">
 												<input type="password" id="Password"
-													placeholder="6～20個數字和英文組成的字元" class="form-control"
+													placeholder="6～20個數字和英文組成的字元" class="form-control required atoz_number"
 													name="Password">
-
+												
 											</div>
-											<br>
+											
 										</div>
 										<div class="form-group">
 											<label for="Password2" class="col-sm-3 control-label">密碼確認</label>
 											<div class="col-sm-8">
 												<input type="password" id="Password2" placeholder="再輸入一次密碼"
-													class="form-control" name="Password2">
-
+													class="form-control required atoz_number" name="Password2">
+											
 
 											</div>
-											<br>
+											
 										</div>
-										<div class="form-group">
+									    <div class="form-group">
 											<label for="Name" class="col-sm-3 control-label">會員姓名</label>
 											<div class="col-sm-8">
-												<input type="text" id="Name" placeholder=""
-													class="form-control required">
+												 <input type="text" id="Name" placeholder="" class="form-control required" name="Name">
+												
 											</div>
-											<br>
+											
+											
 										</div>
-
 										<div class="form-group">
-											<label for="Email" class="col-sm-3 control-label"><br>電子信箱</label>
+											<label for="Email" class="col-sm-3 control-label">電子信箱</label>
 											<div class="col-sm-8">
-												<br> <input type="email" id="EMail" name="Email"
+												 <input type="email" id="Email" name="Email"
 													placeholder="example@abc.com.tw"
 													class="form-control required email">
+												
 											</div>
-											<br>
+											
 										</div>
 										<div class="form-group">
-											<label for="birthday" class="col-sm-3 control-label"><br>會員生日</label>
+											<label for="birthday" class="col-sm-3 control-label">會員生日</label>
 											<div class="col-sm-8">
-												<br> <input type="date" name="birthday" id="birthday"
-													class="form-control required date">
+												 <input type="date" name="Birthday" id="birthday"
+													class="form-control required date dayCheck">
+												 
 											</div>
-											<br>
+										
 										</div>
-
-
-
 										<div class="form-group">
-											<div class="col-sm-8 col-sm-offset-3">
-												<div class="checkbox">
-													<label> <br> <input type="checkbox"
-														class="required"> <span>我已仔細閱讀並明瞭 「<a
-															href="#">網站使用條款</a>」、 「<a href="#">隱私權政策</a>」、 「<a
-															href="#">免責聲明</a>」
-															等所載內容及其意義，茲同意該等條款規定，並願遵守網站現今、嗣後規範的各種規則。
-													</span>
-													</label>
-												</div>
+											<div class="col-sm-12">
+												<hr class="colorgraph">
 											</div>
-										</div>
-										<!-- /.form-group -->
+										</div>									
 										<div class="form-group">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" class="btn btn-primary btn-block">註
+												<button type="submit" id="register-form-submit" class="btn btn-primary btn-block">註
 													冊</button>
 											</div>
 										</div>
@@ -260,7 +250,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.validate.js"></script>
 	<script src="js/jquery.ajaxupload.js"></script>
-	<script src="js/login_and_register.js"></script>
+	<script src="js/login_and_register.js?v005"></script>
 </body>
 
 </html>
