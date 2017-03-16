@@ -32,7 +32,7 @@ public class UsernameCheck extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 		MemberDAO rs = new MemberDAO();
-		String M_Username = request.getParameter("Username");		
+		String M_Username = request.getParameter("member_Username");		
 		System.out.println("收到Username = "+M_Username);
 	
 		request.setCharacterEncoding("UTF-8");

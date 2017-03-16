@@ -6,14 +6,14 @@
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset=UTF-8>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
 	rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lato"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/login_and_register.css?v1">
+<link rel="stylesheet" href="css/login_and_register.css?v12010">
 <title>registered</title>
 </head>
 
@@ -155,15 +155,15 @@
 
 
 									<form id="register-form" method="post" role="form"
-										style="display: none;"  action="POST的網址" enctype="multipart/form-data">
+										style="display: none;"  action="POST的網址" enctype="multipart/form-data" class="form-horizontal">
 										<!-- 									<form class="form-horizontal" role="form"> -->
 
 
 										<div class="form-group">
 											<label for="text" class="col-sm-3 control-label">會員帳號</label>
 											<div class="col-sm-8">
-												<input type="text" id="member_Username" name="member_Username"
-													placeholder="4~20個英數或底線組成的字元" class="form-control">
+												<input type="text" id="member_Username" 
+													placeholder="4~20個英數組成的字元" class="form-control required usernameCheck atoz_number" name="member_Username">
 
 												<div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'
 													></div>
@@ -175,7 +175,7 @@
 											<label for="Password" class="col-sm-3 control-label">會員密碼</label>
 											<div class="col-sm-8">
 												<input type="password" id="Password"
-													placeholder="6～20個數字和英文組成的字元" class="form-control required"
+													placeholder="6～20個數字和英文組成的字元" class="form-control required atoz_number"
 													name="Password">
 												
 											</div>
@@ -185,16 +185,16 @@
 											<label for="Password2" class="col-sm-3 control-label">密碼確認</label>
 											<div class="col-sm-8">
 												<input type="password" id="Password2" placeholder="再輸入一次密碼"
-													class="form-control required" name="Password2">
+													class="form-control required atoz_number" name="Password2">
 											
 
 											</div>
 											
 										</div>
 									    <div class="form-group">
-											<label for="memberName" class="col-sm-3 control-label">會員姓名</label>
+											<label for="Name" class="col-sm-3 control-label">會員姓名</label>
 											<div class="col-sm-8">
-												 <input type="text" id="memberName" placeholder="" class="form-control required">
+												 <input type="text" id="Name" placeholder="" class="form-control required" name="Name">
 												
 											</div>
 											
@@ -250,7 +250,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.validate.js"></script>
 	<script src="js/jquery.ajaxupload.js"></script>
-	<script src="js/login_and_register.js"></script>
+	<script src="js/login_and_register.js?v005"></script>
 </body>
 
 </html>

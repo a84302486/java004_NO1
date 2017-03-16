@@ -2,7 +2,7 @@
 	$.extend(
 		$.validator.messages,
 			{
-						required : "必填欄位",
+						required : "*必填欄位",
 						remote : "Please fix this field.",
 						email : "email格式錯誤",
 						url : "Please enter a valid URL.",
@@ -49,7 +49,40 @@ $(document).ready(function() {
 	$('.dropdown-menu').find('form').click(function(e) {
 		e.stopPropagation();
 	});
-
+	
+	//帳號檢查  
+	$('#member_Username').blur(usernameCheck());
+//	$('#register-form-submit').click(usernameCheck());
+//	$.validator.addMethod("usernameCheck", function(value, element) {
+//		var URLs = "usernameCheck.do";
+//	
+//		var querystring = 'member_Username=' + value;
+//		$.ajax({
+//			url : URLs,
+//			data : querystring,//$(this).serialize()
+//			type : "POST",
+//			dataType : 'text',
+//
+//			success : function(msg) {
+//
+//				if (msg.match('usable')) {
+//
+//					return true;
+//				} else {
+//
+//					return false;
+//				}
+//				
+//			},
+//
+//			error : function(xhr, ajaxOptions, thrownError) {
+//				return false;
+//
+//			}
+//		});
+//	}, "帳號已存在");
+	
+	
 	//生日檢查
 	$.validator.addMethod("dayCheck", function(value, element) {
 		var dtToday = new Date();
@@ -62,37 +95,53 @@ $(document).ready(function() {
 		}
 		return this.optional(element) || result;
 	}, "生日輸入錯誤");
-	//帳號檢查  
-	$('#member_Username').blur(usernameCheck());
+	
+	$.validator.addMethod("atoz_number", function (value, element) {
+        if (/^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$/.test(value)) {
+            return true;
+        } else {
+            return false;
+        };
+    }, "英文字母和數字組成");
+	
 
 	//註冊欄位檢查
 	$("#register-form").validate({
+		
+		event: "keyup",
+		errorPlacement : function(error, element) {
+			
+			error.addClass("col-sm-8 col-sm-offset-4 alert-danger text-center");
+			element.after(error);
+		},
+		rules : {
+			member_Username:{
+				minlength : 4,
+				maxlength : 20
+			},
+			Password:{
+				minlength : 6,
+				maxlength : 20
+			},
+			Password2:{
+				minlength : 6,
+				maxlength : 20,
+				equalTo : "#Password"
+			},
+			Name:{
+				maxlength : 20
+			},
+			Email:{
+				maxlength : 20
+			}
+		},//rules
 		submitHandler : function(form) {
 			//驗證成功之後就會進到這邊：
 			//方法一：直接把表單 POST 或 GET 到你的 Action URL
 			//方法二：讀取某些欄位的資料，ajax 給別的 API。
 			//此處測試方法一的寫法如下：
-			//            form.submit();
-		},
-		errorPlacement : function(error, element) {
-			//你可以自己決定錯誤訊息要放在什麼地方
-			//預設的是 element.after(error);
-			//alert(error);
-			error.addClass("col-sm-6 col-sm-offset-3 alert-danger");
-			element.after(error);
-		},
-		rules : {
-			Password : {
-				minlength : 6,
-				maxlength : 20
-			},
-			Password2 : {
-				minlength : 6,
-				maxlength : 20,
-				equalTo : "#Password"
-			}
-
-		}//rules
+			$(this).submit();
+		}
 	});
 
 });
@@ -103,20 +152,13 @@ function usernameCheck() {
 	var context = null;
 	var id = $('#member_Username').val();
 	var result = $('#usernameCheckResult');
-	if (!id) {
-		//沒有輸入帳號馬上回傳錯誤訊息
-		context = '<div class="alert-danger">請先輸入帳號</div>';
-		result.html(context);
 
-		return;
-	}
-	if (!input_Check.Validate.chkAccount(id)) {
-		context = '<div class="alert-danger">4~20個英數或底線組成的字元</div>';
-		result.html(context);
-
-		return;
-	}
-	var querystring = 'Username=' + id;
+//	if(!id || id.trim().length==0){
+//		console.log("請輸入帳號");
+//		return;
+//	}
+	
+	var querystring = 'member_Username=' + id;
 	$.ajax({
 		url : URLs,
 		data : querystring,//$(this).serialize()
@@ -134,9 +176,10 @@ function usernameCheck() {
 
 					context = '<div class="alert-danger">帳號 ' + id
 							+ '已存在</div>';
-				} else {
-					context = '<div class="alert-danger">請先輸入帳號</div>';
-				}
+				} 
+//				else {
+//					context = '<div class="alert-danger">請先輸入帳號</div>';
+//				}
 			}
 			result.html(context);
 		},
