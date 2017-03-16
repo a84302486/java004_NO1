@@ -4,7 +4,6 @@
 	height: 15em;
 }
 
-
 /* cart-trigger */
 .cd-img-replace {
   display: inline-block;
@@ -12,8 +11,6 @@
   text-indent: 100%;
   white-space: nowrap;
 }
-
-
 #cd-cart-trigger {
   position: absolute;
   top: 0;
@@ -34,7 +31,7 @@
   position: fixed;
   top: 0;
   height: 100%;
-  width: 200px;
+  width:180px;
   /* header height */
   padding-top: 50px;
   overflow-y: auto;
@@ -111,4 +108,19 @@
   background: #7dcf85;
   color: #FFF;
   text-align: center;
+}
+
+.cartCount{
+    position: absolute;
+    top: 22px;
+    right: 50px;
+    height: 28px;
+    width: 28px;
+    background: #e94b35;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    text-align: center;
+
 }

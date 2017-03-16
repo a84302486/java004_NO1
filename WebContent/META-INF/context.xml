@@ -2,6 +2,7 @@
 <Context displayName="Java004NO1" docBase="eDM" path="/eDM" reloadable="true">
   <!--  請注意，此標籤的寫法不能用於 tomcat 5.x             -->
   <!--                  SQLServer2005, 2008                 -->                  
+
   <Resource name="jdbc/Java004" type="javax.sql.DataSource"
        username="root" password="215060"
       driverClassName="com.mysql.jdbc.Driver"
@@ -10,5 +11,6 @@
       maxActive="8"
       maxIdle="4"
       maxWait="5000" 
-  />   
+  />  
 </Context>
+

@@ -76,17 +76,21 @@
         <!-- .side-cart -->
 		<div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">購物車</a></div>
 		<!-- /.side-cart -->
+		<!-- cart items count -->
+		<span class="cartCount">0</span> 
     </nav>
 
-<!-- .side-cart -->
+	<!-- .side-cart -->
 	<div id="cd-cart">
 		<h2>購物車</h2>
 		<ul class="cd-cart-items"></ul> 
-	<!-- cd-cart-items -->
-
+		<!-- cd-cart-items -->
+		
+		<!-- cd-cart-total -->
 		<div class="cd-cart-total">
+			<p>總數量:<span>0</span></p>
 			<b>總計  NT :<span>0</span></b>
-		</div> <!-- cd-cart-total -->
+		</div> 
 
 		<a href="cartEdit.html" class="checkout-btn">結算</a>
 		
@@ -117,7 +121,7 @@
 
         <!-- Page Features -->
         <div id="warp" class="row text-center">
-
+         	
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
                     <img src="images/beaf.jpg" alt="">
@@ -133,7 +137,21 @@
                     </div>
                 </div>
             </div>
-
+			<div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="images/chicken.jpg" alt="">
+                    <div class="caption">
+						<span class="name">雞肉</span>: NT<span class="price">200 </span>
+                        <p>包裝:</p>
+                        <p>
+                            <button id="2" class="btn btn-primary">加入購物車
+								<input type="hidden" value="雞肉|images/chicken.jpg|200">
+							</button> 
+							<a href="#" class="btn btn-default">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
 		
         </div>
         <!-- /.row -->

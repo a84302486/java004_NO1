@@ -26,6 +26,7 @@ function setTab() {
 	});
 };
 
+//Insert:新增該Form文字與圖片資料,並由Servelet回傳是否成功的json字串,再顯示至畫面-----
 $(document).on("click", "#upLoadPic", function() {
 	$('#form1').ajaxForm({
 		type : 'POST',
@@ -95,16 +96,18 @@ function getAction(action, tagId) {
 		}
 		xhr.open("POST", action, true);
 		xhr.send();
-//		 var url = 'http://localhost:8080/java004/js/product_new2.js';
-//		 $.getScript( url, function() {
-//		 setTab();
-//		 });
+		 var url = 'http://localhost:8080/java004/js/product_new2.js';
+		 $.getScript( url, function() {
+		 setTab();
+		 });
 
 	} else {
 		showResult.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
 	}
-
+	
 }
+
+
 
 // Select讀取透過Servelet取出的Json資料,替換Section內容------------------------------
 function getQueryData(servelet) {
@@ -123,8 +126,9 @@ function getQueryData(servelet) {
 
 			var content = "<table>" + "<tr><td></td>" + "<td>序號</td>"
 					+ "<td>定價</td>" + "<td>名稱</td>" + "<td>成本</td>"
-					+ "<td>生產地</td>" + "<td>保存期</td>" + "<td>供應商</td></tr>";
-
+					+ "<td>生產地</td>" + "<td>保存期</td>" + "<td>供應商</td>"
+					+ "<td>圖檔名</td><td>圖片</td></tr>";
+			
 			var data = JSON.parse(xhr.responseText);
 			for (var i = 0; i < data.length; i++) {
 				content += "<tr><td><input type=radio name=productId value="
@@ -132,8 +136,14 @@ function getQueryData(servelet) {
 						+ data[i].productId + "</td>" + "<td>"
 						+ data[i].pgPrice + "</td>" + "<td>" + data[i].name
 						+ "</td>" + "<td>" + data[i].avgCost + "</td>" + "<td>"
-						+ data[i].oplace + "</td>" + "<td>" + data[i].slife
-						+ "</td>" + "<td>" + data[i].suppierId + "</td></tr>";
+						+ data[i].oplace + "</td>" + "<td>" + data[i].slife + "</td>"
+						+ "<td>" + data[i].suppierId + "</td>"
+						+ "<td>" + data[i].fileName + "</td>"
+						+ "<td><img height=60 width=60 id=target " 
+						+ "src=http://localhost:8080/java004/_01_ProductTest/getImage?id=" 
+						+ data[i].productId + ">"
+						+ "</td>"
+						+ "</tr>";
 			}
 			content += "</table>";
 			var result = document.getElementById("showResult");
@@ -141,8 +151,21 @@ function getQueryData(servelet) {
 		}
 	}
 }
-// Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
 
+//Select讀取透過Servelet取出的Base64格式圖片------------------------------
+$(document).ready(function(){
+    $("#btn").click(function(){
+    	$.get("getPicture.do", function (rawImageData) {
+    		// src屬性必須俱備下列格式:
+    	    // data:[MIME-TYPE];base64,[經由Base64編碼的非文字檔]
+    	    $("#target").attr("src","data:image/jpeg;base64," + rawImageData);
+//    		$("#target").attr("src", rawImageData);
+
+    	});
+    });
+});
+
+// Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
 $(document).on("click",'.delete',function() {
 			var setServlet;
 			var getName = $('input:checked').attr('name');
