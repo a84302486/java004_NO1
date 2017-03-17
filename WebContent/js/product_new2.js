@@ -99,15 +99,13 @@ function getAction(action, tagId) {
 		 var url = 'http://localhost:8080/java004/js/product_new2.js';
 		 $.getScript( url, function() {
 		 setTab();
+		 alert("123");
 		 });
 
 	} else {
 		showResult.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
 	}
-	
 }
-
-
 
 // Select讀取透過Servelet取出的Json資料,替換Section內容------------------------------
 function getQueryData(servelet) {
@@ -131,19 +129,17 @@ function getQueryData(servelet) {
 			
 			var data = JSON.parse(xhr.responseText);
 			for (var i = 0; i < data.length; i++) {
-				content += "<tr><td><input type=radio name=productId value="
-						+ data[i].productId + "></td>" + "<td>"
-						+ data[i].productId + "</td>" + "<td>"
-						+ data[i].pgPrice + "</td>" + "<td>" + data[i].name
-						+ "</td>" + "<td>" + data[i].avgCost + "</td>" + "<td>"
-						+ data[i].oplace + "</td>" + "<td>" + data[i].slife + "</td>"
+				content += "<tr><td><input type=radio name=productId value=" 
+						+ data[i].productId +" onclick=radCheck(this);></td>"
+						+ "<td>" + data[i].productId + "</td>" 
+						+ "<td>" + data[i].pgPrice + "</td>" + "<td>" + data[i].name+ "</td>" 
+						+ "<td>" + data[i].avgCost + "</td>" 
+						+ "<td>" + data[i].oplace + "</td>" + "<td>" + data[i].slife + "</td>"
 						+ "<td>" + data[i].suppierId + "</td>"
 						+ "<td>" + data[i].fileName + "</td>"
-						+ "<td><img height=60 width=60 id=target " 
+						+ "<td> <img height=60 width=60 id=target " 
 						+ "src=http://localhost:8080/java004/_01_ProductTest/getImage?id=" 
-						+ data[i].productId + ">"
-						+ "</td>"
-						+ "</tr>";
+						+ data[i].productId + "></td></tr>";
 			}
 			content += "</table>";
 			var result = document.getElementById("showResult");
@@ -152,35 +148,16 @@ function getQueryData(servelet) {
 	}
 }
 
-//Select讀取透過Servelet取出的Base64格式圖片------------------------------
-$(document).ready(function(){
-    $("#btn").click(function(){
-    	$.get("getPicture.do", function (rawImageData) {
-    		// src屬性必須俱備下列格式:
-    	    // data:[MIME-TYPE];base64,[經由Base64編碼的非文字檔]
-    	    $("#target").attr("src","data:image/jpeg;base64," + rawImageData);
-//    		$("#target").attr("src", rawImageData);
-
-    	});
-    });
-});
-
 // Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
 $(document).on("click",'.delete',function() {
 			var setServlet;
 			var getName = $('input:checked').attr('name');
 			var selected = $("input[name=" + getName + "]:checked").val();
-			if (getName == "productId") {
-				setServlet = "DeleteProduct.do";
-			} else if (getName == "tasteId") {
-				setServlet = "DeleteTaste.do";
-			} else if (getName == "member") {
-				setServlet = "";
-			}
+
 			if (selected != null) { // 如果有被選取,不是空值
 				if (confirm("確定要刪除" + selected + "嗎?")) {
 					var xhr = new XMLHttpRequest();
-					xhr.open("POST", setServlet, true);// send要傳參數一定要用POST
+					xhr.open("POST", "DeleteProduct.do", true);// send要傳參數一定要用POST
 					xhr.setRequestHeader("Content-type",
 							"application/x-www-form-urlencoded");
 					xhr.send(getName + "=" + selected);
@@ -192,64 +169,24 @@ $(document).on("click",'.delete',function() {
 							getQueryData('SelectProduct.do');
 						}
 					}
-				}
-				return false;
+				}	
 			} else {
 				alert("請選勾選要刪除的資料");
-				return false;
 			}
 		});
 
-// Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
-// $(function(){
-// $('.delete').click(function(){
-// var setServlet;
-// var getName = $('input:checked').attr('name');
-// var selected = $("input[name="+getName+"]:checked").val();
-// if(getName == "productId"){
-// setServlet="DeleteProduct.do";
-// } else if(getName == "tasteId"){
-// setServlet="DeleteTaste.do";
-// } else if(getName == "member"){
-// setServlet="";
-// }
-// if (selected!=null) { //如果有被選取,不是空值
-// if (confirm("確定要刪除"+selected+"嗎?")) {
-// var xhr = new XMLHttpRequest();
-// xhr.open("POST", setServlet , true);// send要傳參數一定要用POST
-// xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-// xhr.send(getName+"="+selected);
-// xhr.onreadystatechange = function() {
-// if (xhr.readyState == 4 && xhr.status == 200) {
-// var data = JSON.parse(xhr.responseText);
-// var result = document.getElementById("showDAOJsp");
-// result.innerHTML = "<h3>" + data + "<h3>";
-// getQueryData('SelectProduct.do');
-// }
-// }
-// }
-// }else{
-// alert("請選勾選要刪除的資料");
-// return;
-// }
-// });
-// });
-
 // Update:取出被點選的radio內的值,並傳到updata畫面內對應的input:value內
 function getData() {
-	var setServlet;
 	var getName = $('input:checked').attr('name');
 	var selected = $("input[name=" + getName + "]:checked").val();
 
-	if (selected != null) { // 如果有被選取,不是空值
-
+	if (selected != null) { // 如果有被選取,不是空值		
 		if (confirm("確定要選取" + selected + "嗎?")) {
 			var TextArray = new Array();
-			for (i = 1; i < $('.highlight > td').size(); i++) {
+			for (i = 1; i < $('.highlight > td').length; i++) {
 				TextArray[i] = $(".highlight > td:eq(" + i + ")").text();
 			}
-
-			for (i = 0; i <= $('#updateTable :input').size(); i++) {
+			for (i = 0; i <= $('#updateTable :input').length; i++) {
 				$("#updateTable input:eq(" + i + ")").val(TextArray[i + 1]);
 			}
 		}
@@ -277,14 +214,13 @@ function getUpdateData(servelet) {
 
 // 被點選的Radio改變背景顏色-------------------------
 function radCheck(obj) {
-	$('input:radio').change(
-			function() {
-				// $(this).parent().toggleClass("highlight");//切換背景色彩
-				if ($(this).is(':checked')) {// 判斷checkbox是否勾選
-					$(this).parent().parent().addClass('highlight').siblings()
-							.removeClass('highlight');// 被點擊的增加CSS樣式並移除其他radio的CSS樣式
-				}
-			});
+	$('input:radio').change(function() {
+	// $(this).parent().toggleClass("highlight");//切換背景色彩
+	if ($(this).is(':checked')) {// 判斷checkbox是否勾選
+		$(this).parent().parent().addClass('highlight').siblings()
+		.removeClass('highlight');// 被點擊的增加CSS樣式並移除其他radio的CSS樣式
+		}
+	});
 }
 
 // 以下功能無使用------------------------------------------------------
@@ -296,3 +232,19 @@ function radCheck(obj) {
 // });
 // });
 
+
+//content +="<div class='col-md-3 col-sm-6 hero-feature'>"
+//	+ 	"<div class=thumbnail>"
+//	+ 		"<img src=" + getSrc + data[i].productId + "alt>"
+//	+ 			"<div class=caption>"
+//	+ 				"<span class=name>" + data[i].name + "</span>: NT"
+//	+ 				"<span class=price>" + data[i].pgPrice + "</span>"
+//    + 				"<p>包裝:</p>"
+//    + 				"<p>"
+//    + 					"<button id="+ data[i].productId + "class='btn btn-primary'>加入購物車"
+//	+ 						"<input type=hidden value="+ data[i].name 
+//	+						"|images/"+data[i].fileName + "|" + data[i].pgPrice+ ">"
+//	+ 					"</button>" 
+//	+ 					"<a href=# class='btn btn-default'>More Info</a>"
+//    + 					"</p>"
+//    + "</div></div></div>";
