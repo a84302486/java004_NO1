@@ -192,7 +192,7 @@
 									    <div class="form-group">
 											<label for="Name" class="col-sm-3 control-label">會員姓名</label>
 											<div class="col-sm-8">
-												 <input type="text" id="Name" placeholder="" class="form-control required" name="Name">
+												 <input type="text" id="Name" placeholder="請輸入真實姓名" class="form-control required" name="Name">
 												
 											</div>
 											
@@ -212,7 +212,7 @@
 											<label for="birthday" class="col-sm-3 control-label">會員生日</label>
 											<div class="col-sm-8">
 												 <input type="date" name="Birthday" id="birthday"
-													class="form-control required date dayCheck">
+													class="form-control required date dayCheck" value="1992/01/01">
 												 
 											</div>
 										
