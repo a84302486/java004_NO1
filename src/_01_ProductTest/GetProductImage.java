@@ -21,7 +21,7 @@ public class GetProductImage extends HttpServlet {
 			String idStr = request.getParameter("id");
 			
 			Context context = new InitialContext();
-			DataSource ds = (DataSource) context.lookup("java:comp/env/jdbc/Java004");
+			DataSource ds = (DataSource) context.lookup("java:comp/env/jdbc/Java004NO1");
 			conn = ds.getConnection();
 			PreparedStatement pstmt = null;
 			//System.out.println("GetImageFromDB, Type==>" + type);
