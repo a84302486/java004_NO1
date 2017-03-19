@@ -56,14 +56,8 @@ $(function() {
 	var arr=new Array();
 	var storage = sessionStorage;
 	
-//	$(document).ready(function(){
-		$('#wrap').delegate("button","click",function(){
-			alert("delegate");
-	
-//	});
-
-	$('#wrap button').click(function(){	
-		alert("累加");
+		
+	$('#wrap').on("click","button",function(){
 		var thisID = $(this).attr('id');		
 		var itemName  = $(this).parent().parent().find('.name').html();
 		var itemPrice = $(this).parent().parent().find('.price').html();
@@ -88,7 +82,6 @@ $(function() {
 
 			$('.cd-cart-total p span').html(prev_qty);
 		}else{	
-			alert("新增");
 			//如果清單內沒有此項物品,新增至清單
 			arr.push(thisID);
 			//計算總金額
@@ -108,9 +101,14 @@ $(function() {
 		}		
 		//圓球顯示購物車物品總量------------------
 		var get_cart_total = $('.cd-cart-total p span').html();	
-		$('.cartCount').html(get_cart_total);		
-	});	
+		$('.cartCount').html(get_cart_total);	
+		});
 	
+		$(this).one("click",function(){
+		list.addClass('speed-in');
+		
+	});	
+		
 	//點擊X刪除該商品--------------------------------
 	$(document).on('click','.cd-item-remove',function(){
 		//計算總金額
@@ -142,4 +140,4 @@ $(function() {
 		}
 	});
 });
-});
+

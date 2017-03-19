@@ -1,15 +1,14 @@
 //點擊Tab時切換畫面至被點擊的頁籤-----------------------------
-function setTab() {
-//$(document).on("load","#navBar", function() {	
-	// 預設顯示第一個 Tab
 
+$(document).on("click",".drop-down-menu", function() {	
+
+	$("#navBar").ready(function(){
 	var _showTab = 0;
-	$('.abgne_tab').each(function() {
+	$(this).each(function() {
 		// 目前的頁籤區塊
 		var $tab = $(this);
 		var $defaultLi = $('ul.tabs li', $tab).eq(_showTab).addClass('active');
 		$($defaultLi.find('a').attr('href')).siblings().hide();
-
 		// 當 li 頁籤被點擊時...
 		// 若要改成滑鼠移到 li 頁籤就切換時, 把 click 改成 mouseover
 		$('ul.tabs li', $tab).click(function() {
@@ -22,15 +21,17 @@ function setTab() {
 			return false;
 		}).find('a').focus(function() {
 			this.blur();
+			});
 		});
-	});
-};
+	});	
+});
 
 //Insert:新增該Form文字與圖片資料,並由Servelet回傳是否成功的json字串,再顯示至畫面-----
-$(document).on("click", "#upLoadPic", function() {
+$("#loadPageDiv").on("click", "#upLoadPic", function() {
 	$('#form1').ajaxForm({
 		type : 'POST',
 		dataType : 'json',
+		cache : false ,
 		resetForm: true,
 		success : function(responseText) {
 			$('#insertResult').text(responseText);
@@ -43,9 +44,6 @@ $(document).on("click", "#upLoadPic", function() {
 	
 });
 
-$(document).on("change", "#ProductPic", function() {
-	$('#upLoadPic').removeAttr('disabled');
-});
 // ----------<Ajax新增改查功能>----------
 // Insert:新增該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
 
@@ -94,13 +92,8 @@ function getAction(action, tagId) {
 				showResult.innerHTML = xhr.responseText;
 			}
 		}
-		xhr.open("POST", action, true);
+		xhr.open("POST", action, false);
 		xhr.send();
-		 var url = 'http://localhost:8080/java004/js/product_new2.js';
-		 $.getScript( url, function() {
-		 setTab();
-		 alert("123");
-		 });
 
 	} else {
 		showResult.innerHTML = "<h1>您的瀏覽器不支援Ajax</h1>";
@@ -122,15 +115,14 @@ function getQueryData(servelet) {
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 
-			var content = "<table>" + "<tr><td></td>" + "<td>序號</td>"
+			var content = "<table>" + "<tr><td>序號</td>"
 					+ "<td>定價</td>" + "<td>名稱</td>" + "<td>成本</td>"
 					+ "<td>生產地</td>" + "<td>保存期</td>" + "<td>供應商</td>"
-					+ "<td>圖檔名</td><td>圖片</td></tr>";
+					+ "<td>圖檔名</td>" + "<td>圖片</td>" + "<td>選取</td></tr>";
 			
 			var data = JSON.parse(xhr.responseText);
 			for (var i = 0; i < data.length; i++) {
-				content += "<tr><td><input type=radio name=productId value=" 
-						+ data[i].productId +" onclick=radCheck(this);></td>"
+				content += "<tr>"
 						+ "<td>" + data[i].productId + "</td>" 
 						+ "<td>" + data[i].pgPrice + "</td>" + "<td>" + data[i].name+ "</td>" 
 						+ "<td>" + data[i].avgCost + "</td>" 
@@ -139,7 +131,9 @@ function getQueryData(servelet) {
 						+ "<td>" + data[i].fileName + "</td>"
 						+ "<td> <img height=60 width=60 id=target " 
 						+ "src=http://localhost:8080/java004/_01_ProductTest/getImage?id=" 
-						+ data[i].productId + "></td></tr>";
+						+ data[i].productId + "></td>"
+						+ "<td><input type=radio name=productId value="+ data[i].productId 
+						+ " onclick=radCheck(this);></td></tr>";
 			}
 			content += "</table>";
 			var result = document.getElementById("showResult");

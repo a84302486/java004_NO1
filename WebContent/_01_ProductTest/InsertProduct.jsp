@@ -23,7 +23,7 @@
 	產品保存期： <input type="text" name="sLife" value="360"> 
             產品供應商： <input type="text" name="suppierId" value="A"> 
             <input type="file" name="fileName" id=ProductPic size="40" required>
-	 <input type="submit" name="upload" id="upLoadPic" value="提交" disabled>
+	 <input type="submit" name="upload" id="upLoadPic" value="提交">
 </Form>
 	<div>
 		<div id="insertResult"></div>
