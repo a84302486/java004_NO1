@@ -130,7 +130,7 @@ function getQueryData(servelet) {
 
 			var data = JSON.parse(xhr.responseText);
 			for (var i = 0; i < data.length; i++) {
-				content += "<tr><td><input type=radio name=productId value=" + data[i].productId +" onclick=radCheck(this);></td>"
+				content += "<tr><td><input type=radio name=productId value=" + data[i].productId +"onclick=radCheck(this);></td>"
 						+ "<td>" + data[i].productId + "</td>"
 						+ "<td>" + data[i].pgPrice   + "</td>"
 						+ "<td>" + data[i].name      + "</td>"
@@ -246,10 +246,10 @@ function setQueryString() {
 function radCheck(obj) {
 	$('input:radio').change(function() {
 		//$(this).parent().toggleClass("highlight");//切換背景色彩
-		if ( $(this).is(':checked')) {//判斷checkbox是否勾選
+		if ($(this).is(':checked')) {//判斷checkbox是否勾選
 			$(this).parent().parent().addClass('highlight').siblings()
 				.removeClass('highlight');//被點擊的增加CSS樣式並移除其他radio的CSS樣式
-		}
+		 }
 	});
 }
 
