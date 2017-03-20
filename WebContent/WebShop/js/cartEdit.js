@@ -13,12 +13,12 @@ $(function() {
 	updateData();
 
 
-function createCarList(itemKey,itemValue){ 
+	function createCarList(itemKey,itemValue){ 
 	var itemId = itemKey;
-	var itemName = itemValue.split('|')[0];
-	var itemImage = itemValue.split('|')[1];
-	var itemPrice = parseInt(itemValue.split('|')[2]);
-	var itemQty   = parseInt(itemValue.split('|')[3]);
+	var itemName = itemValue.split('|')[1];
+	var itemImage = itemValue.split('|')[2];
+	var itemPrice = parseInt(itemValue.split('|')[3]);
+	var itemQty   = parseInt(itemValue.split('|')[4]);
 	var itemTotal = itemPrice * itemQty;
 	
 	//建立每個品項的清單區域 ==tr:
@@ -41,7 +41,46 @@ function createCarList(itemKey,itemValue){
 		+ " </td></tr>");
 	}
 	
+	
+	//確認結帳
+
+	$('#shop_insert_order').click(function(){
+		
+		var json="";
+		var len = sessionStorage.length;
+		
+		json += '{"product":{'
+		for(var i=0;i<len;i++){
+			var temp = sessionStorage.getItem(i);
+			
+			json += '"'+temp.split('|')[0]+'":"'+temp.split('|')[4]+'"';
+			
+			//最後一次不用加','
+			if(i == len-1)
+				break;		
+			json += ',';			
+		}
+		json += '},{';
+		json += '"OrderDate":"'+getNowTime()+'"';
+		json +=	'}';
+		alert(json);
+	});
+	
 });
+
+
+//整數格式(0~9)，再補上0使它變為(00~09)
+function getNowTime(){
+	var timeDate= new Date();
+	var tMonth = (timeDate.getMonth()+1) > 9 ? (timeDate.getMonth()+1) : '0'+(timeDate.getMonth()+1);
+	var tDate = timeDate.getDate() > 9 ? timeDate.getDate() : '0'+timeDate.getDate();
+	var tHours = timeDate.getHours() > 9 ? timeDate.getHours() : '0'+timeDate.getHours();
+	var tMinutes = timeDate.getMinutes() > 9 ? timeDate.getMinutes() : '0'+timeDate.getMinutes();
+	var tSeconds = timeDate.getSeconds() > 9 ? timeDate.getSeconds() : '0'+timeDate.getSeconds();
+	return timeDate= timeDate.getFullYear()+'/'+ tMonth +'/'+ tDate +' '+ tHours +':'+ tMinutes +':'+ tSeconds;
+}
+
+
 //判斷是點擊+還是-,如果數量是1點擊-時一樣設定數量為1,並同時更新總金額及數量----
 function changeAmount(obj) {
 	var td = obj.parent(), btn = obj.attr('class'), c = td.find('.count'), v = parseInt(c.val());
@@ -97,4 +136,9 @@ function updateData(){
 		var txt2=$("<a href=shop_index.html></a>").text("回購物網");
 		$('tbody').eq(0).append(txt1,txt2);
 	}
+
+
 }
+
+
+

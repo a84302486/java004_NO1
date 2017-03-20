@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/product_main2.css">
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/tab_main2.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/member.css">
 
 
 <title>work</title>
@@ -27,5 +28,5 @@
 <script src="${pageContext.request.contextPath}/jQuery/jquery-3.1.1.js" type="text/JavaScript"></script>
 <script src="${pageContext.request.contextPath}/jQuery/jqueryform.js" type="text/JavaScript"></script>
 <script src="${pageContext.request.contextPath}/js/product_new2.js" type="text/JavaScript"></script>
-
+<script src="${pageContext.request.contextPath}/js/member/member.js?v0487"></script>
 </html>

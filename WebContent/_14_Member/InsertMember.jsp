@@ -6,8 +6,7 @@
 <head>
 <!-- <link rel="stylesheet" href="../css/member/member2.css?v524" -->
 <!-- 	type="text/css"> -->
-<script src="../js/member/insert.js"></script>
-<script src="../js/member/member.js"></script>
+
 <meta charset=UTF-8">
 <title>MVC</title>
 </head>
