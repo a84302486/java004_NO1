@@ -71,6 +71,7 @@ public class InsertProduct2 extends HttpServlet {
 		String sLifeStr = "";
 		String suppierIdStr = "";
 		String fileNameStr = "";
+		boolean status = false;
 		int PGPrice = 0;
 		double avgCost = 0;
 		int sLife = 0;
@@ -154,7 +155,7 @@ public class InsertProduct2 extends HttpServlet {
 			String toJson = null;
 
 			ProductBean pb = new ProductBean(productIdStr, PGPrice, nameStr, avgCost, oPlaceStr, sLife, suppierIdStr,
-					fileNameStr);
+					fileNameStr , status);
 
 			if (!errorMsg.isEmpty()) {
 				toJson = new Gson().toJson(errorMsg);

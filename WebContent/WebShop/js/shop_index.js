@@ -20,11 +20,13 @@ $(function() {
 	        type:'POST',
 	        dataType:'json',
 	        success: function(data){
-	        	var content = "<p>產品列</p>";
+	        	var content = "<p>產品列</p>";	
 	        	for (var i = 0; i < data.length; i++) {
+	        		if(data[i].status == true){
+	        			
 	        content +="<div class='col-md-3 col-sm-6 hero-feature'>"
 	        		+ 	"<div class=thumbnail>"
-	         		+ 		"<img src="+getPicSrc+data[i].productId + " alt>"
+	         		+ 		"<img src="+getPicSrc + data[i].productId + " alt>"
 	        		+ 			"<div class=caption>"
 	        		+ 				"<span class=name>" + data[i].name + "</span>: NT"
 	        		+ 				"<span class=price>" + data[i].pgPrice + "</span>"
@@ -42,6 +44,7 @@ $(function() {
 	        	}
 	        	var result = document.getElementById("wrap");
 				result.innerHTML = content;
+	        	}
 	        }
 		});
 	});
@@ -55,8 +58,7 @@ $(function() {
 	
 	var arr=new Array();
 	var storage = sessionStorage;
-	
-		
+			
 	$('#wrap').on("click","button",function(){
 		var thisID = $(this).attr('id');		
 		var itemName  = $(this).parent().parent().find('.name').html();
@@ -79,8 +81,8 @@ $(function() {
 			
 			var prev_qty = $('.cd-cart-total p span').html();
 				prev_qty = parseInt(prev_qty)+1;
-
 			$('.cd-cart-total p span').html(prev_qty);
+			
 		}else{	
 			//如果清單內沒有此項物品,新增至清單
 			arr.push(thisID);
@@ -105,8 +107,7 @@ $(function() {
 		});
 	
 		$(this).one("click",function(){
-		list.addClass('speed-in');
-		
+		list.addClass('speed-in');	
 	});	
 		
 	//點擊X刪除該商品--------------------------------
