@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/product_main2.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tab_main2.css">
-<script src="${pageContext.request.contextPath}/jQuery/jquery-2.2.4.min.js" type="text/JavaScript"></script>
-<script src="${pageContext.request.contextPath}/js/product_new2.js" type="text/JavaScript"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/member.css">
+
 
 <title>work</title>
 </head>
@@ -25,4 +25,8 @@
 		<h2>請選擇管理清單</h2>
 	</div>
 </body>
+<script src="${pageContext.request.contextPath}/jQuery/jquery-3.1.1.js" type="text/JavaScript"></script>
+<script src="${pageContext.request.contextPath}/jQuery/jqueryform.js" type="text/JavaScript"></script>
+<script src="${pageContext.request.contextPath}/js/product_new2.js" type="text/JavaScript"></script>
+<script src="${pageContext.request.contextPath}/js/member/member.js?v0487"></script>
 </html>

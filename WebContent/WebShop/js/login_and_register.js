@@ -4,7 +4,7 @@
 			{
 						required : "*必填欄位",
 						remote : "Please fix this field.",
-						email : "email格式錯誤",
+						email : "請輸入正確的email",
 						url : "Please enter a valid URL.",
 						date : "日期格式錯誤",
 						dateISO : "Please enter a valid date (ISO).",
@@ -51,37 +51,42 @@ $(document).ready(function() {
 	});
 	
 	//帳號檢查  
-	$('#member_Username').blur(usernameCheck());
+	//$('#member_Username').blur(usernameCheck);
 //	$('#register-form-submit').click(usernameCheck());
-//	$.validator.addMethod("usernameCheck", function(value, element) {
-//		var URLs = "usernameCheck.do";
-//	
-//		var querystring = 'member_Username=' + value;
-//		$.ajax({
-//			url : URLs,
-//			data : querystring,//$(this).serialize()
-//			type : "POST",
-//			dataType : 'text',
-//
-//			success : function(msg) {
-//
-//				if (msg.match('usable')) {
-//
-//					return true;
-//				} else {
-//
-//					return false;
-//				}
-//				
-//			},
-//
-//			error : function(xhr, ajaxOptions, thrownError) {
-//				return false;
-//
-//			}
-//		});
-//	}, "帳號已存在");
+	var check ="true";
+	$.validator.addMethod("usernameCheck", function(value) {
+		
+		$.ajax({
+			url : "usernameCheck.do",
+			cache: false,
+			data : {member_Username:value},//$(this).serialize()
+			type : "POST",
+			dataType : 'text',
+
+			success : function(response){
+		    		check = response;
+					//alert(check);	
+		    }
+			
+		});
+		
+		if(check.match('usable')){
+            return true;
+        }else{  
+            return false;//顯示錯誤訊息      
+        }
+	}, "帳號已註冊");
 	
+
+	
+	//email檢查
+	$.validator.addMethod("emailCheck", function(value, element) {
+		if (/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/.test(value)) {
+            return true;
+        } else {
+            return false;
+        };
+	}, "請輸入正確的email");
 	
 	//生日檢查
 	$.validator.addMethod("dayCheck", function(value, element) {
@@ -96,6 +101,8 @@ $(document).ready(function() {
 		return this.optional(element) || result;
 	}, "生日輸入錯誤");
 	
+	
+	//英文字母和數字組成
 	$.validator.addMethod("atoz_number", function (value, element) {
         if (/^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$/.test(value)) {
             return true;
@@ -104,7 +111,15 @@ $(document).ready(function() {
         };
     }, "英文字母和數字組成");
 	
-
+	//手機號碼檢查
+	$.validator.addMethod("cellphonecheck", function (value, element) {
+        if (/^09\d{2}-?\d{3}-?\d{3}$/.test(value)) {
+            return true;
+        } else {
+            return false;
+        };
+    }, "手機號碼輸入錯誤");
+	
 	//註冊欄位檢查
 	$("#register-form").validate({
 		
@@ -130,11 +145,12 @@ $(document).ready(function() {
 			},
 			Name:{
 				maxlength : 20
-			},
-			Email:{
-				maxlength : 20
 			}
 		},//rules
+		validClass: "checked",  
+		success: function(label) {  
+		    label.remove("error").addClass("checked");  
+		},
 		submitHandler : function(form) {
 			//驗證成功之後就會進到這邊：
 			//方法一：直接把表單 POST 或 GET 到你的 Action URL
@@ -146,51 +162,6 @@ $(document).ready(function() {
 
 });
 
-//帳號檢查
-function usernameCheck() {
-	var URLs = "usernameCheck.do";
-	var context = null;
-	var id = $('#member_Username').val();
-	var result = $('#usernameCheckResult');
-
-//	if(!id || id.trim().length==0){
-//		console.log("請輸入帳號");
-//		return;
-//	}
-	
-	var querystring = 'member_Username=' + id;
-	$.ajax({
-		url : URLs,
-		data : querystring,//$(this).serialize()
-		type : "POST",
-		dataType : 'text',
-
-		success : function(msg) {
-
-			if (msg.match('usable')) {
-
-				context = '<div class="alert-success">帳號 ' + id + '可使用</div>';
-			} else {
-
-				if (msg.match('exist')) {
-
-					context = '<div class="alert-danger">帳號 ' + id
-							+ '已存在</div>';
-				} 
-//				else {
-//					context = '<div class="alert-danger">請先輸入帳號</div>';
-//				}
-			}
-			result.html(context);
-		},
-
-		error : function(xhr, ajaxOptions, thrownError) {
-			alert('發生錯誤 ' + xhr.status + ' ' + thrownError + ',請洽詢工程師');
-
-		}
-	});
-
-}
 
 
 

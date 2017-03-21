@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/login_and_register.css?v12010">
+<link rel="stylesheet" href="css/login_and_register.css?v017">
 <title>registered</title>
 </head>
 
@@ -160,16 +160,14 @@
 
 
 										<div class="form-group">
-											<label for="text" class="col-sm-3 control-label">會員帳號</label>
+											<label for="member_Username" class="col-sm-3 control-label">會員帳號</label>
 											<div class="col-sm-8">
-												<input type="text" id="member_Username" 
-													placeholder="4~20個英數組成的字元" class="form-control required usernameCheck atoz_number" name="member_Username">
-
-												<div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'
-													></div>
-
-
+												 <input type="email" id="member_Username" name="member_Username"
+													placeholder="example@abc.com.tw"
+													class="form-control required emailCheck usernameCheck">
+												 <div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'></div>
 											</div>
+											
 										</div>
 										<div class="form-group">
 											<label for="Password" class="col-sm-3 control-label">會員密碼</label>
@@ -194,18 +192,18 @@
 									    <div class="form-group">
 											<label for="Name" class="col-sm-3 control-label">會員姓名</label>
 											<div class="col-sm-8">
-												 <input type="text" id="Name" placeholder="" class="form-control required" name="Name">
+												 <input type="text" id="Name" placeholder="請輸入真實姓名" class="form-control required" name="Name">
 												
 											</div>
 											
 											
 										</div>
 										<div class="form-group">
-											<label for="Email" class="col-sm-3 control-label">電子信箱</label>
+											<label for="Cellphone" class="col-sm-3 control-label">會員手機</label>
 											<div class="col-sm-8">
-												 <input type="email" id="Email" name="Email"
-													placeholder="example@abc.com.tw"
-													class="form-control required email">
+												 <input type="text" id="Cellphone" name="Cellphone"
+													placeholder="0900-000-000"
+													class="form-control required cellphonecheck">
 												
 											</div>
 											
@@ -214,7 +212,7 @@
 											<label for="birthday" class="col-sm-3 control-label">會員生日</label>
 											<div class="col-sm-8">
 												 <input type="date" name="Birthday" id="birthday"
-													class="form-control required date dayCheck">
+													class="form-control required date dayCheck" value="1992/01/01">
 												 
 											</div>
 										
@@ -250,7 +248,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.validate.js"></script>
 	<script src="js/jquery.ajaxupload.js"></script>
-	<script src="js/login_and_register.js?v005"></script>
+	<script src="js/login_and_register.js?v013"></script>
 </body>
 
 </html>

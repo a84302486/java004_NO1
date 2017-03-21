@@ -9,10 +9,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"
 	charset="UTF-8">
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<link rel="stylesheet" href="../asset/css/bootstrap.min.css">
+<link rel="stylesheet" href="../asset/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../css/member/member.css?003">
 
+
+
+<title>會員管理首頁</title>
 </head>
-<body id="member_body">
+<body>
 
+	<header class="container-fuild">
+
+		<div class="row">
+
+			<h4 class="text-center" id="indexheader">
+				<strong>資料管理系統</strong>
+				<a href="../_00_Login/logout.jsp" style="position: absolute;right:10em;color:white;">登出</a>
+			</h4>
+			
+		</div>
+<!-- 				<div> -->
+<%-- 					<jsp:include page='../_00_Util/IndexMain.jsp' /> --%>
+<!-- 				</div> -->
+
+	</header>
 
 	<section class="container-fuild" id="portfolio">
 
@@ -87,7 +108,11 @@
 	<footer class="container-fuild">我是footer</footer>
 
 
-
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/jquery.form.js"></script>
+	<script src="../asset/js/bootstrap.min.js"></script>
+	
+	<script src="../js/member/member_Native.js?v159"></script>
 
 </body>
 </html>

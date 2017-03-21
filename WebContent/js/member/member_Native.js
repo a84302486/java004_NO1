@@ -1,8 +1,10 @@
 $(document).ready(function(){
 
+	//總頁數
+	totalPages('../_14_Member/TotalPages',"#totalPages");
 	
 	//上一頁
-	$('#loadPageDiv').on('click','#pageBack',function(){
+	$('#pageBack').click(function(){
 		pageBack();
 		
 		//自動搜尋
@@ -10,26 +12,28 @@ $(document).ready(function(){
 	});	
 	
 	//下一頁
-	$('#loadPageDiv').on('click','#pageNext',function(){
+	$('#pageNext').click(function(){
 		pageNext();
 		
 		//自動搜尋
 		buttonSelect('../_14_Member/Select','#resultIndex','#formSelect');
 	});	
 	
+	//自動搜尋
+	buttonSelect('../_14_Member/Select','#resultIndex','#formSelect');
 	
 	//搜尋提交
-	$('#loadPageDiv').on('click','#formSelect',function(){
+	$('#formSelect').click(function(){
 		buttonSelect('../_14_Member/Select','#resultIndex','#formSelect');
 	});	
 	
 	//新增畫面
-	$('#loadPageDiv').on('click','#buttoninsert',function(){
+	$('#buttoninsert').click(function(){
 		buttonInsert('../_14_Member/InsertMember.jsp','#insertIndex');
 	});
 	
 	//新增提交
-	$('#loadPageDiv').on('click','#submitinsert',function(){
+	$('#submitinsert').click(function(){
 		submitInsert('../_14_Member/Insert','#resultInsert','#formInsert');
 		
 		//自動搜尋
@@ -38,29 +42,17 @@ $(document).ready(function(){
 	
 	
 	//刪除提交
-	$('#loadPageDiv').on('click','#buttondelete',function(){
+	$("#buttondelete").click(function(){
 		buttonDelete("../_14_Member/Delete");   	
     });
 	
 	//說明畫面
-	$('#loadPageDiv').on('click','#buttonremark',function(){
+	$('#buttonremark').click(function(){
 		alert("remark");
 	});
 	
 	
 	
-});
-
-$(document).on("click", ".drop-down-menu", function() {
-	
-	$('#loadPageDiv').ready(function() {
-
-		// 總頁數
-		totalPages('../_14_Member/TotalPages', "#totalPages");
-
-		// 自動搜尋
-		buttonSelect('../_14_Member/Select', '#resultIndex', '#formSelect');
-	});
 });
 
 //總頁數 function

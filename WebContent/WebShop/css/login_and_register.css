@@ -166,19 +166,32 @@ input[type="password"] {
 }
 
 *[role="form"] h2 {
-    margin-left: 5em;
-    margin-bottom: 1em;
+	margin-left: 5em;
+	margin-bottom: 1em;
 }
 /*-----------------------------------------------*/
-#register-form label.error{
-			color: red;
-			display: inline-block;
-			padding: 3px 3px;
-			font-size: 0.75em;
-			line-height:1;
-			width: auto;
-		}
+#register-form label.error {
+	color: red;
+	display: inline-block;
+	padding: 3px 3px;
+	font-size: 0.75em;
+	line-height: 1;
+	width: auto;
+}
 
-
+#register-form label.checked {
+	padding: 3px 5px 3px 21px;
+     margin-left: 10px;
+     margin-top: 0px;
+     margin-bottom: 3px;
+     height: 25px;
+     line-height: 1px;
+     font-size: 20px;
+     white-space: nowrap;
+     text-align: left;
+     color: #E6594E;
+  	background:url("../images/1489689605_Tick_Mark_Dark.png") no-repeat 1px; 
+	
+}
 
 /*------------------------------------------------------------------*/

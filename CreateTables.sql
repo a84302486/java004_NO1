@@ -166,20 +166,9 @@ CREATE TABLE `Member`(
 			
 	M_Username		VARCHAR(20) NOT NULL,
 	M_Password		VARCHAR(60) NOT NULL,
-	M_ID			VARCHAR(20) ,
 	M_Name			VARCHAR(20) NOT NULL,
-	M_Nick			VARCHAR(20),
-	M_Sex			CHAR(1),
-	M_Birthday		DATE,
-	M_EMail			VARCHAR(20),
-	M_Phone			VARCHAR(20),
-	M_Cellphone		VARCHAR(20),
-	M_Address		VARCHAR(60),
-	M_Line			VARCHAR(20),
-	M_FaceBook		VARCHAR(20),
-	M_IdentityCard	VARCHAR(10) UNIQUE,			
-	M_Invoice		VARCHAR(20),			
-	M_UniformNumber VARCHAR(20),		
+	M_Cellphone		VARCHAR(20) NOT NULL,
+	M_Birthday		DATE NOT NULL,
 	M_Insertdate	DATETIME,
 	M_Updatedate	DATETIME,
 	M_Level			CHAR(1) default 0,		
@@ -284,8 +273,6 @@ CREATE TABLE TRDT(
 
 
 
-
-
 CREATE TABLE `User`(
 	userId 			VARCHAR(20) NOT NULL,
 	password		VARCHAR(20) NOT NULL,
@@ -293,5 +280,33 @@ CREATE TABLE `User`(
 	grade			VARCHAR(4) NOT NULL,
 	
 	CONSTRAINT User_userId PRIMARY KEY (userId)
+	
+)	CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE `Order`(
+	OrderId 			VARCHAR(20) NOT NULL,
+	OrderDate			VARCHAR(20) NOT NULL,
+	ShippedDate 		VARCHAR(20) NOT NULL,
+	M_Username			VARCHAR(20) NOT NULL,
+	OrderTotal			VARCHAR(20) NOT NULL,
+	
+	CONSTRAINT Order_M_Username_FK FOREIGN KEY (M_Username) 
+		REFERENCES Member(M_Username),
+	CONSTRAINT Order_OrderId_PK PRIMARY KEY (OrderId)
+		
+)	CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE `OrderDetail`(
+	OrderId 			VARCHAR(20) NOT NULL,
+	product_id			VARCHAR(20) NOT NULL,
+	P_G_price 			VARCHAR(20) NOT NULL,
+	Quantity			VARCHAR(20) NOT NULL,
+	
+	
+	CONSTRAINT OrderDetail_OrderId_FK FOREIGN KEY (OrderId) 
+		REFERENCES Order(OrderId),
+	CONSTRAINT OrderDetail_product_id_FK FOREIGN KEY (product_id) 
+		REFERENCES Product(product_id),
+	CONSTRAINT OrderDetail_PK PRIMARY KEY (OrderId,product_id)
 	
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;

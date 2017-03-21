@@ -33,7 +33,7 @@ $(function() {
 	        	    + 				"<p>包裝:</p>"
 	        	    + 				"<p>"
 	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'>加入購物車"
-	        		+ 						"<input type=hidden value="+ data[i].name 
+	        		+ 						"<input type=hidden value="+ data[i].productId +"|"+ data[i].name 
 	        		+						"|images/"+data[i].fileName + "|" + data[i].pgPrice+ ">"
 	        		+ 					"</button>" 
 	        		+ 					"<a href=# class='btn btn-default'>More Info</a>"
