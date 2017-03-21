@@ -8,7 +8,7 @@ CREATE TABLE `Product` (
   `Suppier_id` 	    char(4) DEFAULT NULL,
   `fileName`   varchar (60) DEFAULT NULL,
   `productImage`     longblob     DEFAULT NULL,
-  `on_shift`     		BOOLEAN  ,
+  `on_shelf`     		BOOLEAN  ,
   
 	CONSTRAINT Product_product_id_PK PRIMARY KEY (`product_Id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
