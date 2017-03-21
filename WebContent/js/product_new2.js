@@ -164,8 +164,8 @@ function getQueryData(servelet) {
 // Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
 $("#loadPageDiv").on("click",'.delete',function() {
 			var setServlet;
-			var getName = $('input:checked').attr('name');
-			var selected = $("input[name=" + getName + "]:checked").val();
+			var getName = $('input:radio:checked').attr('name');
+			var selected = $("input:radio[name=" + getName + "]:checked").val();
 
 			if (selected != null) { // 如果有被選取,不是空值
 				if (confirm("確定要刪除" + selected + "嗎?")) {
