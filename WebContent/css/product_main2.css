@@ -90,7 +90,16 @@ table.menuBar{
 #showResult tr.highlight {
 	background-color: #ffff99;
 }
-
+#showResult span.on-shelf{
+	font-size: 14px;
+	border-radius:5px;
+	background-color: #b3ffc6;
+}
+#showResult span{
+	font-size: 14px;
+	border-radius:3px;
+	background-color: #fa949e;
+}
 /* ----------button背景圖片---------- */
 
 .information {

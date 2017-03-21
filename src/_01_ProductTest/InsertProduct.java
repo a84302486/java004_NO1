@@ -45,7 +45,7 @@ public class InsertProduct extends HttpServlet {
 		String sLifeStr = request.getParameter("sLife");
 		String suppierIdStr = request.getParameter("suppierId");
 		String fileNameStr = "";
-		
+		boolean status = false;
 		
 		if (productIdStr == null || productIdStr.trim().length() == 0) {
 			errorMsg.add("序號必須輸入");
@@ -95,7 +95,7 @@ public class InsertProduct extends HttpServlet {
 			String toJson = null;
 			
 			ProductBean pb = new ProductBean(productIdStr, PGPrice, name, avgCost
-					, oPlaceStr, sLife, suppierIdStr,fileNameStr);
+					, oPlaceStr, sLife, suppierIdStr,fileNameStr,status);
 		
 			if (!errorMsg.isEmpty()) {
 				toJson = new Gson().toJson(errorMsg);

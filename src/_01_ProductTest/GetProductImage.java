@@ -19,7 +19,7 @@ public class GetProductImage extends HttpServlet {
 		InputStream is = null;
 		try {
 			String idStr = request.getParameter("id");
-			
+		
 			Context context = new InitialContext();
 			DataSource ds = (DataSource) context.lookup("java:comp/env/jdbc/Java004NO1");
 			conn = ds.getConnection();

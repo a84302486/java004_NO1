@@ -1,5 +1,5 @@
-//點擊Tab時切換畫面至被點擊的頁籤-----------------------------
 
+//點擊Tab時切換畫面至被點擊的頁籤-----------------------------
 $(document).on("click",".drop-down-menu", function() {	
 
 	$("#navBar").ready(function(){
@@ -44,7 +44,7 @@ $("#loadPageDiv").on("click", "#upLoadPic", function() {
 	
 });
 
-// ----------<Ajax新增改查功能>----------
+
 // Insert:新增該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面----------------
 
 // function getInsertData(servelet) {
@@ -115,25 +115,44 @@ function getQueryData(servelet) {
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 
-			var content = "<table>" + "<tr><td>序號</td>"
+			var content = "<table>" + "<tr><td>上/下架</td>" + "<td>序號</td>"
 					+ "<td>定價</td>" + "<td>名稱</td>" + "<td>成本</td>"
 					+ "<td>生產地</td>" + "<td>保存期</td>" + "<td>供應商</td>"
 					+ "<td>圖檔名</td>" + "<td>圖片</td>" + "<td>選取</td></tr>";
 			
 			var data = JSON.parse(xhr.responseText);
 			for (var i = 0; i < data.length; i++) {
-				content += "<tr>"
+				
+				var checkStatus = null;
+				var showChecked = null;
+				var onShelfClass = null;
+				if(data[i].status == false){
+					checkStatus = "已下架";
+					showChecked = "";
+					onShelfClass = "";
+				}else{
+					checkStatus = "上架中";
+					showChecked = " checked"
+					onShelfClass = " on-shelf";
+				}
+					
+			   content += "<tr>"
+						+ "<td><span class=" + onShelfClass + ">" + checkStatus + "</span> "
+						+ "<input type=checkbox name=productId value=" 
+						+ data[i].productId + showChecked +"></td>" 
 						+ "<td>" + data[i].productId + "</td>" 
-						+ "<td>" + data[i].pgPrice + "</td>" + "<td>" + data[i].name+ "</td>" 
+						+ "<td>" + data[i].pgPrice + "</td>" 
+						+ "<td>" + data[i].name + "</td>" 
 						+ "<td>" + data[i].avgCost + "</td>" 
-						+ "<td>" + data[i].oplace + "</td>" + "<td>" + data[i].slife + "</td>"
+						+ "<td>" + data[i].oplace + "</td>" 
+						+ "<td>" + data[i].slife + "</td>"
 						+ "<td>" + data[i].suppierId + "</td>"
 						+ "<td>" + data[i].fileName + "</td>"
 						+ "<td> <img height=60 width=60 id=target " 
 						+ "src=http://localhost:8080/java004/_01_ProductTest/getImage?id=" 
-						+ data[i].productId + "></td>"
-						+ "<td><input type=radio name=productId value="+ data[i].productId 
-						+ " onclick=radCheck(this);></td></tr>";
+						+ data[i].productId +  "></td>"
+						+ "<td><input type=radio name=productId value="+ data[i].productId + ">"
+						+ "</td></tr>";
 			}
 			content += "</table>";
 			var result = document.getElementById("showResult");
@@ -143,7 +162,7 @@ function getQueryData(servelet) {
 }
 
 // Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
-$(document).on("click",'.delete',function() {
+$("#loadPageDiv").on("click",'.delete',function() {
 			var setServlet;
 			var getName = $('input:checked').attr('name');
 			var selected = $("input[name=" + getName + "]:checked").val();
@@ -177,11 +196,11 @@ function getData() {
 	if (selected != null) { // 如果有被選取,不是空值		
 		if (confirm("確定要選取" + selected + "嗎?")) {
 			var TextArray = new Array();
-			for (i = 1; i < $('.highlight > td').length; i++) {
-				TextArray[i] = $(".highlight > td:eq(" + i + ")").text();
+			for (i = 0; i < $('.highlight > td').length; i++) {
+				TextArray[i] = $(".highlight > td:eq(" + (i + 1) + ")").text();
 			}
 			for (i = 0; i <= $('#updateTable :input').length; i++) {
-				$("#updateTable input:eq(" + i + ")").val(TextArray[i + 1]);
+				$("#updateTable input:eq(" + i + ")").val(TextArray[i]);
 			}
 		}
 	} else {
@@ -204,18 +223,39 @@ function getUpdateData(servelet) {
 		}
 	}
 }
-// ----------</Ajax新增改查功能>----------
 
 // 被點選的Radio改變背景顏色-------------------------
-function radCheck(obj) {
-	$('input:radio').change(function() {
-	// $(this).parent().toggleClass("highlight");//切換背景色彩
-	if ($(this).is(':checked')) {// 判斷checkbox是否勾選
+$("#loadPageDiv").on("change",'input:radio',function() {
+	if ($(this).is(':checked')) {// 判斷radio是否勾選
 		$(this).parent().parent().addClass('highlight').siblings()
 		.removeClass('highlight');// 被點擊的增加CSS樣式並移除其他radio的CSS樣式
 		}
 	});
-}
+
+// 被點選的Radio改變背景顏色-------------------------
+$("#loadPageDiv").on("change",'input:checkbox',function() {
+	var $this = $(this);
+	var productId = $this.val();
+
+	if ($(this).is(':checked')) {   // 判斷checkbox是否勾選
+		$.ajax({
+    		type: "POST",
+    		url: "OnShelfControl.do",
+    		data: "productId="+productId+"&onShelf=true",
+		});
+		$(this).prev().html("上架中");
+		$(this).prev().addClass('on-shelf');
+	}else{
+		$.ajax({
+    		type: "POST",
+    		url: "OnShelfControl.do",
+    		data: "productId="+productId+"&onShelf=false",
+		});
+		$(this).prev().html("已下架");
+		$(this).prev().removeClass('on-shelf');
+	}
+});
+
 
 // 以下功能無使用------------------------------------------------------
 
@@ -226,19 +266,3 @@ function radCheck(obj) {
 // });
 // });
 
-
-//content +="<div class='col-md-3 col-sm-6 hero-feature'>"
-//	+ 	"<div class=thumbnail>"
-//	+ 		"<img src=" + getSrc + data[i].productId + "alt>"
-//	+ 			"<div class=caption>"
-//	+ 				"<span class=name>" + data[i].name + "</span>: NT"
-//	+ 				"<span class=price>" + data[i].pgPrice + "</span>"
-//    + 				"<p>包裝:</p>"
-//    + 				"<p>"
-//    + 					"<button id="+ data[i].productId + "class='btn btn-primary'>加入購物車"
-//	+ 						"<input type=hidden value="+ data[i].name 
-//	+						"|images/"+data[i].fileName + "|" + data[i].pgPrice+ ">"
-//	+ 					"</button>" 
-//	+ 					"<a href=# class='btn btn-default'>More Info</a>"
-//    + 					"</p>"
-//    + "</div></div></div>";

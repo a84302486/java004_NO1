@@ -18,6 +18,7 @@ public class  ProductBean implements Serializable{
 	private String suppierId;
 	private String  fileName;
 	private Blob  productImage;
+	private boolean  status;  //default false
 	
 	public ProductBean() {
 	}
@@ -34,8 +35,13 @@ public class  ProductBean implements Serializable{
 		this.suppierId = suppierId;
 	}
 	
+	public ProductBean(String productId,boolean status) {
+		this.productId = productId;
+		this.status = status;
+	}
+
 	public ProductBean(String productId, int pgPrice, String name, double avgCost, String oplace, int slife,
-			String suppierId, String fileName) {
+			String suppierId, String fileName , boolean status) {
 		super();
 		this.productId = productId;
 		this.pgPrice = pgPrice;
@@ -45,6 +51,7 @@ public class  ProductBean implements Serializable{
 		this.slife = slife;
 		this.suppierId = suppierId;
 		this.fileName = fileName;
+		this.status = status;
 	}
 	
 	public ProductBean(String productId, int pgPrice, String name, double avgCost, String oplace, int slife,
@@ -130,5 +137,13 @@ public class  ProductBean implements Serializable{
 	
 	public void setProductImage(Blob productImage) {
 		this.productImage = productImage;
+	}
+	
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 }

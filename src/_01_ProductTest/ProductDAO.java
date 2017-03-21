@@ -40,9 +40,11 @@ public class ProductDAO {
 
 	synchronized public String insert(ProductBean pb, InputStream is, long size) {
 
-		String sql = "INSERT INTO Product " + " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO Product " + " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+		try (Connection con = ds.getConnection(); 
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			) {
 
 			pstmt.setString(1, pb.getProductId());
 			pstmt.setInt(2, pb.getPgPrice());
@@ -53,6 +55,7 @@ public class ProductDAO {
 			pstmt.setString(7, pb.getSuppierId());
 			pstmt.setString(8, pb.getFileName());
 			pstmt.setBinaryStream(9, is, size);
+			pstmt.setBoolean(10, pb.isStatus());
 			pstmt.executeUpdate();
 
 			System.out.println("成功 新增" + pb.getProductId());
@@ -153,6 +156,7 @@ public class ProductDAO {
 					pb.setSlife(rs.getInt(6));
 					pb.setSuppierId(rs.getString(7));
 					pb.setFileName(rs.getString(8));
+					pb.setStatus(rs.getBoolean(10));
 
 					coll.add(pb);
 					Iterator<ProductBean> it = coll.iterator();
@@ -224,6 +228,7 @@ public class ProductDAO {
 					pb.setSlife(rs.getInt(6));
 					pb.setSuppierId(rs.getString(7));
 					pb.setFileName(rs.getString(8));
+					pb.setStatus(rs.getBoolean(10));
 					coll.add(pb);
 				}
 				System.out.println("記錄 查詢all");
@@ -315,5 +320,24 @@ public class ProductDAO {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	synchronized public void CheckOnShelf(ProductBean pb) {
+
+		String sql = "UPDATE Product SET " + "on_shelf = ? WHERE product_id = ?;";
+
+		try (Connection con = ds.getConnection(); 
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+			){
+
+			pstmt.setBoolean(1, pb.isStatus());
+			pstmt.setString(2, pb.getProductId());
+			pstmt.executeUpdate();
+			System.out.println("成功修改Id=" + pb.getProductId() + " ,on-shelf status=" + pb.isStatus());
+
+		} catch (SQLException e) {
+			System.out.println("儲存資料" + pb.getProductId() + "時發生錯誤，請檢查，例外=" + e.getMessage());
+			e.printStackTrace();
+		}
 	}
 }
