@@ -45,25 +45,42 @@ $(function() {
 	//確認結帳
 
 	$('#shop_insert_order').click(function(){
-		
-		var json="";
+			
 		var len = sessionStorage.length;
 		
-		json += '{"product":{'
+		if(len == 0){
+			alert("你還沒有選購商品喔!!");
+			return;
+		}
+		
+		var QueryString='OrderDate='+getNowTime()+'&';
+		
 		for(var i=0;i<len;i++){
 			var temp = sessionStorage.getItem(i);
 			
-			json += '"'+temp.split('|')[0]+'":"'+temp.split('|')[4]+'"';
+			QueryString += temp.split('|')[0]+'='+temp.split('|')[4];
 			
-			//最後一次不用加','
+			//最後一次不用加'&'
 			if(i == len-1)
 				break;		
-			json += ',';			
+			QueryString += '&';			
 		}
-		json += '},{';
-		json += '"OrderDate":"'+getNowTime()+'"';
-		json +=	'}';
-		alert(json);
+	
+		//alert(QueryString);
+		
+		
+		$.ajax({url: "../WebShop/Order",dataType: 'text',data: QueryString,
+	        success:   function(result){
+	        	alert("您的購物完成!!");
+	        },
+	        error:	function (event, xhr, settings) {
+	        	
+	        	alert("您的購物發生問題，請詢問客服人員。"+event+' '+xhr+' '+settings);
+	        }
+		});
+		
+		
+		
 	});
 	
 });
