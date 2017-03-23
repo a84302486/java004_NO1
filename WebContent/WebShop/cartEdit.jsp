@@ -94,7 +94,7 @@
 			</thead>	
 			<tbody>	
 			<c:forEach varStatus="vs" var="pb" items="${ShoppingCart.content}">
-				<tr id=" + itemId + ">
+				<tr id="${pb.value.productId}">
 					<td>
 						<div class=media>
 							<a class='thumbnail pull-left' href=#> 
@@ -122,7 +122,7 @@
 						<button class=plus onclick=changeAmount($(this));>＋</button></td>
 					<td class=total></td>
 					<td class=remove>
-						<button type=button class='btn btn-danger' onclick=setDel(this);>
+						<button type=button class='btn btn-danger' onclick=setDel($(this));>
 							<span class='glyphicon glyphicon-remove'></span> Remove
 						</button>
 					</td>
