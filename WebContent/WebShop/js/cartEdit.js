@@ -53,7 +53,7 @@ $(function() {
 			return;
 		}
 		
-		var QueryString='OrderDate='+getNowTime()+'&';
+		var QueryString='';
 		
 		for(var i=0;i<len;i++){
 			var temp = sessionStorage.getItem(i);
