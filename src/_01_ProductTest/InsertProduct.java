@@ -96,7 +96,7 @@ public class InsertProduct extends HttpServlet {
 			
 			ProductBean pb = new ProductBean(productIdStr, PGPrice, name, avgCost
 					, oPlaceStr, sLife, suppierIdStr,fileNameStr,status);
-		
+			System.out.println(pb);
 			if (!errorMsg.isEmpty()) {
 				toJson = new Gson().toJson(errorMsg);
 			} else{			

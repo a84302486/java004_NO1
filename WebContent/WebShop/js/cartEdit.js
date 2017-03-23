@@ -1,85 +1,47 @@
 
-var storage = sessionStorage;
+//var storage = sessionStorage;
 	
 //doFirst--------------------------------
 $(function() {
 	
-	for(key=0; key< storage.length;key++){ //取出各個Key的value後	
-		var itemKey = key;
-		var itemValue = storage.getItem(key);	
-		createCarList(itemKey,itemValue); //用此方法依序創造元素
-	} 	 
+//	for(key=0; key< storage.length;key++){ //取出各個Key的value後	
+//		var itemKey = key;
+//		var itemValue = storage.getItem(key);	
+//		createCarList(itemKey,itemValue); //用此方法依序創造元素
+//	} 	 
+	
 	//畫面載入時先讀取資訊
 	updateData();
 
 
-	function createCarList(itemKey,itemValue){ 
-	var itemId = itemKey;
-	var itemName = itemValue.split('|')[1];
-	var itemImage = itemValue.split('|')[2];
-	var itemPrice = parseInt(itemValue.split('|')[3]);
-	var itemQty   = parseInt(itemValue.split('|')[4]);
-	var itemTotal = itemPrice * itemQty;
+//	function createCarList(itemKey,itemValue){ 
+//	var itemId = itemKey;
+//	var itemName = itemValue.split('|')[1];
+//	var itemImage = itemValue.split('|')[2];
+//	var itemPrice = parseInt(itemValue.split('|')[3]);
+//	var itemQty   = parseInt(itemValue.split('|')[4]);
+//	var itemTotal = itemPrice * itemQty;
 	
 	//建立每個品項的清單區域 ==tr:
-	$('.table tbody').eq(0).append(" <tr id=" + itemId + "><td>"
-		+ " <div class=media> <a class='thumbnail pull-left' href=#>"
-		+ " <img class=media-object src="+ itemImage + ">"
-		+ "	</a><div class=media-body>"
-		+ "            <h4 class=media-heading><a href=# class=name>"+ itemName +"</a></h4>"
-		+ "            <h5 class=media-heading> by <a href=#>包裝</a></h5>"
-		+ "            <span>Status: </span><span class=text-success><strong>In Stock</strong></span>"           	
-		+ " </div></div></td>"	
-		+ " <td class=price>" + itemPrice + "</td>"
-		+ " <td class=countTd><button class=minus onclick=changeAmount($(this));>－</button>" 
-		+ "	<input class=count type=text size=1 value=" + itemQty +">"
-		+ "	<button class=plus  onclick=changeAmount($(this));>＋</button>"
-		+ " </td> <td class=total>" + itemTotal + "</td>"
-		+ " <td class=remove>"
-		+ "	<button type=button class='btn btn-danger' onclick=setDel($(this));>"
-		+ "	<span class='glyphicon glyphicon-remove'></span> Remove</button>"
-		+ " </td></tr>");
-	}
-	
-	
-	//確認結帳
-
-	$('#shop_insert_order').click(function(){
-		
-		var json="";
-		var len = sessionStorage.length;
-		
-		json += '{"product":{'
-		for(var i=0;i<len;i++){
-			var temp = sessionStorage.getItem(i);
-			
-			json += '"'+temp.split('|')[0]+'":"'+temp.split('|')[4]+'"';
-			
-			//最後一次不用加','
-			if(i == len-1)
-				break;		
-			json += ',';			
-		}
-		json += '},{';
-		json += '"OrderDate":"'+getNowTime()+'"';
-		json +=	'}';
-		alert(json);
-	});
-	
+//	$('.table tbody').eq(0).append(" <tr id=" + itemId + "><td>"
+//		+ " <div class=media> <a class='thumbnail pull-left' href=#>"
+//		+ " <img class=media-object src="+ itemImage + ">"
+//		+ "	</a><div class=media-body>"
+//		+ "            <h4 class=media-heading><a href=# class=name>"+ itemName +"</a></h4>"
+//		+ "            <h5 class=media-heading> by <a href=#>包裝</a></h5>"
+//		+ "            <span>Status: </span><span class=text-success><strong>In Stock</strong></span>"           	
+//		+ " </div></div></td>"	
+//		+ " <td class=price>" + itemPrice + "</td>"
+//		+ " <td class=countTd><button class=minus onclick=changeAmount($(this));>－</button>" 
+//		+ "	<input class=count type=text size=1 value=" + itemQty +">"
+//		+ "	<button class=plus  onclick=changeAmount($(this));>＋</button>"
+//		+ " </td> <td class=total>" + itemTotal + "</td>"
+//		+ " <td class=remove>"
+//		+ "	<button type=button class='btn btn-danger' onclick=setDel($(this));>"
+//		+ "	<span class='glyphicon glyphicon-remove'></span> Remove</button>"
+//		+ " </td></tr>");
+//	}
 });
-
-
-//整數格式(0~9)，再補上0使它變為(00~09)
-function getNowTime(){
-	var timeDate= new Date();
-	var tMonth = (timeDate.getMonth()+1) > 9 ? (timeDate.getMonth()+1) : '0'+(timeDate.getMonth()+1);
-	var tDate = timeDate.getDate() > 9 ? timeDate.getDate() : '0'+timeDate.getDate();
-	var tHours = timeDate.getHours() > 9 ? timeDate.getHours() : '0'+timeDate.getHours();
-	var tMinutes = timeDate.getMinutes() > 9 ? timeDate.getMinutes() : '0'+timeDate.getMinutes();
-	var tSeconds = timeDate.getSeconds() > 9 ? timeDate.getSeconds() : '0'+timeDate.getSeconds();
-	return timeDate= timeDate.getFullYear()+'/'+ tMonth +'/'+ tDate +' '+ tHours +':'+ tMinutes +':'+ tSeconds;
-}
-
 
 //判斷是點擊+還是-,如果數量是1點擊-時一樣設定數量為1,並同時更新總金額及數量----
 function changeAmount(obj) {
@@ -136,9 +98,4 @@ function updateData(){
 		var txt2=$("<a href=shop_index.html></a>").text("回購物網");
 		$('tbody').eq(0).append(txt1,txt2);
 	}
-
-
 }
-
-
-

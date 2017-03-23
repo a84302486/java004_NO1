@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +67,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">會員管理</a></li>
 					<li><a href="login_and_register.jsp">登入/註冊</a></li>
-					<li><a href="cartEdit.html">購物車</a></li>
+					<li><a href="cartEdit.jsp">購物車</a></li>
 					<li><a href="index.html">觀光工廠</a></li>
 				</ul>
 			</div>
@@ -78,6 +81,7 @@
 	<div class="container">
 		<h2 id="header">購物車</h2>
 		<br>
+	
 		<table class="table">
 			<thead>
 				<tr>
@@ -87,9 +91,43 @@
 					<th>小計</th>
 					<th>刪除</th>
 				</tr>
-			</thead>
-			<tbody>
+			</thead>	
+			<tbody>	
+			<c:forEach varStatus="vs" var="pb" items="${ShoppingCart.content}">
+				<tr id=" + itemId + ">
+					<td>
+						<div class=media>
+							<a class='thumbnail pull-left' href=#> 
+								<img class=media-object 
+								src="${pageContext.request.contextPath}/_01_ProductTest/getImage?id=${pb.value.productId}">
+							</a>
+							<div class=media-body>
 
+								<h4 class=media-heading>
+									<a href=# class=name>${pb.value.name}</a>
+								</h4>
+
+								<h5 class=media-heading>
+									by <a href=#>包裝</a>
+								</h5>
+								<span>Status: </span>
+								<span class=text-success>In Stock</span>
+							</div>
+						</div>
+					</td>
+					<td class=price>${pb.value.pgPrice}</td>
+					<td class=countTd><button class=minus
+							onclick=changeAmount($(this));>－</button> <input class=count
+						type=text size=1 value="${pb.value.qty}">
+						<button class=plus onclick=changeAmount($(this));>＋</button></td>
+					<td class=total></td>
+					<td class=remove>
+						<button type=button class='btn btn-danger' onclick=setDel(this);>
+							<span class='glyphicon glyphicon-remove'></span> Remove
+						</button>
+					</td>
+				</tr>
+			</c:forEach>	
 			</tbody>
 			<tbody>
 				<tr class="footer">
@@ -115,16 +153,13 @@
 				<tr class="footer">
 					<td colspan="4"></td>
 
-					<td colspan="3">
-						<a href="shop_index.html">
-							<button type="button" class="btn btn-default">繼續購物
-								<span class="glyphicon glyphicon-shopping-cart"></span>
+					<td colspan="3"><a href="shop_index.html">
+							<button type="button" class="btn btn-default">
+								繼續購物 <span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
-						</a>
-
-
-
-						<button type="button" class="btn btn-success" id="shop_insert_order">
+					</a>
+						<button type="button" class="btn btn-success"
+							id="shop_insert_order">
 							確定結帳 <span class="glyphicon glyphicon-play"></span>
 						</button></td>
 				</tr>

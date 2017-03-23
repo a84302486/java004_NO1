@@ -6,12 +6,18 @@
 	font-weight:800;
 	text-align:center;
 }
+.table th{
+	text-align:center;
+}
 .footer{
 	font-size:1em;
 	border:hidden;
 	font-weight:600;
+	text-align:right;
 }
-
+.footer td(3){
+	text-align:center;
+}
 .red{
 	color:red;
 }
@@ -19,4 +25,7 @@
 #billing{
 	position:absolute;
 	right:17em;
+}
+.price,.count,.countTd,.total,.remove{
+	text-align:center;
 }
