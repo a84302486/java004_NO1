@@ -1,3 +1,6 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +13,8 @@
 	<link href="css/shopcart.css" rel="stylesheet">
 
 <head>
+
+
     <title>Java004_NO1 購物平台</title>
 </head>
 
@@ -26,13 +31,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="shop_index.html">購物平台</a>
+                <a class="navbar-brand" href="shop_index.jsp">購物平台</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">麵類<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        	麵類<span class="caret"></span></a>
                          <ul class="dropdown-menu" role="menu">
                             <li><a href="#">牛肉類</a></li>
                             <li class="divider"></li>
@@ -42,7 +48,8 @@
                           </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">飯類<span class="caret"></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        	飯類<span class="caret"></a>
                          <ul class="dropdown-menu" role="menu">
                             <li><a href="#">牛肉類</a></li>
                             <li class="divider"></li>
@@ -52,7 +59,8 @@
                           </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">零嘴類<span class="caret"></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        	零嘴類<span class="caret"></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">牛肉類</a></li>
                             <li class="divider"></li>
@@ -83,7 +91,15 @@
 	<!-- .side-cart -->
 	<div id="cd-cart">
 		<h2>購物車</h2>
-		<ul class="cd-cart-items"></ul> 
+			<ul class="cd-cart-items">
+<%-- 			<c:forEach varStatus="vs" var="pb" items="${ShoppingCart.content}"> --%>
+<%-- 				<li><span class="cd-qty" id="${pb.value.productId}">${pb.value.qty}</span>${pb.value.name} --%>
+<%-- 				<div class="cd-price">$<em>${pb.value.pgPrice}</em></div> --%>
+<!-- 					<a class="cd-item-remove cd-img-replace"></a> -->
+<!-- 				</li> -->
+<%-- 			</c:forEach> --%>
+			</ul> 
+		
 		<!-- cd-cart-items -->
 		
 		<!-- cd-cart-total -->
@@ -121,37 +137,7 @@
 
         <!-- Page Features -->
         <div id="wrap" class="row text-center">
-         	
-<!--             <div class="col-md-3 col-sm-6 hero-feature"> -->
-<!--                 <div class="thumbnail"> -->
-<!--                     <img src="images/beaf.jpg" alt=""> -->
-<!--                     <div class="caption"> -->
-<!-- 						<span class="name">牛肉</span>: NT<span class="price">200 </span> -->
-<!--                         <p>包裝:</p> -->
-<!--                         <p> -->
-<!--                             <button id="1" class="btn btn-primary">加入購物車 -->
-<!-- 								<input type="hidden" value="牛肉|images/beaf.jpg|200"> -->
-<!-- 							</button>  -->
-<!-- 							<a href="#" class="btn btn-default">More Info</a> -->
-<!--                         </p> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!-- 			<div class="col-md-3 col-sm-6 hero-feature"> -->
-<!--                 <div class="thumbnail"> -->
-<!--                     <img src="images/chicken.jpg" alt=""> -->
-<!--                     <div class="caption"> -->
-<!-- 						<span class="name">雞肉</span>: NT<span class="price">200 </span> -->
-<!--                         <p>包裝:</p> -->
-<!--                         <p> -->
-<!--                             <button id="2" class="btn btn-primary">加入購物車 -->
-<!-- 								<input type="hidden" value="雞肉|images/chicken.jpg|200"> -->
-<!-- 							</button>  -->
-<!-- 							<a href="#" class="btn btn-default">More Info</a> -->
-<!--                         </p> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
+
         </div>
         <!-- /.row -->
         <hr>
@@ -169,11 +155,13 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-
+	
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/shop_index.js"></script>
+	<script type="text/javascript">
 
+</script>
 	
 </body>
 </html>

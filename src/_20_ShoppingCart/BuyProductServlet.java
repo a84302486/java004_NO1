@@ -3,9 +3,7 @@ package _20_ShoppingCart;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 
 @WebServlet("/_20_BuyProductServlet/BuyProductServlet.do")
 public class BuyProductServlet extends HttpServlet {
@@ -22,29 +22,24 @@ public class BuyProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
-//		request.setCharacterEncoding("UTF-8");
-//		response.setContentType("application/json; charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=UTF-8");
 		
-//		List<OrderItemBean> list = new ArrayList<>();
-//		HttpSession session = request.getSession(false) ; 
-//		System.out.println("GET:session=" + session);
-//		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
-//		cart.getContent();
-		
-//		try (PrintWriter out = response.getWriter();) {
-//		String toJson = new Gson().toJson(cart.getContent());
-//		System.out.println(toJson);
-//		out.println(toJson);
-		
+		HttpSession session = request.getSession(false) ; 
+		System.out.println("GET:session=" + session);
+		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
+		try (PrintWriter out = response.getWriter();) {
+		String toJson = new Gson().toJson(cart.getContent());
+		System.out.println(toJson);
+		out.println(toJson);
+		}
 //		request.setAttribute("productBean", cart.getContent());
 //		RequestDispatcher rd = request.getRequestDispatcher("cartEdit.jsp");
 //		rd.forward(request, response);
 		
-		}
-
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession() ; 
 		System.out.println("POST:session=" + session);
