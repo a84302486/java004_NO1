@@ -1,16 +1,11 @@
 
-var storage = sessionStorage;
+
 	
 //doFirst--------------------------------
 $(function() {
 	
-	for(key=0; key< storage.length;key++){ //取出各個Key的value後	
-		var itemKey = key;
-		var itemValue = storage.getItem(key);	
-		createCarList(itemKey,itemValue); //用此方法依序創造元素
-	} 	 
-	//畫面載入時先讀取資訊
 	updateData();
+
 
 
 	function createCarList(itemKey,itemValue){ 
@@ -83,20 +78,8 @@ $(function() {
 		
 	});
 	
+
 });
-
-
-//整數格式(0~9)，再補上0使它變為(00~09)
-function getNowTime(){
-	var timeDate= new Date();
-	var tMonth = (timeDate.getMonth()+1) > 9 ? (timeDate.getMonth()+1) : '0'+(timeDate.getMonth()+1);
-	var tDate = timeDate.getDate() > 9 ? timeDate.getDate() : '0'+timeDate.getDate();
-	var tHours = timeDate.getHours() > 9 ? timeDate.getHours() : '0'+timeDate.getHours();
-	var tMinutes = timeDate.getMinutes() > 9 ? timeDate.getMinutes() : '0'+timeDate.getMinutes();
-	var tSeconds = timeDate.getSeconds() > 9 ? timeDate.getSeconds() : '0'+timeDate.getSeconds();
-	return timeDate= timeDate.getFullYear()+'/'+ tMonth +'/'+ tDate +' '+ tHours +':'+ tMinutes +':'+ tSeconds;
-}
-
 
 //判斷是點擊+還是-,如果數量是1點擊-時一樣設定數量為1,並同時更新總金額及數量----
 function changeAmount(obj) {
@@ -107,17 +90,29 @@ function changeAmount(obj) {
 	var tr = td.parent(), p = tr.find('.price').text(), t = tr.find('.total');
 	v <= 1 ? t.text(p) : t.text(p * v);
 
+	var thisID = obj.parents('tr').attr('id');
+	var newQty = c.val();
+	
+	$.ajax({	
+        url: '../_20_ShoppingCart/UpdateProductServlet.do',
+        type:'POST',
+        data:"cmd=MOD" + "&productId=" + thisID + "&newQty=" + newQty,
+    });
+	
 	updateData();
 }
 
 //刪除該項產品-----------------------------
 function setDel(obj) {
 	if (confirm("確定刪除此項商品 ?")) {
-		itemId=obj.parents('tr').attr('id');
-		//清除storage的資料,刪除整筆key
-		storage.removeItem(itemId); 
+		var thisID = obj.parents('tr').attr('id');
+		$.ajax({	
+	        url: '../_20_ShoppingCart/UpdateProductServlet.do',
+	        type:'POST',
+	        data:"cmd=DEL" + "&productId=" + thisID ,
+	    });
 		//再清除該列元素
-		obj.parents('tr').remove().children().remove();
+		obj.parents('tr').remove();
 	updateData();
 	}
 }
@@ -153,9 +148,4 @@ function updateData(){
 		var txt2=$("<a href=shop_index.html></a>").text("回購物網");
 		$('tbody').eq(0).append(txt1,txt2);
 	}
-
-
 }
-
-
-
