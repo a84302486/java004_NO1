@@ -8,9 +8,9 @@ CREATE TABLE `Product` (
   `Suppier_id` 	    char(4) DEFAULT NULL,
   `fileName`   varchar (60) DEFAULT NULL,
   `productImage`     longblob     DEFAULT NULL,
-  `on_shift`     		BOOLEAN  ,
+  `on_shelf`     		BOOLEAN  ,
   
-	CONSTRAINT Product_product_id_PK PRIMARY KEY (`product_Id`)
+	CONSTRAINT Product_product_id_PK PRIMARY KEY (`product_id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `Taste` (
@@ -285,28 +285,30 @@ CREATE TABLE `User`(
 
 CREATE TABLE `Order`(
 	OrderId 			VARCHAR(20) NOT NULL,
-	OrderDate			VARCHAR(20) NOT NULL,
-	ShippedDate 		VARCHAR(20) NOT NULL,
+	OrderDate			DATETIME NOT NULL,
+	ShippedDate 		DATETIME NOT NULL,
 	M_Username			VARCHAR(20) NOT NULL,
-	OrderTotal			VARCHAR(20) NOT NULL,
+	OrderTotal			INT NOT NULL,
 	
-	CONSTRAINT Order_M_Username_FK FOREIGN KEY (M_Username) 
-		REFERENCES Member(M_Username),
-	CONSTRAINT Order_OrderId_PK PRIMARY KEY (OrderId)
+	CONSTRAINT `Order_M_Username_FK` FOREIGN KEY (`M_Username`) 
+		REFERENCES `Member`(`M_Username`),
+	CONSTRAINT `Order_OrderId_PK` PRIMARY KEY (OrderId)
 		
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `OrderDetail`(
 	OrderId 			VARCHAR(20) NOT NULL,
 	product_id			VARCHAR(20) NOT NULL,
-	P_G_price 			VARCHAR(20) NOT NULL,
-	Quantity			VARCHAR(20) NOT NULL,
+	product_name		VARCHAR(20) NOT NULL,
+	P_G_price 			INT NOT NULL,
+	Quantity			INT NOT NULL,
+	SubTotal			INT NOT NULL,
 	
 	
-	CONSTRAINT OrderDetail_OrderId_FK FOREIGN KEY (OrderId) 
-		REFERENCES Order(OrderId),
-	CONSTRAINT OrderDetail_product_id_FK FOREIGN KEY (product_id) 
-		REFERENCES Product(product_id),
-	CONSTRAINT OrderDetail_PK PRIMARY KEY (OrderId,product_id)
+	CONSTRAINT `OrderDetail_OrderId_FK` FOREIGN KEY (`OrderId`) 
+		REFERENCES `Order`(`OrderId`),
+	CONSTRAINT `OrderDetail_product_id_FK` FOREIGN KEY (`product_id`) 
+		REFERENCES `Product`(`product_id`),
+	CONSTRAINT `OrderDetail_PK` PRIMARY KEY (`OrderId`,`product_id`)
 	
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;

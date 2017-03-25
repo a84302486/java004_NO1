@@ -153,7 +153,7 @@
 				<tr class="footer">
 					<td colspan="4"></td>
 
-					<td colspan="3"><a href="shop_index.html">
+					<td colspan="3"><a href="shop_index.jsp">
 							<button type="button" class="btn btn-default">
 								繼續購物 <span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>

@@ -26,8 +26,9 @@ public class BuyProductServlet extends HttpServlet {
 		response.setContentType("application/json; charset=UTF-8");
 		
 		HttpSession session = request.getSession(false) ; 
-		System.out.println("GET:session=" + session);
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
+		
+		
 		try (PrintWriter out = response.getWriter();) {
 		String toJson = new Gson().toJson(cart.getContent());
 		System.out.println(toJson);
@@ -85,7 +86,7 @@ public class BuyProductServlet extends HttpServlet {
 			throw new ServletException(e); 
 		}
 		System.out.println("productId=" + productIdStr + ",name="+ nameStr + ",price="+ pgPrice +",qty="+qty );
-		System.out.println("Content"+cart.getContent());
+		System.out.println("Content="+cart.getContent());
 		System.out.println("-------------------------");
 		// 將訂單資料封裝到OrderItemBean內
 		OrderItemBean oi = new OrderItemBean(productIdStr, nameStr, pgPrice, qty);

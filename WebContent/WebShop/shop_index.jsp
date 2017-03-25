@@ -158,7 +158,7 @@
 	
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/shop_index.js"></script>
+	<script src="js/shop_index2.js"></script>
 	<script type="text/javascript">
 
 </script>
