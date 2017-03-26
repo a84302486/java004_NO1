@@ -6,7 +6,6 @@ $(function() {
 	
 	updateData();
 
-
 	function createCarList(itemKey,itemValue){ 
 	var itemId = itemKey;
 	var itemName = itemValue.split('|')[1];
@@ -40,30 +39,7 @@ $(function() {
 
 	$('#shop_insert_order').click(function(){
 			
-		var len = sessionStorage.length;
-		
-		if(len == 0){
-			alert("你還沒有選購商品喔!!");
-			return;
-		}
-		
-		var QueryString='';
-		
-		for(var i=0;i<len;i++){
-			var temp = sessionStorage.getItem(i);
-			
-			QueryString += temp.split('|')[0]+'='+temp.split('|')[4];
-			
-			//最後一次不用加'&'
-			if(i == len-1)
-				break;		
-			QueryString += '&';			
-		}
-	
-		//alert(QueryString);
-		
-		
-		$.ajax({url: "../WebShop/Order",dataType: 'text',data: QueryString,
+		$.ajax({url: "../WebShop/Order",dataType: 'text',
 	        success:   function(result){
 	        	alert("您的購物完成!!");
 	        },
@@ -73,7 +49,6 @@ $(function() {
 	        }
 		});	
 	});
-
 });
 
 //判斷是點擊+還是-,如果數量是1點擊-時一樣設定數量為1,並同時更新總金額及數量----

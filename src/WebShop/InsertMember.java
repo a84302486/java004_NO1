@@ -85,7 +85,7 @@ public class InsertMember extends HttpServlet {
 				// 導向 contextPath + "/index.jsp"
 				//response.sendRedirect(contextPath + "/index.jsp");
                 response.sendRedirect(
-			      response.encodeRedirectURL(contextPath + "/WebShop/cartEdit.html" ));
+			      response.encodeRedirectURL(contextPath + "/WebShop/cartEdit.jsp" ));
 
 			}
 			return;
