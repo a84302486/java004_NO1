@@ -1,4 +1,4 @@
-package WebShop;
+package _21_ShoppingOrder;
 
 public class OrderBean {
 	private String OrderId;

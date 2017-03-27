@@ -1,4 +1,4 @@
-package WebShop;
+package _21_ShoppingOrder;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,10 +17,11 @@ import javax.servlet.http.HttpSession;
 
 import _01_ProductTest.ProductBean;
 import _01_ProductTest.ProductDAO;
+import _14_Member.MemberBean;
 import _20_ShoppingCart.OrderItemBean;
 import _20_ShoppingCart.ShoppingCart;
 
-@WebServlet("/WebShop/Order")
+@WebServlet("/_21_ShoppingOrder/Order")
 public class InsertOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

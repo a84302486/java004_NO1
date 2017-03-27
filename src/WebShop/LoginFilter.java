@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import _14_Member.MemberBean;
+
 
 /**
  * Servlet Filter implementation class LoginFilter
@@ -30,7 +32,7 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter(urlPatterns = { "/*" }, initParams = {
 		@WebInitParam(name = "url_1", value = "/WebShop/cartEdit.jsp"),
-		@WebInitParam(name = "url_2", value = "/WebShop/InsertOrder.java")
+		@WebInitParam(name = "url_2", value = "/_21_ShoppingOrder/InsertOrder.java")
 		})
 
 public class LoginFilter implements Filter {

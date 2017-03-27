@@ -39,7 +39,7 @@ $(function() {
 
 	$('#shop_insert_order').click(function(){
 			
-		$.ajax({url: "../WebShop/Order",dataType: 'text',
+		$.ajax({url: "../_21_ShoppingOrder/Order",dataType: 'text',
 	        success:   function(result){
 	        	alert("您的購物完成!!");
 	        },

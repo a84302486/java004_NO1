@@ -1,4 +1,4 @@
-package WebShop;
+package _21_ShoppingOrder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +13,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import _01_ProductTest.ProductBean;
+import _14_Member.MemberBean;
 
 
 public class OrderDetailBeanDAO {

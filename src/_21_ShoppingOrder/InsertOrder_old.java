@@ -1,4 +1,4 @@
-package WebShop;
+package _21_ShoppingOrder;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 
 import _01_ProductTest.ProductBean;
 import _01_ProductTest.ProductDAO;
+import _14_Member.MemberBean;
 
 @WebServlet("/WebShop/Order.old")
 public class InsertOrder_old extends HttpServlet {

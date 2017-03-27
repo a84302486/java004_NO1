@@ -1,4 +1,4 @@
-package WebShop;
+package _21_ShoppingOrder;
 
 import _01_ProductTest.ProductBean;
 

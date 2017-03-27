@@ -1,4 +1,4 @@
-package WebShop;
+package _21_ShoppingOrder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,10 @@ import java.util.Collection;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
+
+import _14_Member.MemberBean;
 
 
 public class OrderBeanDAO {
@@ -102,12 +105,12 @@ public class OrderBeanDAO {
 		
 	}
 	
-	public Collection<MemberBean> select(String Username){
-	
-		String sql = "select * from Member where M_Username =?"					
+	public Collection<OrderBean> getMemberOrder(String Username){
+		
+		String sql = "select * from Order where M_Username =?"					
 					+ ";";
 						
-		Collection<MemberBean> coll = new ArrayList<>();
+		Collection<OrderBean> coll = new ArrayList<>();
 		try(
 			Connection con = ds.getConnection();
 			PreparedStatement pstmt	= con.prepareStatement(sql);){				
@@ -117,23 +120,19 @@ public class OrderBeanDAO {
 				ResultSet rs = pstmt.executeQuery();
 			){
 				if (rs.next()){					
-					MemberBean pb = new MemberBean();
+					OrderBean pb = new OrderBean();
+								
+					pb.setOrderId(rs.getString(1));
+					pb.setOrderDate(rs.getString(2));			
+					pb.setShippedDate(rs.getString(3));	
+					pb.setM_Username(rs.getString(4));
+					pb.setOrderTotal(rs.getInt(5));
 					
-					pb.setM_Username(rs.getString(1));
-					pb.setM_Password(rs.getString(2));			
-					pb.setM_Name(rs.getString(3));	
-					pb.setM_Cellphone(rs.getString(4));
-					pb.setM_Birthday(rs.getString(5));
-					pb.setM_Insertdate(rs.getString(6));
-					pb.setM_Updatedate(rs.getString(7));
-					pb.setM_Level(rs.getInt(8));
-					pb.setM_BonusPoints(rs.getInt(9));
-					pb.setM_Total(rs.getInt(10));
 					
 					coll.add(pb);					
 				}
 				
-				System.out.println("記錄 查詢單筆");
+				System.out.println("記錄 查詢會員"+Username+"的訂單");
 			}
 			return coll;
 		}catch (Exception e){
@@ -143,84 +142,7 @@ public class OrderBeanDAO {
 		return null;
 	}
 	
-	
-	public Collection<MemberBean> select() {
 
-		String sql = "select * from Member"+";";
-
-		Collection<MemberBean> coll = new ArrayList<>();
-		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
-
-			try (ResultSet rs = pstmt.executeQuery();) {
-
-				while (rs.next()) {
-					MemberBean pb = new MemberBean();
-					
-					pb.setM_Username(rs.getString(1));
-					pb.setM_Password(rs.getString(2));			
-					pb.setM_Name(rs.getString(3));	
-					pb.setM_Cellphone(rs.getString(4));
-					pb.setM_Birthday(rs.getString(5));
-					pb.setM_Insertdate(rs.getString(6));
-					pb.setM_Updatedate(rs.getString(7));
-					pb.setM_Level(rs.getInt(8));
-					pb.setM_BonusPoints(rs.getInt(9));
-					pb.setM_Total(rs.getInt(10));
-
-					coll.add(pb);
-				}
-
-				System.out.println("記錄 查詢all");
-			}
-			return coll;
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	
-	public Collection<MemberBean> selectToUpdate(String Username){
-		
-		String sql = "select * from Member where M_Username =?"					
-					+ ";";
-						
-		Collection<MemberBean> coll = new ArrayList<>();
-		try(
-			Connection con = ds.getConnection();
-			PreparedStatement pstmt	= con.prepareStatement(sql);){				
-		
-			pstmt.setString(1, Username);
-			try(
-				ResultSet rs = pstmt.executeQuery();
-			){
-				if (rs.next()){					
-					MemberBean pb = new MemberBean();
-					
-					pb.setM_Username(rs.getString(1));
-					pb.setM_Password(rs.getString(2));			
-					pb.setM_Name(rs.getString(3));	
-					pb.setM_Cellphone(rs.getString(4));
-					pb.setM_Birthday(rs.getString(5));
-					pb.setM_Insertdate(rs.getString(6));
-					pb.setM_Updatedate(rs.getString(7));
-					pb.setM_Level(rs.getInt(8));
-					pb.setM_BonusPoints(rs.getInt(9));
-					pb.setM_Total(rs.getInt(10));
-
-					coll.add(pb);					
-				}
-				
-				System.out.println("記錄 查詢單筆");
-			}
-			return coll;
-		}catch (Exception e){
-			
-			e.printStackTrace();
-		}
-		return null;
-	}
 }
 	
 	
