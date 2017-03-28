@@ -49,7 +49,7 @@ public class InsertOrder extends HttpServlet {
 		
 		//orderId
 		String orderId = null;
-		SimpleDateFormat sdfsss = new SimpleDateFormat("yyyyMMddhhmmssSSS");
+		SimpleDateFormat sdfsss = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 		orderId = sdfsss.format(new Date());
 
 		//orderDate

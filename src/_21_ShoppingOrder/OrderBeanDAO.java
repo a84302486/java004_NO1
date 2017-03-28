@@ -107,7 +107,7 @@ public class OrderBeanDAO {
 	
 	public Collection<OrderBean> select(String Username){
 		
-		String sql = "select * from `Order` where `M_Username`=?;";					
+		String sql = "select * from `Order` where `M_Username`=? ORDER BY 'OrderDate' DESC;";					
 
 						
 		Collection<OrderBean> coll = new ArrayList<>();

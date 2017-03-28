@@ -12,7 +12,7 @@ function orderSelect(servelet, resultId, inputId) {
 	$.ajax({url: servelet,dataType: 'json',resetForm: true,data: queryString,
         success:   function(result){
   
-        	orderResult(result, resultId);       	
+        	orderResult(result, resultId, inputId);       	
         }
 	});
 }
