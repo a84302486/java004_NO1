@@ -1,10 +1,9 @@
 
 $(function() {
 	//點擊呼叫購物清單--------------------------------
-	var list = $('#cd-cart'),
-	trigger = $('#cd-cart-trigger');
+	var list = $('#cd-cart');
 
-	trigger.on('click', function(){
+	$('#cd-cart-trigger').on('click', function(){
 		if( list.hasClass('speed-in')) {
 			list.removeClass('speed-in');
 		} else {
@@ -74,7 +73,8 @@ $(function() {
 		  }
 		}
 
-	$('#wrap').on("click","button",function(){			
+	$('#wrap').on("click","button",function(){	
+		
 		var thisID = $(this).attr('id');		
 		var itemName  = $(this).parent().parent().find('.name').html();
 		var itemPrice = $(this).parent().parent().find('.price').html();
@@ -117,13 +117,13 @@ $(function() {
 	        	});	
 	        }
 	    });	
+		
+		//點擊時觸發購物車彈出------------------
+		$('#cd-cart').addClass('speed-in');	
 		calculate();
 	});
 	
-		//點擊時觸發一次購物車彈出------------------
-		$(this).one("click",function(){
-		list.addClass('speed-in');	
-		});	
+
 		
 	//點擊X刪除該商品--------------------------------
 	$(document).on('click','.cd-item-remove',function(){

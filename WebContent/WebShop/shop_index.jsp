@@ -10,7 +10,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link href="css/shopcart.css" rel="stylesheet">
+	<link href="css/shop_index.css" rel="stylesheet">
 
 <head>
 
@@ -91,17 +91,10 @@
 	<!-- .side-cart -->
 	<div id="cd-cart">
 		<h2>購物車</h2>
+			<!-- cd-cart-items -->
 			<ul class="cd-cart-items">
-<%-- 			<c:forEach varStatus="vs" var="pb" items="${ShoppingCart.content}"> --%>
-<%-- 				<li><span class="cd-qty" id="${pb.value.productId}">${pb.value.qty}</span>${pb.value.name} --%>
-<%-- 				<div class="cd-price">$<em>${pb.value.pgPrice}</em></div> --%>
-<!-- 					<a class="cd-item-remove cd-img-replace"></a> -->
-<!-- 				</li> -->
-<%-- 			</c:forEach> --%>
 			</ul> 
-		
-		<!-- cd-cart-items -->
-		
+	
 		<!-- cd-cart-total -->
 		<div class="cd-cart-total">
 			<p>總數量:<span>0</span></p>
@@ -116,15 +109,38 @@
 	
     <!-- Page Content -->
     <div class="container">
-
+			
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
-            <h1>A Warm Welcome!</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-            <p><a class="btn btn-primary btn-large">Call to action!</a>
-            </p>
+<!--             <h1>A Warm Welcome!</h1> -->
+<!--             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p> -->
+<!--             <p><a class="btn btn-primary btn-large">Call to action!</a> -->
+<!--             </p> -->
         </header>
-
+	<section class="slideshow section">
+        <div class="container">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="slideshow_image slideshow_image01"></div>
+                    </div>
+                    <div class="item">
+                        <div class="slideshow_image slideshow_image02"></div>
+                    </div>
+					<div class="item">
+                        <div class="slideshow_image slideshow_image03"></div>
+                    </div>
+                </div>
+            </div>
+        </div>		
+    </section>
         <hr>
 
         <!-- Title -->
@@ -154,7 +170,7 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
 	
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>

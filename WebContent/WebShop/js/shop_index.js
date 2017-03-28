@@ -118,7 +118,7 @@ $(function() {
 		});
 	
 		//點擊時觸發一次購物車彈出------------------
-		$(this).one("click",function(){
+		$('.btn btn-primary').one("click",function(){
 		list.addClass('speed-in');	
 	});	
 		

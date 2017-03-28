@@ -1,5 +1,4 @@
-.thumbnail img{
-	
+.thumbnail img{	
 	width: 20em;
 	height: 15em;
 }
@@ -123,4 +122,26 @@
     border-radius: 50%;
     text-align: center;
 
+}
+
+/* slideshow */
+.slideshow section{
+	text-align: center;
+}
+.slideshow_image {
+	background-size: cover;
+	background-position: center;
+	width: 97%;
+	height: 500px;
+	padding-left:0;
+	padding-right:0;
+}
+.slideshow_image01 {
+	background-image: url(../images/beaf.jpg);
+}
+.slideshow_image02 {
+	background-image: url(../images/porkRice.jpg);
+}
+.slideshow_image03 {
+	background-image: url(../images/meet.jpg);
 }
