@@ -1,10 +1,9 @@
 package _21_ShoppingOrder;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
 
-import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,10 +28,11 @@ public class OrderDetailServlet extends HttpServlet {
 	
 		System.out.println("收到Username="+M_Username+", OrderId="+OrderId);
 		try {
-//			OrderDAO ordDAO = new OrderDAO();
-//			OrderBean ob = ordDAO.getOrder(no);
-//			request.setAttribute("OrderBean", ob);
-			RequestDispatcher  rd = request.getRequestDispatcher("/_21_ShoppingOrder/ShowOrderDetail.jsp");
+			Collection<OrderDetailBean> coll = new ArrayList<>();
+			OrderDetailBeanDAO odDAO = new OrderDetailBeanDAO();
+			coll = odDAO.select(OrderId);
+			request.setAttribute("OrderDetail_coll", coll);
+			RequestDispatcher  rd = request.getRequestDispatcher("/WebShop/ShowOrderDetail.jsp");
 			rd.forward(request, response);
 			return;
 		} catch (Exception e) {
