@@ -113,9 +113,9 @@
 										<div class="form-group">
 											<label for="Password" class="col-sm-3 control-label">會員密碼</label>
 											<div class="col-sm-8">
-												<input type="password" id="Password"
+												<input type="password" id="PasswordID" name="Password"
 													placeholder="6～20個數字和英文組成的字元" class="form-control required atoz_number"
-													name="Password">
+													>
 												
 											</div>
 											
@@ -123,8 +123,8 @@
 										<div class="form-group">
 											<label for="Password2" class="col-sm-3 control-label">密碼確認</label>
 											<div class="col-sm-8">
-												<input type="password" id="Password2" placeholder="再輸入一次密碼"
-													class="form-control required atoz_number" name="Password2">
+												<input type="password" id="Password2" name="Password2" placeholder="再輸入一次密碼"
+													class="form-control required atoz_number">
 											
 
 											</div>

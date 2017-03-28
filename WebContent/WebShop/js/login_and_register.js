@@ -141,7 +141,7 @@ $(document).ready(function() {
 			Password2:{
 				minlength : 6,
 				maxlength : 20,
-				equalTo : "#Password"
+				equalTo : "#PasswordID"
 			},
 			Name:{
 				maxlength : 20

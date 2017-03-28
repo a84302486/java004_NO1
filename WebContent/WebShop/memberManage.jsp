@@ -23,18 +23,76 @@
 
   	<jsp:include page='header.jsp' />
 	
-	
+	<div class="col-md-12 center" id="content">
+	<input type="hidden" value="${MemberLoginOK.m_Username}" id="memberVal"/>
 	<section class="container-fuild" id="memberResult">
-		<form id="memberSelect">
-			<input type="hidden" value="${MemberLoginOK.m_Username}"/>
-		</form>
+		<h3 class="side-heading">
+            <span class="text">帳戶資料</span>
+          </h3>
+          <div class="account-row">
+            <div class="shoplist-container">
+              <form class="form-horizontal">
+                <div class="form-warp account-form">
+                  <div class="form-group">
+                    <label class="col-sm-3 col-md-2 control-label"> 會員帳號：</label>
+                    <div class="col-sm-9 col-md-10">
+                      <span class="label-text">${MemberLoginOK.m_Username}</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 col-md-2 control-label"> 會員密碼：</label>
+                    <div class="col-sm-9 col-md-10">
+                      <span class="label-text"> <a href="/account/modify_password" class="link-color">修改會員密碼</a></span>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="col-sm-3 col-md-2 control-label"> 帳戶姓名：</label>
+                    <div class="col-sm-9 col-md-10">
+                      <span class="label-text">${MemberLoginOK.m_Name}</span>
+                      
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="col-sm-3 col-md-2 control-label"> 生日：</label>
+                    <div class="col-sm-9 col-md-10">
+                    
+                      <span class="label-text">${MemberLoginOK.m_Birthday}</span>
+                    
+                    </div>
+                  </div>
+         
+                  <div class="form-group">
+                    <label class="col-sm-3 col-md-2 control-label">手機：</label>
+                    <div class="col-sm-9 col-md-10">
+                      <span class="label-text"> ${MemberLoginOK.m_Cellphone}</span>
+                    </div>
+                  </div>
+      
+                <div class="row">
+                  <div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2">
+                    <div class=" btn-warp check-btn">
+                      <a href="/account/logout" type="button" class="btn btn-default "><i class="fa fa-sign-out"></i> 登出</a>
+                      <a href="/account/account_edit" class="btn btn-primary "><i class="fa fa-pencil"></i> 編輯帳戶資料</a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+	
+	
 	</section>
 	<section class="container-fuild" id="orderResult">
-		<form id="orderSelect">
-			<input type="hidden" value="${MemberLoginOK.m_Username}"/>
-		</form>
+	
 	</section>
 	
+	</div>
+	
+
+        
 	
     <script src="js/jquery.js"></script>
 	

@@ -114,8 +114,8 @@ function updateData(){
 	
 	//如果沒有商品顯示以下內容
 	if( $('.price').size()==0){
-		var txt1=$("<tr class=alertMsg><td></td></tr>").text("購物車空空如也，趕快去購物吧！");
-		var txt2=$("<a href=shop_index.jsp></a>").text("回購物網");
+		var txt1=$("<tr class=alertMsg><td></td></tr>").text("目前您的購物車是空的");
+		var txt2=$("<a href=shop_index.jsp></a>").text("您可以前往我們店鋪 ，以選購您想要的商品。");
 		$('tbody').eq(0).append(txt1,txt2);
 	}
 }

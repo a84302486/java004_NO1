@@ -105,10 +105,10 @@ public class OrderBeanDAO {
 		
 	}
 	
-	public Collection<OrderBean> getMemberOrder(String Username){
+	public Collection<OrderBean> select(String Username){
 		
-		String sql = "select * from Order where M_Username =?"					
-					+ ";";
+		String sql = "select * from `Order` where `M_Username`=?;";					
+
 						
 		Collection<OrderBean> coll = new ArrayList<>();
 		try(
@@ -119,19 +119,19 @@ public class OrderBeanDAO {
 			try(
 				ResultSet rs = pstmt.executeQuery();
 			){
-				if (rs.next()){					
+				while (rs.next()) {
 					OrderBean pb = new OrderBean();
-								
+					
 					pb.setOrderId(rs.getString(1));
 					pb.setOrderDate(rs.getString(2));			
-					pb.setShippedDate(rs.getString(3));	
-					pb.setM_Username(rs.getString(4));
+					pb.setShippedDate(rs.getString(3));
+					rs.getString(4);
 					pb.setOrderTotal(rs.getInt(5));
 					
 					
-					coll.add(pb);					
+					coll.add(pb);
 				}
-				
+					
 				System.out.println("記錄 查詢會員"+Username+"的訂單");
 			}
 			return coll;
