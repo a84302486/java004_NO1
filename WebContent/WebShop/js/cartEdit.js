@@ -42,6 +42,7 @@ $(function() {
 		$.ajax({url: "../_21_ShoppingOrder/Order",dataType: 'text',
 	        success:   function(result){
 	        	alert("您的購物完成!!");
+	        	document.location.href="memberManage.jsp";
 	        },
 	        error:	function (event, xhr, settings) {
 	        	
