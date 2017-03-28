@@ -13,13 +13,15 @@ $(function() {
 	
 	//Ajax呼叫產品資料與圖片--------------------------------
 	$(document).ready(function(){
+		var productId = "";
 		var getPicSrc="http://localhost:8080/java004/_01_ProductTest/getImage?id=";
 		$.ajax({
 	        url: '../_01_ProductTest/SelectProduct.do',
 	        type:'POST',
+	        data : "cmd=ALL" + "&productId=" + productId,
 	        dataType:'json',
 	        success: function(data){
-	        	var content = "<p>產品列</p>";	
+	        	var content = "";	
 	        	for (var i = 0; i < data.length; i++) {
 	        		if(data[i].status == true){ //判斷上架還是下架
 	
@@ -27,9 +29,8 @@ $(function() {
 	        		+ 	"<div class=thumbnail>"
 	         		+ 		"<img src="+getPicSrc + data[i].productId + " alt>"
 	        		+ 			"<div class=caption>"
-	        		+ 				"<span class=name>" + data[i].name + "</span>: NT"
+	        		+ 				"<span class=name>" + data[i].name + "</span>: $ "
 	        		+ 				"<span class=price>" + data[i].pgPrice + "</span>"
-	        	    + 				"<p>包裝:</p>"
 	        	    + 				"<p>"
 	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'>"						
 	        		+ 					"加入購物車</button>" 
@@ -38,6 +39,7 @@ $(function() {
 	        	    + 		"</div>"
 	        	    +	"</div>"
 	        	    +"</div>";
+	        
 	        	}
 	        	var result = document.getElementById("wrap");
 				result.innerHTML = content;
@@ -174,4 +176,43 @@ $(function() {
 		var get_cart_total = $('.cd-cart-total p span').html();	
 		$('.cartCount').html(get_cart_total);
 	}
+	
+	//點產品類別增加active
+	$('.nav-justified li').click(function(){	
+		$(this).addClass('active').siblings('.active').removeClass('active');
+		var getType = $(this).attr('id');
+
+		var getPicSrc="http://localhost:8080/java004/_01_ProductTest/getImage?id=";
+		$.ajax({
+	        url: '../_01_ProductTest/SelectProduct.do',
+	        type:'POST',
+	        dataType:'json',
+	        data: "cmd=TYPE" + "&type=" + getType,
+	        success: function(data){
+	        	var content = "";	
+	        	for (var i = 0; i < data.length; i++) {
+	        		if(data[i].status == true){ //判斷上架還是下架
+	
+	        content +="<div class='col-md-3 col-sm-6 hero-feature'>"
+	        		+ 	"<div class=thumbnail>"
+	         		+ 		"<img src="+getPicSrc + data[i].productId + " alt>"
+	        		+ 			"<div class=caption>"
+	        		+ 				"<span class=name>" + data[i].name + "</span>: $ "
+	        		+ 				"<span class=price>" + data[i].pgPrice + "</span>"
+	        	    + 				"<p>"
+	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'>"						
+	        		+ 					"加入購物車</button>" 
+	        		+ 					"<a href=# class='btn btn-default'>More Info</a>"
+	        	    + 				"</p>"
+	        	    + 		"</div>"
+	        	    +	"</div>"
+	        	    +"</div>";
+	        
+	        	}
+	        	var result = document.getElementById("wrap");
+				result.innerHTML = content;
+	        	}
+	        }
+		});
+	});
 });

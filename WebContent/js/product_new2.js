@@ -110,14 +110,15 @@ function getQueryData(servelet) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", servelet, true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send("productId=" + productId);
+	xhr.send("cmd=ALL" + "&productId=" + productId);
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 
 			var content = "<table>" + "<tr><td>上/下架</td>" + "<td>序號</td>"
-					+ "<td>定價</td>" + "<td>名稱</td>" + "<td>成本</td>"
-					+ "<td>生產地</td>" + "<td>保存期</td>" + "<td>供應商</td>"
+					+ "<td>定價</td>" + "<td>名稱</td>" 
+					+ "<td>成本</td>"
+					+ "<td>生產地</td>" + "<td>保存期</td>" + "<td>類別</td>"
 					+ "<td>圖檔名</td>" + "<td>圖片</td>" + "<td>選取</td></tr>";
 			
 			var data = JSON.parse(xhr.responseText);
@@ -190,8 +191,8 @@ $("#loadPageDiv").on("click",'.delete',function() {
 
 // Update:取出被點選的radio內的值,並傳到updata畫面內對應的input:value內
 function getData() {
-	var getName = $('input:checked').attr('name');
-	var selected = $("input[name=" + getName + "]:checked").val();
+	var getName = $('input:radio:checked').attr('name');
+	var selected = $("input:radio[name=" + getName + "]:checked").val();
 
 	if (selected != null) { // 如果有被選取,不是空值		
 		if (confirm("確定要選取" + selected + "嗎?")) {

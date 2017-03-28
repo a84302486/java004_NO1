@@ -1,8 +1,17 @@
-.thumbnail img{	
-	width: 20em;
-	height: 15em;
-}
 
+.thumbnail img{	
+	width: 12em;
+	height: 12em;
+}
+.container{
+	text-align: center;
+	font-size: 20px;
+}
+.nav-justified{
+	border:1px solid #dddddd;
+	background:#fcfcfc;
+	radius:5px;
+}
 /* cart-trigger */
 .cd-img-replace {
   display: inline-block;
@@ -137,11 +146,11 @@
 	padding-right:0;
 }
 .slideshow_image01 {
-	background-image: url(../images/beaf.jpg);
+	background-image: url(../images/meal1.jpg);
 }
 .slideshow_image02 {
-	background-image: url(../images/porkRice.jpg);
+	background-image: url(../images/meal2.jpg);
 }
 .slideshow_image03 {
-	background-image: url(../images/meet.jpg);
+	background-image: url(../images/meal3.jpg);
 }

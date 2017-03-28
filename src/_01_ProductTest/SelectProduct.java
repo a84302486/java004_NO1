@@ -31,8 +31,10 @@ public class SelectProduct extends HttpServlet {
 			throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		String cmd = request.getParameter("cmd");
 		String productIdStr = request.getParameter("productId");
-
+		String typeStr = request.getParameter("type");
+		
 		ProductDAO pd= new ProductDAO();
 		//list輸出純文字資料
 		List<ProductBean> list = null;
@@ -49,16 +51,13 @@ public class SelectProduct extends HttpServlet {
 			OutputStream os = response.getOutputStream();	
 			) {
 			
-			if (productIdStr == null || productIdStr.trim().length() == 0) {
+			if (cmd.equalsIgnoreCase("ALL") && productIdStr.trim().length() == 0) {
 				System.out.println("判定為null");
 				list = pd.findAll();
-//				bytes = pd.getAllImage();
-			} else if (!isInteger(productIdStr)) {
-//				 errorMsg.add("必須是整數");
-				System.out.println("必須是整數");
+			} else if (cmd.equalsIgnoreCase("TYPE") && typeStr != null) {
+				list = pd.findByType(typeStr);				
 			}else {
 				list = pd.findByPrimaryKey(productIdStr);
-//				bytes = pd.getImage(idStr);
 			}	
 			
 			

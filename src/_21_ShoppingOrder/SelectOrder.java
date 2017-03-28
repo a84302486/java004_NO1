@@ -1,7 +1,8 @@
-package WebShop;
+package _21_ShoppingOrder;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,36 +10,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
+import _14_Member.MemberBean;
 
 
 
-@WebServlet("/WebShop/usernameCheck.do")
-public class UsernameCheck extends HttpServlet {
+
+@WebServlet("/_21_ShoppingOrder/SelectOrder")
+public class SelectOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-		MemberDAO rs = new MemberDAO();
-		String M_Username = request.getParameter("member_Username");		
+		String M_Username = request.getParameter("Username");		
 		System.out.println("收到Username = "+M_Username);
 	
+		Collection<OrderBean> coll = null;
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
 		String toJson = null;
-		
+	
 		try (PrintWriter out = response.getWriter();) {
-			if (M_Username == null || M_Username.trim().length() == 0) {
-				
-				toJson = null;
-				
-			} else {
-				if(rs.ifExist(M_Username)){ 
-					toJson = "exist"; //已存在
-				}else{
-					toJson = "usable";  //可使用
-				}
-			}
-		
+
+			coll = new OrderBeanDAO().select(M_Username);
+			
+			toJson = new Gson().toJson(coll);
 			System.out.println(toJson);
 			out.println(toJson);
 		}

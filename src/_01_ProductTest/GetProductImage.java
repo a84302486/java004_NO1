@@ -23,11 +23,11 @@ public class GetProductImage extends HttpServlet {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource) context.lookup("java:comp/env/jdbc/Java004NO1");
 			conn = ds.getConnection();
-			PreparedStatement pstmt = null;
+			
+			String sql = "select fileName,productImage from Product where product_id =?;";;
+			PreparedStatement pstmt = conn.prepareStatement(sql);
 			//System.out.println("GetImageFromDB, Type==>" + type);
 			//System.out.println("GetImageFromDB, ID==>" + id);
-				pstmt = conn.prepareStatement(
-						"select fileName,productImage from Product where product_id =?;");
 
 			pstmt.setString(1, idStr);
 			

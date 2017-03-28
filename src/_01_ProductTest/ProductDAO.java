@@ -208,7 +208,47 @@ public class ProductDAO {
 		}
 		return null;
 	}
+	
+	public List<ProductBean> findByType(String type) {
 
+		String sql = "select * from Product where Suppier_Id = ?;";
+
+		List<ProductBean> coll = new ArrayList<>();
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+
+			pstmt.setString(1, type);
+
+			try (ResultSet rs = pstmt.executeQuery();) {
+
+				while (rs.next()) {
+					ProductBean pb = new ProductBean();
+					pb.setProductId(rs.getString(1));
+					pb.setPgPrice(rs.getInt(2));
+					pb.setName(rs.getString(3));
+					pb.setAvgCost(rs.getDouble(4));
+					pb.setOplace(rs.getString(5));
+					pb.setSlife(rs.getInt(6));
+					pb.setSuppierId(rs.getString(7));
+					pb.setFileName(rs.getString(8));
+					pb.setStatus(rs.getBoolean(10));
+
+					coll.add(pb);
+					Iterator<ProductBean> it = coll.iterator();
+					while (it.hasNext()) {
+						Object o = it.next();
+						System.out.println(o);
+					}
+				}
+				System.out.println("種類查詢資料");
+			}
+			return coll;
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public List<ProductBean> findAll() {
 
 		String sql = "select * from Product;";
@@ -264,7 +304,7 @@ public class ProductDAO {
 
 	public byte[] getImage(String productId) {
 
-		String sql = "select productImage from Product where product_id =?;";
+		String sql = "select fileName,productImage from Product where product_id =?;";
 
 		try (Connection con = ds.getConnection(); 
 			 PreparedStatement pstmt = con.prepareStatement(sql);

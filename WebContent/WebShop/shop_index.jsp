@@ -20,8 +20,7 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  	 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -71,7 +70,7 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">會員管理</a></li>
+                    <li><a href="memberManage.jsp">會員管理</a></li>
 					<li><a href="login_and_register.jsp">登入/註冊</a></li>
 					<li><a href="cartEdit.jsp">購物車</a></li>
 					<li><a href="index.html">觀光工廠</a></li>
@@ -88,7 +87,7 @@
 		<span class="cartCount">0</span> 
     </nav>
 
-	<!-- .side-cart -->
+
 	<div id="cd-cart">
 		<h2>購物車</h2>
 			<!-- cd-cart-items -->
@@ -139,8 +138,25 @@
                     </div>
                 </div>
             </div>
-        </div>		
+        </div>
+        <hr>	
     </section>
+    
+	    	<ul  class="nav nav-pills nav-justified">
+	    	 	 <li id="A" role="presentation">
+	    	 	 	<a href="#">肉食類</a>
+	    	 	 </li>
+	     		 <li id="D" role="presentation">
+	     		 	<a href="#">飯食類</a>
+	     		 </li>
+	     		 <li id="B" role="presentation">
+	     		 	<a href="#">麵食類</a>
+	     		 </li>
+	     		 <li id="C" role="presentation">
+	     		 	<a href="#">沙拉類</a>
+	     		 </li>
+	    	</ul>
+		
         <hr>
 
         <!-- Title -->
@@ -176,7 +192,6 @@
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/shop_index2.js"></script>
 	<script type="text/javascript">
-
 </script>
 	
 </body>

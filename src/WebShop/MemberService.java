@@ -2,6 +2,8 @@ package WebShop;
 
 import java.util.Collection;
 
+import _14_Member.MemberBean;
+
 public class MemberService {
 	public MemberBean checkIDPassword(String Username, String Password) {
 		// 將 MemberDAO new為物件，放入變數dao內
