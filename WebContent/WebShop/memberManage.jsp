@@ -11,7 +11,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link href="css/memberManage.css" rel="stylesheet">
-	<link href="css/shopcart.css" rel="stylesheet">
 
 <head>
 
@@ -29,10 +28,11 @@
 		<h3 class="side-heading">
             <span class="text">帳戶資料</span>
           </h3>
+          <hr>
           <div class="account-row">
             <div class="shoplist-container">
-              <form class="form-horizontal">
                 <div class="form-warp account-form">
+              <form class="form-horizontal">          
                   <div class="form-group">
                     <label class="col-sm-3 col-md-2 control-label"> 會員帳號：</label>
                     <div class="col-sm-9 col-md-10">
@@ -82,7 +82,7 @@
               </form>
             </div>
           </div>
-	
+	 <hr>
 	
 	</section>
 	<section class="container-fuild" id="orderResult">
@@ -99,9 +99,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/memberManage.js"></script>
-	<script type="text/javascript">
 
-</script>
 	
 </body>
 </html>

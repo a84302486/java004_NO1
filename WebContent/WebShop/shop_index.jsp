@@ -19,7 +19,7 @@
 </head>
 
 <body>
-
+	
   	 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,39 +35,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        	麵類<span class="caret"></span></a>
-                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">牛肉類</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">豬肉類</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">雞肉類</a></li>
-                          </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        	飯類<span class="caret"></a>
-                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">牛肉類</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">豬肉類</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">雞肉類</a></li>
-                          </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        	零嘴類<span class="caret"></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">牛肉類</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">豬肉類</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">雞肉類</a></li>
-                          </ul>
-                    </li>
+                    
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="memberManage.jsp">會員管理</a></li>
@@ -144,16 +112,16 @@
     
 	    	<ul  class="nav nav-pills nav-justified">
 	    	 	 <li id="A" role="presentation">
-	    	 	 	<a href="#">肉食類</a>
+	    	 	 	<a>肉食類</a>
 	    	 	 </li>
 	     		 <li id="D" role="presentation">
-	     		 	<a href="#">飯食類</a>
+	     		 	<a>飯食類</a>
 	     		 </li>
 	     		 <li id="B" role="presentation">
-	     		 	<a href="#">麵食類</a>
+	     		 	<a>麵食類</a>
 	     		 </li>
 	     		 <li id="C" role="presentation">
-	     		 	<a href="#">沙拉類</a>
+	     		 	<a>沙拉類</a>
 	     		 </li>
 	    	</ul>
 		

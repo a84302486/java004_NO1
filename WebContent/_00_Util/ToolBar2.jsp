@@ -28,7 +28,7 @@
 			</td>
 			<td>
 				<ul class="drop-down-menu">
-					<li><a href="#" data-toggle="dropdown">進銷存管理系統 <b
+					<li><a href="#" data-toggle="dropdown">庫存管理系統 <b
 							class="caret"></b></a>
 						<ul>
 							<li><a href="" class="">功能1</a>

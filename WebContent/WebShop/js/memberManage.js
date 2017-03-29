@@ -29,7 +29,7 @@ var content =""
 		   +'<div id="order">'
 		   +'<div>'
 		   +'<table class="table table-order" id="order-record">'
-		   +'<tr style="text-align:center">'
+		   +'<tr>'
            +'<th>訂單編號</th>'
            +'<th>訂購時間</th>'
            +'<th>出貨時間</th>'
