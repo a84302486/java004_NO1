@@ -30,10 +30,10 @@ var content =""
 		   +'<div>'
 		   +'<table class="table table-order" id="order-record">'
 		   +'<tr>'
-           +'<th>訂單編號</th>'
-           +'<th>訂購時間</th>'
-           +'<th>出貨時間</th>'
-           +'<th>總金額</th>'
+           +'<th class="col-sm-3 col-md-2 control-label">訂單編號</th>'
+           +'<th class="col-sm-3 col-md-2 control-label">訂購時間</th>'
+           +'<th class="col-sm-3 col-md-2 control-label">出貨時間</th>'
+           +'<th class="col-sm-3 col-md-2 control-label">訂單金額</th>'
            +'</tr>';
 
            $.each(result, function(key, value){
@@ -42,10 +42,10 @@ var content =""
         	   $.each(value, function(key, value){
         		
         		if(key=='OrderId'){
-        			content += "<td><a href=../_21_ShoppingOrder/orderDetail?Username="+$(inputId).val()+"&OrderId="+value+">"+value+"</a></td>";
+        			content += "<td class='col-sm-12 col-md-3'><a href=../_21_ShoppingOrder/orderDetail?Username="+$(inputId).val()+"&OrderId="+value+">"+value+"</a></td>";
         			
         		}else{
-        			content += "<td>"+value+"</td>";
+        			content += "<td class='col-sm-12 col-md-3'>"+value+"</td>";
         		}
         		
 	   			});
