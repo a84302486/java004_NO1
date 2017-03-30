@@ -56,7 +56,7 @@ public class SelectProduct extends HttpServlet {
 				list = pd.findAll();
 			} else if (cmd.equalsIgnoreCase("TYPE") && typeStr != null) {
 				list = pd.findByType(typeStr);				
-			}else {
+			}else if (cmd.equalsIgnoreCase("SINGLE") && productIdStr.trim().length() != 0){
 				list = pd.findByPrimaryKey(productIdStr);
 			}	
 			

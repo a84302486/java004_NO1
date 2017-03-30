@@ -34,7 +34,7 @@ $(function() {
 	        	    + 				"<p>"
 	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'>"						
 	        		+ 					"加入購物車</button>" 
-	        		+ 					"<a href=# class='btn btn-default'>More Info</a>"
+	        		+ 					"<a class='btn btn-default' data-toggle=modal data-target=.bs-iot>More Info</a>"
 	        	    + 				"</p>"
 	        	    + 		"</div>"
 	        	    +	"</div>"
@@ -202,7 +202,7 @@ $(function() {
 	        	    + 				"<p>"
 	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'>"						
 	        		+ 					"加入購物車</button>" 
-	        		+ 					"<a href=# class='btn btn-default'>More Info</a>"
+	        		+ 					"<a class='btn btn-default' data-toggle=modal data-target=.bs-iot>More Info</a>"
 	        	    + 				"</p>"
 	        	    + 		"</div>"
 	        	    +	"</div>"
@@ -213,6 +213,25 @@ $(function() {
 				result.innerHTML = content;
 	        	}
 	        }
-		});
+		});		
 	});
+	
+	//點more info 改寫modal內容
+	$('#wrap').on('click','.btn-default',function(){	
+		var productId = $(this).prev().attr('id');
+		var getPicSrc="http://localhost:8080/java004/_01_ProductTest/getImage?id=";
+		$.ajax({
+	        url: '../_01_ProductTest/SelectProduct.do',
+	        type:'POST',
+	        data : "cmd=SINGLE" + "&productId=" + productId,
+	        dataType:'json',
+	        success: function(data){
+	        	$('.modal-content h3').html(data[0].name);
+	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId)
+	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  	
+	        }
+	    });
+	});
+	
+	$('.btn-submit').on('click','.btn-submit')
 });

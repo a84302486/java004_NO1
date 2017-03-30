@@ -13,8 +13,6 @@
 	<link href="css/memberManage.css" rel="stylesheet">
 
 <head>
-
-
     <title>Java004_NO1 購物平台</title>
 </head>
 
