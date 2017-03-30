@@ -4,7 +4,7 @@
   <!--                  SQLServer2005, 2008                 -->                  
 
   <Resource name="jdbc/Java004NO1" type="javax.sql.DataSource"
-       username="root" password="password"
+       username="root" password="215060"
       driverClassName="com.mysql.jdbc.Driver"
       url="jdbc:mysql://127.0.0.1:3306/Java004NO1"
       connectionProperties="useUnicode=yes;characterEncoding=utf8;"

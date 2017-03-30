@@ -81,45 +81,8 @@ $(function() {
 		var itemName  = $(this).parent().parent().find('.name').html();
 		var itemPrice = $(this).parent().parent().find('.price').html();
 
-		$.ajax({	
-	        url: '../_20_BuyProductServlet/BuyProductServlet.do',
-	        type:'POST',
-	        data:"productId=" + thisID +"&name=" + itemName 
-	        	 + "&pgPrice=" + itemPrice + "&qty=1",
-	        async:false,
-	        success:function(response){
-	        	$.ajax({	
-	    	        url: '../_20_BuyProductServlet/BuyProductServlet.do',
-	    	        type:'GET',
-	    	        dataType:'json',
-	    	        async:false,
-	    	        success:function(data){
-	    	        	var prev_charges = $('.cd-cart-total b span').html();
-    	    			var prev_qty = $('.cd-cart-total p span').html();
-	    	        	if(include(arr,thisID)){
-	    	        		$('#cart'+thisID).html("<span class=cd-qty>"+data[thisID].qty+"</span>"
-		    	        			+data[thisID].name+"<div class=cd-price>$<em>"+data[thisID].pgPrice+"</em></div>"
-		    	        			+"<a class=cd-item-remove cd-img-replace></a>");
-	    	        		//如果清單已有此項物品,改寫清單內的數量/價格/總價
-	    	        		//取該ID欄位內的產品價格跟現有數量
-	    	    			var price = $('#cart'+thisID).children(".cd-price").find('em').html();
-	    	    			var qty = $('#cart'+thisID).children(".cd-qty").html();		 
-	    	    			var total = parseInt(price)*parseInt(qty);
-	    	    			//覆寫該ID欄位內的產品價格
-	    	    			$('#cart'+thisID).children(".cd-price").find('em').html(total);
-	    	        	}else{
-	    	        		arr.push(thisID);
-	    	        		$('.cd-cart-items').append("<li id=cart"+data[thisID].productId+">"
-		    	        			+"<span class=cd-qty >"+data[thisID].qty+"</span>"
-		    	        			+data[thisID].name+"<div class=cd-price>$<em>"+data[thisID].pgPrice+"</em></div>"
-		    	        			+"<a class=cd-item-remove cd-img-replace></a>"
-		    	        			+"</li>");
-	    	        	}
-	    	        }
-	        	});	
-	        }
-	    });	
-		
+		addToCart(thisID,itemName,itemPrice);
+	
 		//點擊時觸發購物車彈出------------------
 		$('#cd-cart').addClass('speed-in');	
 		calculate();
@@ -227,11 +190,68 @@ $(function() {
 	        dataType:'json',
 	        success: function(data){
 	        	$('.modal-content h3').html(data[0].name);
-	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId)
-	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  	
+	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId);
+	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  
+	        	$('.addcart-Modal_id').val(data[0].productId);  
 	        }
 	    });
 	});
 	
-	$('.btn-submit').on('click','.btn-submit')
+	//點more info 內的button後加入購物車
+	$('.modal-content').on('click','.btn-submit',function(){
+		var thisID = $('.addcart-Modal_id').val();  	
+		var itemName  = $('.modal-content h3').html();
+		var itemPrice = $('.col-md-8 h4').html().replace('$','');
+		
+		addToCart(thisID,itemName,itemPrice);
+	
+		//點擊時觸發購物車彈出------------------
+		$('#cd-cart').addClass('speed-in');	
+		calculate();
+	});
+	
+ function addToCart(thisID,itemName,itemPrice) {
+	$.ajax({	
+        url: '../_20_BuyProductServlet/BuyProductServlet.do',
+        type:'POST',
+        data:"productId=" + thisID +"&name=" + itemName 
+        	 + "&pgPrice=" + itemPrice + "&qty=1",
+        async:false,
+        success:function(response){
+        	$.ajax({	
+    	        url: '../_20_BuyProductServlet/BuyProductServlet.do',
+    	        type:'GET',
+    	        dataType:'json',
+    	        async:false,
+    	        success:function(data){
+    	        	var prev_charges = $('.cd-cart-total b span').html();
+	    			var prev_qty = $('.cd-cart-total p span').html();
+    	        	if(include(arr,thisID)){
+    	        		$('#cart'+thisID).html("<span class=cd-qty>"+data[thisID].qty+"</span>"
+	    	        			+data[thisID].name+"<div class=cd-price>$<em>"+data[thisID].pgPrice+"</em></div>"
+	    	        			+"<a class=cd-item-remove cd-img-replace></a>");
+    	        		//如果清單已有此項物品,改寫清單內的數量/價格/總價
+    	        		//取該ID欄位內的產品價格跟現有數量
+    	    			var price = $('#cart'+thisID).children(".cd-price").find('em').html();
+    	    			var qty = $('#cart'+thisID).children(".cd-qty").html();		 
+    	    			var total = parseInt(price)*parseInt(qty);
+    	    			//覆寫該ID欄位內的產品價格
+    	    			$('#cart'+thisID).children(".cd-price").find('em').html(total);
+    	        	}else{
+    	        		arr.push(thisID);
+    	        		$('.cd-cart-items').append("<li id=cart"+data[thisID].productId+">"
+	    	        			+"<span class=cd-qty >"+data[thisID].qty+"</span>"
+	    	        			+data[thisID].name+"<div class=cd-price>$<em>"+data[thisID].pgPrice+"</em></div>"
+	    	        			+"<a class=cd-item-remove cd-img-replace></a>"
+	    	        			+"</li>");
+    	        	}
+    	        }
+        	});	
+        }
+    });		
+}	
+	
 });
+
+
+

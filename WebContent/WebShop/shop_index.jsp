@@ -132,7 +132,6 @@
 
 		<div id="wrap" class="row text-center">
 		</div>
-		
             <div class="modal fade bs-iot" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                 <div class="modal-dialog" role="document">			
                     <div class="modal-content">
@@ -174,13 +173,10 @@
 
 	<!-- jQuery -->
 	<script src="js/jquery-3.1.1.min.js"></script>
-
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/shop_index2.js"></script>
-	<script type="text/javascript">
-		
-	</script>
+
 
 </body>
 </html>
