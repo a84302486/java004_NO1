@@ -37,18 +37,21 @@
 						<table class="table table-order" id="order-record">
 
 							<tr>
-								<td>商品名稱</td>
-								<td>商品價格</td>
-								<td>購買數量</td>
-								<td>金額小計</td>
+								<td class="col-sm-3 col-md-2 control-label">商  	   品</td>
+								<td class="col-sm-3 col-md-2 control-label">商品價格</td>
+								<td class="col-sm-3 col-md-2 control-label">購買數量</td>
+								<td class="col-sm-3 col-md-2 control-label">金額小計</td>
 							</tr>
 
 							<c:forEach var="OrderDetail" items="${OrderDetail_coll}">
 								<tr>
-									<td>${OrderDetail.productBean.name}</td>
-									<td>${OrderDetail.productBean.pgPrice}</td>
-									<td>${OrderDetail.quantity}</td>
-									<td>${OrderDetail.subTotal}</td>
+									<td class="col-sm-3 col-md-2 control-label">
+										<img src="../_01_ProductTest/getImage?id=${OrderDetail.productBean.productId}">
+										 ${OrderDetail.productBean.name}
+									</td>
+									<td class="col-sm-3 col-md-2 control-label">$${OrderDetail.productBean.pgPrice}元</td>
+									<td class="col-sm-3 col-md-2 control-label">${OrderDetail.quantity}份</td>
+									<td class="col-sm-3 col-md-2 control-label">$${OrderDetail.subTotal}元</td>
 								</tr>
 							</c:forEach>
 

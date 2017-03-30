@@ -11,6 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
+	alert("您已經成功登出!!");
 	document.location.href="shop_index.jsp";
 </script>
 <title>登出</title>
