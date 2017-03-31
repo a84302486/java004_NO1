@@ -35,21 +35,21 @@ $(function() {
 	}
 	
 	
-	//確認結帳
-
-	$('#shop_insert_order').click(function(){
-			
-		$.ajax({url: "../_21_ShoppingOrder/Order",dataType: 'text',
-	        success:   function(result){
-	        	alert("您的購物完成!!");
-	        	document.location.href="memberManage.jsp";
-	        },
-	        error:	function (event, xhr, settings) {
-	        	
-	        	alert("您的購物發生問題，請詢問客服人員。"+event+' '+xhr+' '+settings);
-	        }
-		});	
-	});
+//	//確認結帳
+//
+//	$('#shop_insert_order').click(function(){
+//			
+//		$.ajax({url: "../_21_ShoppingOrder/Order",dataType: 'text',
+//	        success:   function(result){
+//	        	alert("您的購物完成!!");
+//	        	document.location.href="memberManage.jsp";
+//	        },
+//	        error:	function (event, xhr, settings) {
+//	        	
+//	        	alert("您的購物發生問題，請詢問客服人員。"+event+' '+xhr+' '+settings);
+//	        }
+//		});	
+//	});
 });
 
 //判斷是點擊+還是-,如果數量是1點擊-時一樣設定數量為1,並同時更新總金額及數量----

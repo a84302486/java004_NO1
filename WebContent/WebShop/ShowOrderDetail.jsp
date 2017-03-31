@@ -37,7 +37,8 @@
 						<table class="table table-order" id="order-record">
 
 							<tr>
-								<td class="col-sm-3 col-md-2 control-label">商  	   品</td>
+								<td class="col-sm-3 col-md-2 control-label">商品圖片</td>
+								<td class="col-sm-3 col-md-2 control-label">商品名稱</td>
 								<td class="col-sm-3 col-md-2 control-label">商品價格</td>
 								<td class="col-sm-3 col-md-2 control-label">購買數量</td>
 								<td class="col-sm-3 col-md-2 control-label">金額小計</td>
@@ -49,6 +50,7 @@
 										<img src="../_01_ProductTest/getImage?id=${OrderDetail.productBean.productId}">
 										 ${OrderDetail.productBean.name}
 									</td>
+									<td class="col-sm-3 col-md-2 control-label">${OrderDetail.productBean.name}</td>
 									<td class="col-sm-3 col-md-2 control-label">$${OrderDetail.productBean.pgPrice}元</td>
 									<td class="col-sm-3 col-md-2 control-label">${OrderDetail.quantity}份</td>
 									<td class="col-sm-3 col-md-2 control-label">$${OrderDetail.subTotal}元</td>

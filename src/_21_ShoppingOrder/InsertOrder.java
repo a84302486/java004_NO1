@@ -130,12 +130,15 @@ public class InsertOrder extends HttpServlet {
 		
 		
 		response.setContentType("application/json; charset=UTF-8");
-		String toJson = "success";
+		String toJson = "<script>alert('您的購物已完成!!');</script>";
 
 		try (PrintWriter out = response.getWriter();) {
 
 			System.out.println(toJson);
 			out.println(toJson);
+			RequestDispatcher rd =request.getRequestDispatcher("/WebShop/memberManage.jsp");
+			rd.forward(request, response);
+			return;
 		}
 
 	}

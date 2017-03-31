@@ -9,8 +9,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link href="css/memberManage.css" rel="stylesheet">
+	<link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
+	<link href="../WebShop/css/memberManage.css" rel="stylesheet">
 
 <head>
     <title>Java004_NO1 購物平台</title>
@@ -92,11 +92,11 @@
 
         
 	
-    <script src="js/jquery.js"></script>
+    <script src="../WebShop/js/jquery.js"></script>
 	
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/memberManage.js"></script>
+    <script src="../WebShop/js/bootstrap.min.js"></script>
+	<script src="../WebShop/js/memberManage.js"></script>
 
 	
 </body>
