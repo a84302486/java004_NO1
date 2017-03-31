@@ -13,7 +13,7 @@
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
 <link rel="stylesheet" href="../WebShop/css/cartEdit.css">
-<link href="../WebShop/css/shopcart.css" rel="stylesheet">
+
 <title>registered</title>
 </head>
 <body>
@@ -103,19 +103,20 @@
 							</button>
 					</a>
 					<c:choose>
-					<c:when test="${ShoppingCart.content==null}">
-						<button type="button" class="btn btn-success"
+					<c:when test="${empty ShoppingCart.content}">
+						<button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="請先選購商品"
 							id="shop_insert_order" disabled>
 							確定結帳 <span class="glyphicon glyphicon-play"></span>
 						</button>
 					</c:when>
             		<c:otherwise>
-            			<a href="../_21_ShoppingOrder/Order">
-                		 <button type="button" class="btn btn-success"
-							id="shop_insert_order">
+            			
+                		 <button type="button" class="btn btn-success" id="shop_insert_order">
+							
 							確定結帳 <span class="glyphicon glyphicon-play"></span>
+							
 						</button>
-						</a>
+						
             		</c:otherwise>
         			</c:choose>
         			</td>

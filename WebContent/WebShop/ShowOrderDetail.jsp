@@ -27,8 +27,17 @@
 	<div class="col-md-12 center" id="content">
 		<section class="order-detail">
 			<div class="tab-content">
-				<h3 class="side-heading">
-					<span class="text">訂單明細</span>
+				<h5 class="side-heading">
+					<c:forEach begin='1' end='1' var="OrderDetail" items="${OrderDetail_coll}">						
+						<span class="text">
+						<a href="../WebShop/memberManage.jsp">
+							訂單編號：${OrderDetail.orderId}
+						</a>
+						</span>
+					</c:forEach>						
+				</h5>
+				<h3>
+					<span class="center">訂單明細</span>
 				</h3>
 
 				<div id="order">
@@ -48,7 +57,6 @@
 								<tr>
 									<td class="col-sm-3 col-md-2 control-label">
 										<img src="../_01_ProductTest/getImage?id=${OrderDetail.productBean.productId}">
-										 ${OrderDetail.productBean.name}
 									</td>
 									<td class="col-sm-3 col-md-2 control-label">${OrderDetail.productBean.name}</td>
 									<td class="col-sm-3 col-md-2 control-label">$${OrderDetail.productBean.pgPrice}元</td>
