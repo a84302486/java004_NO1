@@ -31,10 +31,12 @@ import _14_Member.MemberBean;
 //		})
 
 @WebFilter(urlPatterns = { "/*" }, initParams = {
-		@WebInitParam(name = "url_1", value = "/WebShop/cartEdit.jsp"),
-		@WebInitParam(name = "url_2", value = "/WebShop/memberManage.jsp"),
-		@WebInitParam(name = "url_3", value = "/_21_ShoppingOrder/InsertOrder.java"),
-		@WebInitParam(name = "url_3", value = "/_21_ShoppingOrder/OrderDetailServlet.java")
+		
+		@WebInitParam(name = "url_1", value = "/WebShop/memberManage.jsp"),
+		@WebInitParam(name = "url_2", value = "/_21_ShoppingOrder/Order"),
+		@WebInitParam(name = "url_3", value = "/_21_ShoppingOrder/OrderDetailServlet.java"),
+		@WebInitParam(name = "url_4", value = "/WebShop/ShowOrderDetail.jsp")
+		
 		})
 
 public class LoginFilter implements Filter {

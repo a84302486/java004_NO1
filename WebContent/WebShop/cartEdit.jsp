@@ -11,9 +11,9 @@
 	rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lato"
 	rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/cartEdit.css">
-<link href="css/shopcart.css" rel="stylesheet">
+<link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
+<link rel="stylesheet" href="../WebShop/css/cartEdit.css">
+
 <title>registered</title>
 </head>
 <body>
@@ -96,15 +96,30 @@
 				<tr class="footer">
 					<td colspan="4"></td>
 
-					<td colspan="3"><a href="shop_index.jsp">
+					<td colspan="3">
+					<a href="shop_index.jsp">
 							<button type="button" class="btn btn-default">
 								繼續購物 <span class="glyphicon glyphicon-shopping-cart"></span>
 							</button>
 					</a>
-						<button type="button" class="btn btn-success"
-							id="shop_insert_order">
+					<c:choose>
+					<c:when test="${empty ShoppingCart.content}">
+						<button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="請先選購商品"
+							id="shop_insert_order" disabled>
 							確定結帳 <span class="glyphicon glyphicon-play"></span>
-						</button></td>
+						</button>
+					</c:when>
+            		<c:otherwise>
+            			
+                		 <button type="button" class="btn btn-success" id="shop_insert_order">
+							
+							確定結帳 <span class="glyphicon glyphicon-play"></span>
+							
+						</button>
+						
+            		</c:otherwise>
+        			</c:choose>
+        			</td>
 				</tr>
 			</tbody>
 		</table>
@@ -112,7 +127,7 @@
 
 	<script src="jQuery/jquery-2.2.4.min.js" type="text/JavaScript"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/cartEdit.js"></script>
+	<script src="../WebShop/js/cartEdit.js"></script>
 
 </body>
 </html>

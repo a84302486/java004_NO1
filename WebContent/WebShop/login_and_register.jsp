@@ -12,9 +12,9 @@
 	rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lato"
 	rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/login_and_register.css?v017">
-<link href="css/shopcart.css" rel="stylesheet">
+<link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
+<link rel="stylesheet" href="../WebShop/css/login_and_register.css?v017">
+<link href="../WebShop/css/shopcart.css" rel="stylesheet">
 <title>registered</title>
 </head>
 
@@ -185,11 +185,11 @@
 	</div>
 
 
-	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.validate.js"></script>
-	<script src="js/jquery.ajaxupload.js"></script>
-	<script src="js/login_and_register.js?v013"></script>
+	<script src="../WebShop/js/jquery-3.1.1.min.js"></script>
+	<script src="../WebShop/js/bootstrap.min.js"></script>
+	<script src="../WebShop/js/jquery.validate.js"></script>
+	<script src="../WebShop/js/jquery.ajaxupload.js"></script>
+	<script src="../WebShop/js/login_and_register.js?v013"></script>
 </body>
 
 </html>

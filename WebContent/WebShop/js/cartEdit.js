@@ -34,22 +34,14 @@ $(function() {
 		+ " </td></tr>");
 	}
 	
+	$("[data-toggle='tooltip']").tooltip();
 	
-	//確認結帳
-
 	$('#shop_insert_order').click(function(){
-			
-		$.ajax({url: "../_21_ShoppingOrder/Order",dataType: 'text',
-	        success:   function(result){
-	        	alert("您的購物完成!!");
-	        	document.location.href="memberManage.jsp";
-	        },
-	        error:	function (event, xhr, settings) {
-	        	
-	        	alert("您的購物發生問題，請詢問客服人員。"+event+' '+xhr+' '+settings);
-	        }
-		});	
+		location.href='../_21_ShoppingOrder/Order';
+		alert("您此次的購物完成!!請在會員管理查看訂單");
 	});
+	
+
 });
 
 //判斷是點擊+還是-,如果數量是1點擊-時一樣設定數量為1,並同時更新總金額及數量----
@@ -84,6 +76,7 @@ function setDel(obj) {
 	    });
 		//再清除該列元素
 		obj.parents('tr').remove();
+	
 	updateData();
 	}
 }
@@ -118,5 +111,7 @@ function updateData(){
 		var txt1=$("<tr class=alertMsg><td></td></tr>").text("目前您的購物車是空的");
 		var txt2=$("<a href=shop_index.jsp></a>").text("您可以前往我們店鋪 ，以選購您想要的商品。");
 		$('tbody').eq(0).append(txt1,txt2);
+		
+		$( "#shop_insert_order" ).prop("disabled", true);
 	}
 }

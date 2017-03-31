@@ -11,15 +11,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="shop_index.jsp">購物平台</a>
+                <a class="navbar-brand" href="../WebShop/shop_index.jsp">購物平台</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="memberManage.jsp">會員管理</a></li>
-					<li><a href="login_and_register.jsp">登入/註冊</a></li>
-					<li><a href="cartEdit.jsp">購物車</a></li>
-					<li><a href="index.html">觀光工廠</a></li>		
+                    <li><a href="../WebShop/memberManage.jsp">會員管理</a></li>
+					<li><a href="../WebShop/login_and_register.jsp">登入/註冊</a></li>
+					<li><a href="../WebShop/cartEdit.jsp">購物車</a></li>
+					<li><a href="../WebShop/index.html">觀光工廠</a></li>		
                  </ul>   
             </div>
         </div>
