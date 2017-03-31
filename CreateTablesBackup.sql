@@ -195,6 +195,83 @@ CREATE TABLE StockUpdate(
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
+CREATE TABLE TRHD(
+
+	CO_SEQ			CHAR(4) NOT NULL,
+	CO_Type 		CHAR(2) NOT NULL,
+	CO_Role 		CHAR(4) NOT NULL,
+	CO_Year			CHAR(1) NOT NULL,
+	CO_Month		CHAR(1) NOT NULL,
+	MIN_Role		CHAR(4),
+	TR_Date			DATETIME,
+	
+	SEQ_NO			INT,	
+	TO_QTY			INT,
+	TO_List			NUMERIC (15,2),
+	TO_Price		NUMERIC (15,2),
+	TO_Sold			NUMERIC (15,2),
+	TO_Cost			NUMERIC (15,2),
+	TO_Disc			NUMERIC	(6,4),
+	
+	CONSTRAINT TRHD_PK PRIMARY KEY (CO_SEQ, CO_Type, 
+								CO_Role, CO_Year, CO_Month)
+								
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+CREATE TABLE TRDT(
+
+	CO_SEQ			CHAR(4) NOT NULL,
+	CO_Type 		CHAR(2) NOT NULL,
+	CO_Role 		CHAR(4) NOT NULL,
+	CO_Year			CHAR(1) NOT NULL,
+	CO_Month		CHAR(1) NOT NULL,
+	MIN_Role		CHAR(4),
+	TR_Date			DATETIME,
+	
+	Product_id		VARCHAR(20),
+	Taste_ID		VARCHAR(20),
+	Package_ID		VARCHAR(20),
+	SEQ_NO			INT,	
+	TR_QTY			INT,
+	TR_List			NUMERIC (15,2),
+	TR_Price		NUMERIC (15,2),
+	TR_Sold			NUMERIC (15,2),
+	TR_Cost			NUMERIC (15,2),
+	TR_Discount		NUMERIC	(6,4),
+	
+
+	Pre_Deposit		NUMERIC (15,2),
+	This_Deposit	NUMERIC (15,2),
+	VISA			NUMERIC (15,2),
+	Cash			NUMERIC (15,2),
+	Sales			CHAR(1),
+	Shift			CHAR(1),
+	Disc_AMT		NUMERIC (15,2),
+	M_Username		VARCHAR(20),
+	
+	IUser			VARCHAR(20),
+	IDate			DATE,
+	ITime			DATETIME,
+	MUser			VARCHAR(20),
+	MDate			DATE,
+	MTime			DATETIME,
+	
+	CONSTRAINT TRDT_M_Username_FK FOREIGN KEY (M_Username) 
+		REFERENCES Member(M_Username),
+	CONSTRAINT TRDT_Product_id_FK FOREIGN KEY (Product_id) 
+		REFERENCES `Product`(`Product_id`), 
+	CONSTRAINT TRDT_Taste_ID_FK FOREIGN KEY (Taste_ID) 
+		REFERENCES `Taste`(`Taste_ID`), 
+	CONSTRAINT TRDT_Package_ID_FK FOREIGN KEY (Package_ID) 
+		REFERENCES `Package`(`Package_ID`),
+	CONSTRAINT TRDT_PK PRIMARY KEY (CO_SEQ, CO_Type, 
+								CO_Role, CO_Year, CO_Month)
+
+	
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
 
 CREATE TABLE `User`(
 	userId 			VARCHAR(20) NOT NULL,

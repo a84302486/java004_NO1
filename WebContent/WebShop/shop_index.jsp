@@ -117,10 +117,11 @@
 		</section>
 
 		<ul class="nav nav-pills nav-justified">
-			<li id="A" role="presentation"><a>肉食類</a></li>
-			<li id="D" role="presentation"><a>飯食類</a></li>
-			<li id="B" role="presentation"><a>麵食類</a></li>
-			<li id="C" role="presentation"><a>沙拉類</a></li>
+			<li id="cmd=ALL&productId=" role="presentation"><a>所有產品</a></li>
+			<li id="cmd=TYPE&type=A" role="presentation"><a>肉食類</a></li>
+			<li id="cmd=TYPE&type=D" role="presentation"><a>飯食類</a></li>
+			<li id="cmd=TYPE&type=B" role="presentation"><a>麵食類</a></li>
+			<li id="cmd=TYPE&type=C" role="presentation"><a>沙拉類</a></li>
 		</ul>
 		<hr>
 
@@ -130,35 +131,50 @@
 			</div>
 		</div>
 
-		<div id="wrap" class="row text-center">
-		</div>
-            <div class="modal fade bs-iot" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                <div class="modal-dialog" role="document">			
-                    <div class="modal-content">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-                        <h3></h3>	
-						<div class="product-col">
-							<div class="row">
-								<div class="col-md-4">
-								    <div class="image toggle-image">
-										<img src="" alt="product" class="img-responsive">
-								  </div>
+		<div id="wrap" class="row text-center"></div>
+		<div class="modal fade bs-iot" tabindex="-1" role="dialog"
+			aria-labelledby="mySmallModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h3></h3>
+					<div class="product-col">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="image toggle-image">
+									<img src="" alt="product" class="img-responsive">
 								</div>
-								<div class="col-md-8">
-									<h4></h4>
-									<h5>選用頂級台灣原產高級肉品，通過國家安全檢驗及多種安全合格標章。</h5>
-									<div class="extra_cart">
-										<input class="addcart-Modal_id" value="4" type="hidden">
-										<button type="button" class="btn btn-primary btn-submit">加入購物車</button>
-									</div>
+							</div>
+							<div class="col-md-8">
+								<h4></h4>
+								<h5>選用頂級台灣原產高級肉品，通過國家安全檢驗及多種安全合格標章。</h5>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group number-spinner">
+									<span class="input-group-btn">
+										<button class="btn btn-default" data-dir="dwn">
+											<span class="glyphicon glyphicon-minus"></span>
+										</button>
+									</span> <input type="text" id="modal-count" class="form-control text-center" value="1">
+									<span class="input-group-btn">
+										<button class="btn btn-default" data-dir="up">
+											<span class="glyphicon glyphicon-plus"></span>
+										</button>
+									</span>
 								</div>
-						    </div>
+							</div>
+							<div class="extra_cart">
+								<input class="addcart-Modal_id" value="" type="hidden">
+								<button type="button" class="btn btn-primary btn-submit">加入購物車</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 		<hr>
 		<footer>
 			<div class="row">

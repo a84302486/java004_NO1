@@ -32,9 +32,8 @@ $(function() {
 	        		+ 				"<span class=name>" + data[i].name + "</span>: $ "
 	        		+ 				"<span class=price>" + data[i].pgPrice + "</span>"
 	        	    + 				"<p>"
-	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'>"						
-	        		+ 					"加入購物車</button>" 
-	        		+ 					"<a class='btn btn-default' data-toggle=modal data-target=.bs-iot>More Info</a>"
+	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
+	        		+ 					"data-toggle=modal data-target=.bs-iot>加入購物車</button>" 
 	        	    + 				"</p>"
 	        	    + 		"</div>"
 	        	    +	"</div>"
@@ -82,9 +81,7 @@ $(function() {
 		var itemPrice = $(this).parent().parent().find('.price').html();
 
 		addToCart(thisID,itemName,itemPrice);
-	
-		//點擊時觸發購物車彈出------------------
-		$('#cd-cart').addClass('speed-in');	
+
 		calculate();
 	});
 	
@@ -138,8 +135,13 @@ $(function() {
 		//圓球顯示購物車物品總量------------------
 		var get_cart_total = $('.cd-cart-total p span').html();	
 		$('.cartCount').html(get_cart_total);
+		//設定modal-count為1-----------------
+		$('#modal-count').val("1");
 	}
 	
+	
+	//預設所有產品為被點擊
+	$('.nav-justified li').eq(0).addClass('active');
 	//點產品類別增加active
 	$('.nav-justified li').click(function(){	
 		$(this).addClass('active').siblings('.active').removeClass('active');
@@ -150,7 +152,7 @@ $(function() {
 	        url: '../_01_ProductTest/SelectProduct.do',
 	        type:'POST',
 	        dataType:'json',
-	        data: "cmd=TYPE" + "&type=" + getType,
+	        data: getType,
 	        success: function(data){
 	        	var content = "";	
 	        	for (var i = 0; i < data.length; i++) {
@@ -163,9 +165,8 @@ $(function() {
 	        		+ 				"<span class=name>" + data[i].name + "</span>: $ "
 	        		+ 				"<span class=price>" + data[i].pgPrice + "</span>"
 	        	    + 				"<p>"
-	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'>"						
-	        		+ 					"加入購物車</button>" 
-	        		+ 					"<a class='btn btn-default' data-toggle=modal data-target=.bs-iot>More Info</a>"
+	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
+	        		+ 					"data-toggle=modal data-target=.bs-iot>加入購物車</button>"
 	        	    + 				"</p>"
 	        	    + 		"</div>"
 	        	    +	"</div>"
@@ -180,8 +181,8 @@ $(function() {
 	});
 	
 	//點more info 改寫modal內容
-	$('#wrap').on('click','.btn-default',function(){	
-		var productId = $(this).prev().attr('id');
+	$('#wrap').on('click','.btn-primary',function(){	
+		var productId = $(this).attr('id');
 		var getPicSrc="http://localhost:8080/java004/_01_ProductTest/getImage?id=";
 		$.ajax({
 	        url: '../_01_ProductTest/SelectProduct.do',
@@ -197,25 +198,27 @@ $(function() {
 	    });
 	});
 	
-	//點more info 內的button後加入購物車
+	//點modal 內的button後加入購物車
 	$('.modal-content').on('click','.btn-submit',function(){
 		var thisID = $('.addcart-Modal_id').val();  	
 		var itemName  = $('.modal-content h3').html();
 		var itemPrice = $('.col-md-8 h4').html().replace('$','');
-		
-		addToCart(thisID,itemName,itemPrice);
+		var qty = $('#modal-count').val();
+		addToCart(thisID,itemName,itemPrice,qty);	
 	
 		//點擊時觸發購物車彈出------------------
-		$('#cd-cart').addClass('speed-in');	
+		$('#cd-cart').addClass('speed-in');
+		
 		calculate();
+		
 	});
 	
- function addToCart(thisID,itemName,itemPrice) {
+ function addToCart(thisID,itemName,itemPrice,qty) {
 	$.ajax({	
         url: '../_20_BuyProductServlet/BuyProductServlet.do',
         type:'POST',
         data:"productId=" + thisID +"&name=" + itemName 
-        	 + "&pgPrice=" + itemPrice + "&qty=1",
+        	 + "&pgPrice=" + itemPrice + "&qty=" + qty,
         async:false,
         success:function(response){
         	$.ajax({	
@@ -250,7 +253,23 @@ $(function() {
         }
     });		
 }	
-	
+ 
+ $(document).on('click', '.number-spinner button', function () {    
+		var btn = $(this),
+			oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+			newVal = 0;
+		
+		if (btn.attr('data-dir') == 'up') {
+			newVal = parseInt(oldValue) + 1;
+		} else {
+			if (oldValue > 1) {
+				newVal = parseInt(oldValue) - 1;
+			} else {
+				newVal = 1;
+			}
+		}
+		btn.closest('.number-spinner').find('input').val(newVal);
+	});
 });
 
 
