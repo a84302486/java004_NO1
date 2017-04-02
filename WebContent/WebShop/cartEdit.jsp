@@ -42,7 +42,7 @@
 						<div class=media>
 							<a class='thumbnail pull-left' href=#> 
 								<img class=media-object 
-								src="${pageContext.request.contextPath}/_01_ProductTest/getImage?id=${pb.value.productId}">
+								src="${pageContext.request.contextPath}/_01_Product/getImage?id=${pb.value.productId}">
 							</a>
 							<div class=media-body>
 

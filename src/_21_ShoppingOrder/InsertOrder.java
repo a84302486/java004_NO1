@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import _01_ProductTest.ProductBean;
-import _01_ProductTest.ProductDAO;
+import _01_Product.ProductBean;
+import _01_Product.ProductDAO;
 import _14_Member.MemberBean;
 import _20_ShoppingCart.OrderItemBean;
 import _20_ShoppingCart.ShoppingCart;

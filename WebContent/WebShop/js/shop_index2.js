@@ -14,9 +14,9 @@ $(function() {
 	//Ajax呼叫產品資料與圖片--------------------------------
 	$(document).ready(function(){
 		var productId = "";
-		var getPicSrc="http://localhost:8080/java004/_01_ProductTest/getImage?id=";
+		var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
 		$.ajax({
-	        url: '../_01_ProductTest/SelectProduct.do',
+	        url: '../_01_Product/SelectProduct.do',
 	        type:'POST',
 	        data : "cmd=ALL" + "&productId=" + productId,
 	        dataType:'json',
@@ -147,9 +147,9 @@ $(function() {
 		$(this).addClass('active').siblings('.active').removeClass('active');
 		var getType = $(this).attr('id');
 
-		var getPicSrc="http://localhost:8080/java004/_01_ProductTest/getImage?id=";
+		var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
 		$.ajax({
-	        url: '../_01_ProductTest/SelectProduct.do',
+	        url: '../_01_Product/SelectProduct.do',
 	        type:'POST',
 	        dataType:'json',
 	        data: getType,
@@ -183,9 +183,9 @@ $(function() {
 	//點more info 改寫modal內容
 	$('#wrap').on('click','.btn-primary',function(){	
 		var productId = $(this).attr('id');
-		var getPicSrc="http://localhost:8080/java004/_01_ProductTest/getImage?id=";
+		var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
 		$.ajax({
-	        url: '../_01_ProductTest/SelectProduct.do',
+	        url: '../_01_Product/SelectProduct.do',
 	        type:'POST',
 	        data : "cmd=SINGLE" + "&productId=" + productId,
 	        dataType:'json',

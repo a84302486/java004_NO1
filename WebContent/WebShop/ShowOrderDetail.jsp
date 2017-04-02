@@ -56,7 +56,7 @@
 							<c:forEach var="OrderDetail" items="${OrderDetail_coll}">
 								<tr>
 									<td class="col-sm-3 col-md-2 control-label">
-										<img src="../_01_ProductTest/getImage?id=${OrderDetail.productBean.productId}">
+										<img src="../_01_Product/getImage?id=${OrderDetail.productBean.productId}">
 									</td>
 									<td class="col-sm-3 col-md-2 control-label">${OrderDetail.productBean.name}</td>
 									<td class="col-sm-3 col-md-2 control-label">$${OrderDetail.productBean.pgPrice}元</td>

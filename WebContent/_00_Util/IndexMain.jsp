@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="pragma" content="no-cache">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/product_main2.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tab_main2.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/member.css">
@@ -18,7 +18,7 @@
 <body>
 
 	<div>
-		<jsp:include page='../_00_Util/ToolBar2.jsp' />
+		<jsp:include page='../_00_Util/ToolBar.jsp' />
 	</div>
 	<div id='loadPageDiv'>
 		<h1>歡迎使用本系統</h1>

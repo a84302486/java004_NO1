@@ -16,6 +16,6 @@
 <!-- 
 <a href="../index.jsp">回首頁</a>
  -->
-<a href="<c:url value='../_01_ProductTest/IndexMain.jsp' /> ">回首頁</a>
+<a href="<c:url value='../_01_Product/IndexMain.jsp' /> ">回首頁</a>
 </body>
 </html>

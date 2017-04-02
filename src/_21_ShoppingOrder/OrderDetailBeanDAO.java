@@ -12,8 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import _01_ProductTest.ProductBean;
-import _01_ProductTest.ProductDAO;
+import _01_Product.ProductBean;
+import _01_Product.ProductDAO;
 import _14_Member.MemberBean;
 
 

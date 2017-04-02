@@ -1,6 +1,6 @@
 package _21_ShoppingOrder;
 
-import _01_ProductTest.ProductBean;
+import _01_Product.ProductBean;
 
 public class OrderDetailBean {
 	private String OrderId;
@@ -12,7 +12,7 @@ public class OrderDetailBean {
 		
 	}
 
-	public OrderDetailBean(String orderId, _01_ProductTest.ProductBean productBean, Integer quantity,
+	public OrderDetailBean(String orderId, _01_Product.ProductBean productBean, Integer quantity,
 			Integer subTotal) {
 		super();
 		OrderId = orderId;

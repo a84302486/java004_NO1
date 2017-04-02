@@ -14,9 +14,9 @@ $(function() {
 	
 	//Ajax呼叫產品資料與圖片--------------------------------
 	$(document).ready(function(){
-		var getPicSrc="http://localhost:8080/java004/_01_ProductTest/getImage?id=";
+		var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
 		$.ajax({
-	        url: '../_01_ProductTest/SelectProduct.do',
+	        url: '../_01_Product/SelectProduct.do',
 	        type:'POST',
 	        dataType:'json',
 	        success: function(data){

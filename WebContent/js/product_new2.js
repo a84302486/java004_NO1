@@ -150,7 +150,7 @@ function getQueryData(servelet) {
 						+ "<td>" + data[i].suppierId + "</td>"
 						+ "<td>" + data[i].fileName + "</td>"
 						+ "<td> <img height=60 width=60 id=target " 
-						+ "src=http://localhost:8080/java004/_01_ProductTest/getImage?id=" 
+						+ "src=http://localhost:8080/java004/_01_Product/getImage?id=" 
 						+ data[i].productId +  "></td>"
 						+ "<td><input type=radio name=productId value="+ data[i].productId + ">"
 						+ "</td></tr>";
