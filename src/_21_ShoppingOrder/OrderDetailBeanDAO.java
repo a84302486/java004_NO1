@@ -70,18 +70,18 @@ public class OrderDetailBeanDAO {
 	}
 	public int delete(String orderId){
 	
-		String sql = "DELETE FROM Order WHERE OrderId =? ;";
+		String sql = "DELETE FROM OrderDetail WHERE OrderId =? ;";
 		try(
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);
 		){
 			pstmt.setString(1, orderId);
-			pstmt.executeUpdate();
-			System.out.println("成功 刪除 "+ orderId);
+			int i = pstmt.executeUpdate();
+			System.out.println("成功 刪除 "+ orderId+"的OrderDetail");
 			
-			return 1;
+			return i;
 		}catch (SQLException e){
-			System.out.println("失敗 刪除 "+ orderId);
+			System.out.println("失敗 刪除 "+ orderId+"的OrderDetail");
 			e.printStackTrace();
 			return 0;
 		}

@@ -37,8 +37,11 @@ $(function() {
 	$("[data-toggle='tooltip']").tooltip();
 	
 	$('#shop_insert_order').click(function(){
-		location.href='../_21_ShoppingOrder/Order';
-		//alert("您此次的購物完成!!請在會員管理查看訂單");
+		if(confirm("您確定要完成購買嗎")){
+			location.href='../_21_ShoppingOrder/Order';
+		}else{
+			return;
+		}
 	});
 	
 

@@ -1,4 +1,6 @@
-
+body{
+	background: url('../images/background.png') no-repeat center fixed;
+}
 tr{
 	background-color:white;
 	text-align:center;
@@ -31,6 +33,12 @@ h3{
 .row {
 
   width: 100%;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 0.5em;
+    font-weight: bold;
 }
 
  

@@ -28,47 +28,45 @@
           </h3>
           <hr>
           <div class="account-row">
-            <div class="shoplist-container">
-                <div class="form-warp account-form">
               <form class="form-horizontal">          
                   <div class="form-group">
                     <label class="col-sm-3 col-md-2 control-label"> 會員帳號：</label>
                     <div class="col-sm-9 col-md-10">
-                      <span class="label-text">${MemberLoginOK.m_Username}</span>
+                      <span class="label-text"><br>${MemberLoginOK.m_Username}</span>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label class="col-sm-3 col-md-2 control-label"> 會員密碼：</label>
                     <div class="col-sm-9 col-md-10">
-                      <span class="label-text"> <a href="/account/modify_password" class="link-color">修改會員密碼</a></span>
+                      <span class="label-text"> <a href="/account/modify_password" class="link-color"><br>修改會員密碼</a></span>
                     </div>
                   </div>
                   
                   <div class="form-group">
                     <label class="col-sm-3 col-md-2 control-label"> 帳戶姓名：</label>
                     <div class="col-sm-9 col-md-10">
-                      <span class="label-text">${MemberLoginOK.m_Name}</span>
+                      <span class="label-text"><br>${MemberLoginOK.m_Name}</span>
                       
                     </div>
                   </div>
                   
                   <div class="form-group">
-                    <label class="col-sm-3 col-md-2 control-label"> 生日：</label>
+                    <label class="col-sm-3 col-md-2 control-label"> 會員生日：</label>
                     <div class="col-sm-9 col-md-10">
                     
-                      <span class="label-text">${MemberLoginOK.m_Birthday}</span>
+                      <span class="label-text"><br>${MemberLoginOK.m_Birthday}</span>
                     
                     </div>
                   </div>
          
                   <div class="form-group">
-                    <label class="col-sm-3 col-md-2 control-label">手機：</label>
+                    <label class="col-sm-3 col-md-2 control-label"> 會員手機：</label>
                     <div class="col-sm-9 col-md-10">
-                      <span class="label-text"> ${MemberLoginOK.m_Cellphone}</span>
+                      <span class="label-text"><br>${MemberLoginOK.m_Cellphone}</span>
                     </div>
                   </div>
-      
+      			<br>
                 <div class="row">
                   <div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2">
                     <div class=" btn-warp check-btn">
@@ -78,13 +76,14 @@
                   </div>
                 </div>
               </form>
-            </div>
+           
           </div>
-	 <hr>
+	 
 	
 	</section>
+	<br>
+	<br>
 	<section class="container-fuild" id="orderResult">
-	
 	</section>
 	
 	</div>

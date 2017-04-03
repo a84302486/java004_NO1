@@ -66,7 +66,7 @@ public class OrderBeanDAO {
 	}
 	public int delete(String orderId){
 	
-		String sql = "DELETE FROM Order WHERE OrderId =? ;";
+		String sql = "DELETE FROM `Order` WHERE `OrderId`=? ;";
 		try(
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);
