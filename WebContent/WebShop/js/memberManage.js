@@ -19,7 +19,8 @@ function orderSelect(servelet, resultId, inputId) {
 
 function orderResult(result, resultId, inputId){
 	
-var content =""	
+	var deleteFlag = true;
+	var content =""	
 		   +'<section class="order-content">'
 		   +'<div class="tab-content">'
 		   +'<h3 class="side-heading">'
@@ -34,6 +35,7 @@ var content =""
            +'<th class="col-sm-3 col-md-2 control-label">訂購時間</th>'
            +'<th class="col-sm-3 col-md-2 control-label">出貨時間</th>'
            +'<th class="col-sm-3 col-md-2 control-label">訂單金額</th>'
+           +'<th class="col-sm-3 col-md-2 control-label">訂單狀態</th>'
            +'</tr>';
 
            $.each(result, function(key, value){
@@ -48,7 +50,32 @@ var content =""
         			content += "<td class='col-sm-12 col-md-3'>"+value+"</td>";
         		}
         		
+        		if(key=='ShippedDate'){
+              	    var ShippedDate = value; 
+              		var CurrentDate = new Date();
+              		if ( (Date.parse(ShippedDate)).valueOf() < (Date.parse(CurrentDate)).valueOf()){
+              			deleteFlag = false;
+              		}else{
+              			deleteFlag = true;
+              		}
+              	}
+        		
 	   			});
+        	  
+        	   if(deleteFlag){
+        		   content += "<td class='col-sm-12 col-md-3'>"
+        		   	   	+"<button type=button class='btn btn-danger'>"
+        		   	   	+"<span class='glyphicon glyphicon-remove'></span> 取消"
+        		   	   	+"</button>"
+        		   	   	+"</td>";
+        	   }else{
+        		   content += "<td class='col-sm-12 col-md-3'>"
+       		   	   		+"<button type=button class='btn btn-success' disabled>"
+       		   	   		+" 已出貨"
+       		   	   		+"</button>"
+       		   	   		+"</td>";
+        	   }
+        	   		
         	   content +='</tr>';
            });
             

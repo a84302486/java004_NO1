@@ -38,7 +38,7 @@ $(function() {
 	
 	$('#shop_insert_order').click(function(){
 		location.href='../_21_ShoppingOrder/Order';
-		alert("您此次的購物完成!!請在會員管理查看訂單");
+		//alert("您此次的購物完成!!請在會員管理查看訂單");
 	});
 	
 

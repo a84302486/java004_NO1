@@ -40,8 +40,16 @@
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="memberManage.jsp">會員管理</a></li>
-					<li><a href="login_and_register.jsp">登入/註冊</a></li>
+					<li>
+                	<c:choose>
+						<c:when test="${empty MemberLoginOK}">
+							<a href="../WebShop/login_and_register.jsp">登入/註冊</a>
+						</c:when>
+            			<c:otherwise>
+            				<a href="../WebShop/memberManage.jsp">會員管理</a>
+						</c:otherwise>
+        			</c:choose>
+                    </li>
 					<li><a href="cartEdit.jsp">購物車</a></li>
 					<li><a href="index.html">觀光工廠</a></li>
 

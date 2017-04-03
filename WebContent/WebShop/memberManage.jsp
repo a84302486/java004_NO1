@@ -72,7 +72,7 @@
                 <div class="row">
                   <div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2">
                     <div class=" btn-warp check-btn">
-                      <a href="logout.jsp" type="button" class="btn btn-default "><i class="fa fa-sign-out"></i> 登出</a>
+                      <a href="${pageContext.request.contextPath}/WebShop/logout.jsp" type="button" class="btn btn-default "><i class="fa fa-sign-out"></i> 登出</a>
                       <a href="/account/account_edit" class="btn btn-primary "><i class="fa fa-pencil"></i> 編輯帳戶資料</a>
                     </div>
                   </div>
