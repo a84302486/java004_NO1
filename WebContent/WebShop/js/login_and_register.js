@@ -134,8 +134,10 @@ $(document).ready(function() {
 
 	              $element.data("title", "") // Clear the title - there is no error associated anymore
 	                  .removeClass("error")
-	                  .tooltip("destroy");
-
+	                  .text("")
+	              	  .addClass("valid")
+	              	  .tooltip("destroy");
+//	              	  .append('<span class="glyphicon glyphicon-ok form-control-feedback"></span>');
 	          });
 
 	          // Create new tooltips for invalid elements
@@ -145,6 +147,7 @@ $(document).ready(function() {
 	              $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
 
 	                  .data("title", error.message)
+	                  .removeClass("valid")
 	                  .addClass("error")
 	                  .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
 	          });

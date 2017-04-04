@@ -173,16 +173,20 @@ input[type="password"] {
 /*-----------------------------------------------*/
 .error {
 	color: red;
-	border: 1px solid #b94a48!important; 
-	background-color: #fee!important; 
+	border: 1px solid #ff0000!important; 
 }
 
 .valid {
-	background-color:green;
+	border: 1px solid #3c763d!important;
 }
 
 /*------------------------------------------------------------------*/
 
 input{
-	border:2px blue solid;
+	border: 1px solid #c0c0c0!important;
+}
+
+.tooltip > .tooltip-inner {
+	background-color: #ff0000; 
+	color: #ffffff;
 }
