@@ -16,12 +16,14 @@
 					<li><a href="#" data-toggle="dropdown">基本資料管理 <b
 							class="caret"></b></a>
 						<ul>
-							<li ><a href="#tab-product" onclick="getAction('../_01_Product/IndexProduct.jsp','loadPageDiv');getQueryData('SelectProduct.do');">產品資訊</a>
-<!-- 								<ul> -->
-<!-- 									<li><a href="#">子功能1</a></li> -->
-<!-- 								</ul> -->
+							<li><a href="#tab-product" 
+							onclick="getAction('../_01_Product/IndexProduct.jsp','loadPageDiv');getQueryData('SelectProduct.do');">
+							產品上下架及資料管理</a>
 							</li>							
-							<li><a href="#tab-member" onclick="getAction('../_14_Member/IndexMember.jsp','loadPageDiv');">會員系統</a>
+							<li><a href="#tab-member" 
+							onclick="getAction('../_14_Member/IndexMember.jsp','loadPageDiv');">
+							會員系統</a>
+							</li>
 						</ul>
 					<li>
 				</ul>
@@ -31,9 +33,9 @@
 					<li><a href="#" data-toggle="dropdown">庫存管理系統 <b
 							class="caret"></b></a>
 						<ul>
-							<li><a href="" class="">功能1</a>
-							<li><a href="" class="">功能2</a>
-							<li><a href="" class="">功能3</a>
+							<li><a href="#tab-stock" 
+							onclick="getAction('../_05_Stock/IndexStock.jsp','loadPageDiv');">
+							庫存資料管理</a>
 						</ul>
 					<li>
 				</ul>
@@ -44,8 +46,7 @@
 							class="caret"></b></a>
 						<ul>
 							<li><a href="" class="">功能1</a>
-							<li><a href="" class="">功能2</a>
-							<li><a href="" class="">功能3</a>
+			
 						</ul>
 					<li>
 				</ul>

@@ -9,7 +9,6 @@ import javax.persistence.Table;
 @Table(name="taste")
 public class TasteBean  {
 	
-
 	private String tasteId;
 	private String tasteName;
 	

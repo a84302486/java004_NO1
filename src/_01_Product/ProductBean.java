@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 
-import com.mysql.jdbc.Blob;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+import com.mysql.jdbc.Blob;
 
 public class  ProductBean implements Serializable{
 	private String productId;

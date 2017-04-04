@@ -2,9 +2,13 @@ package _01_Product;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Base64;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+
+import _05_Stock.StockDAO;
 
 @WebServlet("/_01_Product/SelectProduct.do")
 public class SelectProduct extends HttpServlet {
@@ -59,15 +65,13 @@ public class SelectProduct extends HttpServlet {
 					System.out.println("搜尋"+ productIdStr);
 					list = pd.findByPrimaryKey(productIdStr);
 				}
-				
-				
+							
 			} else if (cmd.equalsIgnoreCase("TYPE") && typeStr != null) {
 				list = pd.findByType(typeStr);				
 			}else if (cmd.equalsIgnoreCase("SINGLE") && productIdStr.trim().length() != 0){
 				list = pd.findByPrimaryKey(productIdStr);
 			}	
-			
-			
+						
 			//listToJson寫出純文字資料
 			String listToJson = new Gson().toJson(list);
 			os.write(listToJson.getBytes("UTF-8"));	

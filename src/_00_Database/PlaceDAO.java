@@ -77,6 +77,23 @@ public class PlaceDAO {
 		}
 	}
 	
+	public void CreateStockTable() {
+		String[] createStr = readSQLFile("CreateStockTables.sql");	
+		
+		try (Connection con = DriverManager.getConnection(dbURL); 
+			Statement stmt = con.createStatement();) {
+			
+			for(int n =0; n < createStr.length;n++){
+			stmt.executeUpdate(createStr[n]);
+			System.out.println("第"+(n+1)+"個Table Create OK");
+			}
+			
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}	
+	}
+	
 	private String[] readSQLFile(String filename) {
 
 		try (FileInputStream fis = new FileInputStream(filename);
