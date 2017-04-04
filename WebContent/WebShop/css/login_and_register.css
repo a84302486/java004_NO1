@@ -1,5 +1,6 @@
 body {
     padding-top: 90px;
+	background: url('../images/background.png') no-repeat center fixed;
 }
 .panel-login {
 	border-color: #ccc;
@@ -170,28 +171,23 @@ input[type="password"] {
 	margin-bottom: 1em;
 }
 /*-----------------------------------------------*/
-#register-form label.error {
+.error {
 	color: red;
-	display: inline-block;
-	padding: 3px 3px;
-	font-size: 0.75em;
-	line-height: 1;
-	width: auto;
+	border: 1px solid #ff0000!important; 
 }
 
-#register-form label.checked {
-	padding: 3px 5px 3px 21px;
-     margin-left: 10px;
-     margin-top: 0px;
-     margin-bottom: 3px;
-     height: 25px;
-     line-height: 1px;
-     font-size: 20px;
-     white-space: nowrap;
-     text-align: left;
-     color: #E6594E;
-  	background:url("../images/1489689605_Tick_Mark_Dark.png") no-repeat 1px; 
-	
+.valid {
+	border: 1px solid #3c763d!important;
 }
 
 /*------------------------------------------------------------------*/
+
+
+.tooltip > .tooltip-inner {
+	background-color: #ff0000; 
+	color: #ffffff;
+}
+
+input{
+	border: 1px solid #0699f0!important;
+}

@@ -14,7 +14,7 @@
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
 <link rel="stylesheet" href="../WebShop/css/login_and_register.css?v017">
-<link href="../WebShop/css/shopcart.css" rel="stylesheet">
+
 <title>registered</title>
 </head>
 
@@ -49,14 +49,14 @@
 										<hr class="colorgraph">
 										<br> <input type="text" class="form-control"
 											name="Username" id="Username" placeholder="帳號"
-											value="${param.Username}" />
+											value="${param.Username}" autofocus/>
 
 										<div class="form-group text-center" style="color: #FF0000;">
 											${ErrorMsgKey.AccountEmptyError}<br>
 										</div>
 
 										<input type="password" class="form-control" name="Password"
-											id="Password" placeholder="密碼" value="${param.Password}" />
+											id="Password" placeholder="密碼" value="${param.Password}" autofocus/>
 
 										<div class="form-group text-center" style="color: #FF0000;">
 											${ErrorMsgKey.PasswordEmptyError}<br>
@@ -103,9 +103,10 @@
 										<div class="form-group">
 											<label for="member_Username" class="col-sm-3 control-label">會員帳號</label>
 											<div class="col-sm-8">
-												 <input type="email" id="member_Username" name="member_Username"
+												 <input type="email" id="member_Username" name="Username"
 													placeholder="example@abc.com.tw"
-													class="form-control required emailCheck usernameCheck">
+													class="form-control required emailCheck usernameCheck"
+													autofocus>
 												 <div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'></div>
 											</div>
 											
@@ -115,7 +116,7 @@
 											<div class="col-sm-8">
 												<input type="password" id="PasswordID" name="Password"
 													placeholder="6～20個數字和英文組成的字元" class="form-control required atoz_number"
-													>
+													autofocus>
 												
 											</div>
 											
@@ -124,7 +125,7 @@
 											<label for="Password2" class="col-sm-3 control-label">密碼確認</label>
 											<div class="col-sm-8">
 												<input type="password" id="Password2" name="Password2" placeholder="再輸入一次密碼"
-													class="form-control required atoz_number">
+													class="form-control required atoz_number" autofocus>
 											
 
 											</div>
@@ -133,7 +134,7 @@
 									    <div class="form-group">
 											<label for="Name" class="col-sm-3 control-label">會員姓名</label>
 											<div class="col-sm-8">
-												 <input type="text" id="Name" placeholder="請輸入真實姓名" class="form-control required" name="Name">
+												 <input type="text" id="Name" placeholder="請輸入真實姓名" class="form-control required" name="Name" autofocus>
 												
 											</div>
 											
@@ -144,7 +145,7 @@
 											<div class="col-sm-8">
 												 <input type="text" id="Cellphone" name="Cellphone"
 													placeholder="0900-000-000"
-													class="form-control required cellphonecheck">
+													class="form-control required cellphonecheck" autofocus>
 												
 											</div>
 											
@@ -153,7 +154,7 @@
 											<label for="birthday" class="col-sm-3 control-label">會員生日</label>
 											<div class="col-sm-8">
 												 <input type="date" name="Birthday" id="birthday"
-													class="form-control required date dayCheck" value="1992/01/01">
+													class="form-control required date dayCheck" value="1992/01/01" autofocus>
 												 
 											</div>
 										
@@ -189,7 +190,7 @@
 	<script src="../WebShop/js/bootstrap.min.js"></script>
 	<script src="../WebShop/js/jquery.validate.js"></script>
 	<script src="../WebShop/js/jquery.ajaxupload.js"></script>
-	<script src="../WebShop/js/login_and_register.js?v013"></script>
+	<script src="../WebShop/js/login_and_register.js?v129"></script>
 </body>
 
 </html>

@@ -2,6 +2,17 @@ $(document).ready(function(){
 
 	//自動搜尋
 	orderSelect('../_21_ShoppingOrder/SelectOrder','#orderResult','#memberVal');
+	
+	$('#orderResult').on('click', '.btn-danger', function() {
+		
+		var orderId = $(this).attr("id");
+		
+		if(confirm('您確定要取消訂單編號'+orderId+'的訂單?')){
+			location.href ='../_21_ShoppingOrder/DeleteOrder?OrderId='+orderId;
+		}else{
+			return;
+		}
+	});
 });
 
 
@@ -20,12 +31,14 @@ function orderSelect(servelet, resultId, inputId) {
 function orderResult(result, resultId, inputId){
 	
 	var deleteFlag = true;
+	var orderId = "";
 	var content =""	
 		   +'<section class="order-content">'
 		   +'<div class="tab-content">'
 		   +'<h3 class="side-heading">'
 		   +'<span class="text">訂單歷史紀錄</span>'
 		   +'</h3>'
+		   +'<hr>'
   
 		   +'<div id="order">'
 		   +'<div>'
@@ -44,10 +57,11 @@ function orderResult(result, resultId, inputId){
         	   $.each(value, function(key, value){
         		
         		if(key=='OrderId'){
-        			content += "<td class='col-sm-12 col-md-3'><a href=../_21_ShoppingOrder/orderDetail?Username="+$(inputId).val()+"&OrderId="+value+">"+value+"</a></td>";
+        			orderId = value;
+        			content += "<td class='col-sm-12 col-md-2'><a href=../_21_ShoppingOrder/orderDetail?Username="+$(inputId).val()+"&OrderId="+value+">"+value+"</a></td>";
         			
         		}else{
-        			content += "<td class='col-sm-12 col-md-3'>"+value+"</td>";
+        			content += "<td class='col-sm-12 col-md-2'>"+value+"</td>";
         		}
         		
         		if(key=='ShippedDate'){
@@ -63,13 +77,13 @@ function orderResult(result, resultId, inputId){
 	   			});
         	  
         	   if(deleteFlag){
-        		   content += "<td class='col-sm-12 col-md-3'>"
-        		   	   	+"<button type=button class='btn btn-danger'>"
+        		   content += "<td class='col-sm-12 col-md-1'>"
+        		   	   	+"<button type=button class='btn btn-danger' id="+orderId+">"
         		   	   	+"<span class='glyphicon glyphicon-remove'></span> 取消"
         		   	   	+"</button>"
         		   	   	+"</td>";
         	   }else{
-        		   content += "<td class='col-sm-12 col-md-3'>"
+        		   content += "<td class='col-sm-12 col-md-1'>"
        		   	   		+"<button type=button class='btn btn-success' disabled>"
        		   	   		+" 已出貨"
        		   	   		+"</button>"

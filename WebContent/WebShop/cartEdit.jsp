@@ -19,8 +19,6 @@
 <body>
 	<jsp:include page='header.jsp' />
 
-	<br>
-	<br>
 	<div class="container">
 		<h2 id="header">購物車</h2>
 		<br>
