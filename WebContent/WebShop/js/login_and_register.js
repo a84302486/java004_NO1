@@ -53,7 +53,7 @@ $(document).ready(function() {
 	//帳號檢查  
 	//$('#member_Username').blur(usernameCheck);
 //	$('#register-form-submit').click(usernameCheck());
-	var check ="true";
+	var check ="usable";
 	$.validator.addMethod("usernameCheck", function(value) {
 		
 		$.ajax({
@@ -62,6 +62,7 @@ $(document).ready(function() {
 			data : {member_Username:value},//$(this).serialize()
 			type : "POST",
 			dataType : 'text',
+			async: false,
 
 			success : function(response){
 		    		check = response;
@@ -123,12 +124,32 @@ $(document).ready(function() {
 	//註冊欄位檢查
 	$("#register-form").validate({
 		
-		event: "keyup",
-		errorPlacement : function(error, element) {
-			
-			error.addClass("col-sm-8 col-sm-offset-4 alert-danger text-center");
-			element.after(error);
-		},
+		event: "blur",
+		showErrors: function(errorMap, errorList) {
+
+	          // Clean up any tooltips for valid elements
+	          $.each(this.validElements(), function (index, element) {
+
+	              var $element = $(element);
+
+	              $element.data("title", "") // Clear the title - there is no error associated anymore
+	                  .removeClass("error")
+	                  .tooltip("destroy");
+
+	          });
+
+	          // Create new tooltips for invalid elements
+	          $.each(errorList, function (index, error) {
+
+	              var $element = $(error.element);
+	              $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+
+	                  .data("title", error.message)
+	                  .addClass("error")
+	                  .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+	          });
+
+	    },
 		rules : {
 			member_Username:{
 				minlength : 4,
@@ -147,16 +168,14 @@ $(document).ready(function() {
 				maxlength : 20
 			}
 		},//rules
-		validClass: "checked",  
-		success: function(label) {  
-		    label.remove("error").addClass("checked");  
-		},
 		submitHandler : function(form) {
-			//驗證成功之後就會進到這邊：
-			//方法一：直接把表單 POST 或 GET 到你的 Action URL
-			//方法二：讀取某些欄位的資料，ajax 給別的 API。
-			//此處測試方法一的寫法如下：
-			$(this).submit();
+			
+			$.ajax({url: '../_14_Member/Insert',dataType: 'json',data: $(form).serialize(),
+		        success:   function(result){
+		        	
+		        	alert(result);        	
+		        }
+			});
 		}
 	});
 

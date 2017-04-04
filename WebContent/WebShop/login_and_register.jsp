@@ -14,7 +14,7 @@
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
 <link rel="stylesheet" href="../WebShop/css/login_and_register.css?v017">
-<link href="../WebShop/css/shopcart.css" rel="stylesheet">
+
 <title>registered</title>
 </head>
 
@@ -103,9 +103,10 @@
 										<div class="form-group">
 											<label for="member_Username" class="col-sm-3 control-label">會員帳號</label>
 											<div class="col-sm-8">
-												 <input type="email" id="member_Username" name="member_Username"
+												 <input type="email" id="member_Username" name="Username"
 													placeholder="example@abc.com.tw"
-													class="form-control required emailCheck usernameCheck">
+													class="form-control required emailCheck usernameCheck"
+													>
 												 <div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'></div>
 											</div>
 											
@@ -189,7 +190,7 @@
 	<script src="../WebShop/js/bootstrap.min.js"></script>
 	<script src="../WebShop/js/jquery.validate.js"></script>
 	<script src="../WebShop/js/jquery.ajaxupload.js"></script>
-	<script src="../WebShop/js/login_and_register.js?v013"></script>
+	<script src="../WebShop/js/login_and_register.js?v129"></script>
 </body>
 
 </html>
