@@ -173,10 +173,12 @@ input[type="password"] {
 /*-----------------------------------------------*/
 .error {
 	color: red;
+	background: url('../images/cancel.png') no-repeat right;
 	border: 1px solid #ff0000!important; 
 }
 
 .valid {
+	background: url('../images/checked.png') no-repeat right;
 	border: 1px solid #3c763d!important;
 }
 

@@ -183,6 +183,36 @@ public class MemberDAO {
 		
 	}
 	
+	public boolean checkCertification(String Username){
+		
+		String sql = "select M_Certification from Member where M_Username =?"					
+					+ ";";
+		MemberBean pb = new MemberBean();				
+		try(
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);){				
+		
+			pstmt.setString(1, Username);
+			try(
+				ResultSet rs = pstmt.executeQuery();
+			){
+				if (rs.next()){					
+					
+					
+					pb.setM_Certification(rs.getBoolean(1));
+												
+				}
+				
+				System.out.println("記錄 查詢"+Username+"的認證");
+			}
+			return pb.isM_Certification();
+		}catch (Exception e){
+			
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public Collection<MemberBean> select(String Username){
 	
 		String sql = "select * from Member where M_Username =?"					

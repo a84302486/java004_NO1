@@ -32,6 +32,7 @@ public class LoginMember extends HttpServlet {
 		// 1. 讀取使用者輸入資料(<Input>標籤內的name屬性分別為 userId與pswd
 		String userId = request.getParameter("Username");
 		String password = request.getParameter("Password");
+		
 		// 2. 進行必要的資料轉換
 		// 無
 		// 3. 檢查使用者輸入資料
@@ -60,14 +61,15 @@ public class LoginMember extends HttpServlet {
 		// 同時將傳回值放入MemberBean型別的變數mb之內。
 		MemberBean mb = ls.checkIDPassword(userId, password);
 		// 如果變數mb的值不等於 null,表示資料庫含有userId搭配password的紀錄
-		if (mb != null) {
-			// OK, 將mb物件放入Session範圍內，識別字串為"LoginOK"，表示此使用者已經登入
-			session.setAttribute("MemberLoginOK", mb);
-		} else {
-			// NG, userid與密碼的組合錯誤，放錯誤訊息"該帳號不存在或密碼錯誤"到 errorMsgMap 之內
-			// 對應的識別字串為 "LoginError"
+		if(mb == null){
 			errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");
+		}else if(!new MemberDAO().checkCertification(userId)){
+			errorMsgMap.put("LoginError", "該帳號還沒有認證");
+		}else{
+			session.setAttribute("MemberLoginOK", mb);
 		}
+		
+		
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
 		// 如果 errorMsgMap是空的，表示沒有任何錯誤，準備交棒給下一隻程式
 		if (errorMsgMap.isEmpty()) {
