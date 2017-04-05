@@ -96,7 +96,7 @@
 
 
 									<form id="register-form" method="post" role="form"
-										style="display: none;"  action="POST的網址" enctype="multipart/form-data" class="form-horizontal">
+										style="display: none;"  enctype="multipart/form-data" class="form-horizontal">
 										<!-- 									<form class="form-horizontal" role="form"> -->
 
 
@@ -115,7 +115,7 @@
 											<label for="Password" class="col-sm-3 control-label">會員密碼</label>
 											<div class="col-sm-8">
 												<input type="password" id="PasswordID" name="Password"
-													placeholder="6～20個數字和英文組成的字元" class="form-control required atoz_number"
+													placeholder="6～20個數字和英文組成" class="form-control required atoz_number"
 													autofocus>
 												
 											</div>
@@ -154,7 +154,7 @@
 											<label for="birthday" class="col-sm-3 control-label">會員生日</label>
 											<div class="col-sm-8">
 												 <input type="date" name="Birthday" id="birthday"
-													class="form-control required date dayCheck" value="1992/01/01" autofocus>
+													class="form-control required date dayCheck" value="" autofocus>
 												 
 											</div>
 										

@@ -15,8 +15,10 @@ public class MemberBean implements Serializable {
 	private int M_Level;			
 	private int M_BonusPoints;				
 	private int M_Total;
+	private boolean M_Certification;
 	
-	
+
+
 	public MemberBean(){
 		
 	}
@@ -135,7 +137,15 @@ public class MemberBean implements Serializable {
 	public void setM_Total(int m_Total) {
 		M_Total = m_Total;
 	}
+	
+	public boolean isM_Certification() {
+		return M_Certification;
+	}
 
+
+	public void setM_Certification(boolean m_Certification) {
+		M_Certification = m_Certification;
+	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

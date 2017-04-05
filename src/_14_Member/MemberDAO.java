@@ -93,7 +93,7 @@ public class MemberDAO {
 	synchronized public String insert(MemberBean mem){
 	
 		String sql = "INSERT INTO Member "
-				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try(
 			Connection con = ds.getConnection();
@@ -109,6 +109,7 @@ public class MemberDAO {
 			pstmt.setInt(8, mem.getM_Level());
 			pstmt.setInt(9, mem.getM_BonusPoints());
 			pstmt.setInt(10, mem.getM_Total());
+			pstmt.setBoolean(11, false);
 									
 			pstmt.executeUpdate();
 			
@@ -181,6 +182,34 @@ public class MemberDAO {
 		}
 		
 	}
+	
+	synchronized public String Certification(String username){
+		
+		String sql = "UPDATE Member SET "
+				+ "M_Certification = ?"
+				+ "WHERE M_Username = ?;";
+		
+		try(
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);){				
+		
+			pstmt.setBoolean(1, true);
+			pstmt.setString(2, username);
+					
+			pstmt.executeUpdate();
+			
+			System.out.println("成功 認證" + username);
+			
+			return null;
+		}catch (Exception e){		
+			System.out.println("失敗 認證" + username);
+			e.printStackTrace();
+			return "失敗 認證" + username;
+		}
+		
+	}
+	
+	
 	
 	public Collection<MemberBean> select(String Username){
 	

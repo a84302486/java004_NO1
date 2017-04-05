@@ -70,16 +70,16 @@ public class LoginFilter implements Filter {
 			
 			
 			String servletPath = req.getServletPath();
-			System.out.println("servletPath " + servletPath);
+//			System.out.println("servletPath " + servletPath);
 			if (mustLogin(servletPath)) {
 				if (checkLogin(req)) {
-					//System.out.println("需要Login, 已經Login");
+					System.out.println("需要Login, 已經Login");
 					chain.doFilter(request, response);
 				} else {
 					HttpSession session = req.getSession();
 					session.setAttribute("target", req.getServletPath());
-					//System.out.println("需要Login, 尚未Login , ServletPath="
-							//+ req.getServletPath());
+					System.out.println("需要Login, 尚未Login , ServletPath="
+							+ req.getServletPath());
 					RequestDispatcher rd = request
 							.getRequestDispatcher("/WebShop/login_and_register.jsp");
 					rd.forward(req, resp);
