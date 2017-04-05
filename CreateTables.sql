@@ -62,16 +62,17 @@ CREATE TABLE `Stock` (
 
 
 CREATE TABLE `Member`(			
-	M_Username		VARCHAR(20) NOT NULL,
+	M_Username		VARCHAR(40) NOT NULL,
 	M_Password		VARCHAR(60) NOT NULL,
 	M_Name			VARCHAR(20) NOT NULL,
 	M_Cellphone		VARCHAR(20) NOT NULL,
-	M_Birthday		DATE NOT NULL,
-	M_Insertdate	DATETIME,
-	M_Updatedate	DATETIME,
+	M_Birthday		date NOT NULL,
+	M_Insertdate	datetime,
+	M_Updatedate	datetime,
 	M_Level			CHAR(1) default 0,		
 	M_BonusPoints	INT,					
 	M_Total			NUMERIC(15,2),			
+	M_Certification tinyint(1) default 0,
 	
 	CONSTRAINT Member_M_Username PRIMARY KEY (M_Username)
 	

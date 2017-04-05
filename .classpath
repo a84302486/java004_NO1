@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="D:/_JSP/workspace/java004/WebContent/WEB-INF/lib/javax.json-api-1.0.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate5.2.7"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/commons-logging-1.2"/>
+	<classpathentry kind="lib" path="D:/_JSP/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

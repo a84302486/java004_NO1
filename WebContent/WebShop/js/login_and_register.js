@@ -54,12 +54,14 @@ $(document).ready(function() {
 	//$('#member_Username').blur(usernameCheck);
 //	$('#register-form-submit').click(usernameCheck());
 	var check ="usable";
+	var Username = "";
 	$.validator.addMethod("usernameCheck", function(value) {
 		
+		Username = value;
 		$.ajax({
 			url : "usernameCheck.do",
 			cache: false,
-			data : {member_Username:value},//$(this).serialize()
+			data : {member_Username:Username},//$(this).serialize()
 			type : "POST",
 			dataType : 'text',
 			async: false,
@@ -67,14 +69,16 @@ $(document).ready(function() {
 			success : function(response){
 		    		check = response;
 					//alert(check);	
-		    }
-			
+		    }		
 		});
 		
 		if(check.match('usable')){
             return true;
-        }else{  
-            return false;//顯示錯誤訊息      
+        }else if(check.match('exist')){  
+            return false;      
+        }else{
+        	alert("檢查帳號發生問題!");
+        	return true;
         }
 	}, "帳號已註冊");
 	
@@ -173,12 +177,25 @@ $(document).ready(function() {
 		},//rules
 		submitHandler : function(form) {
 			
+			$.ajaxStart(function(){
+				$(this).text("資料讀取中...");
+			});
+			
 			$.ajax({url: '../_14_Member/Insert',dataType: 'json',data: $(form).serialize(),
 		        success:   function(result){
-		        	
-		        	alert(result);        	
+		        
+//		        	location.href ='../WebShop/registerSuccess.jsp';
+//		        	$.ajax({url: '../_14_Member/JavaMail',data:{'Username':Username}});
+		        	alert('感謝您加入會員，請到您的信箱收取認證信');
+		        	location.href ='../_14_Member/JavaMail?Username='+Username;
+		        	      	
 		        }
 			});
+			
+			$.ajaxStop(function(){
+				$(this).text();
+			});
+//			$(form).reset();
 		}
 	});
 
