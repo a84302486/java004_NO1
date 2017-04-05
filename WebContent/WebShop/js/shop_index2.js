@@ -180,8 +180,10 @@ $(function() {
 		});		
 	});
 	
-	//點more info 改寫modal內容
+	//點主頁加入購物車,顯示modal內容
 	$('#wrap').on('click','.btn-primary',function(){	
+		$('.btn-submit').removeAttr('disabled');
+		$('.extra_cart p').remove();
 		var productId = $(this).attr('id');
 		var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
 		$.ajax({
@@ -194,6 +196,18 @@ $(function() {
 	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId);
 	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  
 	        	$('.addcart-Modal_id').val(data[0].productId);  
+	        	
+	        	$.ajax({
+	        		 url: '../_05_Stock/getProductStock.do',
+	     	        type:'POST',
+	     	        data : "productId=" + productId,
+	     	        dataType:'json',
+	     	        success: function(quantity){
+	     	        	if(quantity ==0 || quantity ==null ){
+	     	        		$('.btn-submit').after("<p>已售完</p>").prop("disabled",true);
+	     	        	}
+	     	        }
+	        	});
 	        }
 	    });
 	});
@@ -204,13 +218,13 @@ $(function() {
 		var itemName  = $('.modal-content h3').html();
 		var itemPrice = $('.col-md-8 h4').html().replace('$','');
 		var qty = $('#modal-count').val();
+		
 		addToCart(thisID,itemName,itemPrice,qty);	
 	
+		calculate();
 		//點擊時觸發購物車彈出------------------
 		$('#cd-cart').addClass('speed-in');
-		
-		calculate();
-		
+
 	});
 	
  function addToCart(thisID,itemName,itemPrice,qty) {
@@ -241,10 +255,11 @@ $(function() {
     	    			//覆寫該ID欄位內的產品價格
     	    			$('#cart'+thisID).children(".cd-price").find('em').html(total);
     	        	}else{
+    	        		//如果清單內無此項物品,新增清單內的數量/價格/總價
     	        		arr.push(thisID);
     	        		$('.cd-cart-items').append("<li id=cart"+data[thisID].productId+">"
 	    	        			+"<span class=cd-qty >"+data[thisID].qty+"</span>"
-	    	        			+data[thisID].name+"<div class=cd-price>$<em>"+data[thisID].pgPrice+"</em></div>"
+	    	        			+data[thisID].name+"<div class=cd-price>$<em>"+(data[thisID].pgPrice * data[thisID].qty)+"</em></div>"
 	    	        			+"<a class=cd-item-remove cd-img-replace></a>"
 	    	        			+"</li>");
     	        	}
@@ -254,6 +269,7 @@ $(function() {
     });		
 }	
  
+//計算modal內的modal-count欄位的數量
  $(document).on('click', '.number-spinner button', function () {    
 		var btn = $(this),
 			oldValue = btn.closest('.number-spinner').find('input').val().trim(),
@@ -271,6 +287,5 @@ $(function() {
 		btn.closest('.number-spinner').find('input').val(newVal);
 	});
 });
-
 
 

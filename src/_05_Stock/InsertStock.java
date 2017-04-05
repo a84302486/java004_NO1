@@ -59,7 +59,7 @@ public class InsertStock extends HttpServlet {
 		}
 
 		// 取輸入時間(毫秒)當庫存批號
-		String StockId = "S" + new SimpleDateFormat("yyyyMMddhhmmssSSS").format(new Date());
+		String StockId = "S" + new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
 		// 取該產品的保存期限
 		int life = new StockDAO().getProductLife(productIdStr);
 		// 取輸入時間(日期)當產品製造日
@@ -83,10 +83,10 @@ public class InsertStock extends HttpServlet {
 		// 到期日localDate.getTime()=mfg+life ,轉成格式yyyy/MM/dd
 		String exp = sdf.format(localDate.getTime()).toString();
 
-		System.out.println("Product life=" + life);
-		System.out.println("StockId=" + StockId);
-		System.out.println("mfg=" + mfg);
-		System.out.println("exp=" + exp);
+//		System.out.println("Product life=" + life);
+//		System.out.println("StockId=" + StockId);
+//		System.out.println("mfg=" + mfg);
+//		System.out.println("exp=" + exp);
 
 		try (PrintWriter out = response.getWriter();) {
 			String toJson = null;
