@@ -13,8 +13,9 @@
 <link href="https://fonts.googleapis.com/css?family=Lato"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
-<link rel="stylesheet" href="../WebShop/css/load.css">
-<link rel="stylesheet" href="../WebShop/css/login_and_register.css?v017">
+<link rel="stylesheet" href="../WebShop/css/drag.css">
+<link rel="stylesheet" href="../WebShop/css/login_and_register.css">
+
 
 <title>registered</title>
 </head>
@@ -68,12 +69,21 @@
 												id="remember"> <label for="remember">
 												Remember Me</label>
 										</div>
-
+										<div id="drag" class="form-group col-sm-offset-2">
+										</div>
+<!-- 										<div class="form-group"> -->
+<!-- 											<div class="row"> -->
+<!-- 												<div id="drag" class="col-sm-offset-3"> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+										
+										
 										<div class="form-group">
 											<div class="row">
 												<div class="col-sm-6 col-sm-offset-3">
 													<button class="btn btn-lg btn-primary btn-block"
-														name="Submit" value="Login" type="Submit">Login</button>
+														name="Submit" id="loginSubmit" type="Submit" disabled>Login</button>
 												</div>
 											</div>
 										</div>
@@ -108,7 +118,7 @@
 													placeholder="example@abc.com.tw"
 													class="form-control required emailCheck usernameCheck"
 													autofocus>
-												 <div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'></div>
+<!-- 												 <div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'></div> -->
 											</div>
 											
 										</div>
@@ -167,8 +177,7 @@
 										</div>									
 										<div class="form-group">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" id="register-form-submit" class="btn btn-primary btn-block">註
-													冊</button>
+												<button class="btn btn-primary btn-block" type="submit" id="register-form-submit">註冊</button>  
 											</div>
 										</div>
 										
@@ -186,14 +195,12 @@
 		</div>
 	</div>
 	
-	
-
-
 	<script src="../WebShop/js/jquery-3.1.1.min.js"></script>
 	<script src="../WebShop/js/bootstrap.min.js"></script>
 	<script src="../WebShop/js/jquery.validate.js"></script>
 	<script src="../WebShop/js/jquery.ajaxupload.js"></script>
-	<script src="../WebShop/js/login_and_register.js?v129"></script>
+	<script src="../WebShop/js/drag.js"></script>
+	<script src="../WebShop/js/login_and_register.js"></script>
 </body>
 
 </html>
