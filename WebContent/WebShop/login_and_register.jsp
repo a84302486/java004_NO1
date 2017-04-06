@@ -118,7 +118,7 @@
 													placeholder="example@abc.com.tw"
 													class="form-control required emailCheck usernameCheck"
 													autofocus>
-												 <div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'></div>
+<!-- 												 <div class="form-group text-center col-sm-6 col-sm-offset-3" id='usernameCheckResult'></div> -->
 											</div>
 											
 										</div>
