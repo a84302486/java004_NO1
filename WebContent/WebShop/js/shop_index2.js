@@ -195,7 +195,7 @@ $(function() {
 	        	$('.modal-content h3').html(data[0].name);
 	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId);
 	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  
-	        	$('.addcart-Modal_id').val(data[0].productId);  
+	        	$('.addcart-Modal_id').attr('id',data[0].productId);  
 	        	
 	        	$.ajax({
 	        		 url: '../_05_Stock/getProductStock.do',
@@ -203,9 +203,11 @@ $(function() {
 	     	        data : "productId=" + productId,
 	     	        dataType:'json',
 	     	        success: function(quantity){
+	     	        	$('.addcart-Modal_id').val(quantity);  
 	     	        	if(quantity ==0 || quantity ==null ){
-	     	        		$('.btn-submit').after("<p>已售完</p>").prop("disabled",true);
-	     	        	}
+	     	        		$('.btn-submit').after("<p>已售完</p>").prop("disabled",true);  
+	     	        		$('#modal-count').val("0");
+	     	        	}	     	         	
 	     	        }
 	        	});
 	        }
@@ -214,7 +216,7 @@ $(function() {
 	
 	//點modal 內的button後加入購物車
 	$('.modal-content').on('click','.btn-submit',function(){
-		var thisID = $('.addcart-Modal_id').val();  	
+		var thisID = $('.addcart-Modal_id').attr('id');  	
 		var itemName  = $('.modal-content h3').html();
 		var itemPrice = $('.col-md-8 h4').html().replace('$','');
 		var qty = $('#modal-count').val();
@@ -268,24 +270,38 @@ $(function() {
         }
     });		
 }	
- 
-//計算modal內的modal-count欄位的數量
- $(document).on('click', '.number-spinner button', function () {    
-		var btn = $(this),
-			oldValue = btn.closest('.number-spinner').find('input').val().trim(),
-			newVal = 0;
-		
-		if (btn.attr('data-dir') == 'up') {
-			newVal = parseInt(oldValue) + 1;
-		} else {
-			if (oldValue > 1) {
-				newVal = parseInt(oldValue) - 1;
+ 	//計算modal內的modal-count欄位的數量
+$(document).on('click','.number-spinner button',function() {
+		 var btn = $(this), 
+		 	 quantity = $('.addcart-Modal_id').val(),
+		 	 oldValue = btn.closest('.number-spinner').find('input').val().trim(), 
+		 	 newVal = 0;
+		 
+		 if (btn.attr('data-dir') == 'up') {
+			 newVal = parseInt(oldValue) + 1;
+				if (newVal > quantity) {
+				alert("目前庫存只剩" + quantity + "個");
+				newVal = quantity;
+				}
 			} else {
-				newVal = 1;
-			}
-		}
-		btn.closest('.number-spinner').find('input').val(newVal);
+				if (oldValue > 1) {
+					newVal = parseInt(oldValue) - 1;
+				} else {
+					newVal = 1;
+				}
+			}		
+			btn.closest('.number-spinner').find('input').val(newVal);	
+	});
+ 
+$(document).on('change','#modal-count',function() {
+ 	 var quantity = $('.addcart-Modal_id').val(),
+ 	 newVal = $('#modal-count').val().trim();
+
+	 if (newVal > quantity) {
+		alert("目前庫存只剩" + quantity + "個");
+		newVal = quantity;
+	 }		
+	 $('#modal-count').val(newVal);	
 	});
 });
-
 
