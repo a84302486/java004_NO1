@@ -16,7 +16,7 @@
 					onclick="getAction('../_05_Stock/SelectStock.jsp','showDAOJsp');"></button>
 				<button class="insert"
 					onclick="getAction('../_05_Stock/InsertStock.jsp','showDAOJsp');"></button>
-				<button class="delete"></button>
+				<button class="delete" id=deleteStock ></button>
 			<td>
 		</tr>
 	</table>

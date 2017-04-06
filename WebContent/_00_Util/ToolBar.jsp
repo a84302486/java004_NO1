@@ -34,7 +34,7 @@
 							class="caret"></b></a>
 						<ul>
 							<li><a href="#tab-stock" 
-							onclick="getAction('../_05_Stock/IndexStock.jsp','loadPageDiv');">
+							onclick="getAction('../_05_Stock/IndexStock.jsp','loadPageDiv');getStockData('productId' ,'');">
 							庫存資料管理</a>
 						</ul>
 					<li>

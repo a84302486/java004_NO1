@@ -163,24 +163,24 @@ function getQueryData(servelet) {
 }
 
 // Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
-$("#loadPageDiv").on("click",'.delete',function() {
-			var setServlet;
-			var getName = $('input:radio:checked').attr('name');
-			var selected = $("input:radio[name=" + getName + "]:checked").val();
-
+$("#loadPageDiv").on("click",'#deleteProduct',function() {
+			
+			var $this = $('input:radio:checked').attr('name');						
+			var selected = $("input:radio[name=" + $this + "]:checked").val();
+			
 			if (selected != null) { // 如果有被選取,不是空值
 				if (confirm("確定要刪除" + selected + "嗎?")) {
 					var xhr = new XMLHttpRequest();
-					xhr.open("POST", "DeleteProduct.do", true);// send要傳參數一定要用POST
+					xhr.open("POST", "DeleteProduct.do" , true);// send要傳參數一定要用POST
 					xhr.setRequestHeader("Content-type",
 							"application/x-www-form-urlencoded");
-					xhr.send(getName + "=" + selected);
+					xhr.send($this + "=" + selected);
 					xhr.onreadystatechange = function() {
 						if (xhr.readyState == 4 && xhr.status == 200) {
 							var data = JSON.parse(xhr.responseText);
 							var result = document.getElementById("showDAOJsp");
 							result.innerHTML = "<h3>" + data + "<h3>";
-							getQueryData('SelectProduct.do');
+							getQueryData();
 						}
 					}
 				}	

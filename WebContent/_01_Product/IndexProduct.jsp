@@ -16,7 +16,7 @@
 					onclick="getAction('SelectProduct.jsp','showDAOJsp');"></button>
 				<button class="insert"
 					onclick="getAction('InsertProduct.jsp','showDAOJsp');"></button>
-				<button class="delete"></button>
+				<button class="delete" id=deleteProduct></button>
 				<button class="update"
 					onclick="getAction('UpdateProduct.jsp','showDAOJsp');"></button>
 				<button class="export" onclick=""></button>
