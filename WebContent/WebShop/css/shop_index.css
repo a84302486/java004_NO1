@@ -2,7 +2,7 @@ body{
 	background: url('../images/background.png') no-repeat center fixed;
 }
 .thumbnail img{	
-	width: 12em;
+	width: 100%;
 	height: 12em;
 }
 .container{
@@ -158,10 +158,10 @@ body{
 /* modal-content */
 .modal-content{
 	text-align:center;
-	 padding: 10px;
+	padding: 10px;
 }
 .modal-content h1, h2, h3, h4, h6{
-	  border-bottom: 1px solid #c0c0c0;	 
+	border-bottom: 1px solid #c0c0c0;	 
 }
 .modal-content h5{
 	text-align:left;
@@ -171,4 +171,18 @@ body{
 }
 .btn-submit{
 	margin-top:10px;
+}
+.extra_cart p{
+	margin:15px;
+	font-size: 15px;
+	color: #ffffff;
+	background: #e94b35;
+}
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: 160px;
+}
+.caption{
+	font-size: 15px;
 }
