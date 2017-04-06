@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
+<link rel="stylesheet" href="../WebShop/css/load.css">
 <link rel="stylesheet" href="../WebShop/css/login_and_register.css?v017">
 
 <title>registered</title>
@@ -184,6 +185,8 @@
 			</div>
 		</div>
 	</div>
+	
+	
 
 
 	<script src="../WebShop/js/jquery-3.1.1.min.js"></script>
