@@ -34,14 +34,8 @@ public class LoginMember extends HttpServlet {
 		String userId = request.getParameter("Username");
 		String password = request.getParameter("Password");
 		
-		try {
-			password = AES.decrypt(password);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("密碼解密錯誤");
-		}	
-		System.out.println(password);
+		password = AES.encrypt(password);
+		//密碼加密	
 		
 		// 2. 進行必要的資料轉換
 		// 無

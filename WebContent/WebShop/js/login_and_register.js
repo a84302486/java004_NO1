@@ -132,7 +132,7 @@ $(document).ready(function() {
 	//註冊欄位檢查
 	$("#register-form").validate({
 		
-		event: "input",
+		event: "change",
 		showErrors: function(errorMap, errorList) {
 
 	          // Clean up any tooltips for valid elements
