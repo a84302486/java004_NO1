@@ -59,7 +59,7 @@
 					<td class=price>${pb.value.pgPrice}</td>
 					<td class=countTd><button class=minus
 							onclick=changeAmount($(this));>－</button> <input class=count
-						type=text size=1 value="${pb.value.qty}">
+						type=text size=1 value="${pb.value.qty}" readonly>
 						<button class=plus onclick=changeAmount($(this));>＋</button></td>
 					<td class=total></td>
 					<td class=remove>

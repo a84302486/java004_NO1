@@ -175,7 +175,7 @@
 								</div>
 							</div>
 							<div class="extra_cart">
-								<input class="addcart-Modal_id" value="" type="hidden">
+								<input class="addcart-Modal_id" id="" value="" type="hidden">
 								<button type="button" class="btn btn-primary btn-submit">加入購物車</button>
 							</div>
 						</div>
