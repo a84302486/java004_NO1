@@ -31,8 +31,6 @@ $(document).ready(function() {
 	
 	$('#drag').drag();
 	
-
-//	$('input[type=submit]').ladda('bind');
 	
 	$('#login-form-link').click(function(e) {
 
@@ -134,7 +132,7 @@ $(document).ready(function() {
 	//註冊欄位檢查
 	$("#register-form").validate({
 		
-		event: "blur",
+		event: "input",
 		showErrors: function(errorMap, errorList) {
 
 	          // Clean up any tooltips for valid elements
@@ -182,8 +180,16 @@ $(document).ready(function() {
 			}
 		},//rules
 		submitHandler : function(form) {
-//			$("html").html("<div class='uil-default-css' style='transform:scale(0.3);'><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(30deg) translate(0,-60px);transform:rotate(30deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(60deg) translate(0,-60px);transform:rotate(60deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(90deg) translate(0,-60px);transform:rotate(90deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(120deg) translate(0,-60px);transform:rotate(120deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(150deg) translate(0,-60px);transform:rotate(150deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(180deg) translate(0,-60px);transform:rotate(180deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(210deg) translate(0,-60px);transform:rotate(210deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(240deg) translate(0,-60px);transform:rotate(240deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(270deg) translate(0,-60px);transform:rotate(270deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(300deg) translate(0,-60px);transform:rotate(300deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(330deg) translate(0,-60px);transform:rotate(330deg) translate(0,-60px);border-radius:10px;position:absolute;'></div></div>");
-//			$(register-form-submit).ladda().ladda('start');
+			
+			//load的特效
+			var options = {
+				    bgColor         : '#000',
+				    duration        : 800,
+				    opacity    	    : 0.8,
+				    classOveride    : false
+			}
+			new ajaxLoader(document.body, options);//load.js
+			//-------------------------
 			
 			setTimeout(function(){		    
 			$.ajax({url: '../_14_Member/Insert',dataType: 'json',data: $(form).serialize(),
@@ -193,14 +199,12 @@ $(document).ready(function() {
 //		        	$.ajax({url: '../_14_Member/JavaMail',data:{'Username':Username}});
 //		        	alert('感謝您加入會員，請到您的信箱收取認證信');
 		        	location.href ='../_14_Member/JavaMail?Username='+Username;
-		        	      	
+		        	    //寄出認證信
 		        }
 			});
 			
 			},1);
-			
 
-//			$(form).reset();
 		}
 	});
 

@@ -14,13 +14,14 @@
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
 <link rel="stylesheet" href="../WebShop/css/drag.css">
+<link rel="stylesheet" href="../WebShop/css/load.css">
 <link rel="stylesheet" href="../WebShop/css/login_and_register.css">
 
 
 <title>registered</title>
 </head>
 
-<body>
+<body id="body">
 	<jsp:include page='header.jsp' />
 
 	<div class="container">
@@ -200,6 +201,7 @@
 	<script src="../WebShop/js/jquery.validate.js"></script>
 	<script src="../WebShop/js/jquery.ajaxupload.js"></script>
 	<script src="../WebShop/js/drag.js"></script>
+	<script src="../WebShop/js/load.js"></script>
 	<script src="../WebShop/js/login_and_register.js"></script>
 </body>
 
