@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import _00_Util.AES;
+
 @WebServlet("/_14_Member/Insert")
 public class Insert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -74,8 +76,11 @@ public class Insert extends HttpServlet {
 
 			} else { // 輸入格式正確
 				try {
-
-					MemberBean mem = new MemberBean(username, password, name, cellPhone, birthday, insertDate,
+					
+					password = AES.encrypt(password);
+					//密碼加密
+					
+					MemberBean mem = new MemberBean(username, password , name, cellPhone, birthday, insertDate,
 							insertDate, 0, 0, 0);
 
 					errorMember.setDML_Result(new MemberDAO().insert(mem));

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import _00_Util.AES;
 import _14_Member.MemberBean;
 
 
@@ -32,6 +33,15 @@ public class LoginMember extends HttpServlet {
 		// 1. 讀取使用者輸入資料(<Input>標籤內的name屬性分別為 userId與pswd
 		String userId = request.getParameter("Username");
 		String password = request.getParameter("Password");
+		
+		try {
+			password = AES.decrypt(password);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("密碼解密錯誤");
+		}	
+		System.out.println(password);
 		
 		// 2. 進行必要的資料轉換
 		// 無
