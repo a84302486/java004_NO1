@@ -116,8 +116,10 @@ public class OrderDetailBeanDAO {
 					rs.getInt(4);
 					pb.setQuantity(rs.getInt(5));
 					pb.setSubTotal(rs.getInt(6));
-									
-					coll.add(pb);					
+					pb.setMark(rs.getBoolean(7));
+					pb.setScore(rs.getInt(8));
+					coll.add(pb);	
+					
 				}
 				
 				System.out.println("記錄 查詢"+OrderId+"的OrderDetail");

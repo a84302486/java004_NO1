@@ -59,13 +59,26 @@ function changeAmount(obj) {
 	var thisID = obj.parents('tr').attr('id');
 	var newQty = c.val();
 	
-	$.ajax({	
-        url: '../_20_ShoppingCart/UpdateProductServlet.do',
+	$.ajax({
+		 url: '../_05_Stock/getProductStock.do',
         type:'POST',
-        data:"cmd=MOD" + "&productId=" + thisID + "&newQty=" + newQty,
+        data : "productId=" + thisID,
+        dataType:'json',
+        success: function(quantity){    	
+        	if( v > quantity){
+        		alert("目前庫存只剩" + quantity + "個");
+        		c.val(quantity);
+        	}
+        	
+        	$.ajax({	
+                url: '../_20_ShoppingCart/UpdateProductServlet.do',
+                type:'POST',
+                data:"cmd=MOD" + "&productId=" + thisID + "&newQty=" + newQty,
+            });
+
+        	updateData();
+        }
     });
-	
-	updateData();
 }
 
 //刪除該項產品-----------------------------
