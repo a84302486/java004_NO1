@@ -7,7 +7,6 @@ public class OrderDetailBean {
 	private ProductBean ProductBean;
 	private Integer Quantity;
 	private Integer SubTotal;
-	private boolean mark;
 	private Integer score;
 	
 	public OrderDetailBean(){
@@ -15,17 +14,23 @@ public class OrderDetailBean {
 	}
 
 	public OrderDetailBean(String orderId, _01_Product.ProductBean productBean, Integer quantity,
-			Integer subTotal, boolean mark, Integer score) {
+			Integer subTotal, Integer score) {
 		OrderId = orderId;
 		ProductBean = productBean;
 		Quantity = quantity;
 		SubTotal = subTotal;
-		this.mark = mark;
 		this.score = score;
 	}
 	
-	public OrderDetailBean(boolean mark, Integer score) {
-		this.mark = mark;
+	public OrderDetailBean(String orderId, _01_Product.ProductBean productBean, Integer quantity,
+			Integer subTotal) {
+		OrderId = orderId;
+		ProductBean = productBean;
+		Quantity = quantity;
+		SubTotal = subTotal;
+	}
+	
+	public OrderDetailBean(Integer score) {	
 		this.score = score;
 	}
 
@@ -66,14 +71,6 @@ public class OrderDetailBean {
 
 	public void setSubTotal(Integer subTotal) {
 		SubTotal = subTotal;
-	}
-
-	public boolean getMark() {
-		return mark;
-	}
-
-	public void setMark(boolean mark) {
-		this.mark = mark;
 	}
 
 	public Integer getScore() {

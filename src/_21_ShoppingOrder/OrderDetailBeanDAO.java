@@ -40,7 +40,7 @@ public class OrderDetailBeanDAO {
 
 	synchronized public String insert(OrderDetailBean ordDetail){
 	
-		String sql = "INSERT INTO OrderDetail VALUES(? ,?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO OrderDetail VALUES(? ,?, ?, ?, ?, ?, ?)";
 		
 		try(
 			Connection con = ds.getConnection();
@@ -54,6 +54,7 @@ public class OrderDetailBeanDAO {
 			pstmt.setInt(4, temp.getPgPrice());
 			pstmt.setInt(5, ordDetail.getQuantity());
 			pstmt.setInt(6, ordDetail.getSubTotal());
+			pstmt.setInt(7, -1);
 			
 									
 			pstmt.executeUpdate();
@@ -116,8 +117,7 @@ public class OrderDetailBeanDAO {
 					rs.getInt(4);
 					pb.setQuantity(rs.getInt(5));
 					pb.setSubTotal(rs.getInt(6));
-					pb.setMark(rs.getBoolean(7));
-					pb.setScore(rs.getInt(8));
+					pb.setScore(rs.getInt(7));
 					coll.add(pb);	
 					
 				}
