@@ -108,6 +108,8 @@ CREATE TABLE `OrderDetail`(
 	P_G_price 			INT NOT NULL,
 	Quantity			INT NOT NULL,
 	SubTotal			INT NOT NULL,
+	isMark     			BOOLEAN  ,
+	score				INT DEFAULT NULL,
 	
 	
 	CONSTRAINT `OrderDetail_OrderId_FK` FOREIGN KEY (`OrderId`) 

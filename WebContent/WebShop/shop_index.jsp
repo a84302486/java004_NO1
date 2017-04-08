@@ -13,6 +13,7 @@
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link href="css/shop_index.css" rel="stylesheet">
+<link href="css/star-rating-svg.css" rel="stylesheet">
 <head>
 
 
@@ -149,6 +150,7 @@
 						<span aria-hidden="true">×</span>
 					</button>
 					<h3></h3>
+					<span class=star-rating-product data-rating=3></span>
 					<div class="product-col">
 						<div class="row">
 							<div class="col-md-4">
@@ -176,7 +178,9 @@
 							</div>
 							<div class="extra_cart">
 								<input class="addcart-Modal_id" id="" value="" type="hidden">
-								<button type="button" class="btn btn-primary btn-submit">加入購物車</button>
+								<button type="button" class="btn btn-primary btn-submit" 
+										data-dismiss="modal" aria-hidden="true">加入購物車
+								</button>
 							</div>
 						</div>
 					</div>
@@ -199,7 +203,9 @@
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.star-rating-svg.js"></script>
 	<script src="js/shop_index2.js"></script>
+
 
 
 </body>

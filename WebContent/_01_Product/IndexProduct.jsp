@@ -19,10 +19,10 @@
 				<button class="delete" id=deleteProduct></button>
 				<button class="update"
 					onclick="getAction('UpdateProduct.jsp','showDAOJsp');"></button>
-				<button class="export" onclick=""></button>
-				<button class="import"
-					onclick="getAction('ImportProduct.jsp','showDAOJsp');"></button>
-				<button class="printer" onclick=""></button>
+<!-- 				<button class="export" onclick=""></button> -->
+<!-- 				<button class="import" -->
+<!-- 					onclick="getAction('ImportProduct.jsp','showDAOJsp');"></button> -->
+<!-- 				<button class="printer" onclick=""></button> -->
 			<td>
 		</tr>
 	</table>
