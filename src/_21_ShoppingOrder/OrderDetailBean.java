@@ -7,14 +7,14 @@ public class OrderDetailBean {
 	private ProductBean ProductBean;
 	private Integer Quantity;
 	private Integer SubTotal;
-	private Integer score;
+	private Double score;
 	
 	public OrderDetailBean(){
 		
 	}
 
 	public OrderDetailBean(String orderId, _01_Product.ProductBean productBean, Integer quantity,
-			Integer subTotal, Integer score) {
+			Integer subTotal, Double score) {
 		OrderId = orderId;
 		ProductBean = productBean;
 		Quantity = quantity;
@@ -30,9 +30,6 @@ public class OrderDetailBean {
 		SubTotal = subTotal;
 	}
 	
-	public OrderDetailBean(Integer score) {	
-		this.score = score;
-	}
 
 	public String getOrderId() {
 		return OrderId;
@@ -73,11 +70,11 @@ public class OrderDetailBean {
 		SubTotal = subTotal;
 	}
 
-	public Integer getScore() {
+	public Double getScore() {
 		return score;
 	}
 
-	public void setScore(Integer score) {
+	public void setScore(Double score) {
 		this.score = score;
 	}
 	

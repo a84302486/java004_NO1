@@ -177,7 +177,7 @@ $(function() {
 	        	var result = document.getElementById("wrap");
 				result.innerHTML = content;
 	        	}
-	        	getStarRating(15)
+	        	getStarRating(15);
 	        }
 		});		
 	});
@@ -339,7 +339,6 @@ function getStarRating(size){
 			emptyColor : 'lightgray',
 			hoverColor : 'salmon',
 			useGradient : false,
-			readOnly:true,
 		});
 	}
 });

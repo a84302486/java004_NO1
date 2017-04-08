@@ -117,7 +117,7 @@ public class OrderDetailBeanDAO {
 					rs.getInt(4);
 					pb.setQuantity(rs.getInt(5));
 					pb.setSubTotal(rs.getInt(6));
-					pb.setScore(rs.getInt(7));
+					pb.setScore(rs.getDouble(7));
 					coll.add(pb);	
 					
 				}
@@ -210,6 +210,25 @@ public class OrderDetailBeanDAO {
 		}
 		return null;
 	}
+	
+	public void setScore(double score ,String orderId, String productId){
+		String sql = "UPDATE OrderDetail SET score = ? where (OrderId=? and Product_Id = ?);";
+		try(
+				Connection con = ds.getConnection();
+				PreparedStatement pstmt	= con.prepareStatement(sql);
+		){
+			pstmt.setDouble(1, score);
+			pstmt.setString(2, orderId);
+			pstmt.setString(3, productId);
+			pstmt.executeUpdate();
+			System.out.println("成功評價 "+orderId+"的"+productId+"得分="+score);
+			
+		}catch (SQLException e){
+			System.out.println("失敗評價 "+orderId+"的"+productId);
+			e.printStackTrace();
+
+		}	
+	} 
 }
 	
 	

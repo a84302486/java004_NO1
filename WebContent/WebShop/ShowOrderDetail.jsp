@@ -6,12 +6,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Montserrat"
-	rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Lato"
-	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
 <link href="../WebShop/css/oderDetail.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/WebShop/css/star-rating-svg.css" rel="stylesheet">
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -66,10 +63,15 @@
 									<td class="col-sm-3 col-md-2 control-label">${OrderDetail.subTotal}元</td>
 									<c:choose>
 										<c:when test="${OrderDetail.score ==-1}">
-      										<td class="col-sm-3 col-md-2 control-label">幫我打分數</td>
+      										<td class="col-sm-3 col-md-2 control-label">幫我打分數<br>
+      										<span id="${OrderDetail.productBean.productId}" class="star-rating-product"></span>
+      										</td>
+      										
     									</c:when>
     									<c:otherwise>
-      										<td class="col-sm-3 col-md-2 control-label">${OrderDetail.score}星</td>
+      										<td class="col-sm-3 col-md-2 control-label">已評分<br>
+      										<span class=star-rated-product data-rating="${OrderDetail.score}"></span>
+      										</td>
    										</c:otherwise>
 									</c:choose>
 								</tr>
@@ -82,9 +84,16 @@
 
 			</div>
 		</section>
+		
 	</div>
-
+	
+	<script src="${pageContext.request.contextPath}/WebShop/js/jquery-3.1.1.min.js"></script>
+	<script src="${pageContext.request.contextPath}/WebShop/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/WebShop/js/jquery.star-rating-svg.js"></script>
+	<script src="${pageContext.request.contextPath}/WebShop/js/ShowOrderDetail.js">	</script>
+	
 </body>
+	
 </html>
 
 

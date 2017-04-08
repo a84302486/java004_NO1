@@ -21,7 +21,7 @@
 </head>
 
 <body>
-
+	
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -136,11 +136,13 @@
 
 		<div class="row">
 			<div class="col-lg-12">
+			<span class=star-rating-product></span>
 				<h3>熱門商品</h3>
 			</div>
 		</div>
 
-		<div id="wrap" class="row text-center"></div>
+		<div id="wrap" class="row text-center">
+		</div>
 		<div class="modal fade bs-iot" tabindex="-1" role="dialog"
 			aria-labelledby="mySmallModalLabel">
 			<div class="modal-dialog" role="document">
