@@ -18,6 +18,9 @@ $('.star-rating-product').starRating({
 				url : '../_21_ShoppingOrder/getScoreServlet.do',
 				type : 'POST',
 				data : "score="+score+"&orderId="+orderId+"&productId="+productId,
+				success:function(data){
+					 $($el).parent().find('b').text("已評分");
+				 }
 			});
 
 		}

@@ -212,7 +212,10 @@ public class OrderDetailBeanDAO {
 	}
 	
 	public void setScore(double score ,String orderId, String productId){
+		
+	
 		String sql = "UPDATE OrderDetail SET score = ? where (OrderId=? and Product_Id = ?);";
+		
 		try(
 				Connection con = ds.getConnection();
 				PreparedStatement pstmt	= con.prepareStatement(sql);
@@ -229,6 +232,49 @@ public class OrderDetailBeanDAO {
 
 		}	
 	} 
+
+	public void setScoreToProduct(double score , String productId){
+		
+		String sql = "UPDATE Product SET score = ? where Product_Id = ?;";
+		
+		try(Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);
+			){
+			pstmt.setDouble(1, score);
+			pstmt.setString(2, productId);
+			pstmt.executeUpdate();
+			
+		}catch (SQLException e){
+			e.printStackTrace();
+		}	
+	}
+	 
+	public double getScoreAvg(String productId) {
+
+		String sql = "select round(avg(score),1) from OrderDetail where Product_Id = ? and score > 0;";
+
+		try (Connection con = ds.getConnection(); 
+			PreparedStatement pstmt = con.prepareStatement(sql);) {
+			pstmt.setString(1, productId);
+
+			double score = 0;
+			try (ResultSet rs = pstmt.executeQuery();) {
+
+				while (rs.next()) {
+					score = rs.getDouble(1);
+				}
+				System.out.println("查詢" + productId + "評價=" + score + "星");
+			}
+		
+			return score;
+			
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return 0;
+
+	}
 }
 	
 	

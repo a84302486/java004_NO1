@@ -25,10 +25,14 @@ public class SetScoreServlet extends HttpServlet {
 		String scoreStr = request.getParameter("score");
 		double score = Double.parseDouble(scoreStr);
 		String orderIdStr = request.getParameter("orderId").trim();
-		String productIdStr = request.getParameter("productId");
+		String productIdStr = request.getParameter("productId").trim();
 
-		new OrderDetailBeanDAO().setScore(score, orderIdStr, productIdStr);
+		OrderDetailBeanDAO odbDAO = new OrderDetailBeanDAO();		
+		odbDAO.setScore(score, orderIdStr, productIdStr);
 		
+		double scoreAvg = odbDAO.getScoreAvg(productIdStr);
+		System.out.println(scoreAvg + "/////" + productIdStr);
+		odbDAO.setScoreToProduct(scoreAvg,productIdStr);
 	}
 
 }

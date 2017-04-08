@@ -63,7 +63,8 @@
 									<td class="col-sm-3 col-md-2 control-label">${OrderDetail.subTotal}元</td>
 									<c:choose>
 										<c:when test="${OrderDetail.score ==-1}">
-      										<td class="col-sm-3 col-md-2 control-label">幫我打分數<br>
+      										<td class="col-sm-3 col-md-2 control-label">
+      										<b>幫我打分數</b><br>
       										<span id="${OrderDetail.productBean.productId}" class="star-rating-product"></span>
       										</td>
       										
