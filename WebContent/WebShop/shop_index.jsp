@@ -136,7 +136,6 @@
 
 		<div class="row">
 			<div class="col-lg-12">
-			<span class=star-rating-product></span>
 				<h3>熱門商品</h3>
 			</div>
 		</div>
@@ -152,7 +151,7 @@
 						<span aria-hidden="true">×</span>
 					</button>
 					<h3></h3>
-					<span class=star-rating-product data-rating=3></span>
+					<span id="star-rating-modal" data-rating=0></span>
 					<div class="product-col">
 						<div class="row">
 							<div class="col-md-4">

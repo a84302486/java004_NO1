@@ -31,7 +31,7 @@ $(function() {
 	        		+ 			"<div class=caption>"
 	        		+ 				"<span class=name>" + data[i].name + "</span>: $ "
 	        		+ 				"<span class=price>" + data[i].pgPrice + "</span>"
-	        		+ 				"<span class=star-rating-product data-rating=2.5></span>"
+	        		+ 				"<span class=star-rating-product data-rating="+data[i].score+"></span>"
 	        	    + 				"<p>"
 	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
 	        		+ 					"data-toggle=modal data-target=.bs-iot>加入購物車</button>" 
@@ -164,7 +164,7 @@ $(function() {
 	        		+ 			"<div class=caption>"
 	        		+ 				"<span class=name>" + data[i].name + "</span>: $ "
 	        		+ 				"<span class=price>" + data[i].pgPrice + "</span>"
-	        		+ 				"<span class=star-rating-product data-rating=2.5></span>"
+	        		+ 				"<span class=star-rating-product data-rating="+data[i].score+"></span>"
 	        	    + 				"<p>"
 	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
 	        		+ 					"data-toggle=modal data-target=.bs-iot>加入購物車</button>"
@@ -199,12 +199,8 @@ $(function() {
 	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId);
 	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  
 	        	$('.addcart-Modal_id').attr('id',data[0].productId);  
-	        	var s = $('.modal-content star-rating-product').attr('.data-rating');
-//	        	getStarRating(20);
-	        	alert("123");
-	        	alert(s);
-//	        	alert($('.modal-content star-rating-product').attr('.data-rating'));
-	        	
+	        	$('#star-rating-modal').attr('data-rating',data[0].score);
+	        		
 	        	$.ajax({
 	        		 url: '../_05_Stock/getProductStock.do',
 	     	        type:'POST',
@@ -229,9 +225,19 @@ $(function() {
 	     	        		$('#modal-count').val("0");
 		     	   	        }
 	     	   	        }
-	     	   		}); 	        	
+	     	   		}); 
+	     	        
 	     	        }
 	        	});
+
+	    		$('#star-rating-modal').starRating({
+	    			totalStars : 5,
+	    			starSize : 20,
+	    			emptyColor : 'lightgray',
+	    			hoverColor : 'salmon',
+	    			useGradient : false,
+	    			readOnly : true,
+	    		});
 	        }
 	    });
 	});
@@ -339,6 +345,7 @@ function getStarRating(size){
 			emptyColor : 'lightgray',
 			hoverColor : 'salmon',
 			useGradient : false,
+			readOnly : true,
 		});
 	}
 });

@@ -21,6 +21,7 @@ public class  ProductBean implements Serializable{
 	private String  fileName;
 	private Blob  productImage;
 	private boolean  status;  //default false
+	private Integer score;
 	
 	public ProductBean() {
 	}
@@ -148,4 +149,14 @@ public class  ProductBean implements Serializable{
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+
+	public Integer getScore() {
+		return score;
+	}
+
+	public void setScore(Integer score) {
+		this.score = score;
+	}
+	
+	
 }

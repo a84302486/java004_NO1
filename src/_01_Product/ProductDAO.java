@@ -157,8 +157,9 @@ public class ProductDAO {
 					pb.setSuppierId(rs.getString(7));
 					pb.setFileName(rs.getString(8));
 					pb.setStatus(rs.getBoolean(10));
-
+					pb.setScore(rs.getInt(11));				
 					coll.add(pb);
+					
 					Iterator<ProductBean> it = coll.iterator();
 					while (it.hasNext()) {
 						Object o = it.next();
@@ -231,6 +232,7 @@ public class ProductDAO {
 					pb.setSuppierId(rs.getString(7));
 					pb.setFileName(rs.getString(8));
 					pb.setStatus(rs.getBoolean(10));
+					pb.setScore(rs.getInt(11));		
 
 					coll.add(pb);
 					Iterator<ProductBean> it = coll.iterator();
@@ -269,6 +271,7 @@ public class ProductDAO {
 					pb.setSuppierId(rs.getString(7));
 					pb.setFileName(rs.getString(8));
 					pb.setStatus(rs.getBoolean(10));
+					pb.setScore(rs.getInt(11));		
 					coll.add(pb);
 				}
 				System.out.println("記錄 查詢all");
