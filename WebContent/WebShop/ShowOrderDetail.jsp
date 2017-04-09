@@ -25,7 +25,7 @@
 		<section class="order-detail">
 			<div class="tab-content">
 				<h5 class="side-heading">
-					<c:forEach begin='1' end='1' var="OrderDetail" items="${OrderDetail_coll}">						
+					<c:forEach begin='0' end='0' var="OrderDetail" items="${OrderDetail_coll}">						
 						<span class="text">
 						<a href="../WebShop/memberManage.jsp">
 							訂單編號：${OrderDetail.orderId}
