@@ -8,12 +8,9 @@ $('.star-rating-product').starRating({
 		useGradient : false,
 		readOnly : false,
 		callback : function(score ,$el) {
-			alert('rated= ' + score);
 			var productId = $($el).attr('id');
 			var orderId = $('.text a').text().replace('訂單編號：','');
-			alert(productId);
-			alert(orderId);
-
+			
 			$.ajax({
 				url : '../_21_ShoppingOrder/getScoreServlet.do',
 				type : 'POST',

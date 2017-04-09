@@ -275,6 +275,42 @@ public class OrderDetailBeanDAO {
 		return 0;
 
 	}
+	
+	public void getProductComments(String productId) {
+
+		String sql = "select count(product_id) from orderdetail where product_id = ? and score > 0;";
+		try (Connection con = ds.getConnection(); 
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			) {
+
+			pstmt.setString(1, productId);
+			int comments = 0;
+			try (ResultSet rs = pstmt.executeQuery();) {
+
+				while (rs.next()) {
+					comments = rs.getInt(1);
+				}
+			}
+			
+			String sql2 = "UPDATE Product SET comments = ? where Product_Id = ?;";
+			
+			try(
+				PreparedStatement pstmt2	= con.prepareStatement(sql2);
+				){
+				pstmt2.setDouble(1, comments);
+				pstmt2.setString(2, productId);
+				pstmt2.executeUpdate();
+				
+			}catch (SQLException e){
+				e.printStackTrace();
+			}	
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 }
 	
 	

@@ -22,6 +22,7 @@ public class  ProductBean implements Serializable{
 	private Blob  productImage;
 	private boolean  status;  //default false
 	private Integer score;
+	private Integer comments;
 	
 	public ProductBean() {
 	}
@@ -157,6 +158,14 @@ public class  ProductBean implements Serializable{
 	public void setScore(Integer score) {
 		this.score = score;
 	}
+
+	public Integer getComments() {
+		return comments;
+	}
+
+	public void setComments(Integer comments) {
+		this.comments = comments;
+	}
 	
-	
+
 }

@@ -62,6 +62,7 @@ $(function() {
 	        			+"<a class=cd-item-remove cd-img-replace></a>"
 	        			+"</li>");	
 	        	}
+	    		calculate();
 	        }
 		});
 	});
@@ -85,8 +86,7 @@ $(function() {
 		calculate();
 	});
 	
-
-		
+	
 	//點擊X刪除該商品--------------------------------
 	$(document).on('click','.cd-item-remove',function(){
 		var id = $(this).parent().attr('id').replace('cart','');
@@ -200,9 +200,7 @@ $(function() {
 	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId);
 	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  
 	        	$('.addcart-Modal_id').attr('id',data[0].productId);
-	        	
-	        	
-//	        	$('#star-rating-modal').attr('data-rating');
+
 	    		getStarModal(data[0].score);
 	        	$.ajax({
 	        		 url: '../_05_Stock/getProductStock.do',

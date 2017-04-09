@@ -40,7 +40,7 @@ public class ProductDAO {
 
 	synchronized public String insert(ProductBean pb, InputStream is, long size) {
 
-		String sql = "INSERT INTO Product " + " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO Product " + " VALUES(? ,?, ?, ?, ?, ?, ?, ?, ?, ? , ?, ?)";
 
 		try (Connection con = ds.getConnection(); 
 			PreparedStatement pstmt = con.prepareStatement(sql);
@@ -56,6 +56,9 @@ public class ProductDAO {
 			pstmt.setString(8, pb.getFileName());
 			pstmt.setBinaryStream(9, is, size);
 			pstmt.setBoolean(10, pb.isStatus());
+			pstmt.setInt(11, -1);
+			pstmt.setInt(12, 0);
+			
 			pstmt.executeUpdate();
 
 			System.out.println("成功 新增" + pb.getProductId());

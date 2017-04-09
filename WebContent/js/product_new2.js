@@ -180,7 +180,7 @@ $("#loadPageDiv").on("click",'#deleteProduct',function() {
 							var data = JSON.parse(xhr.responseText);
 							var result = document.getElementById("showDAOJsp");
 							result.innerHTML = "<h3>" + data + "<h3>";
-							getQueryData();
+							getQueryData('SelectProduct.do');
 						}
 					}
 				}	
