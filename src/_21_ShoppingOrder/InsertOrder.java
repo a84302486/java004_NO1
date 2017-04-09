@@ -1,7 +1,6 @@
 package _21_ShoppingOrder;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -17,6 +16,8 @@ import javax.servlet.http.HttpSession;
 
 import _01_Product.ProductBean;
 import _01_Product.ProductDAO;
+import _05_Stock.Product_Stock_Bean;
+import _05_Stock.StockDAO;
 import _14_Member.MemberBean;
 import _20_ShoppingCart.OrderItemBean;
 import _20_ShoppingCart.ShoppingCart;
@@ -117,6 +118,29 @@ public class InsertOrder extends HttpServlet {
 
 			System.out.println("SubTotal = " + ordDetail.getSubTotal());
 			System.out.println("-------------------------------------------------");
+			
+			
+			//庫存減少
+				
+			//Product_Stock_id
+			String Product_Stock_id = sdfsss.format(new Date());
+			
+			//Product_id()
+			String Product_id = temp.getProductId();
+			
+			//quantity
+			
+			//Status
+			String Status = "-";
+			
+			//InsertDate
+			String InsertDate = sdf.format(new Date());
+			
+			StockDAO sDAO = new StockDAO();
+			sDAO.insertProductStock(new Product_Stock_Bean(Product_Stock_id,Product_id,quantity,Status,InsertDate));
+			sDAO.updateStock(Product_id);
+			
+			//-------------------------------------------------------------------
 		}
 		//----------------------------------------------------------------------------
 		
@@ -126,8 +150,7 @@ public class InsertOrder extends HttpServlet {
 		System.out.println("OrderTotal = " + orderTotal);
 		System.out.println("-------------------------------------------------");
 		
-		//----------------------------------------------------------------------------
-		
+		//----------------------------------------------------------------------------		
 		
 		response.setContentType("text/html; charset=utf-8");
 //		String toJson = "<script>alert('您此次的購物完成!!請在會員管理查看訂單');</script>";
