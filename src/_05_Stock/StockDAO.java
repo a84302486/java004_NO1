@@ -254,4 +254,35 @@ public class StockDAO {
 		}
 		return 0;
 	}
+	
+	public List<StockBean> findEXPOverDue() {
+		String sql = "select * from Stock where datediff(EXP,curdate()) < 7;";
+
+		List<StockBean> coll = new ArrayList<>();
+		try (Connection con = ds.getConnection(); 
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			) {
+
+
+			try (ResultSet rs = pstmt.executeQuery();) {
+
+				while (rs.next()) {
+					StockBean sb = new StockBean();
+					sb.setStockId(rs.getString(1));
+					sb.setProductId(rs.getString(2));
+					sb.setMfg(rs.getString(3));
+					sb.setExp(rs.getString(4));
+					sb.setQuantity(rs.getInt(5));
+					coll.add(sb);
+					;
+				}
+				System.out.println("查詢EXP小於七天" );
+			}
+			return coll;
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

@@ -186,6 +186,7 @@ $(function() {
 	$('#wrap').on('click','.btn-primary',function(){	
 		$('.btn-submit').removeAttr('disabled');
 		$('.extra_cart p').remove();
+		$('#star-rating-modal').remove();
 		var productId = $(this).attr('id');
 		var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
 		$.ajax({
@@ -195,12 +196,14 @@ $(function() {
 	        dataType:'json',
 	        success: function(data){
 	        	
-	        	$('.modal-content h3').html(data[0].name);
+	        	$('.modal-content h3').html(data[0].name).after("<span id=star-rating-modal></span>");
 	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId);
 	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  
-	        	$('.addcart-Modal_id').attr('id',data[0].productId);  
-	        	$('#star-rating-modal').attr('data-rating',data[0].score);
-	        		
+	        	$('.addcart-Modal_id').attr('id',data[0].productId);
+	        	
+	        	
+//	        	$('#star-rating-modal').attr('data-rating');
+	    		getStarModal(data[0].score);
 	        	$.ajax({
 	        		 url: '../_05_Stock/getProductStock.do',
 	     	        type:'POST',
@@ -229,17 +232,9 @@ $(function() {
 	     	        
 	     	        }
 	        	});
-
-	    		$('#star-rating-modal').starRating({
-	    			totalStars : 5,
-	    			starSize : 20,
-	    			emptyColor : 'lightgray',
-	    			hoverColor : 'salmon',
-	    			useGradient : false,
-	    			readOnly : true,
-	    		});
 	        }
 	    });
+
 	});
 	
 	//點modal 內的button後加入購物車
@@ -348,4 +343,17 @@ function getStarRating(size){
 			readOnly : true,
 		});
 	}
+
+function getStarModal(score){
+		$('#star-rating-modal').starRating({
+			totalStars : 5,
+			starSize : 20,
+			initialRating: score,
+			emptyColor : 'lightgray',
+			hoverColor : 'salmon',
+			useGradient : false,
+			readOnly : true,
+		});
+	}
+
 });

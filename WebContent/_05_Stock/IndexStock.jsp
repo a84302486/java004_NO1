@@ -7,7 +7,7 @@
 			<td>
 				<ul class="tabs">
 					<li><a href="#stock1">庫存資料管理 </a></li>
-					<li><a href="#stock2">資料表 </a></li>
+					<li><a href="#stock2" >即將過期庫存</a></li>
 				</ul>
 			</td>
 
@@ -29,13 +29,7 @@
 			</section>
 		</div>
 		<div id="stock2" class="tab_content">
-		測試文字<br>
-		測試文字<br>	
-		測試文字<br>	
-		測試文字<br>	
-		測試文字<br>	
-		測試文字<br>	
-		測試文字		
+	
 		</div>
 	</div>
 </div>

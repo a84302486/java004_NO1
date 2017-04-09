@@ -56,7 +56,7 @@ function getStockData(name , value) {
 		success : function(data) {
 			for (var i = 0; i < data.length; i++) {
 				content += "<tr>"
-						+ "<td><input type=radio name=stockId value="
+ 						+ "<td><input type=radio name=stockId value="
 						+ data[i].stockId + ">" + "<td>" + data[i].stockId
 						+ "</td>" + "<td>" + data[i].productId + "</td>"
 						+ "<td>" + data[i].mfg + "</td>" + "<td>" + data[i].exp
@@ -71,6 +71,7 @@ function getStockData(name , value) {
 			alert("發生錯誤,請連絡管理人員");
 		},
 	})
+	getEXPOverDue();
 };
 
 //Delete:判斷讀取到的name並取出值,判斷是否刪除該筆資料,並由Servelet回傳是否成功的json字串,再顯示至畫面--------
@@ -101,3 +102,34 @@ $("#loadPageDiv").on("click",'#deleteStock',function() {
 	}
 });
 
+
+function getEXPOverDue() {
+	
+	var content = "<table>" + "<tr><td>庫存序號</td>"
+	+ "<td>產品序號</td>" + "<td>製造日</td>"
+	+ "<td>到期日</td>" + "<td>數量</td></tr>";
+
+	$.ajax({
+		url : "../_05_Stock/SelectOverDueServlet.do",
+		type : 'POST',
+		dataType : 'json',
+		cache : false,
+		success : function(data) {
+
+			for (var i = 0; i < data.length; i++) {
+				content += "<tr>"
+ 						 + "<td>" + data[i].stockId
+						+ "</td>" + "<td>" + data[i].productId + "</td>"
+						+ "<td>" + data[i].mfg + "</td>" + "<td>" + data[i].exp
+						+ "</td>" + "<td>" + data[i].quantity + "</td>"
+						+ "</tr>"
+			}
+			content += "</table>";
+			$('#stock2').html(content);
+
+		},
+		error : function(data) {
+			alert("發生錯誤,請連絡管理人員");
+		},
+	})
+};
