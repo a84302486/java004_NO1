@@ -235,12 +235,7 @@ public class StockDAO {
 		}
 		return 0;
 	}
-<<<<<<< HEAD
-	
-	
-=======
 
->>>>>>> 9febb812a503b40823a5bdbbfc1caf66474a24d9
 	public List<StockBean> findEXPOverDue() {
 		String sql = "select * from Stock where datediff(EXP,curdate()) < 7;";
 

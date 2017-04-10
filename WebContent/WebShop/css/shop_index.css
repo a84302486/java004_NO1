@@ -1,5 +1,12 @@
 body{
-	background: url('../images/background.png') no-repeat center fixed;
+	background: url('../images/foodbg7.jpg') no-repeat center fixed;
+	background-size:90%;
+/* 	opacity:0.4; */
+}
+hr {
+	height: 10px;
+	border: 0;
+	box-shadow: 0 20px 20px -20px #384145 inset;
 }
 .thumbnail img{	
 	width: 100%;

@@ -26,8 +26,8 @@ public class BuyProductServlet extends HttpServlet {
 		response.setContentType("application/json; charset=UTF-8");
 		
 		HttpSession session = request.getSession(false) ; 
-		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
-		
+		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");	
+		if(cart == null) return;
 		
 		try (PrintWriter out = response.getWriter();) {
 		String toJson = new Gson().toJson(cart.getContent());

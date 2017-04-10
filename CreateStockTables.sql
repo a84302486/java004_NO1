@@ -5,7 +5,7 @@ CREATE TABLE `Stock` (
   `product_id` 	    varchar(20) NOT NULL,
   `MFG` 	DATE NOT NULL,
   `EXP` 	DATE NOT NULL,
-  `quantity` 	varchar(6) NOT NULL,
+  `quantity` 	int NOT NULL,
 
 	CONSTRAINT `Stock_Product_id_FK` FOREIGN KEY (`product_id`) 
 		REFERENCES `product`(`product_id`),

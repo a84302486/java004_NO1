@@ -28,9 +28,9 @@ $(function() {
 	        content +="<div class='col-md-3 col-sm-6 hero-feature'>"
 	        		+ 	"<div class=thumbnail>"
 	         		+ 		"<img src="+getPicSrc + data[i].productId + " alt>"
-	        		+ 			"<div class=caption>"
-	        		+ 				"<span class=name>" + data[i].name + "</span>: $ "
-	        		+ 				"<span class=price>" + data[i].pgPrice + "</span>"
+	        		+ 			"<div class=caption>"					
+	        		+ 				"<strong><span class=name>" + data[i].name + "</span></strong><br> $ "
+	        		+ 				"<span class=price>" + data[i].pgPrice + "</span><br>"
 	        		+ 				"<span class=star-rating-product data-rating="+data[i].score+"></span>"
 	        	    + 				"<p>"
 	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
@@ -162,8 +162,8 @@ $(function() {
 	        		+ 	"<div class=thumbnail>"
 	         		+ 		"<img src="+getPicSrc + data[i].productId + " alt>"
 	        		+ 			"<div class=caption>"
-	        		+ 				"<span class=name>" + data[i].name + "</span>: $ "
-	        		+ 				"<span class=price>" + data[i].pgPrice + "</span>"
+	        		+ 				"<span class=name>" + data[i].name + "</span><br> $ "
+	        		+ 				"<span class=price>" + data[i].pgPrice + "</span><br>"
 	        		+ 				"<span class=star-rating-product data-rating="+data[i].score+"></span>"
 	        	    + 				"<p>"
 	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
@@ -199,8 +199,8 @@ $(function() {
 	        	
 	        	$('.modal-content h3').html(data[0].name)
 	        		.after("<div id=star-score><span>已有" +data[0].comments+"筆評價"
-	        			 + "</sapn><span id=star-rating-modal></span>"
-	        			 + "</sapn>" +　data[0].score + "星" +　"</span></div>");
+	        			 + "</sapn><br><span id=star-rating-modal></span>"
+	        			 + "</sapn> " +　data[0].score + "星" +　"</span></div>");
 	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId);
 	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  
 	        	$('.addcart-Modal_id').attr('id',data[0].productId);
