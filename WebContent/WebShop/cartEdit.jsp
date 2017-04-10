@@ -38,10 +38,10 @@
 				<tr id="${pb.value.productId}">
 					<td>
 						<div class=media>
-							<a class='thumbnail pull-left' href=#> 
-								<img class=media-object 
+							 
+								<img class="media-object pull-left"
 								src="${pageContext.request.contextPath}/_01_Product/getImage?id=${pb.value.productId}">
-							</a>
+							
 							<div class=media-body>
 
 								<h4 class=media-heading>

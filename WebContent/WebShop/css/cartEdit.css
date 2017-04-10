@@ -1,20 +1,19 @@
 body{
 	padding-top: 90px;
-	background: url('../images/foodbg4.jpg') no-repeat center fixed;
+	background: url('../images/foodbg5.jpg') no-repeat center fixed;
 	background-size:100%;
 }
-/* img{ */
+/* .media-object{ */
 /* 	width:8em; */
 /* 	height:6em; */
 /* } */
-.media-object{
-	width:8em;
-	height:6em;
-}
 #header{
 	font-weight:800;
 	text-align:center;
 }
+/* .table{ */
+/* 	background-color:#dcdcdc; */
+/* } */
 .table th{
 	text-align:center;
 }
@@ -38,3 +37,9 @@ body{
 .price,.count,.countTd,.total,.remove{
 	text-align:center;
 }
+img{
+	width:12em;
+	height:9em;
+}
+
+

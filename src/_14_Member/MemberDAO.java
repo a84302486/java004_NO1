@@ -185,9 +185,7 @@ public class MemberDAO {
 	
 	synchronized public String Certification(String username){
 		
-		String sql = "UPDATE Member SET "
-				+ "M_Certification = ?"
-				+ "WHERE M_Username = ?;";
+		String sql = "UPDATE `Member` SET `M_Certification`=? WHERE `M_Username`=?;";
 		
 		try(
 			Connection con = ds.getConnection();
