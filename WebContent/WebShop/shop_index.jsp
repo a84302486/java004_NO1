@@ -151,7 +151,7 @@
 						<span aria-hidden="true">×</span>
 					</button>
 					<h3></h3>
-					<span id="star-rating-modal"></span>
+		
 					<div class="product-col">
 						<div class="row">
 							<div class="col-md-4">

@@ -33,8 +33,8 @@ public class SetScoreServlet extends HttpServlet {
 		double scoreAvg = odbDAO.getScoreAvg(productIdStr);
 		odbDAO.setScoreToProduct(scoreAvg,productIdStr);
 		
-		int comments = odbDAO.getProductComments(productIdStr);
-		System.out.println("comments="+comments);
+		odbDAO.getProductComments(productIdStr);
+	
 	}
 
 }
