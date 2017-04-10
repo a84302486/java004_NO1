@@ -198,7 +198,7 @@ $(function() {
 	        success: function(data){
 	        	
 	        	$('.modal-content h3').html(data[0].name)
-	        		.after("<div id=star-score><span>已有" +data[0].comments+"筆評價"
+	        		.after("<div id=star-score><span>已有" +data[0].comments+"個人評價"
 	        			 + "</sapn><br><span id=star-rating-modal></span>"
 	        			 + "</sapn> " +　data[0].score + "星" +　"</span></div>");
 	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId);

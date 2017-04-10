@@ -21,7 +21,7 @@ public class  ProductBean implements Serializable{
 	private String  fileName;
 	private Blob  productImage;
 	private boolean  status;  //default false
-	private Integer score;
+	private Double score;
 	private Integer comments;
 	
 	public ProductBean() {
@@ -151,11 +151,11 @@ public class  ProductBean implements Serializable{
 		this.status = status;
 	}
 
-	public Integer getScore() {
+	public Double getScore() {
 		return score;
 	}
 
-	public void setScore(Integer score) {
+	public void setScore(Double score) {
 		this.score = score;
 	}
 

@@ -160,7 +160,7 @@ public class ProductDAO {
 					pb.setSuppierId(rs.getString(7));
 					pb.setFileName(rs.getString(8));
 					pb.setStatus(rs.getBoolean(10));
-					pb.setScore(rs.getInt(11));
+					pb.setScore(rs.getDouble(11));
 					pb.setComments(rs.getInt(12));	
 					coll.add(pb);
 					
@@ -236,8 +236,8 @@ public class ProductDAO {
 					pb.setSuppierId(rs.getString(7));
 					pb.setFileName(rs.getString(8));
 					pb.setStatus(rs.getBoolean(10));
-					pb.setScore(rs.getInt(11));		
-					pb.setComments(rs.getInt(12));	
+					pb.setScore(rs.getDouble(11));
+					pb.setComments(rs.getInt(12));		
 					coll.add(pb);
 					Iterator<ProductBean> it = coll.iterator();
 					while (it.hasNext()) {
@@ -275,7 +275,7 @@ public class ProductDAO {
 					pb.setSuppierId(rs.getString(7));
 					pb.setFileName(rs.getString(8));
 					pb.setStatus(rs.getBoolean(10));
-					pb.setScore(rs.getInt(11));	
+					pb.setScore(rs.getDouble(11));
 					pb.setComments(rs.getInt(12));	
 					coll.add(pb);
 				}
