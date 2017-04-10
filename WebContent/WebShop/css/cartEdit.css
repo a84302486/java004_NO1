@@ -1,8 +1,13 @@
 body{
 	padding-top: 90px;
-	background: url('../images/background.png') no-repeat center fixed;
+	background: url('../images/foodbg4.jpg') no-repeat center fixed;
+	background-size:100%;
 }
-.table img{
+/* img{ */
+/* 	width:8em; */
+/* 	height:6em; */
+/* } */
+.media-object{
 	width:8em;
 	height:6em;
 }

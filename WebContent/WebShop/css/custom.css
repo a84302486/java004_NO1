@@ -20,7 +20,7 @@ html, body {
 
 /* 第1個區塊用 */
 #home {
-  background: url(../images/home.jpg) no-repeat center center fixed;
+  background: url(../images/index.JPG) no-repeat center center fixed;
   display: table;
   height: 100%;
   position: relative;

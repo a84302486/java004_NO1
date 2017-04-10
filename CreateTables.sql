@@ -9,6 +9,8 @@ CREATE TABLE `Product` (
   `fileName`   varchar (60) DEFAULT NULL,
   `productImage`     longblob     DEFAULT NULL,
   `on_shelf`     		BOOLEAN  ,
+  `score`        double(2,1),
+  `comments`     int(5),
   
 	CONSTRAINT Product_product_id_PK PRIMARY KEY (`product_id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -47,16 +49,25 @@ CREATE TABLE `Stock` (
 
   `Stock_id` 	    varchar(20) NOT NULL,
   `product_id` 	    varchar(20) NOT NULL,
-  `S_life` 		    int(10) NOT NULL,
-  `MFG` 	DATETIME NOT NULL,
-  `EXP` 	DATETIME NOT NULL,
-  `quantity` 	varchar(6) NOT NULL,
+  `MFG` 			DATETIME NOT NULL,
+  `EXP` 			DATETIME NOT NULL,
+  `quantity` 		int NOT NULL,
 
 	CONSTRAINT `Stock_Product_id_FK` FOREIGN KEY (`product_id`) 
 		REFERENCES `product`(`product_id`),
-	CONSTRAINT `Stock_S_life_FK` FOREIGN KEY (`S_life`) 
-		REFERENCES `product`(`S_life`),
 	CONSTRAINT `Stock_PK` PRIMARY KEY (`Stock_id`)
+	
+)	CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE `Product_Stock` (
+
+  `Product_Stock_id` 	    varchar(20) NOT NULL,
+  `product_id` 	    		varchar(20) NOT NULL,
+  `total` 		   			int,
+ 
+	CONSTRAINT `product_id_FK` FOREIGN KEY (`product_id`) 
+		REFERENCES `product`(`product_id`),
+	CONSTRAINT `Product_Stock_id_PK` PRIMARY KEY (`Product_Stock_id`)
 	
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;
 
@@ -108,7 +119,7 @@ CREATE TABLE `OrderDetail`(
 	P_G_price 			INT NOT NULL,
 	Quantity			INT NOT NULL,
 	SubTotal			INT NOT NULL,
-	score				INT,
+	score				double(2,1),
 	
 	
 	CONSTRAINT `OrderDetail_OrderId_FK` FOREIGN KEY (`OrderId`) 

@@ -91,12 +91,16 @@
 	<div class="container">
 
 		<!-- Jumbotron Header -->
-		<header class="jumbotron hero-spacer">
-			<!--             <h1>A Warm Welcome!</h1> -->
-			<!--             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p> -->
-			<!--             <p><a class="btn btn-primary btn-large">Call to action!</a> -->
-			<!--             </p> -->
-		</header>
+<!-- 		<header class="jumbotron hero-spacer"> -->
+<!-- 			            <h1>A Warm Welcome!</h1> -->
+<!-- 			            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p> -->
+<!-- 			            <p><a class="btn btn-primary btn-large">Call to action!</a> -->
+<!-- 			            </p> -->
+<!-- 		</header> -->
+		<br>
+		<br>
+		<br>
+		<br>
 		<section class="slideshow section">
 			<div class="container">
 				<div id="carousel-example-generic" class="carousel slide"
@@ -122,7 +126,7 @@
 					</div>
 				</div>
 			</div>
-			<hr>
+			<br>
 		</section>
 
 		<ul class="nav nav-pills nav-justified">
@@ -136,7 +140,7 @@
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h3>熱門商品</h3>
+				<h3>★熱門商品★</h3>
 			</div>
 		</div>
 
@@ -193,7 +197,6 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<p>Copyright &copy; Java004_NO1 2017</p>
-				</div>
 			</div>
 		</footer>
 
@@ -205,7 +208,7 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.star-rating-svg.js"></script>
-	<script src="js/shop_index2.js"></script>
+	<script src="js/shop_index2.js?v222"></script>
 
 
 
