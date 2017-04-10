@@ -6,15 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-
-import _01_Product.ProductBean;
 
 public class StockDAO {
 
@@ -39,9 +36,7 @@ public class StockDAO {
 
 		String sql = "INSERT INTO Stock " + " VALUES(? , ? , ? , ? , ?)";
 
-		try (Connection con = ds.getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			) {
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			pstmt.setString(1, sb.getStockId());
 			pstmt.setString(2, sb.getProductId());
@@ -63,9 +58,7 @@ public class StockDAO {
 	public boolean delete(String StockId) {
 
 		String sql = "DELETE FROM stock WHERE StockId=?;";
-		try (Connection con = ds.getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			) {
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			pstmt.setString(1, StockId);
 			pstmt.executeUpdate();
@@ -84,9 +77,7 @@ public class StockDAO {
 		String sql = "select * from Stock where Product_id = ?;";
 
 		Collection<StockBean> coll = new ArrayList<>();
-		try (Connection con = ds.getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			) {
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			pstmt.setString(1, ProductId);
 
@@ -115,9 +106,7 @@ public class StockDAO {
 		String sql = "select * from Stock;";
 
 		Collection<StockBean> coll = new ArrayList<>();
-		try (Connection con = ds.getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			) {
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			try (ResultSet rs = pstmt.executeQuery();) {
 
@@ -146,9 +135,7 @@ public class StockDAO {
 		String sql = "select * from Stock where MFG = ?;";
 
 		List<StockBean> coll = new ArrayList<>();
-		try (Connection con = ds.getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			) {
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			pstmt.setString(1, mfg);
 
@@ -179,9 +166,7 @@ public class StockDAO {
 		String sql = "select * from Stock where EXP = ?;";
 
 		List<StockBean> coll = new ArrayList<>();
-		try (Connection con = ds.getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			) {
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			pstmt.setString(1, exp);
 
@@ -211,9 +196,7 @@ public class StockDAO {
 
 		String sql = "select S_life from product where Product_id = ?;";
 
-		try (Connection con = ds.getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			) {
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			pstmt.setString(1, ProductId);
 			int life = 0;
@@ -235,9 +218,7 @@ public class StockDAO {
 
 		String sql = "select sum(quantity) from stock where product_id = ?;";
 
-		try (Connection con = ds.getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			) {
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			pstmt.setString(1, ProductId);
 			int quantity = 0;
@@ -254,16 +235,17 @@ public class StockDAO {
 		}
 		return 0;
 	}
+<<<<<<< HEAD
 	
 	
+=======
+
+>>>>>>> 9febb812a503b40823a5bdbbfc1caf66474a24d9
 	public List<StockBean> findEXPOverDue() {
 		String sql = "select * from Stock where datediff(EXP,curdate()) < 7;";
 
 		List<StockBean> coll = new ArrayList<>();
-		try (Connection con = ds.getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			) {
-
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			try (ResultSet rs = pstmt.executeQuery();) {
 
@@ -277,7 +259,7 @@ public class StockDAO {
 					coll.add(sb);
 					;
 				}
-				System.out.println("查詢EXP小於七天" );
+				System.out.println("查詢EXP小於七天");
 			}
 			return coll;
 		} catch (Exception e) {
@@ -286,4 +268,41 @@ public class StockDAO {
 		}
 		return null;
 	}
+
+	public void updateStock(String productId) {
+
+		String sql = "UPDATE `Stock` SET `product_stock`.`quantity`=(SELECT SUM(`product_stock`.quantity*IF(status = '-',-1,1)) From `product_stock`) where `product_id`= ?;";
+
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+			pstmt.setString(1, productId);
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	synchronized public String insertProductStock(Product_Stock_Bean ps){
+	
+		String sql = "INSERT INTO `Product_Stock` VALUES(? , ? , ? , ? , ?)";
+
+		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+
+			pstmt.setString(1, ps.getProduct_Stock_id());
+			pstmt.setString(2, ps.getProduct_id());
+			pstmt.setInt(3, ps.getQuantity());
+			pstmt.setString(4, ps.getStatus());
+			pstmt.setString(5, ps.getInsertdate());
+			pstmt.executeUpdate();
+
+			System.out.println("成功 新增" + ps.getProduct_Stock_id());
+
+			return null;
+		} catch (Exception e) {
+			System.out.println("失敗 新增" + ps.getProduct_Stock_id());
+			e.printStackTrace();
+			return "失敗 新增" + ps.getProduct_Stock_id();
+		}
+	}
+	
 }
