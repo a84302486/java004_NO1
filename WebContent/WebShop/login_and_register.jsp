@@ -129,10 +129,11 @@
 												<input type="password" id="PasswordID" name="Password"
 													placeholder="6～20個數字和英文組成" class="form-control required atoz_number"
 													autofocus>
-												
 											</div>
 											
+											
 										</div>
+										
 										<div class="form-group">
 											<label for="Password2" class="col-sm-3 control-label">密碼確認</label>
 											<div class="col-sm-8">
