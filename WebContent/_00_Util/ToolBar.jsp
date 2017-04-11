@@ -17,7 +17,7 @@
 							class="caret"></b></a>
 						<ul>
 							<li><a href="#tab-product" 
-							onclick="getAction('../_01_Product/IndexProduct.jsp','loadPageDiv');getQueryData('SelectProduct.do');">
+							onclick="getAction('../_01_Product/IndexProduct.jsp','loadPageDiv');getQueryData('ALL','productId','');">
 							產品上下架及資料管理</a>
 							</li>							
 							<li><a href="#tab-member" 

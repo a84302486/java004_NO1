@@ -12,7 +12,7 @@
 <body>
 	<CENTER>
 		<div>
-			產品序號查詢:<input type="text"  name="productId" value="" size="20" placeholder="不輸入將搜尋全部"> 
+			產品序號查詢:<input type="text"  name="stock-productId" value="" size="20" placeholder="不輸入將搜尋全部"> 
 			<input id="productId" type="button" value="開始查詢">
 			製造日期查詢:<input type="text"  name="mfg" value="" size="20" placeholder="YYYYMMDD"> 
 			<input id="stockMFG" type="button" value="開始查詢">

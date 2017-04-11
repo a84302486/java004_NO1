@@ -182,12 +182,13 @@ public class ProductDAO {
 
 	public List<ProductBean> findByName(String productName) {
 
-		String sql = "select * from Product where product_id like '%?%';";
-		System.out.println(sql);
-		List<ProductBean> coll = new ArrayList<>();
-		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+		String sql = "select * from Product where name like ? ;";
 
-			pstmt.setString(1, productName);
+		List<ProductBean> coll = new ArrayList<>();
+		try (Connection con = ds.getConnection(); 
+			PreparedStatement pstmt = con.prepareStatement(sql);) {
+
+			pstmt.setString(1,"%"+productName+"%");
 
 			try (ResultSet rs = pstmt.executeQuery();) {
 
@@ -201,7 +202,45 @@ public class ProductDAO {
 					pb.setSlife(rs.getInt(6));
 					pb.setSuppierId(rs.getString(7));
 					pb.setFileName(rs.getString(8));
+					pb.setStatus(rs.getBoolean(10));
+					pb.setScore(rs.getDouble(11));
+					pb.setComments(rs.getInt(12));		
+					coll.add(pb);
+				}
+				System.out.println("品名查詢資料");
+			}
+			return coll;
+		} catch (Exception e) {
 
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public List<ProductBean> findByPrice(String price) {
+
+		String sql = "select * from Product where p_g_price like ? ;";
+		List<ProductBean> coll = new ArrayList<>();
+		try (Connection con = ds.getConnection(); 
+			PreparedStatement pstmt = con.prepareStatement(sql);) {
+
+			pstmt.setString(1,"%"+price+"%");
+
+			try (ResultSet rs = pstmt.executeQuery();) {
+
+				while (rs.next()) {
+					ProductBean pb = new ProductBean();
+					pb.setProductId(rs.getString(1));
+					pb.setPgPrice(rs.getInt(2));
+					pb.setName(rs.getString(3));
+					pb.setAvgCost(rs.getDouble(4));
+					pb.setOplace(rs.getString(5));
+					pb.setSlife(rs.getInt(6));
+					pb.setSuppierId(rs.getString(7));
+					pb.setFileName(rs.getString(8));
+					pb.setStatus(rs.getBoolean(10));
+					pb.setScore(rs.getDouble(11));
+					pb.setComments(rs.getInt(12));		
 					coll.add(pb);
 				}
 				System.out.println("品名查詢資料");

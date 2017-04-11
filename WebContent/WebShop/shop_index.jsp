@@ -35,11 +35,14 @@
 				<a class="navbar-brand" href="shop_index.jsp">購物平台</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse "
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-
-				</ul>
+			<div class="collapse navbar-collapse "id="bs-example-navbar-collapse-1">
+				
+				<div class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" value="" placeholder="請輸入關鍵字">
+                        </div>
+                        <button id="search" type="submit" class="btn btn-default">搜尋</button>
+                </div>
 				<ul class="nav navbar-nav navbar-right">
 					<li>
                 	<c:choose>
@@ -192,15 +195,17 @@
 				</div>
 			</div>
 		</div>
+		
 		<hr>
 		<footer>
 			<div class="row">
 				<div class="col-lg-12">
 					<p>Copyright &copy; Java004_NO1 2017</p>
+				</div>
 			</div>
 		</footer>
 
-	</div>
+	
 	<!-- /.container -->
 
 	<!-- jQuery -->

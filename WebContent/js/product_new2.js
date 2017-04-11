@@ -101,16 +101,35 @@ function getAction(action, tagId) {
 }
 
 // Select讀取透過Servelet取出的Json資料,替換Section內容------------------------------
-function getQueryData(servelet) {
-	if (document.getElementById("productId")) {
-		var productId = document.getElementById("productId").value;
-	} else {
-		var productId = "";
+$("#loadPageDiv").on("click", "input[type='button']", function() {
+	
+	var cmd =null, type = null, val= null;
+	var $this = $(this).attr("id");
+
+	if($this == "productIdBtn" ){
+		cmd = "ALL";
+		type = "productId";
+		val = $("input[name='productId']").val();
+	}else if($this == "productNameBtn"){
+		cmd = "Name";
+		type = "productName";
+		val = $("input[name='productName']").val();
+	}else{
+		cmd = "ALL";
+		type = "productId";
+		val = "";
 	}
+	
+	getQueryData(cmd,type,val);
+	
+});
+
+function getQueryData(cmd,type,val) {
+	
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", servelet, true);
+	xhr.open("POST", "SelectProduct.do", true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send("cmd=ALL" + "&productId=" + productId);
+	xhr.send("cmd=" + cmd + "&" + type + "=" + val);
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {

@@ -29,7 +29,7 @@ $(function() {
 	        		+ 	"<div class=thumbnail>"
 	         		+ 		"<img src="+getPicSrc + data[i].productId + " alt>"
 	        		+ 			"<div class=caption>"					
-	        		+ 				"<strong><span class=name>" + data[i].name + "</span></strong><br> $ "
+	        		+ 				"<strong><span class=name>" + data[i].name + "</span></strong>  $"
 	        		+ 				"<span class=price>" + data[i].pgPrice + "</span><br>"
 	        		+ 				"<span class=star-rating-product data-rating="+data[i].score+"></span>"
 	        	    + 				"<p>"
@@ -146,42 +146,57 @@ $(function() {
 	$('.nav-justified li').click(function(){	
 		$(this).addClass('active').siblings('.active').removeClass('active');
 		var getType = $(this).attr('id');
-
-		var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
-		$.ajax({
-	        url: '../_01_Product/SelectProduct.do',
-	        type:'POST',
-	        dataType:'json',
-	        data: getType,
-	        success: function(data){
-	        	var content = "";	
-	        	for (var i = 0; i < data.length; i++) {
-	        		if(data[i].status == true){ //判斷上架還是下架
-	
-	        content +="<div class='col-md-3 col-sm-6 hero-feature'>"
-	        		+ 	"<div class=thumbnail>"
-	         		+ 		"<img src="+getPicSrc + data[i].productId + " alt>"
-	        		+ 			"<div class=caption>"
-	        		+ 				"<span class=name>" + data[i].name + "</span><br> $ "
-	        		+ 				"<span class=price>" + data[i].pgPrice + "</span><br>"
-	        		+ 				"<span class=star-rating-product data-rating="+data[i].score+"></span>"
-	        	    + 				"<p>"
-	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
-	        		+ 					"data-toggle=modal data-target=.bs-iot>加入購物車</button>"
-	        	    + 				"</p>"
-	        	    + 		"</div>"
-	        	    +	"</div>"
-	        	    +"</div>";
-	        
-	        	}
-	        	var result = document.getElementById("wrap");
-				result.innerHTML = content;
-	        	}
-	        	getStarRating(15);
-	        }
-		});		
+		getProductInfo(getType)
 	});
 	
+	
+	$('#search').click(function(){	
+		var data ="cmd=Name&productName=" + $('.form-control').val();	
+		getProductInfo(data)
+	});
+	
+	
+function getProductInfo(SetData){		
+	var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
+	$.ajax({
+        url: '../_01_Product/SelectProduct.do',
+        type:'POST',
+        dataType:'json',
+        data: SetData,
+        success: function(data){
+        if(data.length ==0){
+        	alert("查無商品資料");
+        	return;
+        }	
+        	var content = "";	
+        	for (var i = 0; i < data.length; i++) {
+        		if(data[i].status == true){ //判斷上架還是下架
+
+        content +="<div class='col-md-3 col-sm-6 hero-feature'>"
+        		+ 	"<div class=thumbnail>"
+         		+ 		"<img src="+getPicSrc + data[i].productId + " alt>"
+        		+ 			"<div class=caption>"
+        		+ 				"<strong><span class=name>" + data[i].name + "</span></strong> $"
+        		+ 				"<span class=price>" + data[i].pgPrice + "</span><br>"
+        		+ 				"<span class=star-rating-product data-rating="+data[i].score+"></span>"
+        	    + 				"<p>"
+        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
+        		+ 					"data-toggle=modal data-target=.bs-iot>加入購物車</button>"
+        	    + 				"</p>"
+        	    + 		"</div>"
+        	    +	"</div>"
+        	    +"</div>";
+        
+        	}
+        	var result = document.getElementById("wrap");
+			result.innerHTML = content;
+        	}
+        	getStarRating(15);
+        }
+	});		
+}
+	
+
 	//點主頁加入購物車,顯示modal內容
 	$('#wrap').on('click','.btn-primary',function(){	
 		$('.btn-submit').removeAttr('disabled');

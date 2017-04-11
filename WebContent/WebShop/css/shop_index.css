@@ -1,3 +1,7 @@
+window{
+	overflow:hidden;
+}
+
 body{
 	background: url('../images/foodbg7.jpg') no-repeat center fixed;
 	background-size:95%;

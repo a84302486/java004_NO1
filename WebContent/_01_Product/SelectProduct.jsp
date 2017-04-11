@@ -14,10 +14,10 @@
 	<CENTER>
 	<Form Action="Javascript:%200" >
 		<div>
-			序號查詢:<input type="text" id="productId" name="productId" value="" size="20" placeholder="不輸入將搜尋全部"> 
-					<input type="button" value="開始查詢" onclick="getQueryData('SelectProduct.do');">
-			品名查詢:<input type="text" id="productName" name="productName" value="" size="20"> 
-			<input type="button" value="開始查詢" onclick="getQueryData('SelectProduct.do');">
+			序號查詢:<input type="text" id="productId" name="productId" value="" size="20" placeholder="不輸入序號將搜尋全部"> 
+				  <input type="button" id="productIdBtn" value="開始查詢">
+			品名查詢:<input type="text" id="productName" name="productName" value="" size="20" placeholder="品名搜尋"> 
+				  <input type="button" id="productNameBtn" value="開始查詢">
 		</div>	
 	</Form>
 		<div id="selectResult"></div>
