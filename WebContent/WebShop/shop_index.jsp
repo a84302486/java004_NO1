@@ -93,13 +93,6 @@
 
 	<div class="container">
 
-		<!-- Jumbotron Header -->
-<!-- 		<header class="jumbotron hero-spacer"> -->
-<!-- 			            <h1>A Warm Welcome!</h1> -->
-<!-- 			            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p> -->
-<!-- 			            <p><a class="btn btn-primary btn-large">Call to action!</a> -->
-<!-- 			            </p> -->
-<!-- 		</header> -->
 		<br>
 		<br>
 		<br>
@@ -131,14 +124,25 @@
 			</div>
 			<br>
 		</section>
-
-		<ul class="nav nav-pills nav-justified">
-			<li id="cmd=ALL&productId=" role="presentation"><a>所有產品</a></li>
-			<li id="cmd=TYPE&type=A" role="presentation"><a>肉食類</a></li>
-			<li id="cmd=TYPE&type=D" role="presentation"><a>飯食類</a></li>
-			<li id="cmd=TYPE&type=B" role="presentation"><a>麵食類</a></li>
-			<li id="cmd=TYPE&type=C" role="presentation"><a>沙拉類</a></li>
-		</ul>
+		<div class="row">
+			<div class="col-lg-9">
+				<ul id="filter" class="nav nav-pills nav-justified">
+					<li id="cmd=ALL&productId=" role="presentation"><a>所有產品</a></li>
+					<li id="cmd=TYPE&type=A" role="presentation"><a>肉食類</a></li>
+					<li id="cmd=TYPE&type=D" role="presentation"><a>飯食類</a></li>
+					<li id="cmd=TYPE&type=B" role="presentation"><a>麵食類</a></li>
+					<li id="cmd=TYPE&type=C" role="presentation"><a>沙拉類</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-3">
+				<ul id="sort" class="nav nav-pills nav-justified">
+					<li data-sort-by="name" role="presentation"><a>品名</a></li>
+					<li data-sort-by="price" role="presentation"><a>價格</a></li>
+					<li data-sort-by="star" role="presentation"><a>評價</a></li>					
+				</ul>
+			</div>
+		</div>
+		
 		<hr>
 
 		<div class="row">
@@ -147,7 +151,7 @@
 			</div>
 		</div>
 
-		<div id="wrap" class="row text-center">
+		<div id="wrap" class="row text-center grid">
 		</div>
 		<div class="modal fade bs-iot" tabindex="-1" role="dialog"
 			aria-labelledby="mySmallModalLabel">
@@ -204,7 +208,7 @@
 				</div>
 			</div>
 		</footer>
-
+	</div>
 	
 	<!-- /.container -->
 
@@ -213,8 +217,9 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.star-rating-svg.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
 	<script src="js/shop_index2.js?v222"></script>
-
+	
 
 
 </body>

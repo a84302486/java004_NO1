@@ -31,7 +31,7 @@ $(function() {
 	        		+ 			"<div class=caption>"					
 	        		+ 				"<strong><span class=name>" + data[i].name + "</span></strong>  $"
 	        		+ 				"<span class=price>" + data[i].pgPrice + "</span><br>"
-	        		+ 				"<span class=star-rating-product data-rating="+data[i].score+"></span>"
+	        		+ 				"<span class=star-rating-product data-rating="+data[i].score+">"+data[i].score+"<b>星</b></span>"
 	        	    + 				"<p>"
 	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
 	        		+ 					"data-toggle=modal data-target=.bs-iot>加入購物車</button>" 
@@ -45,6 +45,7 @@ $(function() {
 				result.innerHTML = content;
 	        	}
 	        	getStarRating(15);
+	        	getIsotope();
 	        }
 		});
 		
@@ -141,7 +142,7 @@ $(function() {
 	
 	
 	//預設所有產品為被點擊
-	$('.nav-justified li').eq(0).addClass('active');
+	$('#filter li').eq(0).addClass('active');
 	//點產品類別增加active
 	$('.nav-justified li').click(function(){	
 		$(this).addClass('active').siblings('.active').removeClass('active');
@@ -156,7 +157,7 @@ $(function() {
 	});
 	
 	
-function getProductInfo(SetData){		
+function getProductInfo(SetData){
 	var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
 	$.ajax({
         url: '../_01_Product/SelectProduct.do',
@@ -178,7 +179,7 @@ function getProductInfo(SetData){
         		+ 			"<div class=caption>"
         		+ 				"<strong><span class=name>" + data[i].name + "</span></strong> $"
         		+ 				"<span class=price>" + data[i].pgPrice + "</span><br>"
-        		+ 				"<span class=star-rating-product data-rating="+data[i].score+"></span>"
+        		+ 				"<span class=star-rating-product data-rating="+data[i].score+">"+data[i].score+"<b>星</b></span>"
         	    + 				"<p>"
         	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
         		+ 					"data-toggle=modal data-target=.bs-iot>加入購物車</button>"
@@ -192,10 +193,11 @@ function getProductInfo(SetData){
 			result.innerHTML = content;
         	}
         	getStarRating(15);
+        	getIsotope();
         }
-	});		
+	});	
 }
-	
+
 
 	//點主頁加入購物車,顯示modal內容
 	$('#wrap').on('click','.btn-primary',function(){	
@@ -245,8 +247,7 @@ function getProductInfo(SetData){
 	     	        		$('#modal-count').val("0");
 		     	   	        }
 	     	   	        }
-	     	   		}); 
-	     	        
+	     	   		});  	        
 	     	        }
 	        	});
 	        }
@@ -348,6 +349,7 @@ $(document).on('click','.number-spinner button',function() {
 				$('#modal-count').val(newVal);
 			});
 
+});
 
 //取得星級評價
 function getStarRating(size){
@@ -373,4 +375,34 @@ function getStarModal(score){
 		});
 	}
 
+function getIsotope(){
+	var $grid = $('.grid').isotope({        		
+		itemSelector: '.hero-feature',
+		layoutMode: 'fitRows',
+		getSortData: {
+		name:'.name',
+		price: function( itemElem ) {        		
+			var price = $( itemElem ).find('.price').text();
+			return parseFloat( price.replace( /[\(\)]/g, ''));
+		},
+		star: function( itemElem ) {	  
+    		var star = $( itemElem ).find("span[data-rating]").text();
+    		return parseFloat( star);
+		},
+
+	}
 });
+		        		      
+// bind sort button click
+$('#sort').on( 'click', 'li', function() { 
+	var sortValue = $(this).attr('data-sort-by');        		        		  
+	$grid.isotope({ 
+		sortBy: sortValue ,
+		
+			sortAscending:{
+				star: false
+			}       		
+		});
+	});
+}
+

@@ -37,11 +37,16 @@ public class SelectProduct extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+		
 		String cmd = request.getParameter("cmd");
 		String productIdStr = request.getParameter("productId");
 		String productNameStr = request.getParameter("productName");
 		String typeStr = request.getParameter("type");
-
+		
+		if(cmd ==null){
+			return;
+		}
+		
 		ProductDAO pd = new ProductDAO();
 		// list輸出純文字資料
 		List<ProductBean> list = null;
