@@ -17,8 +17,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                	<li><a href="../WebShop/index.html"><img src="images/iconmonstr-home-8-16.png"> 觀光工廠</a></li>
-                	<li><a href="../WebShop/cartEdit.jsp"><img src="images/iconmonstr-shopping-cart-3-16.png"> 購物清單</a></li>
+                	<li><a href="../WebShop/index.html"><img src="../WebShop/images/iconmonstr-home-8-16.png"> 觀光工廠</a></li>
+                	<li><a href="../WebShop/cartEdit.jsp"><img src="../WebShop/images/iconmonstr-shopping-cart-3-16.png"> 購物清單</a></li>
                 	<li>
                 	<c:choose>
 						<c:when test="${empty MemberLoginOK}">

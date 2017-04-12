@@ -162,7 +162,7 @@
 											<label for="Address" class="col-sm-3 control-label">會員地址</label>
 											<div class="col-sm-8">
 												<input type="hidden" class="cCountry" value="TW" /> 
-												<input type="text" id="Address" placeholder="寄件地址" class="form-control required cAddress" autofocus/>
+												<input type="text" name="Address" id="Address" placeholder="寄件地址" class="form-control required cAddress" autofocus/>
 											</div>
 										</div>
 

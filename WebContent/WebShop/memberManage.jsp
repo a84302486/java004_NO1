@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
+<!-- 	<link rel="stylesheet" href="../WebShop/css/bootstrap.min.css"> -->
 	<link href="../WebShop/css/memberManage.css" rel="stylesheet">
 
 <head>
@@ -44,18 +44,26 @@
                   </div>
                   
                   <div class="form-group">
-                    <label class="col-sm-3 col-md-2 control-label"> 帳戶姓名：</label>
+                    <label class="col-sm-3 col-md-2 control-label"> 會員姓名：</label>
                     <div class="col-sm-9 col-md-10">
-                      <span class="label-text"><br>${MemberLoginOK.m_Name}</span>
+                      <span class="label-text">${MemberLoginOK.m_Name}</span>
                       
                     </div>
                   </div>
+                  
+<!--                   <div class="form-group"> -->
+<!--                     <label class="col-sm-3 col-md-2 control-label"> 會員地址：</label> -->
+<!--                     <div class="col-sm-9 col-md-10"> -->
+<%--                       <span class="label-text">${MemberLoginOK.m_Address}</span> --%>
+                      
+<!--                     </div> -->
+<!--                   </div> -->
                   
                   <div class="form-group">
                     <label class="col-sm-3 col-md-2 control-label"> 會員生日：</label>
                     <div class="col-sm-9 col-md-10">
                     
-                      <span class="label-text"><br>${MemberLoginOK.m_Birthday}</span>
+                      <span class="label-text">${MemberLoginOK.m_Birthday}</span>
                     
                     </div>
                   </div>
@@ -63,10 +71,10 @@
                   <div class="form-group">
                     <label class="col-sm-3 col-md-2 control-label"> 會員手機：</label>
                     <div class="col-sm-9 col-md-10">
-                      <span class="label-text"><br>${MemberLoginOK.m_Cellphone}</span>
+                      <span class="label-text">${MemberLoginOK.m_Cellphone}</span>
                     </div>
                   </div>
-      			<br>
+      			
                 <div class="row">
                   <div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2">
                     <div class=" btn-warp check-btn">

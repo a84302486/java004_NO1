@@ -8,6 +8,7 @@ public class MemberBean implements Serializable {
 	private String M_Username;
 	private String M_Password;
 	private String M_Name;
+	private String M_Address;
 	private String M_Cellphone;	
 	private String M_Birthday;
 	private String M_Insertdate;
@@ -24,12 +25,14 @@ public class MemberBean implements Serializable {
 	}
 
 
-	public MemberBean(String m_Username, String m_Password, String m_Name, String m_Cellphone, String m_Birthday,
-			String m_Insertdate, String m_Updatedate, int m_Level, int m_BonusPoints, int m_Total) {
+	public MemberBean(String m_Username, String m_Password, String m_Name, String m_Address, String m_Cellphone,
+			String m_Birthday, String m_Insertdate, String m_Updatedate, int m_Level, int m_BonusPoints, int m_Total,
+			boolean m_Certification) {
 		super();
 		M_Username = m_Username;
 		M_Password = m_Password;
 		M_Name = m_Name;
+		M_Address = m_Address;
 		M_Cellphone = m_Cellphone;
 		M_Birthday = m_Birthday;
 		M_Insertdate = m_Insertdate;
@@ -37,11 +40,14 @@ public class MemberBean implements Serializable {
 		M_Level = m_Level;
 		M_BonusPoints = m_BonusPoints;
 		M_Total = m_Total;
+		M_Certification = m_Certification;
 	}
+
 
 	public String getM_Username() {
 		return M_Username;
 	}
+
 
 
 	public void setM_Username(String m_Username) {
@@ -49,9 +55,11 @@ public class MemberBean implements Serializable {
 	}
 
 
+
 	public String getM_Password() {
 		return M_Password;
 	}
+
 
 
 	public void setM_Password(String m_Password) {
@@ -59,9 +67,11 @@ public class MemberBean implements Serializable {
 	}
 
 
+
 	public String getM_Name() {
 		return M_Name;
 	}
+
 
 
 	public void setM_Name(String m_Name) {
@@ -69,9 +79,23 @@ public class MemberBean implements Serializable {
 	}
 
 
+
+	public String getM_Address() {
+		return M_Address;
+	}
+
+
+
+	public void setM_Address(String m_Address) {
+		M_Address = m_Address;
+	}
+
+
+
 	public String getM_Cellphone() {
 		return M_Cellphone;
 	}
+
 
 
 	public void setM_Cellphone(String m_Cellphone) {
@@ -79,9 +103,11 @@ public class MemberBean implements Serializable {
 	}
 
 
+
 	public String getM_Birthday() {
 		return M_Birthday;
 	}
+
 
 
 	public void setM_Birthday(String m_Birthday) {
@@ -89,9 +115,11 @@ public class MemberBean implements Serializable {
 	}
 
 
+
 	public String getM_Insertdate() {
 		return M_Insertdate;
 	}
+
 
 
 	public void setM_Insertdate(String m_Insertdate) {
@@ -99,9 +127,11 @@ public class MemberBean implements Serializable {
 	}
 
 
+
 	public String getM_Updatedate() {
 		return M_Updatedate;
 	}
+
 
 
 	public void setM_Updatedate(String m_Updatedate) {
@@ -109,9 +139,11 @@ public class MemberBean implements Serializable {
 	}
 
 
+
 	public int getM_Level() {
 		return M_Level;
 	}
+
 
 
 	public void setM_Level(int m_Level) {
@@ -119,9 +151,11 @@ public class MemberBean implements Serializable {
 	}
 
 
+
 	public int getM_BonusPoints() {
 		return M_BonusPoints;
 	}
+
 
 
 	public void setM_BonusPoints(int m_BonusPoints) {
@@ -129,31 +163,34 @@ public class MemberBean implements Serializable {
 	}
 
 
+
 	public int getM_Total() {
 		return M_Total;
 	}
 
 
+
 	public void setM_Total(int m_Total) {
 		M_Total = m_Total;
 	}
-	
+
+
+
 	public boolean isM_Certification() {
 		return M_Certification;
 	}
+
 
 
 	public void setM_Certification(boolean m_Certification) {
 		M_Certification = m_Certification;
 	}
 
+
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
-	
-
 	
 	
 }

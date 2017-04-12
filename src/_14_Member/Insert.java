@@ -29,6 +29,7 @@ public class Insert extends HttpServlet {
 		String password = request.getParameter("Password");
 		String password2 = request.getParameter("Password2");
 		String name = request.getParameter("Name");
+		String address = request.getParameter("Address");
 		String cellPhone = request.getParameter("Cellphone");
 		String birthday = request.getParameter("Birthday");
 
@@ -54,9 +55,21 @@ public class Insert extends HttpServlet {
 			errorMember.setM_password2("確認密碼必須輸入");
 			hasError = true;
 		}
-
 		if (name == null || name.trim().length() == 0) {
 			errorMember.setM_Name("名稱必須輸入");
+			hasError = true;
+		}
+
+		if (address == null || address.trim().length() == 0) {
+			errorMember.setM_Address("address必須輸入");
+			hasError = true;
+		}
+		if (cellPhone == null || cellPhone.trim().length() == 0) {
+			errorMember.setM_Cellphone("cellPhone必須輸入");
+			hasError = true;
+		}
+		if (birthday == null || birthday.trim().length() == 0) {
+			errorMember.setM_Birthday("birthday必須輸入");
 			hasError = true;
 		}
 
@@ -80,8 +93,8 @@ public class Insert extends HttpServlet {
 					password = AES.encrypt(password);
 					//密碼加密
 					
-					MemberBean mem = new MemberBean(username, password , name, cellPhone, birthday, insertDate,
-							insertDate, 0, 0, 0);
+					MemberBean mem = new MemberBean(username, password , name, address, cellPhone, birthday, insertDate,
+							insertDate, 0, 0, 0, false);
 
 					errorMember.setDML_Result(new MemberDAO().insert(mem));
 
