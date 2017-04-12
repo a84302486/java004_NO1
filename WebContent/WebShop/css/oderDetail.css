@@ -49,8 +49,8 @@ h3{
 /* 	margin-left: 30%; */
 }
 
-img{
-	width:5em;
-	height:5em;	
+.image{
+	width:8em!important;
+	height:6em!important;	
 }
 
