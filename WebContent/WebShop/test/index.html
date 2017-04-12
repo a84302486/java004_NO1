@@ -1,0 +1,43 @@
+﻿<html >
+<head>
+	<meta charset="UTF-8">
+    <title>AddressTextBox</title>
+    <style type="text/css">
+    html, body {
+	    height: 100%;
+	    overflow: auto;
+    }
+    </style>
+     <link href="http://blog.darkthread.net/themes/blogs/gold%20coast/style/style.css" type="text/css" rel="Stylesheet" /> 
+<!--     <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script> -->
+<!--     <script src="Scripts/json2ext.js"></script> -->
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/jquery.autocomplete.js"></script>
+    <link href="Styles/jquery.autocomplete.css" rel="stylesheet" />
+    <script src="Scripts/jquery.twAddrHelper.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            setAddressInput($("#dvAddress"));
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server" style="height:100%">
+    <div id="twAddrHelper" style="display: inline; text-align:left;"></div>
+    <div style="text-align:left; color: Yellow;">
+        <h2>台灣地址輸入輔助元件 Ver 1.0 Beta (JavaScript版)</h2>
+    </div>
+	<table cellspacing="5" cellpadding="5" style="float: left;">
+	<tr>
+	<td>
+    <div id="dvAddress">
+    <input type="text" class="cCountry" style="width: 25px;" value="TW" />
+<!--     <input type="text" class="cZip" style="width: 35px;" /> -->
+    <input type="text" class="cAddress" style="width: 400px;" />
+    </div>
+	</td></tr>
+    </table>
+ 
+	</form>
+</body>
+</html>

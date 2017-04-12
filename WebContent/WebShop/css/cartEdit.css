@@ -37,9 +37,9 @@ body{
 .price,.count,.countTd,.total,.remove{
 	text-align:center;
 }
-img{
-	width:12em;
-	height:9em;
+.media > img{
+	width:16em;
+	height:12em;
 }
 
 

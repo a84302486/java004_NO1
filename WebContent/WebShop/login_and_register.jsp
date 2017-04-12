@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
 <link rel="stylesheet" href="../WebShop/css/drag.css">
 <link rel="stylesheet" href="../WebShop/css/load.css">
+<link rel="stylesheet" href="../WebShop/css/jquery.autocomplete.css">
 <link rel="stylesheet" href="../WebShop/css/login_and_register.css">
 
 
@@ -153,6 +154,17 @@
 											
 											
 										</div>
+										<div class="form-group" id="dvAddress">
+											<label for="Adress" class="col-sm-3 control-label">會員地址</label>
+											<div class="col-sm-8">
+												<input type="hidden" class="cCountry" value="TW" />
+												 <input type="text" id="Address" name="cAddress"
+													placeholder="寄件地址"
+													class="form-control required" autofocus>
+												
+											</div>
+											
+										</div>
 										<div class="form-group">
 											<label for="Cellphone" class="col-sm-3 control-label">會員手機</label>
 											<div class="col-sm-8">
@@ -203,6 +215,8 @@
 	<script src="../WebShop/js/jquery.ajaxupload.js"></script>
 	<script src="../WebShop/js/drag.js"></script>
 	<script src="../WebShop/js/load.js"></script>
+	<script src="../WebShop/js/jquery.autocomplete.js"></script>
+    <script src="../WebShop/js/jquery.twAddrHelper.js"></script>
 	<script src="../WebShop/js/login_and_register.js"></script>
 </body>
 

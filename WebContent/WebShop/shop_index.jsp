@@ -177,12 +177,12 @@
 							<div class="col-md-8">
 								<div class="input-group number-spinner">
 									<span class="input-group-btn">
-										<button class="btn btn-default" data-dir="dwn">
+										<button class="btn btn-default btn-danger btn-number" data-dir="dwn">
 											<span class="glyphicon glyphicon-minus"></span>
 										</button>
 									</span> <input type="text" id="modal-count" class="form-control text-center" value="1">
 									<span class="input-group-btn">
-										<button class="btn btn-default" data-dir="up">
+										<button class="btn btn-default btn-success btn-number" data-dir="up">
 											<span class="glyphicon glyphicon-plus"></span>
 										</button>
 									</span>

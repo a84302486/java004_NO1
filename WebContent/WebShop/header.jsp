@@ -17,15 +17,15 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                	<li><a href="../WebShop/index.html">觀光工廠</a></li>
-                	<li><a href="../WebShop/cartEdit.jsp">購物清單</a></li>
+                	<li><a href="../WebShop/index.html"><img src="images/iconmonstr-home-8-16.png"> 觀光工廠</a></li>
+                	<li><a href="../WebShop/cartEdit.jsp"><img src="images/iconmonstr-shopping-cart-3-16.png"> 購物清單</a></li>
                 	<li>
                 	<c:choose>
 						<c:when test="${empty MemberLoginOK}">
 							<a href="../WebShop/login_and_register.jsp"><span class="glyphicon glyphicon-log-in"></span> 登入註冊</a>
 						</c:when>
             			<c:otherwise>
-            				<a href="../WebShop/memberManage.jsp"><span class="glyphicon glyphicon-user"></span>我的帳戶</a>
+            				<a href="../WebShop/memberManage.jsp"><span class="glyphicon glyphicon-user"></span> 我的帳戶</a>
 						</c:otherwise>
         			</c:choose>
                     </li>
