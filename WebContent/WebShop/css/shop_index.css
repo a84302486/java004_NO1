@@ -202,10 +202,3 @@ hr {
 .caption{
 	font-size: 15px;
 }
-
- .search-query:focus + button {
-        z-index: 3;   
-    }   
-    .search-query:focus{
-        width: 260px;
-    } 

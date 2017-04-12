@@ -61,7 +61,7 @@ Ver 1.0.1 2013-05-26 修正郵遞區號自動完成失效問題
             if ($.unblockUI) $.unblockUI();
             return;
         }
-        $.getJSON("js/zip3.json", function (r) {
+        $.getJSON("../zip3.txt", function (r) {
             var zipDataPack = {};
             //郵遞區號與縣市區域對照表
             zipDataPack.zip2Area = r["Zip2Area"];
