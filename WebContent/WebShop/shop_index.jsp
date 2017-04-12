@@ -43,24 +43,39 @@
 					</div>
 					<button id="search" type="submit" class="btn btn-default btn-success"><i class="glyphicon glyphicon-search"></i></button>
 				</div>
+				<ul id="cd-cart-trigger" class="nav navbar-nav navbar-right">
+					<li>					
+						<a class="cd-img-replace"><em class="cartCount">0</em></a>						
+					<li>
+				</ul>
+				
 				<ul class="nav navbar-nav navbar-right">
                 	<li><a href="../WebShop/index.html"><img src="images/iconmonstr-home-8-16.png"> 觀光工廠</a></li>
                 	<li><a href="../WebShop/cartEdit.jsp"><img src="images/iconmonstr-shopping-cart-3-16.png"> 購物清單</a></li>
-                	<li>
+                	
                 	<c:choose>
 						<c:when test="${empty MemberLoginOK}">
-							<a href="../WebShop/login_and_register.jsp"><span class="glyphicon glyphicon-log-in"></span> 登入註冊</a>
+							<li>
+								<a href="../WebShop/login_and_register.jsp"><span class="glyphicon glyphicon-log-in"></span> 登入註冊</a>
+						  	</li>
 						</c:when>
-            			<c:otherwise>
-            				<a href="../WebShop/memberManage.jsp"><span class="glyphicon glyphicon-user"></span> 我的帳戶</a>
+            			<c:otherwise>				
+            				
+            				<li class="dropdown">
+                                <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                                	<span class="glyphicon glyphicon-user"></span>我的帳戶 <b class="caret"></b></a>
+                                   <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="../WebShop/memberManage.jsp">帳戶資料</a></li>
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#anotherAction">產品追蹤清單</a></li>
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="/java004/WebShop/logout.jsp">登出</a></li>     
+                                   </ul>
+                            </li>
 						</c:otherwise>
-        			</c:choose>
-                    </li>
-								
+        			</c:choose>		
                  </ul>   
             </div>
         </div>
-     
+
     </nav>
 
 
