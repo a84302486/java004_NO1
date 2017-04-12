@@ -210,6 +210,8 @@
 								<input class="addcart-Modal_id" id="" value="" type="hidden">
 								<button type="button" class="btn btn-primary btn-submit"
 									data-dismiss="modal" aria-hidden="true">加入購物車</button>
+								<button type="button" class="btn btn-warning"
+									aria-hidden="true">加入追蹤清單</button>
 							</div>
 						</div>
 					</div>

@@ -29,6 +29,8 @@ hr {
 	background:#f7f7f7;
 	radius:5px;
 }
+
+
 /* cart-trigger */
 .cd-img-replace {
   display: inline-block;
@@ -186,8 +188,9 @@ hr {
 	margin-top:10px;
 }
 .btn-submit{
-	margin-top:10px;
+	margin-top:2px;
 }
+
 .extra_cart p{
 	margin:15px;
 	font-size: 15px;

@@ -1,4 +1,3 @@
-
 CREATE TABLE `Stock` (
 	
   `StockId` 	    varchar(20) NOT NULL,
@@ -12,3 +11,4 @@ CREATE TABLE `Stock` (
 	CONSTRAINT `Stock_PK` PRIMARY KEY (StockId)
 	
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;
+

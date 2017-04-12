@@ -76,18 +76,6 @@ $(function() {
 		  }
 		}
 
-//	$('#wrap').on("click","button",function(){	
-//		
-//		var thisID = $(this).attr('id');		
-//		var itemName  = $(this).parent().parent().find('.name').html();
-//		var itemPrice = $(this).parent().parent().find('.price').html();
-//
-//		addToCart(thisID,itemName,itemPrice);
-//
-//		calculate();
-//	});
-	
-	
 	//點擊X刪除該商品--------------------------------
 	$(document).on('click','.cd-item-remove',function(){
 		var id = $(this).parent().attr('id').replace('cart','');
@@ -120,27 +108,6 @@ $(function() {
 		$(this).parent().remove(); 	 	
 	});	
 	
-	//計算清單各欄數量及金額
-	function calculate(){
-		var amount = 0 ;
-		var t_qty = 0 ;
-		for(i=0;i < $('.cd-cart-items li').length; i++){	
-			var qty = parseInt($('.cd-cart-items li').eq(i).children(".cd-qty").html());
-			var price = parseInt($('.cd-cart-items li').eq(i).children(".cd-price").find('em').html());		
-			t_qty += qty;
-			amount += price;
-		}
-		//設置總數量至彈跳示窗購物清單--------------
-		$('.cd-cart-total p span').html(t_qty);
-		$('.cd-cart-total b span').html(amount);
-		//圓球顯示購物車物品總量------------------
-		var get_cart_total = $('.cd-cart-total p span').html();	
-		$('.cartCount').html(get_cart_total);
-		//設定modal-count為1-----------------
-		$('#modal-count').val("1");
-	}
-	
-	
 	//預設所有產品為被點擊
 	$('#filter li').eq(0).addClass('active');
 	//點產品類別增加active
@@ -157,6 +124,133 @@ $(function() {
 	});
 	
 	
+	//點主頁加入購物車,顯示modal內容
+	$('#wrap').on('click','.btn-primary',function(){	
+		$('.btn-submit').removeAttr('disabled');
+		$('.extra_cart p').remove();
+		$('#star-rating-modal').remove();
+		$('#star-score').remove();
+		var productId = $(this).attr('id');
+		var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
+		$.ajax({
+	        url: '../_01_Product/SelectProduct.do',
+	        type:'POST',
+	        data : "cmd=SINGLE" + "&productId=" + productId,
+	        dataType:'json',
+	        success: function(data){
+	        	
+	        	$('.modal-content h3').html(data[0].name)
+	        		.after("<div id=star-score><span>已有" +data[0].comments+"個人評價"
+	        			 + "</sapn><br><span id=star-rating-modal></span>"
+	        			 + "</sapn> " +　data[0].score + "星" +　"</span></div>");
+	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId);
+	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  
+	        	$('.addcart-Modal_id').attr('id',data[0].productId);
+	        	
+	    		getStarModal(data[0].score);
+	        	$.ajax({
+	        		 url: '../_05_Stock/getProductStock.do',
+	     	        type:'POST',
+	     	        data : "productId=" + productId,
+	     	        dataType:'json',
+	     	        success: function(quantity){
+	     	        	$('.addcart-Modal_id').val(quantity);
+	     	        	if(quantity ==0 || quantity ==null ){
+	     	        		$('.btn-submit').after("<p>已售完</p>").prop("disabled",true);  
+	     	        		$('#modal-count').val("0");
+	     	        	}
+	     	        	
+	     	        	$.ajax({	
+		     	   	        url: '../_20_BuyProductServlet/BuyProductServlet.do',
+		     	   	        type:'GET',
+		     	   	        dataType:'json',
+		     	   	        success:function(cart){
+		     	   	        var newQty = parseInt(quantity - cart[productId].qty);
+		     	   	        $('.addcart-Modal_id').val(newQty);  
+		     	   	        if(newQty ==0 || newQty ==null ){
+	     	        		$('.btn-submit').after("<p>已售完</p>").prop("disabled",true);  
+	     	        		$('#modal-count').val("0");
+		     	   	        }
+	     	   	        }
+	     	   		});  	        
+	     	        }
+	        	});
+	        }
+	    });
+
+	});
+	
+//計算modal內的modal-count欄位的數量
+$(document).on('click','.number-spinner button',function() {
+		 var btn = $(this), 
+		 	 quantity = $('.addcart-Modal_id').val(),
+		 	 oldValue = btn.closest('.number-spinner').find('input').val().trim(), 
+		 	 newVal = 0;
+		 
+		 if (btn.attr('data-dir') == 'up') {
+			 newVal = parseInt(oldValue) + 1;
+				if (newVal > quantity) {
+				alert("目前庫存只剩" + quantity + "個");
+				newVal = quantity;
+				}
+			} else {
+				if (oldValue > 1) {
+					newVal = parseInt(oldValue) - 1;					
+				}else{
+					newVal = 1; 
+				}
+			}		
+			btn.closest('.number-spinner').find('input').val(newVal);	
+	});
+
+//計算modal內的modal-count欄位的數量變更時
+	$(document).on('change','#modal-count',function() {
+				var quantity = $('.addcart-Modal_id').val(), 
+					newVal = $('#modal-count').val().trim();
+
+				if (newVal > quantity) {
+					alert("目前庫存只剩" + quantity + "個");
+					newVal = quantity;
+				}
+				$('#modal-count').val(newVal);
+			});
+	
+	//點modal 內的button後加入購物車
+	$('.modal-content').on('click','.btn-submit',function(){
+		var thisID = $('.addcart-Modal_id').attr('id');  	
+		var itemName  = $('.modal-content h3').html();
+		var itemPrice = $('.col-md-8 h4').html().replace('$','');
+		var qty = $('#modal-count').val();
+		
+		$('body').off('.data-api')
+		
+		addToCart(thisID,itemName,itemPrice,qty);	
+		calculate();
+		
+		//點擊時觸發購物車彈出------------------
+		$('#cd-cart').addClass('speed-in');
+	});
+
+	//加入追蹤清單
+	
+	$('.modal-content').on('click','.btn-warning',function(){
+		var thisID = $('.addcart-Modal_id').attr('id');
+		$.ajax({
+	        url: '../_22_ShoppingTrackingList/InsertTracking.do',
+	        type:'POST',
+	        dataType:'json',
+	        data: "productId=" +　thisID,
+	        success: function(data){
+	        	alert(data);
+	        },
+	        erroe:function(error){
+	        	alert("發生錯誤");
+	        }
+		});
+	});
+
+/* ---------------------------以下是共用function----------------------------*/
+
 function getProductInfo(SetData){
 	$('#wrap').ready(function(){
 	var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
@@ -200,81 +294,7 @@ function getProductInfo(SetData){
 	});	
 }
 
-
-	//點主頁加入購物車,顯示modal內容
-	$('#wrap').on('click','.btn-primary',function(){	
-		$('.btn-submit').removeAttr('disabled');
-		$('.extra_cart p').remove();
-		$('#star-rating-modal').remove();
-		$('#star-score').remove();
-		var productId = $(this).attr('id');
-		var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
-		$.ajax({
-	        url: '../_01_Product/SelectProduct.do',
-	        type:'POST',
-	        data : "cmd=SINGLE" + "&productId=" + productId,
-	        dataType:'json',
-	        success: function(data){
-	        	
-	        	$('.modal-content h3').html(data[0].name)
-	        		.after("<div id=star-score><span>已有" +data[0].comments+"個人評價"
-	        			 + "</sapn><br><span id=star-rating-modal></span>"
-	        			 + "</sapn> " +　data[0].score + "星" +　"</span></div>");
-	        	$('.toggle-image img').attr("src", getPicSrc + data[0].productId);
-	        	$('.col-md-8 h4').html("$"+data[0].pgPrice);  
-	        	$('.addcart-Modal_id').attr('id',data[0].productId);
-
-	    		getStarModal(data[0].score);
-	        	$.ajax({
-	        		 url: '../_05_Stock/getProductStock.do',
-	     	        type:'POST',
-	     	        data : "productId=" + productId,
-	     	        dataType:'json',
-	     	        success: function(quantity){
-	     	        	$('.addcart-Modal_id').val(quantity);
-	     	        	if(quantity ==0 || quantity ==null ){
-	     	        		$('.btn-submit').after("<p>已售完</p>").prop("disabled",true);  
-	     	        		$('#modal-count').val("0");
-	     	        	}
-	     	        	
-	     	        	$.ajax({	
-		     	   	        url: '../_20_BuyProductServlet/BuyProductServlet.do',
-		     	   	        type:'GET',
-		     	   	        dataType:'json',
-		     	   	        success:function(cart){
-		     	   	        var newQty = parseInt(quantity - cart[productId].qty);
-		     	   	        $('.addcart-Modal_id').val(newQty);  
-		     	   	        if(newQty ==0 || newQty ==null ){
-	     	        		$('.btn-submit').after("<p>已售完</p>").prop("disabled",true);  
-	     	        		$('#modal-count').val("0");
-		     	   	        }
-	     	   	        }
-	     	   		});  	        
-	     	        }
-	        	});
-	        }
-	    });
-
-	});
-	
-	//點modal 內的button後加入購物車
-	$('.modal-content').on('click','.btn-submit',function(){
-		var thisID = $('.addcart-Modal_id').attr('id');  	
-		var itemName  = $('.modal-content h3').html();
-		var itemPrice = $('.col-md-8 h4').html().replace('$','');
-		var qty = $('#modal-count').val();
-		
-		$('body').off('.data-api')
-		
-		addToCart(thisID,itemName,itemPrice,qty);	
-		calculate();
-		
-		//點擊時觸發購物車彈出------------------
-		$('#cd-cart').addClass('speed-in');
-
-	});
-	
- function addToCart(thisID,itemName,itemPrice,qty) {
+function addToCart(thisID,itemName,itemPrice,qty) {
 	$.ajax({	
         url: '../_20_BuyProductServlet/BuyProductServlet.do',
         type:'POST',
@@ -315,41 +335,26 @@ function getProductInfo(SetData){
         }
     });		
 }	
- 
-//計算modal內的modal-count欄位的數量
-$(document).on('click','.number-spinner button',function() {
-		 var btn = $(this), 
-		 	 quantity = $('.addcart-Modal_id').val(),
-		 	 oldValue = btn.closest('.number-spinner').find('input').val().trim(), 
-		 	 newVal = 0;
-		 
-		 if (btn.attr('data-dir') == 'up') {
-			 newVal = parseInt(oldValue) + 1;
-				if (newVal > quantity) {
-				alert("目前庫存只剩" + quantity + "個");
-				newVal = quantity;
-				}
-			} else {
-				if (oldValue > 1) {
-					newVal = parseInt(oldValue) - 1;					
-				}else{
-					newVal = 1; 
-				}
-			}		
-			btn.closest('.number-spinner').find('input').val(newVal);	
-	});
 
-//計算modal內的modal-count欄位的數量變更時
-	$(document).on('change','#modal-count',function() {
-				var quantity = $('.addcart-Modal_id').val(), 
-					newVal = $('#modal-count').val().trim();
-
-				if (newVal > quantity) {
-					alert("目前庫存只剩" + quantity + "個");
-					newVal = quantity;
-				}
-				$('#modal-count').val(newVal);
-			});
+//計算清單各欄數量及金額
+function calculate(){
+	var amount = 0 ;
+	var t_qty = 0 ;
+	for(i=0;i < $('.cd-cart-items li').length; i++){	
+		var qty = parseInt($('.cd-cart-items li').eq(i).children(".cd-qty").html());
+		var price = parseInt($('.cd-cart-items li').eq(i).children(".cd-price").find('em').html());		
+		t_qty += qty;
+		amount += price;
+	}
+	//設置總數量至彈跳示窗購物清單--------------
+	$('.cd-cart-total p span').html(t_qty);
+	$('.cd-cart-total b span').html(amount);
+	//圓球顯示購物車物品總量------------------
+	var get_cart_total = $('.cd-cart-total p span').html();	
+	$('.cartCount').html(get_cart_total);
+	//設定modal-count為1-----------------
+	$('#modal-count').val("1");
+}
 
 //取得星級評價
 function getStarRating(size){
@@ -363,6 +368,7 @@ function getStarRating(size){
 		});
 	}
 
+//Modal內取得星級評價
 function getStarModal(score){
 		$('#star-rating-modal').starRating({
 			totalStars : 5,
@@ -375,6 +381,7 @@ function getStarModal(score){
 		});
 	}
 
+//設置Isotope屬性
 function getIsotope(){	
 	var $grid =  $("#wrap");
 	$grid.isotope('destroy');
@@ -415,5 +422,4 @@ $('#sort').on( 'click', 'li', function() {
 		});
 	});
 }
-
 });

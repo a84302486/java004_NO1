@@ -10,10 +10,8 @@ CREATE TABLE `Product` (
   `productImage`     longblob     DEFAULT NULL,
   `on_shelf`     		BOOLEAN  ,
   `score`        double(2,1),
-<<<<<<< HEAD
-=======
   `comments`     int(5),
->>>>>>> c00976cab512216eebf755214fd1e3d3827c60c1
+
   
 	CONSTRAINT Product_product_id_PK PRIMARY KEY (`product_id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -66,15 +64,11 @@ CREATE TABLE `Product_Stock` (
 
   `Product_Stock_id` 	    varchar(20) NOT NULL,
   `product_id` 	    		varchar(20) NOT NULL,
-<<<<<<< HEAD
   `quantity` 		   		int NOT NULL,
   `status` 					char(1) NOT NULL,
   `insertdate` 				datetime NOT NULL,
-
-=======
   `total` 		   			int,
  
->>>>>>> c00976cab512216eebf755214fd1e3d3827c60c1
 	CONSTRAINT `product_id_FK` FOREIGN KEY (`product_id`) 
 		REFERENCES `product`(`product_id`),
 	CONSTRAINT `Product_Stock_id_PK` PRIMARY KEY (`Product_Stock_id`)
