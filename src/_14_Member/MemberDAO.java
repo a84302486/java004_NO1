@@ -184,7 +184,35 @@ public class MemberDAO {
 		}
 		
 	}
-	
+	public boolean checkCertification(String Username){
+		
+		String sql = "select M_Certification from Member where M_Username =?"					
+					+ ";";
+		MemberBean pb = new MemberBean();				
+		try(
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);){				
+		
+			pstmt.setString(1, Username);
+			try(
+				ResultSet rs = pstmt.executeQuery();
+			){
+				if (rs.next()){					
+					
+					
+					pb.setM_Certification(rs.getBoolean(1));
+												
+				}
+				
+				System.out.println("記錄 查詢"+Username+"的認證");
+			}
+			return pb.isM_Certification();
+		}catch (Exception e){
+			
+			e.printStackTrace();
+		}
+		return false;
+	}
 	synchronized public String Certification(String username){
 		
 		String sql = "UPDATE `Member` SET `M_Certification`=? WHERE `M_Username`=?;";
@@ -230,17 +258,18 @@ public class MemberDAO {
 					
 					int i=0;
 					
-					pb.setM_Username(rs.getString(i++));
-					pb.setM_Password(rs.getString(i++));			
-					pb.setM_Name(rs.getString(i++));
-					pb.setM_Address(rs.getString(i++));
-					pb.setM_Cellphone(rs.getString(i++));
-					pb.setM_Birthday(rs.getString(i++));
-					pb.setM_Insertdate(rs.getString(i++));
-					pb.setM_Updatedate(rs.getString(i++));
-					pb.setM_Level(rs.getInt(i++));
-					pb.setM_BonusPoints(rs.getInt(i++));
-					pb.setM_Total(rs.getInt(i++));
+					pb.setM_Username(rs.getString(++i));
+					pb.setM_Password(rs.getString(++i));			
+					pb.setM_Name(rs.getString(++i));
+					pb.setM_Address(rs.getString(++i));
+					pb.setM_Cellphone(rs.getString(++i));
+					pb.setM_Birthday(rs.getString(++i));
+					pb.setM_Insertdate(rs.getString(++i));
+					pb.setM_Updatedate(rs.getString(++i));
+					pb.setM_Level(rs.getInt(++i));
+					pb.setM_BonusPoints(rs.getInt(++i));
+					pb.setM_Total(rs.getInt(++i));
+					pb.setM_Certification(rs.getBoolean(++i));
 					
 					coll.add(pb);					
 				}
@@ -270,18 +299,19 @@ public class MemberDAO {
 					
 					int i=0;
 					
-					pb.setM_Username(rs.getString(i++));
-					pb.setM_Password(rs.getString(i++));			
-					pb.setM_Name(rs.getString(i++));
-					pb.setM_Address(rs.getString(i++));
-					pb.setM_Cellphone(rs.getString(i++));
-					pb.setM_Birthday(rs.getString(i++));
-					pb.setM_Insertdate(rs.getString(i++));
-					pb.setM_Updatedate(rs.getString(i++));
-					pb.setM_Level(rs.getInt(i++));
-					pb.setM_BonusPoints(rs.getInt(i++));
-					pb.setM_Total(rs.getInt(i++));
-
+					pb.setM_Username(rs.getString(++i));
+					pb.setM_Password(rs.getString(++i));			
+					pb.setM_Name(rs.getString(++i));
+					pb.setM_Address(rs.getString(++i));
+					pb.setM_Cellphone(rs.getString(++i));
+					pb.setM_Birthday(rs.getString(++i));
+					pb.setM_Insertdate(rs.getString(++i));
+					pb.setM_Updatedate(rs.getString(++i));
+					pb.setM_Level(rs.getInt(++i));
+					pb.setM_BonusPoints(rs.getInt(++i));
+					pb.setM_Total(rs.getInt(++i));
+					pb.setM_Certification(rs.getBoolean(++i));
+					
 					coll.add(pb);
 				}
 
@@ -390,18 +420,19 @@ public Boolean ifExist(String Username){
 					
 					int i=0;
 					
-					pb.setM_Username(rs.getString(i++));
-					pb.setM_Password(rs.getString(i++));			
-					pb.setM_Name(rs.getString(i++));
-					pb.setM_Address(rs.getString(i++));
-					pb.setM_Cellphone(rs.getString(i++));
-					pb.setM_Birthday(rs.getString(i++));
-					pb.setM_Insertdate(rs.getString(i++));
-					pb.setM_Updatedate(rs.getString(i++));
-					pb.setM_Level(rs.getInt(i++));
-					pb.setM_BonusPoints(rs.getInt(i++));
-					pb.setM_Total(rs.getInt(i++));
-
+					pb.setM_Username(rs.getString(++i));
+					pb.setM_Password(rs.getString(++i));			
+					pb.setM_Name(rs.getString(++i));
+					pb.setM_Address(rs.getString(++i));
+					pb.setM_Cellphone(rs.getString(++i));
+					pb.setM_Birthday(rs.getString(++i));
+					pb.setM_Insertdate(rs.getString(++i));
+					pb.setM_Updatedate(rs.getString(++i));
+					pb.setM_Level(rs.getInt(++i));
+					pb.setM_BonusPoints(rs.getInt(++i));
+					pb.setM_Total(rs.getInt(++i));
+					pb.setM_Certification(rs.getBoolean(++i));
+					
 					coll.add(pb);
 				}
 

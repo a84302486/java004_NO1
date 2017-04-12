@@ -3,6 +3,7 @@ package WebShop;
 import java.util.Collection;
 
 import _14_Member.MemberBean;
+import _14_Member.MemberDAO;
 
 public class MemberService {
 	public MemberBean checkIDPassword(String Username, String Password) {
