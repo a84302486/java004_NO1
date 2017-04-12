@@ -163,6 +163,7 @@ public class InsertOrder extends HttpServlet {
 //			rd.forward(request, response);
 //		
 //		}
+		session.removeAttribute("ShoppingCart");
 		
 		RequestDispatcher rd =request.getRequestDispatcher("/WebShop/orderSuccess.jsp");
 		rd.forward(request, response);

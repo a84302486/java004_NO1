@@ -46,14 +46,23 @@
 					<button id="search" type="submit" class="btn btn-default">搜尋</button>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
-					<li><c:choose>
-							<c:when test="${empty MemberLoginOK}">
+					<c:choose>	
+						<c:when test="${empty MemberLoginOK}">
+							<li>
 								<a href="../WebShop/login_and_register.jsp">登入/註冊</a>
-							</c:when>
-							<c:otherwise>
-								<a href="../WebShop/memberManage.jsp">會員管理</a>
-							</c:otherwise>
-						</c:choose></li>
+							</li>
+						</c:when>
+            			<c:otherwise>        				
+            				<li class="dropdown">
+                                <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">會員管理 <b class="caret"></b></a>
+                                   <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="../WebShop/memberManage.jsp">帳戶資料</a></li>
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#anotherAction">產品追蹤清單</a></li>
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="/java004/WebShop/logout.jsp">登出</a></li>     
+                                   </ul>
+                            </li>
+						</c:otherwise>
+        			</c:choose>
 					<li><a href="cartEdit.jsp">購物車</a></li>
 					<li><a href="index.html">觀光工廠</a></li>
 
@@ -142,11 +151,11 @@
 					<ul id="sort" class="dropdown-menu">
 						<li data-sort-by="name"><a>品名</a></li>
 						<li class="divider"></li>
-						<li data-sort-by="priceDESC"><a>價格:高到低</a></li>
-						<li data-sort-by="price"><a>價格:低到高</a></li>
+						<li data-sort-by="priceDESC"><a>價格: 高到低</a></li>
+						<li data-sort-by="price"><a>價格: 低到高</a></li>
 						<li class="divider"></li>
-						<li data-sort-by="starDESC"><a>評分:高到低</a></li>
-						<li data-sort-by="star"><a>評分:低到高</a></li>
+						<li data-sort-by="starDESC"><a>評分: 高到低</a></li>
+						<li data-sort-by="star"><a>評分: 低到高</a></li>
 					</ul>
 				</div>
 			</div>
