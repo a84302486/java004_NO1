@@ -21,7 +21,7 @@
 </head>
 
 <body>
-	
+
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -35,25 +35,25 @@
 				<a class="navbar-brand" href="shop_index.jsp">購物平台</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse "id="bs-example-navbar-collapse-1">
-				
+			<div class="collapse navbar-collapse "
+				id="bs-example-navbar-collapse-1">
+
 				<div class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" value="" placeholder="請輸入關鍵字">
-                        </div>
-                        <button id="search" type="submit" class="btn btn-default">搜尋</button>
-                </div>
+					<div class="form-group">
+						<input type="text" class="form-control" value=""
+							placeholder="請輸入關鍵字">
+					</div>
+					<button id="search" type="submit" class="btn btn-default">搜尋</button>
+				</div>
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-                	<c:choose>
-						<c:when test="${empty MemberLoginOK}">
-							<a href="../WebShop/login_and_register.jsp">登入/註冊</a>
-						</c:when>
-            			<c:otherwise>
-            				<a href="../WebShop/memberManage.jsp">會員管理</a>
-						</c:otherwise>
-        			</c:choose>
-                    </li>
+					<li><c:choose>
+							<c:when test="${empty MemberLoginOK}">
+								<a href="../WebShop/login_and_register.jsp">登入/註冊</a>
+							</c:when>
+							<c:otherwise>
+								<a href="../WebShop/memberManage.jsp">會員管理</a>
+							</c:otherwise>
+						</c:choose></li>
 					<li><a href="cartEdit.jsp">購物車</a></li>
 					<li><a href="index.html">觀光工廠</a></li>
 
@@ -93,10 +93,7 @@
 
 	<div class="container">
 
-		<br>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br> <br>
 		<section class="slideshow section">
 			<div class="container">
 				<div id="carousel-example-generic" class="carousel slide"
@@ -125,7 +122,7 @@
 			<br>
 		</section>
 		<div class="row">
-			<div class="col-lg-9">
+			<div class="col-lg-10">
 				<ul id="filter" class="nav nav-pills nav-justified">
 					<li id="cmd=ALL&productId=" role="presentation"><a>所有產品</a></li>
 					<li id="cmd=TYPE&type=A" role="presentation"><a>肉食類</a></li>
@@ -133,26 +130,37 @@
 					<li id="cmd=TYPE&type=B" role="presentation"><a>麵食類</a></li>
 					<li id="cmd=TYPE&type=C" role="presentation"><a>沙拉類</a></li>
 				</ul>
+
 			</div>
-			<div class="col-lg-3">
-				<ul id="sort" class="nav nav-pills nav-justified">
-					<li data-sort-by="name" role="presentation"><a>品名</a></li>
-					<li data-sort-by="price" role="presentation"><a>價格</a></li>
-					<li data-sort-by="star" role="presentation"><a>評價</a></li>					
-				</ul>
+			<div class="col-lg-2">
+				<div class="btn-group">
+					<button class="btn btn-primary">請選擇排序</button>
+					<button class="btn btn-primary dropdown-toggle"
+						data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul id="sort" class="dropdown-menu">
+						<li data-sort-by="name"><a>品名</a></li>
+						<li class="divider"></li>
+						<li data-sort-by="priceDESC"><a>價格:高到低</a></li>
+						<li data-sort-by="price"><a>價格:低到高</a></li>
+						<li class="divider"></li>
+						<li data-sort-by="starDESC"><a>評分:高到低</a></li>
+						<li data-sort-by="star"><a>評分:低到高</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
-		
+
 		<hr>
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h3 id= hot-product>★熱門商品★</h3>
+				<h3 id=hot-product>★熱門商品★</h3>
 			</div>
 		</div>
 
-		<div id="wrap" class="row text-center">
-		</div>
+		<div id="wrap" class="row text-center"></div>
 		<div class="modal fade bs-iot" tabindex="-1" role="dialog"
 			aria-labelledby="mySmallModalLabel">
 			<div class="modal-dialog" role="document">
@@ -162,7 +170,7 @@
 						<span aria-hidden="true">×</span>
 					</button>
 					<h3></h3>
-		
+
 					<div class="product-col">
 						<div class="row">
 							<div class="col-md-4">
@@ -180,8 +188,9 @@
 										<button class="btn btn-default" data-dir="dwn">
 											<span class="glyphicon glyphicon-minus"></span>
 										</button>
-									</span> <input type="text" id="modal-count" class="form-control text-center" value="1">
-									<span class="input-group-btn">
+									</span> <input type="text" id="modal-count"
+										class="form-control text-center" value="1"> <span
+										class="input-group-btn">
 										<button class="btn btn-default" data-dir="up">
 											<span class="glyphicon glyphicon-plus"></span>
 										</button>
@@ -190,16 +199,15 @@
 							</div>
 							<div class="extra_cart">
 								<input class="addcart-Modal_id" id="" value="" type="hidden">
-								<button type="button" class="btn btn-primary btn-submit" 
-										data-dismiss="modal" aria-hidden="true">加入購物車
-								</button>
+								<button type="button" class="btn btn-primary btn-submit"
+									data-dismiss="modal" aria-hidden="true">加入購物車</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<hr>
 		<footer>
 			<div class="row">
@@ -209,7 +217,7 @@
 			</div>
 		</footer>
 	</div>
-	
+
 	<!-- /.container -->
 
 	<!-- jQuery -->
@@ -219,7 +227,7 @@
 	<script src="js/jquery.star-rating-svg.js"></script>
 	<script src="js/isotope.pkgd.min.js"></script>
 	<script src="js/shop_index2.js?v222"></script>
-	
+
 
 
 </body>

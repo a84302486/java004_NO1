@@ -386,9 +386,17 @@ function getIsotope(){
 		name:'.name',
 		price: function( itemElem ) {        		
 			var price = $( itemElem ).find('.price').text();
-			return parseFloat( price.replace( /[\(\)]/g, ''));
+			return parseFloat( price);
+		},
+		priceDESC: function( itemElem ) {        		
+			var price = $( itemElem ).find('.price').text();
+			return parseFloat( price);
 		},
 		star: function( itemElem ) {	  
+    		var star = $( itemElem ).find("span[data-rating]").text();
+    		return parseFloat( star);
+		},
+		starDESC: function( itemElem ) {	  
     		var star = $( itemElem ).find("span[data-rating]").text();
     		return parseFloat( star);
 		},
@@ -399,10 +407,10 @@ function getIsotope(){
 $('#sort').on( 'click', 'li', function() { 
 	var sortValue = $(this).attr('data-sort-by');  
 	$grid.isotope({ 
-		sortBy: sortValue ,
-		
+		sortBy: sortValue ,		
 			sortAscending:{
-				star: false
+				priceDESC:false,
+				starDESC: false
 			}       		
 		});
 	});
