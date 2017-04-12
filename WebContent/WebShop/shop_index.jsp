@@ -151,7 +151,7 @@
 			</div>
 		</div>
 
-		<div id="wrap" class="row text-center grid">
+		<div id="wrap" class="row text-center">
 		</div>
 		<div class="modal fade bs-iot" tabindex="-1" role="dialog"
 			aria-labelledby="mySmallModalLabel">
