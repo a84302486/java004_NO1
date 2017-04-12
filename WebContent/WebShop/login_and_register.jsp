@@ -27,7 +27,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<div class="panel panel-login">
+				<div class="panel panel-login" id="panel">
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
@@ -46,7 +46,7 @@
 
 									<form id="login-form"
 										Action="<c:url value='/WebShop/LoginMember' />" method="post"
-										role="form" style="display: block;">
+										role="form">
 
 										<h3 class="form-signin-heading">歡迎回來! 請先登入!</h3>
 										<hr class="colorgraph">
