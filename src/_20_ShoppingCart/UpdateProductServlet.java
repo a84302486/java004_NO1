@@ -42,6 +42,11 @@ public class UpdateProductServlet extends HttpServlet {
 		    return;
 		} else if (cmd.equalsIgnoreCase("MOD")) {
 			String newQtyStr = request.getParameter("newQty");
+			
+			if(newQtyStr==null){
+				System.out.println("newQtyStr為null");
+				return;
+			}
 			int newQty = Integer.parseInt(newQtyStr.trim());
 			sc.modifyQty(productIdStr, newQty);   // 修改某項商品的數項
 //	        RequestDispatcher rd = request.getRequestDispatcher("/WebShop/cartEdit.jsp");

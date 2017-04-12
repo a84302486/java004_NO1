@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="../WebShop/css/bootstrap.min.css">
 <link rel="stylesheet" href="../WebShop/css/drag.css">
 <link rel="stylesheet" href="../WebShop/css/load.css">
+<link rel="stylesheet" href="../WebShop/css/jquery.autocomplete.css">
 <link rel="stylesheet" href="../WebShop/css/login_and_register.css">
 
 
@@ -27,7 +28,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<div class="panel panel-login">
+				<div class="panel panel-login" id="panel">
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
@@ -46,7 +47,7 @@
 
 									<form id="login-form"
 										Action="<c:url value='/WebShop/LoginMember' />" method="post"
-										role="form" style="display: block;">
+										role="form">
 
 										<h3 class="form-signin-heading">歡迎回來! 請先登入!</h3>
 										<hr class="colorgraph">
@@ -144,15 +145,27 @@
 											</div>
 											
 										</div>
-									    <div class="form-group">
+										<div class="form-group">
 											<label for="Name" class="col-sm-3 control-label">會員姓名</label>
 											<div class="col-sm-8">
-												 <input type="text" id="Name" placeholder="請輸入真實姓名" class="form-control required" name="Name" autofocus>
-												
+												<input type="text" id="Name" placeholder="請輸入真實姓名"
+													class="form-control required" name="Name" autofocus>
+
 											</div>
-											
-											
+
+
 										</div>
+										
+
+										<div class="form-group" id="dvAddress">		
+											<div id="twAddrHelper"></div>
+											<label for="Address" class="col-sm-3 control-label">會員地址</label>
+											<div class="col-sm-8">
+												<input type="hidden" class="cCountry" value="TW" /> 
+												<input type="text" name="Address" id="Address" placeholder="寄件地址" class="form-control required cAddress" autofocus/>
+											</div>
+										</div>
+
 										<div class="form-group">
 											<label for="Cellphone" class="col-sm-3 control-label">會員手機</label>
 											<div class="col-sm-8">
@@ -176,7 +189,9 @@
 											<div class="col-sm-12">
 												<hr class="colorgraph">
 											</div>
-										</div>									
+										</div>
+									 
+									 	
 										<div class="form-group">
 											<div class="col-sm-6 col-sm-offset-3">
 												<button class="btn btn-primary btn-block" type="submit" id="register-form-submit">註冊</button>  
@@ -203,6 +218,8 @@
 	<script src="../WebShop/js/jquery.ajaxupload.js"></script>
 	<script src="../WebShop/js/drag.js"></script>
 	<script src="../WebShop/js/load.js"></script>
+	<script src="../WebShop/js/jquery.autocomplete.js"></script>
+    <script src="../WebShop/js/jquery.twAddrHelper.js"></script>
 	<script src="../WebShop/js/login_and_register.js"></script>
 </body>
 

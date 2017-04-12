@@ -11,7 +11,10 @@ CREATE TABLE `Product` (
   `on_shelf`     		BOOLEAN  ,
   `score`        double(2,1),
   `comments`     int(5),
+<<<<<<< HEAD
 
+=======
+>>>>>>> c0674f66e1aa7273baf64c5e4df69cb528b6ae4d
   
 	CONSTRAINT Product_product_id_PK PRIMARY KEY (`product_id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -80,6 +83,7 @@ CREATE TABLE `Member`(
 	M_Username		VARCHAR(40) NOT NULL,
 	M_Password		VARCHAR(60) NOT NULL,
 	M_Name			VARCHAR(20) NOT NULL,
+	M_Address		VARCHAR(20) NOT NULL,
 	M_Cellphone		VARCHAR(20) NOT NULL,
 	M_Birthday		date NOT NULL,
 	M_Insertdate	datetime,

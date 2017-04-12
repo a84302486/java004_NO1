@@ -45,6 +45,11 @@
 				<TD align="center"><input type="text" name="Name" value="史努比"></TD>
 			</TR>
 			<TR>
+				<TD align="center">會員地址</TD>
+				<TD align="center"><input type="text" name="Address"
+					value="台北市信義區"></TD>
+			</TR>
+			<TR>
 				<TD align="center">會員手機</TD>
 				<TD align="center"><input type="text" name="Cellphone"
 					value="0999-000-999"></TD>

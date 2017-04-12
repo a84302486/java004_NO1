@@ -23,62 +23,45 @@
 <body>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="shop_index.jsp">購物平台</a>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse "
-				id="bs-example-navbar-collapse-1">
-
-				<div class="navbar-form navbar-left">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../WebShop/shop_index.jsp">購物平台</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+                <div class="navbar-form navbar-left">
 					<div class="form-group">
 						<input type="text" class="form-control" value=""
 							placeholder="請輸入關鍵字">
 					</div>
-					<button id="search" type="submit" class="btn btn-default">搜尋</button>
+					<button id="search" type="submit" class="btn btn-default btn-success"><i class="glyphicon glyphicon-search"></i></button>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
-					<c:choose>	
+                	<li><a href="../WebShop/index.html"><img src="images/iconmonstr-home-8-16.png"> 觀光工廠</a></li>
+                	<li><a href="../WebShop/cartEdit.jsp"><img src="images/iconmonstr-shopping-cart-3-16.png"> 購物清單</a></li>
+                	<li>
+                	<c:choose>
 						<c:when test="${empty MemberLoginOK}">
-							<li>
-								<a href="../WebShop/login_and_register.jsp">登入/註冊</a>
-							</li>
+							<a href="../WebShop/login_and_register.jsp"><span class="glyphicon glyphicon-log-in"></span> 登入註冊</a>
 						</c:when>
-            			<c:otherwise>        				
-            				<li class="dropdown">
-                                <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">會員管理 <b class="caret"></b></a>
-                                   <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="../WebShop/memberManage.jsp">帳戶資料</a></li>
-                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#anotherAction">產品追蹤清單</a></li>
-                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="/java004/WebShop/logout.jsp">登出</a></li>     
-                                   </ul>
-                            </li>
+            			<c:otherwise>
+            				<a href="../WebShop/memberManage.jsp"><span class="glyphicon glyphicon-user"></span> 我的帳戶</a>
 						</c:otherwise>
         			</c:choose>
-					<li><a href="cartEdit.jsp">購物車</a></li>
-					<li><a href="index.html">觀光工廠</a></li>
-
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container -->
-		<!-- .side-cart -->
-		<div id="cd-cart-trigger">
-			<a class="cd-img-replace" href="#0">購物車</a>
-		</div>
-		<!-- /.side-cart -->
-		<!-- cart items count -->
-		<span class="cartCount">0</span>
-	</nav>
+                    </li>
+								
+                 </ul>   
+            </div>
+        </div>
+     
+    </nav>
 
 
 	<div id="cd-cart">
@@ -192,19 +175,21 @@
 								<h5>選用頂級台灣原產高級肉品，通過國家安全檢驗及多種安全合格標章。</h5>
 							</div>
 							<div class="col-md-8">
-								<div class="input-group number-spinner">
+									<div class="input-group number-spinner">
 									<span class="input-group-btn">
-										<button class="btn btn-default" data-dir="dwn">
+										<button class="btn btn-default btn-danger btn-number" data-dir="dwn">
 											<span class="glyphicon glyphicon-minus"></span>
 										</button>
-									</span> <input type="text" id="modal-count"
-										class="form-control text-center" value="1"> <span
+
+									</span> 
+									<input type="text" id="modal-count" class="form-control text-center" value="1">
+									<span
 										class="input-group-btn">
-										<button class="btn btn-default" data-dir="up">
+										<button class="btn btn-default btn-success btn-number" data-dir="up">
+
 											<span class="glyphicon glyphicon-plus"></span>
 										</button>
 									</span>
-								</div>
 							</div>
 							<div class="extra_cart">
 								<input class="addcart-Modal_id" id="" value="" type="hidden">
@@ -227,6 +212,7 @@
 				</div>
 			</div>
 		</footer>
+	</div>
 	</div>
 
 	<!-- /.container -->

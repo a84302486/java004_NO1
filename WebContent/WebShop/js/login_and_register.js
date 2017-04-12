@@ -53,9 +53,9 @@ $(document).ready(function() {
 		e.stopPropagation();
 	});
 	
-	//帳號檢查  
-	//$('#member_Username').blur(usernameCheck);
-//	$('#register-form-submit').click(usernameCheck());
+	//地址自動完成
+	setAddressInput($("#dvAddress"));
+	
 	var check ="usable";
 	var Username = "";
 	$.validator.addMethod("usernameCheck", function(value) {
