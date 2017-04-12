@@ -145,26 +145,27 @@
 											</div>
 											
 										</div>
-									    <div class="form-group">
+										<div class="form-group">
 											<label for="Name" class="col-sm-3 control-label">會員姓名</label>
 											<div class="col-sm-8">
-												 <input type="text" id="Name" placeholder="請輸入真實姓名" class="form-control required" name="Name" autofocus>
-												
+												<input type="text" id="Name" placeholder="請輸入真實姓名"
+													class="form-control required" name="Name" autofocus>
+
 											</div>
-											
-											
+
+
 										</div>
-										<div class="form-group" id="dvAddress">
-											<label for="Adress" class="col-sm-3 control-label">會員地址</label>
+										
+
+										<div class="form-group" id="dvAddress">		
+											<div id="twAddrHelper"></div>
+											<label for="Address" class="col-sm-3 control-label">會員地址</label>
 											<div class="col-sm-8">
-												<input type="hidden" class="cCountry" value="TW" />
-												 <input type="text" id="Address" name="cAddress"
-													placeholder="寄件地址"
-													class="form-control required" autofocus>
-												
+												<input type="hidden" class="cCountry" value="TW" /> 
+												<input type="text" id="Address" placeholder="寄件地址" class="form-control required cAddress" autofocus/>
 											</div>
-											
 										</div>
+
 										<div class="form-group">
 											<label for="Cellphone" class="col-sm-3 control-label">會員手機</label>
 											<div class="col-sm-8">
@@ -188,7 +189,9 @@
 											<div class="col-sm-12">
 												<hr class="colorgraph">
 											</div>
-										</div>									
+										</div>
+									 
+									 	
 										<div class="form-group">
 											<div class="col-sm-6 col-sm-offset-3">
 												<button class="btn btn-primary btn-block" type="submit" id="register-form-submit">註冊</button>  
