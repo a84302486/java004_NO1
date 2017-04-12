@@ -153,8 +153,23 @@ public class InsertOrder extends HttpServlet {
 		//----------------------------------------------------------------------------		
 		
 		response.setContentType("text/html; charset=utf-8");
+<<<<<<< HEAD
 
 		session.removeAttribute("ShoppingCart");
+=======
+//		String toJson = "<script>alert('您此次的購物完成!!請在會員管理查看訂單');</script>";
+
+//		try (PrintWriter out = response.getWriter();) {
+//
+//			System.out.println(toJson);
+//			out.println(toJson);
+//			RequestDispatcher rd =request.getRequestDispatcher("/WebShop/memberManage.jsp");
+//			rd.forward(request, response);
+//		
+//		}
+		session.removeAttribute("ShoppingCart");
+		
+>>>>>>> 7484b876b216027a056088420a74677a489ac741
 		RequestDispatcher rd =request.getRequestDispatcher("/WebShop/orderSuccess.jsp");
 		rd.forward(request, response);
 

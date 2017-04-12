@@ -76,16 +76,16 @@ $(function() {
 		  }
 		}
 
-	$('#wrap').on("click","button",function(){	
-		
-		var thisID = $(this).attr('id');		
-		var itemName  = $(this).parent().parent().find('.name').html();
-		var itemPrice = $(this).parent().parent().find('.price').html();
-
-		addToCart(thisID,itemName,itemPrice);
-
-		calculate();
-	});
+//	$('#wrap').on("click","button",function(){	
+//		
+//		var thisID = $(this).attr('id');		
+//		var itemName  = $(this).parent().parent().find('.name').html();
+//		var itemPrice = $(this).parent().parent().find('.price').html();
+//
+//		addToCart(thisID,itemName,itemPrice);
+//
+//		calculate();
+//	});
 	
 	
 	//點擊X刪除該商品--------------------------------
@@ -158,6 +158,7 @@ $(function() {
 	
 	
 function getProductInfo(SetData){
+	$('#wrap').ready(function(){
 	var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
 	$.ajax({
         url: '../_01_Product/SelectProduct.do',
@@ -195,6 +196,7 @@ function getProductInfo(SetData){
         	getStarRating(15);
         	getIsotope();
         }
+	});	
 	});	
 }
 
@@ -349,8 +351,6 @@ $(document).on('click','.number-spinner button',function() {
 				$('#modal-count').val(newVal);
 			});
 
-});
-
 //取得星級評價
 function getStarRating(size){
 		$('.star-rating-product').starRating({
@@ -375,34 +375,45 @@ function getStarModal(score){
 		});
 	}
 
-function getIsotope(){
-	var $grid = $('.grid').isotope({        		
+function getIsotope(){	
+	var $grid =  $("#wrap");
+	$grid.isotope('destroy');
+	 
+	 $grid.isotope({        		
 		itemSelector: '.hero-feature',
 		layoutMode: 'fitRows',
 		getSortData: {
 		name:'.name',
 		price: function( itemElem ) {        		
 			var price = $( itemElem ).find('.price').text();
-			return parseFloat( price.replace( /[\(\)]/g, ''));
+			return parseFloat( price);
+		},
+		priceDESC: function( itemElem ) {        		
+			var price = $( itemElem ).find('.price').text();
+			return parseFloat( price);
 		},
 		star: function( itemElem ) {	  
     		var star = $( itemElem ).find("span[data-rating]").text();
     		return parseFloat( star);
 		},
-
+		starDESC: function( itemElem ) {	  
+    		var star = $( itemElem ).find("span[data-rating]").text();
+    		return parseFloat( star);
+		},
 	}
 });
 		        		      
 // bind sort button click
 $('#sort').on( 'click', 'li', function() { 
-	var sortValue = $(this).attr('data-sort-by');        		        		  
+	var sortValue = $(this).attr('data-sort-by');  
 	$grid.isotope({ 
-		sortBy: sortValue ,
-		
+		sortBy: sortValue ,		
 			sortAscending:{
-				star: false
+				priceDESC:false,
+				starDESC: false
 			}       		
 		});
 	});
 }
 
+});
