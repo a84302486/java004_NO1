@@ -56,7 +56,7 @@ public class ProductDAO {
 			pstmt.setString(8, pb.getFileName());
 			pstmt.setBinaryStream(9, is, size);
 			pstmt.setBoolean(10, pb.isStatus());
-			pstmt.setInt(11, -1);
+			pstmt.setInt(11, 0);
 			pstmt.setInt(12, 0);
 			
 			pstmt.executeUpdate();
