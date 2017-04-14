@@ -62,7 +62,11 @@ public class LoginMember extends HttpServlet {
 		MemberService ls = new MemberService();
 		// 呼叫 ls物件的 checkIDPassword()，要記得傳入userid與password兩個參數
 		// 同時將傳回值放入MemberBean型別的變數mb之內。
+<<<<<<< HEAD
+		MemberBean mb = new MemberBean();
+=======
 		MemberBean mb = null;
+>>>>>>> f40a8312c5cbf95d64ec1f5dd536b31469fdb6d8
 		try {
 			mb = ls.checkIDPassword(userId, password);
 		} catch (Exception e) {
