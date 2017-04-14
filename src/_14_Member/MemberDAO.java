@@ -179,6 +179,33 @@ public class MemberDAO {
 		}
 		
 	}
+	
+synchronized public String updatePassword(MemberBean mem){
+		
+		String sql = "UPDATE `Member` SET "
+				+ "`M_Password`=?" 
+				+ "WHERE `M_Username`=?;";
+		
+		try(
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);){				
+			
+			int i=0;
+			pstmt.setString(++i, mem.getM_Password());
+			pstmt.setString(++i, mem.getM_Username());
+					
+			pstmt.executeUpdate();
+			
+			System.out.println("成功 修改密碼" + mem.getM_Username());
+			
+			return null;
+		}catch (Exception e){		
+			System.out.println("失敗 修改密碼" + mem.getM_Username());
+			e.printStackTrace();
+			return "失敗 修改密碼" + mem.getM_Username();
+		}
+		
+	}
 	public boolean checkCertification(String Username){
 		
 		String sql = "select M_Certification from Member where M_Username =?"					

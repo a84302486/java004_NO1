@@ -19,6 +19,12 @@ $(document).ready(function(){
 		memberUpdate('../_14_Member/Update', '#update-member-form');
 		
 	});
+	
+	$('#update-member-pwd').click(function() {
+		
+		passwordUpdate('../_14_Member/UpdatePassword', '#update-memberpassword-form');
+		
+	});
 });
 
 function orderSelect(servelet, resultId, inputId) {
@@ -124,16 +130,35 @@ function memberUpdate(servelet, formId) {
 		$.ajax({url: servelet,dataType:'html',data: $(formId).serialize(),
 			
 			success:   function(result){  
-	        	alert("編輯帳戶資料成功");       	
+	        	alert("編輯帳戶資料成功"); 
+	        	location.reload();
 	        },
 	        error:   function(result){  
-	        	alert("編輯帳戶資料失敗");       	
-	        },
-	        complete: function(result){
-	        	location.reload();
+	        	alert("編輯帳戶資料 系統發生問題");       	
 	        }
 		});
 	
 	},1);
+	
+}
+
+function passwordUpdate(servelet, formId) {
+	    
+	$.ajax({url: servelet,dataType:'json',data: $(formId).serialize(),
+			
+			success:   function(result){
+				if(result=="Success"){
+					alert("修改密碼成功");
+					location.reload();
+				}else{
+					alert("修改密碼失敗");
+				}
+	        },
+	        error:   function(result){  
+	        	alert("修改密碼 系統發生問題");       	
+	        }
+	});
+	
+
 	
 }
