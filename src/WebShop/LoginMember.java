@@ -64,7 +64,13 @@ public class LoginMember extends HttpServlet {
 		MemberService ls = new MemberService();
 		// 呼叫 ls物件的 checkIDPassword()，要記得傳入userid與password兩個參數
 		// 同時將傳回值放入MemberBean型別的變數mb之內。
-		MemberBean mb = ls.checkIDPassword(userId, password);
+		MemberBean mb = new MemberBean();
+		try {
+			mb = ls.checkIDPassword(userId, password);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// 如果變數mb的值不等於 null,表示資料庫含有userId搭配password的紀錄
 		if(mb == null){
 			errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");

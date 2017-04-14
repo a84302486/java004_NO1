@@ -1,23 +1,21 @@
 package _22_ShoppingTrackingList;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import _01_Product.ProductBean;
+import _01_Product.ProductDAO;
+import _21_ShoppingOrder.OrderDetailBean;
 
 public class TrackingDAO {
 
@@ -45,9 +43,12 @@ public class TrackingDAO {
 		try (Connection con = ds.getConnection(); 
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			) {
-
+			
 			pstmt.setString(1, tb.getUsername());
-			pstmt.setString(2, tb.getProducid());
+			
+			ProductBean pb = tb.getProductBean();
+			
+			pstmt.setString(2, pb.getProductId());
 			pstmt.executeUpdate();
 
 			System.out.println("成功新增追蹤" + tb.getUsername());
@@ -76,6 +77,36 @@ public class TrackingDAO {
 			return false;
 		}
 	}
+	
+	public Collection<ProductBean> select(String username){
+		
+		String sql = "select * from Tracking where Username=?;";				
+								
+		Collection<ProductBean> coll = new ArrayList<>();
+		try(
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);){				
+		
+			pstmt.setString(1, username);
+			try(
+				ResultSet rs = pstmt.executeQuery();
+			){
+				while(rs.next()){					
+					ProductBean pb = new ProductDAO()
+							.findByPrimaryKey(rs.getString(2)).iterator().next();
+					coll.add(pb);		
+					System.out.println("查詢"+rs.getString(2));
+				}				
+				
+				System.out.println("查詢"+username+"的追蹤清單");
+			}
+			return coll;
+		}catch (Exception e){			
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	
 	public Boolean ifExist(String productId) {
 

@@ -35,7 +35,8 @@ import _14_Member.MemberBean;
 		@WebInitParam(name = "url_1", value = "/WebShop/memberManage.jsp"),
 		@WebInitParam(name = "url_2", value = "/_21_ShoppingOrder/Order"),
 		@WebInitParam(name = "url_3", value = "/_21_ShoppingOrder/OrderDetailServlet.java"),
-		@WebInitParam(name = "url_4", value = "/WebShop/ShowOrderDetail.jsp")
+		@WebInitParam(name = "url_4", value = "/WebShop/ShowOrderDetail.jsp"),
+//		@WebInitParam(name = "url_5", value = "/WebShop/TrackingList.jsp")
 		
 		})
 

@@ -15,21 +15,20 @@ $(document).ready(function(){
 	});
 });
 
-
-
-
 function orderSelect(servelet, resultId, inputId) {
 	var queryString = "Username="+$(inputId).val();
-	$.ajax({url: servelet,dataType: 'json',resetForm: true,data: queryString,
-        success:   function(result){
-  
+	$.ajax({
+		url: servelet,
+		dataType: 'json',
+		resetForm: true,
+		data: queryString,
+        success: function(result){
         	orderResult(result, resultId, inputId);       	
         }
 	});
 }
 
 function orderResult(result, resultId, inputId){
-	
 	var deleteFlag = true;
 	var orderId = "";
 	var content =""	

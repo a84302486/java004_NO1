@@ -1,15 +1,18 @@
 package _22_ShoppingTrackingList;
 
+import _01_Product.ProductBean;
+
 public class TrackingBean {
 	private String username;
-	private String producid;
+	private ProductBean ProductBean;
 	
 	public TrackingBean() {
 	}
 
-	public TrackingBean(String username, String producid) {
+	public TrackingBean(String username, _01_Product.ProductBean productBean) {
+		super();
 		this.username = username;
-		this.producid = producid;
+		ProductBean = productBean;
 	}
 
 	public String getUsername() {
@@ -20,12 +23,11 @@ public class TrackingBean {
 		this.username = username;
 	}
 
-	public String getProducid() {
-		return producid;
+	public ProductBean getProductBean() {
+		return ProductBean;
 	}
 
-	public void setProducid(String producid) {
-		this.producid = producid;
+	public void setProductBean(ProductBean productBean) {
+		ProductBean = productBean;
 	}
-
 }

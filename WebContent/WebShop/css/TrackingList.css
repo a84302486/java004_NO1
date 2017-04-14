@@ -1,0 +1,19 @@
+body{
+	background: url('../images/background.png') no-repeat center fixed;
+}
+.thumbnail img{	
+	width: 100%;
+	height: 12em;
+}
+hr {
+	height: 10px;
+	border: 0;
+	box-shadow: 0 20px 20px -20px #384145 inset;
+}
+#track-product{
+	font: 25px;
+	font-weight:900;
+}
+.caption{
+	background:#ffe2d2;
+}
