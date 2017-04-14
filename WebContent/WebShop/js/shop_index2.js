@@ -168,7 +168,7 @@ $(function() {
 		     	   	        var newQty = parseInt(quantity - cart[productId].qty);
 		     	   	        $('.addcart-Modal_id').val(newQty);  
 		     	   	        if(newQty ==0 || newQty ==null ){
-	     	        		$('.btn-submit').after("<p>已售完</p>").prop("disabled",true);  
+	     	        		$('.btn-warning').after("<p>已售完</p>").prop("disabled",true);  
 	     	        		$('#modal-count').val("0");
 		     	   	        }
 	     	   	        }
@@ -177,7 +177,6 @@ $(function() {
 	        	});
 	        }
 	    });
-
 	});
 	
 //計算modal內的modal-count欄位的數量

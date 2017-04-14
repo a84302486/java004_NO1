@@ -35,13 +35,12 @@ $("#loadPageDiv").on("click", "#upLoadPic", function() {
 		resetForm: true,
 		success : function(responseText) {
 			$('#insertResult').text(responseText);
-			getQueryData('SelectProduct.do');
+			getQueryData("ALL","productId","");
 		},
 		error : function(responseText) {
 			alert("發生錯誤,請連絡管理人員");
-		},
+		},		
 	});
-	
 });
 
 
@@ -119,9 +118,7 @@ $("#loadPageDiv").on("click", "input[type='button']", function() {
 		type = "productId";
 		val = "";
 	}
-	
-	getQueryData(cmd,type,val);
-	
+	getQueryData(cmd,type,val);	
 });
 
 function getQueryData(cmd,type,val) {
@@ -200,8 +197,10 @@ $("#loadPageDiv").on("click",'#deleteProduct',function() {
 							var result = document.getElementById("showDAOJsp");
 							result.innerHTML = "<h3>" + data + "<h3>";
 							getQueryData('SelectProduct.do');
+							getQueryData(cmd,type,val);
 						}
-					}
+					}		
+					getQueryData("ALL","productId","");
 				}	
 			} else {
 				alert("請選勾選要刪除的資料");
@@ -239,7 +238,7 @@ function getUpdateData(servelet) {
 			var data = JSON.parse(xhr.responseText);
 			var result = document.getElementById("updateResult");
 			result.innerHTML = data;
-			getQueryData('SelectProduct.do');
+			getQueryData("ALL","productId","");
 		}
 	}
 }
@@ -276,13 +275,4 @@ $("#loadPageDiv").on("change",'input:checkbox',function() {
 	}
 });
 
-
-// 以下功能無使用------------------------------------------------------
-
-// Import選取要寫入的檔案----------------
-// $(function(){
-// $('#ProductPic').change(function(){
-// $('#ProductPic').removeAttr('disabled');
-// });
-// });
 
