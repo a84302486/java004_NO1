@@ -30,7 +30,7 @@
                                 <span class="glyphicon glyphicon-user"></span>我的帳戶 <b class="caret"></b></a>
                                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="../WebShop/memberManage.jsp">帳戶資料</a></li>
-                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="../WebShop/TrackingList.jsp">產品追蹤清單</a></li>
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="../_22_ShoppingTrackingList/SelectTracking.do">產品追蹤清單</a></li>
                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="/java004/WebShop/logout.jsp">登出</a></li>     
                                    </ul>
                             </li>

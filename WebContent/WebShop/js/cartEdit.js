@@ -6,33 +6,33 @@ $(function() {
 	
 	updateData();
 
-	function createCarList(itemKey,itemValue){ 
-	var itemId = itemKey;
-	var itemName = itemValue.split('|')[1];
-	var itemImage = itemValue.split('|')[2];
-	var itemPrice = parseInt(itemValue.split('|')[3]);
-	var itemQty   = parseInt(itemValue.split('|')[4]);
-	var itemTotal = itemPrice * itemQty;
-	
-	//建立每個品項的清單區域 ==tr:
-	$('.table tbody').eq(0).append(" <tr id=" + itemId + "><td>"
-		+ " <div class=media> <a class='thumbnail pull-left' href=#>"
-		+ " <img class=media-object src="+ itemImage + ">"
-		+ "	</a><div class=media-body>"
-		+ "            <h4 class=media-heading><a href=# class=name>"+ itemName +"</a></h4>"
-		+ "            <h5 class=media-heading> by <a href=#>包裝</a></h5>"
-		+ "            <span>Status: </span><span class=text-success><strong>In Stock</strong></span>"           	
-		+ " </div></div></td>"	
-		+ " <td class=price>" + itemPrice + "</td>"
-		+ " <td class=countTd><button class=minus onclick=changeAmount($(this));>－</button>" 
-		+ "	<input class=count type=text size=1 value=" + itemQty +">"
-		+ "	<button class=plus  onclick=changeAmount($(this));>＋</button>"
-		+ " </td> <td class=total>" + itemTotal + "</td>"
-		+ " <td class=remove>"
-		+ "	<button type=button class='btn btn-danger' onclick=setDel($(this));>"
-		+ "	<span class='glyphicon glyphicon-remove'></span> Remove</button>"
-		+ " </td></tr>");
-	}
+//	function createCarList(itemKey,itemValue){ 
+//	var itemId = itemKey;
+//	var itemName = itemValue.split('|')[1];
+//	var itemImage = itemValue.split('|')[2];
+//	var itemPrice = parseInt(itemValue.split('|')[3]);
+//	var itemQty   = parseInt(itemValue.split('|')[4]);
+//	var itemTotal = itemPrice * itemQty;
+//	
+//	//建立每個品項的清單區域 ==tr:
+//	$('.table tbody').eq(0).append(" <tr id=" + itemId + "><td>"
+//		+ " <div class=media> <a class='thumbnail pull-left' href=#>"
+//		+ " <img class=media-object src="+ itemImage + ">"
+//		+ "	</a><div class=media-body>"
+//		+ "            <h4 class=media-heading><a href=# class=name>"+ itemName +"</a></h4>"
+//		+ "            <h5 class=media-heading> by <a href=#>包裝</a></h5>"
+//		+ "            <span>Status: </span><span class=text-success><strong>In Stock</strong></span>"           	
+//		+ " </div></div></td>"	
+//		+ " <td class=price>" + itemPrice + "</td>"
+//		+ " <td class=countTd><button class=minus onclick=changeAmount($(this));>－</button>" 
+//		+ "	<input class=count type=text size=1 value=" + itemQty +">"
+//		+ "	<button class=plus  onclick=changeAmount($(this));>＋</button>"
+//		+ " </td> <td class=total>" + itemTotal + "</td>"
+//		+ " <td class=remove>"
+//		+ "	<button type=button class='btn btn-danger' onclick=setDel($(this));>"
+//		+ "	<span class='glyphicon glyphicon-remove'></span> Remove</button>"
+//		+ " </td></tr>");
+//	}
 	
 	$("[data-toggle='tooltip']").tooltip();
 	
@@ -125,7 +125,7 @@ function updateData(){
 	//如果沒有商品顯示以下內容
 	if( $('.price').size()==0){
 		var txt1=$("<tr class=alertMsg><td></td></tr>").text("目前您的購物車是空的").css("color","red");
-		var txt2=$("<a href=shop_index.jsp></a>").text("您可以前往我們店鋪 ，以選購您想要的商品。");
+		var txt2=$("<a href=shop_index.jsp></a>").text("您可以前往我們的商城 ，選購您想要的商品。");
 		$('tbody').eq(0).append(txt1,txt2);
 		
 		$( "#shop_insert_order" ).prop("disabled", true);

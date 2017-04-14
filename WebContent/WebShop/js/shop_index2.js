@@ -156,7 +156,8 @@ $(function() {
 	     	        success: function(quantity){
 	     	        	$('.addcart-Modal_id').val(quantity);
 	     	        	if(quantity ==0 || quantity ==null ){
-	     	        		$('.btn-submit').after("<p>已售完</p>").prop("disabled",true);  
+	     	        		$('.btn-submit').prop("disabled",true); 
+	     	        		$('.btn-warning').after("<p>已售完</p>");
 	     	        		$('#modal-count').val("0");
 	     	        	}
 	     	        	
@@ -168,7 +169,8 @@ $(function() {
 		     	   	        var newQty = parseInt(quantity - cart[productId].qty);
 		     	   	        $('.addcart-Modal_id').val(newQty);  
 		     	   	        if(newQty ==0 || newQty ==null ){
-	     	        		$('.btn-warning').after("<p>已售完</p>").prop("disabled",true);  
+	     	        		$('.btn-submit').prop("disabled",true);  
+	     	        		$('.btn-warning').after("<p>已售完</p>");
 	     	        		$('#modal-count').val("0");
 		     	   	        }
 	     	   	        }
@@ -220,9 +222,7 @@ $(document).on('click','.number-spinner button',function() {
 		var itemName  = $('.modal-content h3').html();
 		var itemPrice = $('.col-md-8 h4').html().replace('$','');
 		var qty = $('#modal-count').val();
-		
-		$('body').off('.data-api')
-		
+			
 		addToCart(thisID,itemName,itemPrice,qty);	
 		calculate();
 		
@@ -246,6 +246,7 @@ $(document).on('click','.number-spinner button',function() {
 	        	alert("發生錯誤");
 	        }
 		});
+		
 	});
 
 /* ---------------------------以下是共用function----------------------------*/

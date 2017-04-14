@@ -21,11 +21,8 @@ import _14_Member.MemberBean;
 import _21_ShoppingOrder.OrderDetailBean;
 import _21_ShoppingOrder.OrderDetailBeanDAO;
 
-
-
-
-@WebServlet("/_22_ShoppingTrackingList/SelectTracking.do")
-public class SelectTracking extends HttpServlet {
+@WebServlet("/_22_ShoppingTrackingList/DeleteTracking.do")
+public class DeleteTracking extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,27 +35,19 @@ public class SelectTracking extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
-	
-		HttpSession session = request.getSession();
-		MemberBean mb = (MemberBean) session.getAttribute("MemberLoginOK");
+		String productIdStr = request.getParameter("productId");	
 
-		String usernameStr = mb.getM_Username();
-
-		try {
-			Collection<ProductBean> coll = new ArrayList<>();
+		try (PrintWriter out = response.getWriter();) {
+			String toJson = null;
 			TrackingDAO tkDAO = new TrackingDAO();
-			coll = tkDAO.select(usernameStr);
-			request.setAttribute("TrackingList_coll", coll);
-			RequestDispatcher  rd = request.getRequestDispatcher("/WebShop/TrackingList.jsp");
-			rd.forward(request, response);
-			return;
+			tkDAO.delete(productIdStr);
+			String s = "刪除追蹤成功";
+			toJson = new Gson().toJson(s);
+			out.println(toJson);
+			
 		} catch (Exception e) {
-			throw new ServletException(e);
-		} 
-
+			e.printStackTrace();
+		}
 
 	}
-
-
-
 }

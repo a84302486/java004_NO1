@@ -66,7 +66,7 @@
                                 	<span class="glyphicon glyphicon-user"></span>我的帳戶 <b class="caret"></b></a>
                                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="../WebShop/memberManage.jsp">帳戶資料</a></li>
-                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#anotherAction">產品追蹤清單</a></li>
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="../_22_ShoppingTrackingList/SelectTracking.do">產品追蹤清單</a></li>
                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="/java004/WebShop/logout.jsp">登出</a></li>     
                                    </ul>
                             </li>
@@ -210,7 +210,7 @@
 								<input class="addcart-Modal_id" id="" value="" type="hidden">
 								<button type="button" class="btn btn-primary btn-submit"
 									data-dismiss="modal" aria-hidden="true">加入購物車</button>
-								<button type="button" class="btn btn-warning"
+								<button type="button" class="btn btn-warning" data-dismiss="modal"
 									aria-hidden="true">加入追蹤清單</button>
 							</div>
 						</div>

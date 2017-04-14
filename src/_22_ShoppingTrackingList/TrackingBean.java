@@ -4,13 +4,17 @@ import _01_Product.ProductBean;
 
 public class TrackingBean {
 	private String username;
+	private String procductId;
 	private ProductBean ProductBean;
 	
 	public TrackingBean() {
 	}
-
+	public TrackingBean(String username, String procductId) {
+		this.username = username;
+		this.procductId = procductId;
+	}
+	
 	public TrackingBean(String username, _01_Product.ProductBean productBean) {
-		super();
 		this.username = username;
 		ProductBean = productBean;
 	}
@@ -23,6 +27,15 @@ public class TrackingBean {
 		this.username = username;
 	}
 
+	
+	public String getProcductId() {
+		return procductId;
+	}
+	
+	public void setProcductId(String procductId) {
+		this.procductId = procductId;
+	}
+	
 	public ProductBean getProductBean() {
 		return ProductBean;
 	}

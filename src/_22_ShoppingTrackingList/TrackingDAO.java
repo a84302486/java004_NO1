@@ -45,10 +45,7 @@ public class TrackingDAO {
 			) {
 			
 			pstmt.setString(1, tb.getUsername());
-			
-			ProductBean pb = tb.getProductBean();
-			
-			pstmt.setString(2, pb.getProductId());
+			pstmt.setString(2, tb.getProcductId());
 			pstmt.executeUpdate();
 
 			System.out.println("成功新增追蹤" + tb.getUsername());

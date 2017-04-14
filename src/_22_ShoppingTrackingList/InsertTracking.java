@@ -47,12 +47,13 @@ public class InsertTracking extends HttpServlet {
 			// RequestDispatcher rd =request.getRequestDispatcher("/java004/WebShop/login_and_register.jsp");
 			// rd.forward(request, response);
 			errorMsg.add("請先登入");
-//			response.sendRedirect(response.encodeRedirectURL("/java004/WebShop/login_and_register.jsp"));
+//			response.sendRedirect(response.encodeRedirectURL(getServletContext().getContextPath()
+//			+"/WebShop/login_and_register.jsp"));
 			System.out.println("mb==null");
 		}
 		String usernameStr = null;
 		String productIdStr = null;
-		TrackingBean tb = new TrackingBean(usernameStr, productIdStr);
+		
 		try {
 			usernameStr = mb.getM_Username();
 			productIdStr = request.getParameter("productId");			
@@ -60,9 +61,9 @@ public class InsertTracking extends HttpServlet {
 				errorMsg.add("該產品已存在追蹤清單");
 			}	
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
-
+		TrackingBean tb = new TrackingBean(usernameStr, productIdStr);
 		try (PrintWriter out = response.getWriter();) {
 
 			String toJson = null;
