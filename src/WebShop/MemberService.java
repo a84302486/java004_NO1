@@ -23,8 +23,11 @@ public class MemberService {
         if ( mb != null ) {
         	String passwordDecrypt = AES.decrypt(mb.getM_Password());
         	
+//        	System.out.println("mb的密碼 "+passwordDecrypt);
+//        	System.out.println("輸入的密碼 "+Password);
         	if(Password.equals(passwordDecrypt)) {
-      	
+        		
+        		System.out.println("登入 輸入密碼正確");
         		// 傳回 mb物件，同時結束本方法       	 
         		return mb;
         	} 
