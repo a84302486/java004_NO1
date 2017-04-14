@@ -35,8 +35,6 @@ public class LoginMember extends HttpServlet {
 		String userId = request.getParameter("Username");
 		String password = request.getParameter("Password");
 		
-		password = AES.encrypt(password);
-		//密碼加密	
 		
 		// 2. 進行必要的資料轉換
 		// 無
@@ -64,16 +62,23 @@ public class LoginMember extends HttpServlet {
 		MemberService ls = new MemberService();
 		// 呼叫 ls物件的 checkIDPassword()，要記得傳入userid與password兩個參數
 		// 同時將傳回值放入MemberBean型別的變數mb之內。
-		MemberBean mb = ls.checkIDPassword(userId, password);
+		MemberBean mb = null;
+		try {
+			mb = ls.checkIDPassword(userId, password);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// 如果變數mb的值不等於 null,表示資料庫含有userId搭配password的紀錄
 		if(mb == null){
 			errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");
-		}else if(!new MemberDAO().checkCertification(userId)){
-			errorMsgMap.put("LoginError", "該帳號還沒有認證");
-		}else{
-			session.setAttribute("MemberLoginOK", mb);
+		}else {
+			if(!new MemberDAO().checkCertification(userId)){
+				errorMsgMap.put("LoginError", "該帳號還沒有認證");
+			}else{
+				session.setAttribute("MemberLoginOK", mb);
+			}
 		}
-		
 		
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
 		// 如果 errorMsgMap是空的，表示沒有任何錯誤，準備交棒給下一隻程式
