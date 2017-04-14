@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	//自動搜尋
+	//自動搜尋會員訂單
 	orderSelect('../_21_ShoppingOrder/SelectOrder','#orderResult','#memberVal');
 	
 	$('#orderResult').on('click', '.btn-danger', function() {
@@ -12,6 +12,18 @@ $(document).ready(function(){
 		}else{
 			return;
 		}
+	});
+	
+	$('#update-member').click(function() {
+		
+		memberUpdate('../_14_Member/Update', '#update-member-form');
+		
+	});
+	
+	$('#update-member-pwd').click(function() {
+		
+		passwordUpdate('../_14_Member/UpdatePassword', '#update-memberpassword-form');
+		
 	});
 });
 
@@ -100,4 +112,53 @@ function orderResult(result, resultId, inputId){
            +'</section>';
             
   $(resultId).html(content);
+}
+
+function memberUpdate(servelet, formId) {
+
+	//load的特效
+	var options = {
+		    bgColor         : '#000',
+		    duration        : 800,
+		    opacity    	    : 0.6,
+		    classOveride    : false
+	}
+	new ajaxLoader(document.body, options);//load.js
+	//-------------------------
+	
+	setTimeout(function(){		    
+		$.ajax({url: servelet,dataType:'html',data: $(formId).serialize(),
+			
+			success:   function(result){  
+	        	alert("編輯帳戶資料成功"); 
+	        	location.reload();
+	        },
+	        error:   function(result){  
+	        	alert("編輯帳戶資料 系統發生問題");       	
+	        }
+		});
+	
+	},1);
+	
+}
+
+function passwordUpdate(servelet, formId) {
+	    
+	$.ajax({url: servelet,dataType:'json',data: $(formId).serialize(),
+			
+			success:   function(result){
+				if(result=="Success"){
+					alert("修改密碼成功");
+					location.reload();
+				}else{
+					alert("修改密碼失敗");
+				}
+	        },
+	        error:   function(result){  
+	        	alert("修改密碼 系統發生問題");       	
+	        }
+	});
+	
+
+	
 }

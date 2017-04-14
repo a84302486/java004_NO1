@@ -150,27 +150,22 @@ public class MemberDAO {
 	}
 	
 	synchronized public String update(MemberBean mem){
-	
-		String sql = "UPDATE Member SET "
-				+ "M_Password = ?, M_Name = ?, M_Nick = ?, M_Sex = ?, M_Birthday = ?, M_EMail = ?,"
-				+ "M_Phone = ?, M_Cellphone = ?, M_Address = ?, M_Line = ?, M_FaceBook = ?, M_IdentityCard = ?"
-				+ "M_Invoice = ?, M_UniformNumber = ?"
-				+ "WHERE M_Username = ?;";
+		
+		String sql = "UPDATE `Member` SET "
+				+ "`M_Name`=?, `M_Address`=?, `M_Cellphone`=?, `M_Birthday`=?, `M_UpdateDate`=?" 
+				+ "WHERE `M_Username`=?;";
 		
 		try(
 			Connection con = ds.getConnection();
 			PreparedStatement pstmt	= con.prepareStatement(sql);){				
-		
-			pstmt.setString(1, mem.getM_Username());
-			pstmt.setString(2, mem.getM_Password());
-			pstmt.setString(3, mem.getM_Name());	
-			pstmt.setString(4, mem.getM_Cellphone());
-			pstmt.setString(5, mem.getM_Birthday());
-			pstmt.setString(6, mem.getM_Insertdate());
-			pstmt.setString(7, mem.getM_Updatedate());
-			pstmt.setInt(8, mem.getM_Level());
-			pstmt.setInt(9, mem.getM_BonusPoints());
-			pstmt.setInt(10, mem.getM_Total());
+			
+			int i=0;
+			pstmt.setString(++i, mem.getM_Name());
+			pstmt.setString(++i, mem.getM_Address());
+			pstmt.setString(++i, mem.getM_Cellphone());
+			pstmt.setString(++i, mem.getM_Birthday());
+			pstmt.setString(++i, mem.getM_Updatedate());
+			pstmt.setString(++i, mem.getM_Username());
 					
 			pstmt.executeUpdate();
 			
@@ -181,6 +176,33 @@ public class MemberDAO {
 			System.out.println("失敗 修改" + mem.getM_Username());
 			e.printStackTrace();
 			return "失敗 修改" + mem.getM_Username();
+		}
+		
+	}
+	
+synchronized public String updatePassword(MemberBean mem){
+		
+		String sql = "UPDATE `Member` SET "
+				+ "`M_Password`=?" 
+				+ "WHERE `M_Username`=?;";
+		
+		try(
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);){				
+			
+			int i=0;
+			pstmt.setString(++i, mem.getM_Password());
+			pstmt.setString(++i, mem.getM_Username());
+					
+			pstmt.executeUpdate();
+			
+			System.out.println("成功 修改密碼" + mem.getM_Username());
+			
+			return null;
+		}catch (Exception e){		
+			System.out.println("失敗 修改密碼" + mem.getM_Username());
+			e.printStackTrace();
+			return "失敗 修改密碼" + mem.getM_Username();
 		}
 		
 	}

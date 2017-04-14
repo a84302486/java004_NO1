@@ -184,7 +184,7 @@ $(document).ready(function() {
 			var options = {
 				    bgColor         : '#000',
 				    duration        : 800,
-				    opacity    	    : 0.8,
+				    opacity    	    : 0.6,
 				    classOveride    : false
 			}
 			new ajaxLoader(document.body, options);//load.js

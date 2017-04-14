@@ -23,6 +23,25 @@ public class MemberBean implements Serializable {
 	public MemberBean(){
 		
 	}
+	
+
+	public MemberBean(String m_Username, String m_Password, String m_Updatedate) {
+		super();
+		M_Username = m_Username;
+		M_Password = m_Password;
+		M_Updatedate = m_Updatedate;
+	}
+
+	public MemberBean(String m_Username, String m_Name, String m_Address, String m_Cellphone, String m_Birthday,
+			String m_Updatedate) {
+		super();
+		M_Username = m_Username;
+		M_Name = m_Name;
+		M_Address = m_Address;
+		M_Cellphone = m_Cellphone;
+		M_Birthday = m_Birthday;
+		M_Updatedate = m_Updatedate;
+	}
 
 
 	public MemberBean(String m_Username, String m_Password, String m_Name, String m_Address, String m_Cellphone,

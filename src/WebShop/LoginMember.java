@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import _00_Util.AES;
 import _14_Member.MemberBean;
 import _14_Member.MemberDAO;
 
