@@ -117,10 +117,15 @@ $(function() {
 		getProductInfo(getType)
 	});
 	
-	
+	//搜尋產品
 	$('#search').click(function(){	
-		var data ="cmd=Name&productName=" + $('.form-control').val();	
-		getProductInfo(data)
+		var string = $('.form-control').val(); 		
+		var data ="cmd=Name&productName=" + string; 	
+		if(string.length ==0 || string.trim()==null){
+			alert("請輸入搜尋條件");
+		}else{
+			getProductInfo(data);
+		}
 	});
 	
 	
@@ -130,6 +135,7 @@ $(function() {
 		$('.extra_cart p').remove();
 		$('#star-rating-modal').remove();
 		$('#star-score').remove();
+		$('#modal-count').val("1");
 		var productId = $(this).attr('id');
 		var getPicSrc="http://localhost:8080/java004/_01_Product/getImage?id=";
 		$.ajax({
@@ -155,7 +161,7 @@ $(function() {
 	     	        dataType:'json',
 	     	        success: function(quantity){
 	     	        	$('.addcart-Modal_id').val(quantity);
-	     	        	if(quantity ==0 || quantity ==null ){
+	     	        	if(quantity <=0 || quantity ==null ){
 	     	        		$('.btn-submit').prop("disabled",true); 
 	     	        		$('.btn-warning').after("<p>已售完</p>");
 	     	        		$('#modal-count').val("0");
@@ -190,15 +196,20 @@ $(document).on('click','.number-spinner button',function() {
 		 
 		 if (btn.attr('data-dir') == 'up') {
 			 newVal = parseInt(oldValue) + 1;
-				if (newVal > quantity) {
-				alert("目前庫存只剩" + quantity + "個");
-				newVal = quantity;
-				}
-			} else {
+			 if (newVal > quantity) {
+				 if(quantity>0){
+						alert("目前庫存只剩" + quantity + "個");
+						newVal = quantity;
+					}else if(quantity<=0){
+						alert("目前庫存只剩0個");
+						newVal = 0;
+					}
+			 	}
+			} else if(btn.attr('data-dir') == 'dwn') {
 				if (oldValue > 1) {
 					newVal = parseInt(oldValue) - 1;					
 				}else{
-					newVal = 1; 
+					newVal = 0; 
 				}
 			}		
 			btn.closest('.number-spinner').find('input').val(newVal);	
@@ -210,9 +221,18 @@ $(document).on('click','.number-spinner button',function() {
 					newVal = $('#modal-count').val().trim();
 
 				if (newVal > quantity) {
-					alert("目前庫存只剩" + quantity + "個");
-					newVal = quantity;
+					if(quantity>0){
+						alert("目前庫存只剩" + quantity + "個");
+						newVal = quantity;
+					}else if(quantity<0){
+						alert("目前庫存只剩0個");
+						newVal = 0;
+					}
+					
+				}else if(newVal <= 0){
+					newVal = 1;
 				}
+				
 				$('#modal-count').val(newVal);
 			});
 	
@@ -260,7 +280,7 @@ function getProductInfo(SetData){
         dataType:'json',
         data: SetData,
         success: function(data){
-        if(data.length ==0){
+        if(data.length ==0 || data==null){
         	alert("查無商品資料");
         	return;
         }	

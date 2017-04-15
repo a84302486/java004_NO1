@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 
 public class getProductStock extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	private String productIdStr = null; // 查詢單筆商品會用到此代號
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		doPost(request, response);
 	}

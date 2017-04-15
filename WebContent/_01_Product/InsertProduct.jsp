@@ -18,31 +18,31 @@
 		<div class="col-md-2">
 			<label >產品序號</label>
 			<div>
-				<input type="text" name="productId" value="001">
+				<input type="text" name="productId" value="000">
 			</div>
 		</div>
 		<div class="col-md-2">
 			<label>產品定價</label>
 			<div>
-				<input type="text" name="PGPrice" value="500">
+				<input type="text" name="PGPrice" value="120">
 			</div>
 		</div>
 		<div class="col-md-2">
 			<label>產品品名</label>
 			<div>
-				<input type="text" name="name" value="羊咩咩羊肉爐">
+				<input type="text" name="name" value="炸豬排">
 			</div>
 		</div>
 		<div class="col-md-2">
 			<label>產品成本</label>
 			<div>
-				<input type="text" name="avgCost" value="300">
+				<input type="text" name="avgCost" value="50">
 			</div>
 		</div>
 		<div class="col-md-2">
 			<label>產品生產地</label>
 			<div>
-				 <input type="text" name="oPlace" value="台灣台北">
+				 <input type="text" name="oPlace" value="台灣屏東">
 			</div>
 		</div>
 		<div class="col-md-2">

@@ -182,7 +182,7 @@ public class ProductDAO {
 
 	public List<ProductBean> findByName(String productName) {
 
-		String sql = "select * from Product where name like ? ;";
+		String sql = "select * from Product where name like ? and on_shelf = 1;";
 
 		List<ProductBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); 
@@ -219,7 +219,7 @@ public class ProductDAO {
 	
 	public List<ProductBean> findByPrice(String price) {
 
-		String sql = "select * from Product where p_g_price like ? ;";
+		String sql = "select * from Product where p_g_price like ? and on_shelf = 1;";
 		List<ProductBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); 
 			PreparedStatement pstmt = con.prepareStatement(sql);) {

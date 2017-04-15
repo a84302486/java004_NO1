@@ -227,7 +227,7 @@ public class StockDAO {
 				while (rs.next()) {
 					quantity = rs.getInt(1);
 				}
-				System.out.println("序號查詢資料");
+				System.out.println("查詢序號"+ProductId+"的資料");
 			}
 			return quantity;
 		} catch (Exception e) {
