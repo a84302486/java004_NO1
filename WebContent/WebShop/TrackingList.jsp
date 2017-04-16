@@ -43,7 +43,6 @@
 										<p>
 											<button class="btn btn-primary">加入購物清單</button>
 											<button class="btn btn-danger">刪除追蹤</button>
-										<p id="mark">
 								</div>
 							</div>
 						</div>

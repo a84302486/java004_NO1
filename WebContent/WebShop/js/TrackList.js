@@ -32,12 +32,9 @@ $(function() {
 		});
 	});
 	
-	
-	
-	
 	// 從追蹤清單移除
 	$('#warp').on('click','.btn-danger',function(){
-		var thisID = $('.thumbnail').attr('id');
+		var thisID = $(this).parents('.thumbnail').attr('id');
 		$.ajax({
 	        url: '../_22_ShoppingTrackingList/DeleteTracking.do',
 	        type:'POST',
@@ -56,7 +53,7 @@ $(function() {
 	});
 
 	$('#warp').on('click','.btn-primary',function(){
-		var thisID = $('.thumbnail').attr('id');
+		var thisID = $(this).parents('.thumbnail').attr('id');
 		var itemName  = $('#'+thisID).find('.name').text();
 		var itemPrice = $('#'+thisID).find('.price').text();
 		var qty = "1";

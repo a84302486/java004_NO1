@@ -209,7 +209,7 @@ $(document).on('click','.number-spinner button',function() {
 				if (oldValue > 1) {
 					newVal = parseInt(oldValue) - 1;					
 				}else{
-					newVal = 0; 
+					newVal = 1; 
 				}
 			}		
 			btn.closest('.number-spinner').find('input').val(newVal);	

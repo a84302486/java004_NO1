@@ -196,11 +196,9 @@ $("#loadPageDiv").on("click",'#deleteProduct',function() {
 							var data = JSON.parse(xhr.responseText);
 							var result = document.getElementById("showDAOJsp");
 							result.innerHTML = "<h3>" + data + "<h3>";
-							getQueryData('SelectProduct.do');
-							getQueryData(cmd,type,val);
+							getQueryData("ALL","productId","");
 						}
 					}		
-					getQueryData("ALL","productId","");
 				}	
 			} else {
 				alert("請選勾選要刪除的資料");

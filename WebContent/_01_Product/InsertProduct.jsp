@@ -24,7 +24,7 @@
 		<div class="col-md-2">
 			<label>產品定價</label>
 			<div>
-				<input type="text" name="PGPrice" value="120">
+				<input type="text" name="PGPrice" value="80">
 			</div>
 		</div>
 		<div class="col-md-2">

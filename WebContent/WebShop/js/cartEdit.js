@@ -68,6 +68,7 @@ function changeAmount(obj) {
         	if( v > quantity){
         		alert("目前庫存只剩" + quantity + "個");
         		c.val(quantity);
+        		return;
         	}
         	
         	$.ajax({	

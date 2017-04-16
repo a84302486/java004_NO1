@@ -50,7 +50,7 @@
 				</ul>
 				
 				<ul class="nav navbar-nav navbar-right">
-                	<li><a href="../WebShop/index.html"><img src="images/iconmonstr-home-8-16.png"> 觀光工廠</a></li>
+                	<li><a href="../WebShop/index.html"><img src="images/iconmonstr-home-8-16.png"> 網站首頁</a></li>
                 	<li><a href="../WebShop/cartEdit.jsp"><img src="images/iconmonstr-shopping-cart-3-16.png"> 購物清單</a></li>
                 	
                 	<c:choose>
@@ -218,8 +218,7 @@
 				</div>
 			</div>
 		</div>
-
-		<hr>
+	</div>
 		<footer>
 			<div class="row">
 				<div class="col-lg-12">
@@ -227,7 +226,6 @@
 				</div>
 			</div>
 		</footer>
-	</div>
 	</div>
 
 	<!-- /.container -->
