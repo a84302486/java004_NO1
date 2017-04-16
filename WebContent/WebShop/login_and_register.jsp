@@ -69,31 +69,21 @@
 
 											<c:otherwise>
 												<input type="text" class="form-control" name="Username"
-													id="Username" placeholder="帳號" value="${param.Username}"
-													autofocus />
+													id="Username" placeholder="帳號"
+													value="${param.Username}" autofocus />
 
 												<div class="form-group text-center" style="color: #FF0000;">
-													${ErrorMsgKey.AccountEmptyError}</div>
+													${ErrorMsgKey.AccountEmptyError}
+												</div>
 
 												<input type="password" class="form-control" name="Password"
-													id="Password" placeholder="密碼" value="${param.Password}"
-													autofocus />
+													id="Password" placeholder="密碼"
+													value="${param.Password}" autofocus />
 											</c:otherwise>
 										</c:choose>
 
 
 										<div class="form-group text-center" style="color: #FF0000;">
-<<<<<<< HEAD
-											${ErrorMsgKey.PasswordEmptyError}</div>
-										<c:choose>
-											<c:when
-												test="${cookie['SESSION_LOGIN_USERNAME'].value != null}">
-												<div class="form-group text-center">
-													<input type="checkbox" tabindex="3" class=""
-														name="remember" id="remember" value="true" checked>
-													<label for="remember"> 記住我</label>
-												</div>
-=======
 											${ErrorMsgKey.PasswordEmptyError}
 										</div>
 										
@@ -104,21 +94,9 @@
 												id="remember" value="true"> <label for="remember">
 												記住我</label>
 										</div>
->>>>>>> 9eda4ffb5dae3b55b6b41fec8bb319c273fc945f
 											</c:when>
 
 											<c:otherwise>
-<<<<<<< HEAD
-
-												<div class="form-group text-center">
-													<input type="checkbox" tabindex="3" class=""
-														name="remember" id="remember" value="true"> <label
-														for="remember"> 記住我</label>
-												</div>
-											</c:otherwise>
-										</c:choose>
-
-=======
 												<div class="form-group text-center">
 											<input type="checkbox" tabindex="3" class="" name="remember"
 												id="remember" value="true" checked> <label for="remember">
@@ -127,7 +105,6 @@
 											</c:otherwise>
 										</c:choose>
 									
->>>>>>> 9eda4ffb5dae3b55b6b41fec8bb319c273fc945f
 										<div id="drag" class="form-group col-sm-offset-2"></div>
 										<!-- 										<div class="form-group"> -->
 										<!-- 											<div class="row"> -->
@@ -149,15 +126,12 @@
 											<div class="row">
 												<div class="col-lg-12">
 													<div class="text-center">
-<<<<<<< HEAD
-														<a href="#" tabindex="5" class="forgot-password"
-															data-toggle="modal" data-target=".bs-iot">忘記密碼?</a>
-=======
 														<a href="http://phpoll.com/recover" tabindex="5"
-															class="forgot-password">忘記密碼?</a>
->>>>>>> 9eda4ffb5dae3b55b6b41fec8bb319c273fc945f
+															class="forgot-password" 
+															data-toggle="modal" data-target=".bs-iot">忘記密碼?</a>
 													</div>
 												</div>
+	
 											</div>
 										</div>
 										<div class="form-group text-center" style="color: #FF0000;">
