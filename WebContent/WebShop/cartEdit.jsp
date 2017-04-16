@@ -45,14 +45,14 @@
 							<div class=media-body>
 
 								<h4 class=media-heading>
-									<a href=# class=name>${pb.value.name}</a>
+									<b class=name>${pb.value.name}</b>
 								</h4>
 
-								<h5 class=media-heading>
-									by <a href=#>包裝</a>
-								</h5>
-								<span>Status: </span>
-								<span class=text-success>In Stock</span>
+<!-- 								<h5 class=media-heading> -->
+<!-- 									by <a href=#>包裝</a> -->
+<!-- 								</h5> -->
+<!-- 								<span>Status: </span> -->
+<!-- 								<span class=text-success>In Stock</span> -->
 							</div>
 						</div>
 					</td>

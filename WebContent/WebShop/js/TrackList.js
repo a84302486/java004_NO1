@@ -1,5 +1,6 @@
 
 $(function() {
+	// 載入該帳會追蹤的商品
 	$(document).ready(function(){
 		var items = $('.thumbnail').each(function(){
 			var productId = $(this).attr('id');		
@@ -65,6 +66,7 @@ $(function() {
 	        async:false,
 	        complete:function(){
 	        	alert("加入購物清單成功");
+	        	location.reload();
 	        }
 	    });	
 	});

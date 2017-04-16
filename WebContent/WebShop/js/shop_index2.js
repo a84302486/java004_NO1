@@ -172,6 +172,7 @@ $(function() {
 		     	   	        type:'GET',
 		     	   	        dataType:'json',
 		     	   	        success:function(cart){
+		     	   	        
 		     	   	        var newQty = parseInt(quantity - cart[productId].qty);
 		     	   	        $('.addcart-Modal_id').val(newQty);  
 		     	   	        if(newQty ==0 || newQty ==null ){
@@ -190,7 +191,7 @@ $(function() {
 //計算modal內的modal-count欄位的數量
 $(document).on('click','.number-spinner button',function() {
 		 var btn = $(this), 
-		 	 quantity = $('.addcart-Modal_id').val(),
+		 	 quantity = parseInt($('.addcart-Modal_id').val()),
 		 	 oldValue = btn.closest('.number-spinner').find('input').val().trim(), 
 		 	 newVal = 0;
 		 
@@ -224,11 +225,10 @@ $(document).on('click','.number-spinner button',function() {
 					if(quantity>0){
 						alert("目前庫存只剩" + quantity + "個");
 						newVal = quantity;
-					}else if(quantity<0){
+					}else if(quantity<=0){
 						alert("目前庫存只剩0個");
 						newVal = 0;
-					}
-					
+					}					
 				}else if(newVal <= 0){
 					newVal = 1;
 				}
