@@ -187,23 +187,26 @@
 									value="${MemberLoginOK.m_Username}">
 								<div class="form-group">
 									<label class="col-sm-3 control-label">舊的密碼</label>
-									<div class="col-sm-8">
-										<input type="password" id="password1" class="form-control"
+									<div class="col-sm-6">
+										<input type="password" id="password1" class="form-control password"
 											name="password1" />
+										
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">新的密碼</label>
-									<div class="col-sm-8">
-										<input type="password" id="password2" class="form-control"
+									<div class="col-sm-6">
+										<input type="password" id="password2" class="form-control password"
 											name="password2" />
+										
 									</div>
 								</div>
-								<div class="form-group" id="dvAddress">
+								<div class="form-group">
 									<label class="col-sm-3 control-label">新的密碼</label>
-									<div class="col-sm-8">
-										<input type="password" id="password3" class="form-control"
+									<div class="col-sm-6">
+										<input type="password" id="password3" class="form-control password"
 											name="password3" />
+										
 									</div>
 								</div>
 

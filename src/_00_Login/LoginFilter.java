@@ -59,7 +59,7 @@ public class LoginFilter implements Filter {
 			
 			
 			String servletPath = req.getServletPath();
-			System.out.println("servletPath " + servletPath);
+//			System.out.println("servletPath " + servletPath);
 			if (mustLogin(servletPath)) {
 				if (checkLogin(req)) {
 					//System.out.println("需要Login, 已經Login");
