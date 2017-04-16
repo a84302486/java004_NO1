@@ -23,11 +23,11 @@ import javax.servlet.http.HttpSession;
  * Servlet Filter implementation class LoginFilter
  */
 @WebFilter
-//(urlPatterns = { "/*" }, initParams = {
-//		@WebInitParam(name = "url_1", value = "/_14_Member/*"),
-//		@WebInitParam(name = "url_2", value = "/_01_Product/*"),
-//		@WebInitParam(name = "url_3", value = "/_00_Util/*")
-//		})
+(urlPatterns = { "/*" }, initParams = {
+		@WebInitParam(name = "url_1", value = "/_14_Member/IndexMember.jsp"),
+		@WebInitParam(name = "url_2", value = "/_01_Product/IndexMain.jsp"),
+		@WebInitParam(name = "url_3", value = "/_00_Util/IndexMain.jsp")
+		})
 public class LoginFilter implements Filter {
 	Collection<String> url = new ArrayList<String>();
 
