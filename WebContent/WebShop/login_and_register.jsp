@@ -65,6 +65,7 @@
 												<input type="password" class="form-control" name="Password"
 													id="Password" placeholder="密碼"
 													value="${cookie['SESSION_LOGIN_PASSWORD'].value}" autofocus />
+				
 											</c:when>
 
 											<c:otherwise>
@@ -79,10 +80,15 @@
 												<input type="password" class="form-control" name="Password"
 													id="Password" placeholder="密碼"
 													value="${param.Password}" autofocus />
+			
 											</c:otherwise>
 										</c:choose>
-
-
+										<c:if test="${cookie['SESSION_LOGIN_PASSWORD']==null}">
+   											<input type="hidden" class="form-control" name="encrypt"
+													id="encrypt" placeholder=""
+													value="true"/>
+										</c:if>
+								
 										<div class="form-group text-center" style="color: #FF0000;">
 											${ErrorMsgKey.PasswordEmptyError}
 										</div>

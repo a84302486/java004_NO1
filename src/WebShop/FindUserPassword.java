@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import _00_Util.AES;
 
-@WebFilter("/WebShop/login_and_register.jsp")
+//@WebFilter("/WebShop/login_and_register.jsp")
 public class FindUserPassword implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response,
@@ -43,7 +43,7 @@ public class FindUserPassword implements Filter {
 					
 						username = cookies[i].getValue();
 						
-						System.out.println("username ="+username);
+//						System.out.println("username ="+username);
 					} else if (cookieName.equals("SESSION_LOGIN_PASSWORD")) {
 										
 						String tmp  = cookies[i].getValue();
@@ -52,7 +52,7 @@ public class FindUserPassword implements Filter {
 							password = 	AES.decrypt(tmp);					
 						}
 						
-						System.out.println("password ="+password);
+//						System.out.println("password ="+password);
 					}
 				}
 			} else {
