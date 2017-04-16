@@ -57,7 +57,7 @@ function changeAmount(obj) {
 	v <= 1 ? t.text(p) : t.text(p * v);
 
 	var thisID = obj.parents('tr').attr('id');
-	var newQty = c.val();
+	var newQty = v;
 	
 	$.ajax({
 		 url: '../_05_Stock/getProductStock.do',
@@ -66,7 +66,7 @@ function changeAmount(obj) {
         dataType:'json',
         success: function(quantity){    	
         	if( v > quantity){
-        		alert("目前庫存只剩" + quantity + "個");
+        		alert("目前庫存只剩" + (quantity-1) + "個");
         		c.val(quantity);
         		updateData();
         		return;

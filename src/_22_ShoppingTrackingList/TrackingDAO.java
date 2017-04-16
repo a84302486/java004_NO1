@@ -105,14 +105,15 @@ public class TrackingDAO {
 	}
 	
 	
-	public Boolean ifExist(String productId) {
+	public Boolean ifExist(String productId , String username) {
 
-		String sql = "select * from Tracking where product_id =?;";
+		String sql = "select * from Tracking where product_id =? and username = ?;";
 		try (Connection con = ds.getConnection(); 
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			) {
 
 			pstmt.setString(1, productId);
+			pstmt.setString(2, username);
 			try (ResultSet rs = pstmt.executeQuery();) {
 				if (rs.next()) {
 					return true;

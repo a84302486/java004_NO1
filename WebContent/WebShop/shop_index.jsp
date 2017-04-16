@@ -220,9 +220,10 @@
 		</div>
 	</div>
 		<footer>
+		<hr>
 			<div class="row">
 				<div class="col-lg-12">
-					<p>Copyright &copy; Java004_NO1 2017</p>
+					<h3>Copyright &copy; Java004_NO1 2017</h3>
 				</div>
 			</div>
 		</footer>

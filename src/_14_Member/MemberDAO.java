@@ -468,7 +468,29 @@ public Boolean ifExist(String Username){
 		return null;
 	}
 	
-	
+public String getPassword(String Username , String birthday , String phonenumber ){
+		
+		String sql = "select M_password from Member where M_Username =? "
+				+ "and M_birthday =? and M_cellphone = ?;";
+		
+		try(
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);){				
+			 
+			pstmt.setString(1, "'"+Username+"'");
+			pstmt.setString(2, birthday);
+			pstmt.setString(3, phonenumber);
+			try(
+				ResultSet rs = pstmt.executeQuery();					
+			){	
+				String password = rs.getString(1);			
+				return password;
+			}
+		}catch (Exception e){			
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	
 }

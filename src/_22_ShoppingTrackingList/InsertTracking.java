@@ -57,7 +57,7 @@ public class InsertTracking extends HttpServlet {
 		try {
 			usernameStr = mb.getM_Username();
 			productIdStr = request.getParameter("productId");			
-			if (tkDAO.ifExist(productIdStr)) {
+			if (tkDAO.ifExist(productIdStr,usernameStr)) {
 				errorMsg.add("該產品已存在追蹤清單");
 			}	
 		} catch (Exception e) {
