@@ -59,8 +59,8 @@ public class FindUserPassword implements Filter {
 				// 找不到Cookie，沒事。
 			}
 
-//			session.setAttribute("username", username);
-//			session.setAttribute("password", password);
+			session.setAttribute("username", username);
+			session.setAttribute("password", password);
 		}
 		chain.doFilter(request, response);
 	}
