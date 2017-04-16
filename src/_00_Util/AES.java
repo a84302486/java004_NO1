@@ -22,8 +22,10 @@ public class AES {
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
             cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
             byte[] encrypted = cipher.doFinal(value.getBytes());
-            System.out.println("encrypted string:"
-                    + Base64.encodeBase64String(encrypted));
+//            System.out.println("encrypted string:"
+//                    + Base64.encodeBase64String(encrypted));
+            
+            System.out.println("AES加密完成");
             return Base64.encodeBase64String(encrypted);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -41,7 +43,8 @@ public class AES {
             cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
             byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
             
-            System.out.println(new String(original));
+//            System.out.println(new String(original));
+            System.out.println("AES解密完成");
             return new String(original);
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -51,36 +51,56 @@
 
 										<h3 class="form-signin-heading">歡迎回來! 請先登入!</h3>
 										<hr class="colorgraph">
-										<br> <input type="text" class="form-control"
-											name="Username" id="Username" placeholder="帳號"
-											value="${param.Username}" autofocus/>
+										<br>
+										<c:choose>
+											<c:when test="${empty ErrorMsgKey}">
+												<input type="text" class="form-control" name="Username"
+													id="Username" placeholder="帳號"
+													value="${sessionScope.username}" autofocus />
+
+												<div class="form-group text-center" style="color: #FF0000;">
+													${ErrorMsgKey.AccountEmptyError}<br>
+												</div>
+
+												<input type="password" class="form-control" name="Password"
+													id="Password" placeholder="密碼"
+													value="${sessionScope.password}" autofocus />
+											</c:when>
+
+											<c:otherwise>
+												<input type="text" class="form-control" name="Username"
+													id="Username" placeholder="帳號"
+													value="${param.Username}" autofocus />
+
+												<div class="form-group text-center" style="color: #FF0000;">
+													${ErrorMsgKey.AccountEmptyError}
+												</div>
+
+												<input type="password" class="form-control" name="Password"
+													id="Password" placeholder="密碼"
+													value="${param.Password}" autofocus />
+											</c:otherwise>
+										</c:choose>
+
 
 										<div class="form-group text-center" style="color: #FF0000;">
-											${ErrorMsgKey.AccountEmptyError}<br>
-										</div>
-
-										<input type="password" class="form-control" name="Password"
-											id="Password" placeholder="密碼" value="${param.Password}" autofocus/>
-
-										<div class="form-group text-center" style="color: #FF0000;">
-											${ErrorMsgKey.PasswordEmptyError}<br>
+											${ErrorMsgKey.PasswordEmptyError}
 										</div>
 
 										<div class="form-group text-center">
 											<input type="checkbox" tabindex="3" class="" name="remember"
-												id="remember"> <label for="remember">
-												Remember Me</label>
+												id="remember" value="true"> <label for="remember">
+												記住我</label>
 										</div>
-										<div id="drag" class="form-group col-sm-offset-2">
-										</div>
-<!-- 										<div class="form-group"> -->
-<!-- 											<div class="row"> -->
-<!-- 												<div id="drag" class="col-sm-offset-3"> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-										
-										
+										<div id="drag" class="form-group col-sm-offset-2"></div>
+										<!-- 										<div class="form-group"> -->
+										<!-- 											<div class="row"> -->
+										<!-- 												<div id="drag" class="col-sm-offset-3"> -->
+										<!-- 												</div> -->
+										<!-- 											</div> -->
+										<!-- 										</div> -->
+
+
 										<div class="form-group">
 											<div class="row">
 												<div class="col-sm-6 col-sm-offset-3">

@@ -7,15 +7,15 @@ import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import _00_Util.AES;
 import _14_Member.MemberBean;
 import _14_Member.MemberDAO;
-
-
 
 @WebServlet("/WebShop/LoginMember")
 public class LoginMember extends HttpServlet {
@@ -33,10 +33,11 @@ public class LoginMember extends HttpServlet {
 		// 1. 讀取使用者輸入資料(<Input>標籤內的name屬性分別為 userId與pswd
 		String userId = request.getParameter("Username");
 		String password = request.getParameter("Password");
+		String remember = request.getParameter("remember");
+		
+		System.out.println("remember="+remember);
 		
 		
-		// 2. 進行必要的資料轉換
-		// 無
 		// 3. 檢查使用者輸入資料
 		// 如果 userId 欄位為空白，放錯誤訊息"帳號欄必須輸入"到 errorMsgMap 之內
 		// 對應的識別字串為 "AccountEmptyError"
@@ -78,8 +79,58 @@ public class LoginMember extends HttpServlet {
 				errorMsgMap.put("LoginError", "該帳號還沒有認證");
 			}else{
 				session.setAttribute("MemberLoginOK", mb);
+				
+				// 記住我---------------------------------------------------------------------
+				
+				if("true".equals(remember)){
+					
+					String host = request.getServerName();
+					
+					// 保存帳號到Cookie
+					Cookie cookie = new Cookie("SESSION_LOGIN_USERNAME", userId); 
+					cookie.setPath("/");
+					cookie.setDomain(host);
+					cookie.setMaxAge(60*60*24*30); //30天
+					response.addCookie(cookie);
+					
+					// 保存密碼到Cookie
+					password = AES.encrypt(password);//密碼加密
+					cookie = new Cookie("SESSION_LOGIN_PASSWORD",password);
+					cookie.setPath("/");
+					cookie.setDomain(host);
+					cookie.setMaxAge(60*60*24*30); //30天
+					response.addCookie(cookie);
+					
+										
+				}else{
+					//remember=null
+					
+					Cookie[] cookies = request.getCookies();
+					if (cookies != null) {
+						
+						try{
+							for(int i=0;i<cookies.length;i++) {
+							//System.out.println(cookies[i].getName() ":" cookies[i].getValue())；
+								Cookie cookie = new Cookie(cookies[i].getName(), null);
+								cookie.setMaxAge(0);
+								cookie.setPath("/");
+								response.addCookie(cookie);
+							}
+							
+						}catch(Exception ex) {
+								System.out.println("刪除cookies發生異常");
+						}
+						
+					} 
+					//找不到Cookie，沒事。
+					
+				}
 			}
 		}
+		
+		
+				
+		//---------------------------------------------------------------------------
 		
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
 		// 如果 errorMsgMap是空的，表示沒有任何錯誤，準備交棒給下一隻程式
@@ -97,6 +148,7 @@ public class LoginMember extends HttpServlet {
 				//response.sendRedirect(contextPath + target);
 				response.sendRedirect(
 			       response.encodeRedirectURL(contextPath + target));
+				System.out.println("登入成功 轉往"+contextPath+target);
 
 			} else {
 				// 導向 contextPath + "/index.jsp"
