@@ -56,7 +56,7 @@
 											<c:when test="${empty ErrorMsgKey}">
 												<input type="text" class="form-control" name="Username"
 													id="Username" placeholder="帳號"
-													value="${cookie['SESSION_LOGIN_USERNAME'].value}" autofocus />
+													value="${sessionScope.username}" autofocus />
 
 												<div class="form-group text-center" style="color: #FF0000;">
 													${ErrorMsgKey.AccountEmptyError}<br>
@@ -64,8 +64,7 @@
 
 												<input type="password" class="form-control" name="Password"
 													id="Password" placeholder="密碼"
-													value="${cookie['SESSION_LOGIN_PASSWORD'].value}" autofocus />
-				
+													value="${sessionScope.password}" autofocus />
 											</c:when>
 
 											<c:otherwise>
@@ -80,36 +79,32 @@
 												<input type="password" class="form-control" name="Password"
 													id="Password" placeholder="密碼"
 													value="${param.Password}" autofocus />
-			
 											</c:otherwise>
 										</c:choose>
-										<c:if test="${cookie['SESSION_LOGIN_PASSWORD']==null}">
-   											<input type="hidden" class="form-control" name="encrypt"
-													id="encrypt" placeholder=""
-													value="true"/>
-										</c:if>
-								
+
+
 										<div class="form-group text-center" style="color: #FF0000;">
 											${ErrorMsgKey.PasswordEmptyError}
 										</div>
+										
 										<c:choose>
-											<c:when test="${cookie['SESSION_LOGIN_USERNAME'].value != null}">
+											<c:when test="${empty cookie['SESSION_LOGIN_USERNAME']}">
 												<div class="form-group text-center">
-													<input type="checkbox" tabindex="3" class="" name="remember"
-														id="remember" value="true" checked> <label for="remember">
-														記住我</label>
-												</div>
+											<input type="checkbox" tabindex="3" class="" name="remember"
+												id="remember" value="true"> <label for="remember">
+												記住我</label>
+										</div>
 											</c:when>
+
 											<c:otherwise>
-											
 												<div class="form-group text-center">
-													<input type="checkbox" tabindex="3" class="" name="remember"
-														id="remember" value="true"> <label for="remember">
-														記住我</label>
-												</div>
+											<input type="checkbox" tabindex="3" class="" name="remember"
+												id="remember" value="true" checked> <label for="remember">
+												記住我</label>
+										</div>
 											</c:otherwise>
 										</c:choose>
-										
+									
 										<div id="drag" class="form-group col-sm-offset-2"></div>
 										<!-- 										<div class="form-group"> -->
 										<!-- 											<div class="row"> -->
@@ -131,7 +126,7 @@
 											<div class="row">
 												<div class="col-lg-12">
 													<div class="text-center">
-														<a href="" tabindex="5"
+														<a href="http://phpoll.com/recover" tabindex="5"
 															class="forgot-password">忘記密碼?</a>
 													</div>
 												</div>

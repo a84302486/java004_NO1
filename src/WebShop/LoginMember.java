@@ -34,10 +34,9 @@ public class LoginMember extends HttpServlet {
 		String userId = request.getParameter("Username");
 		String password = request.getParameter("Password");
 		String remember = request.getParameter("remember");
-		String encrypt = request.getParameter("encrypt");
-
+		
 		System.out.println("remember="+remember);
-		System.out.println("encrypt="+encrypt);
+		
 		
 		// 3. 檢查使用者輸入資料
 		// 如果 userId 欄位為空白，放錯誤訊息"帳號欄必須輸入"到 errorMsgMap 之內
@@ -67,10 +66,6 @@ public class LoginMember extends HttpServlet {
 		MemberBean mb = null;
 
 		try {
-			if("true".equals(encrypt)){
-				password = AES.encrypt(password);
-				//密碼加密
-			}
 			mb = ls.checkIDPassword(userId, password);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -99,6 +94,7 @@ public class LoginMember extends HttpServlet {
 					response.addCookie(cookie);
 					
 					// 保存密碼到Cookie
+					password = AES.encrypt(password);//密碼加密
 					cookie = new Cookie("SESSION_LOGIN_PASSWORD",password);
 					cookie.setPath("/");
 					cookie.setDomain(host);
