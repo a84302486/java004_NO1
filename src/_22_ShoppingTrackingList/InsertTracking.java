@@ -50,6 +50,11 @@ public class InsertTracking extends HttpServlet {
 //			response.sendRedirect(response.encodeRedirectURL(getServletContext().getContextPath()
 //			+"/WebShop/login_and_register.jsp"));
 			System.out.println("mb==null");
+			
+			RequestDispatcher rd = request
+					.getRequestDispatcher("/WebShop/login_and_register.jsp");
+			rd.forward(request, response);
+			return;
 		}
 		String usernameStr = null;
 		String productIdStr = null;
