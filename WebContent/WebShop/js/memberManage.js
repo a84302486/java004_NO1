@@ -27,36 +27,36 @@ $(document).ready(function(){
 	});
 	
 
-	// 把每一個有 .password 的密碼輸入框做處理
-	$(':password').each(function(){
-		// 先取得 #password1 及產生一個文字輸入框
-		// 並產顯示密碼用的勾選框
-		var $password = $(this), 
-			$checkbox = $('<label><input type="checkbox" />顯示密碼</label>'),
-			$old = null,
-			$new = '<div class="col-sm-6">'
-				  +'<input type="text" id='+$password.attr('id')
-				  +' class='+$password.attr('class')
-				  +' name='+$password.attr('name')
-				  +' value='+$password.attr('value')
-				  +'/>'
-				  +'<label><input type="checkbox" />隱藏密碼</label>'
-				  +'</div>';
-		
-		// 把勾選框加在密碼輸入框的後面
-		$password.after($checkbox);
-		$old = $password.parent().html();
-		
-		// 當勾選顯示密碼框時
-		$checkbox.find(':checkbox').click(function(){
-			// 如果是勾選則...
-			if(this.checked){
-				$(this).parent().parent().html($new);
-			}else{
-				$(this).parent().parent().html($old);
-			}
-		});
-	});
+//	// 把每一個有 .password 的密碼輸入框做處理
+//	$(':password').each(function(){
+//		// 先取得 #password1 及產生一個文字輸入框
+//		// 並產顯示密碼用的勾選框
+//		var $password = $(this), 
+//			$checkbox = $('<label><input type="checkbox" />顯示密碼</label>'),
+//			$old = null,
+//			$new = '<div class="col-sm-6">'
+//				  +'<input type="text" id='+$password.attr('id')
+//				  +' class="form-control password"'
+//				  +' name='+$password.attr('name')
+//				  +' value='+$password.val()
+//				  +'/>'
+//				  +'<label><input type="checkbox" />隱藏密碼</label>'
+//				  +'</div>';
+//		
+//		// 把勾選框加在密碼輸入框的後面
+//		$password.after($checkbox);
+//		$old = $password.parent().html();
+//		
+//		// 當勾選顯示密碼框時
+//		$checkbox.find(':checkbox').click(function(){
+//			// 如果是勾選則...
+//			if(this.checked){
+//				$(this).parent().parent().html($new);
+//			}else{
+//				$(this).parent().parent().html($old);
+//			}
+//		});
+//	});
 	
 	
 });
