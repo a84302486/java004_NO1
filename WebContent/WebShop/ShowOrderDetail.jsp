@@ -51,7 +51,7 @@
 								<td class="col-sm-3 col-md-2 control-label">評價狀態</td>
 								
 							</tr>
-
+							<c:set var="OrderDate" value="${OrderDate}"/>
 							<c:forEach var="OrderDetail" items="${OrderDetail_coll}">
 								<tr>
 									<td class="col-sm-3 col-md-2 control-label"><img
@@ -62,6 +62,13 @@
 									<td class="col-sm-3 col-md-2 control-label">${OrderDetail.quantity}份</td>
 									<td class="col-sm-3 col-md-2 control-label">${OrderDetail.subTotal}元</td>
 									<c:choose>
+										<c:when test="${OrderDetail.score ==-1}">
+      										<td class="col-sm-3 col-md-2 control-label">
+      										<b>幫我打分數</b><br>
+      										<span id="${OrderDetail.productBean.productId}" class="star-rating-product"></span>
+      										</td>
+      										
+    									</c:when>
 										<c:when test="${OrderDetail.score ==-1}">
       										<td class="col-sm-3 col-md-2 control-label">
       										<b>幫我打分數</b><br>

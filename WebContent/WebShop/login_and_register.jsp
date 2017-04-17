@@ -135,8 +135,12 @@
 											</div>
 										</div>
 										<div class="form-group text-center" style="color: #FF0000;">
-											${ErrorMsgKey.LoginError}<br>
+											${ErrorMsgKey.LoginError}
 										</div>
+<!-- 										<div class="form-group text-center" > -->
+											
+<!-- 											<button id="help">小幫手</button> -->
+<!-- 										</div> -->
 
 									</form>
 

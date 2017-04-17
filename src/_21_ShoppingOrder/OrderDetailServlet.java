@@ -30,8 +30,12 @@ public class OrderDetailServlet extends HttpServlet {
 		try {
 			Collection<OrderDetailBean> coll = new ArrayList<>();
 			OrderDetailBeanDAO odDAO = new OrderDetailBeanDAO();
-			coll = odDAO.select(OrderId);
+			OrderBeanDAO oDAO = new OrderBeanDAO();
+			coll = odDAO.select(OrderId);			
+			String OrderDate = oDAO.selectOrderDate(OrderId);
+			
 			request.setAttribute("OrderDetail_coll", coll);
+			request.setAttribute("OrderDate", OrderDate);
 			RequestDispatcher  rd = request.getRequestDispatcher("/WebShop/ShowOrderDetail.jsp");
 			rd.forward(request, response);
 			return;

@@ -142,6 +142,35 @@ public class OrderBeanDAO {
 		return null;
 	}
 	
+public String selectOrderDate(String OrderId){
+		
+		String sql = "select OrderDate from `Order` where `OrderId`=?;";					
+		String OrderDate = null;
+						
+		Collection<OrderBean> coll = new ArrayList<>();
+		try(
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt	= con.prepareStatement(sql);){				
+		
+			pstmt.setString(1, OrderId);
+			try(
+				ResultSet rs = pstmt.executeQuery();
+			){
+				if (rs.next()) {
+					
+					OrderDate = rs.getString(1);
+				}
+					
+				System.out.println("記錄 查詢訂單"+OrderId+"的時間");
+			}
+			return OrderDate;
+		}catch (Exception e){
+			
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 
 }
 	

@@ -9,7 +9,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Base64;
  
 public class AES {
-	
+
 	private static String key1 = "Bar12345Bar12345"; 
 	private static String key2 = "ThisIsASecretKet";
 	
