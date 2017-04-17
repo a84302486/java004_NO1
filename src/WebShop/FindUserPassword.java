@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,13 +17,22 @@ import javax.servlet.http.HttpSession;
 
 import _00_Util.AES;
 
-@WebFilter("/WebShop/login_and_register.jsp")
+
+@WebFilter(urlPatterns = { "/*" }, initParams = {
+		
+		@WebInitParam(name = "url_1", value = "/WebShop/login_and_register.jsp"),
+		@WebInitParam(name = "url_2", value = "/_21_ShoppingOrder/Order"),
+		@WebInitParam(name = "url_3", value = "/_21_ShoppingOrder/OrderDetailServlet.java"),
+		@WebInitParam(name = "url_4", value = "/WebShop/ShowOrderDetail.jsp"),
+		@WebInitParam(name = "url_5", value = "/WebShop/TrackingList.jsp")
+		
+		})
 public class FindUserPassword implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		
-		System.out.println("執行login_and_register.jsp前先執行本程式");
+		System.out.println("執行login_and_register前先執行FindUserPassword這個Filter");
 		
 		if (request instanceof HttpServletRequest
 				&& response instanceof HttpServletResponse) {

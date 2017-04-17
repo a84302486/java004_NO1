@@ -1,10 +1,27 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE>
-<c:remove var="MemberLoginOK"/>
+<c:remove var="MemberLoginOK" />
 <%
-  session.invalidate();
+	session.invalidate();
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+
+		try {
+			for (int i = 0; i < cookies.length; i++) {
+				//System.out.println(cookies[i].getName() ":" cookies[i].getValue())；
+				Cookie cookie = new Cookie(cookies[i].getName(), null);
+				cookie.setMaxAge(0);
+				cookie.setPath("/");
+				response.addCookie(cookie);
+			}
+			System.out.println("登出刪除cookies 成功");
+		} catch (Exception ex) {
+			System.out.println("登出刪除cookies 異常");
+		}
+
+	}
 %>
 
 <html>
