@@ -113,11 +113,12 @@ $("#loadPageDiv").on("click", "input[type='button']", function() {
 		cmd = "Name";
 		type = "productName";
 		val = $("input[name='productName']").val();
-	}else{
-		cmd = "ALL";
-		type = "productId";
-		val = "";
 	}
+//	else{
+//		cmd = "ALL";
+//		type = "productId";
+//		val = "";
+//	}
 	getQueryData(cmd,type,val);	
 });
 

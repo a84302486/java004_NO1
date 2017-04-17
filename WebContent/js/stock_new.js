@@ -27,7 +27,7 @@ $("#loadPageDiv").on("click", "input[type='button']", function() {
 	var $this = $(this).attr("id");
 
 	var val = null;
-	if($this == "productId" ){
+	if($this == "productId"){
 		val = $("input[name='stock-productId']").val();
 	}else if($this == "stockMFG"){
 		val = $("input[name='mfg']").val();

@@ -265,8 +265,7 @@ $(document).on('click','.number-spinner button',function() {
 	        erroe:function(error){
 	        	alert("發生錯誤");
 	        }
-		});
-		
+		});		
 	});
 
 /* ---------------------------以下是共用function----------------------------*/
