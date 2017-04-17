@@ -468,24 +468,39 @@ public Boolean ifExist(String Username){
 		return null;
 	}
 	
-public String getPassword(String Username , String birthday , String phonenumber ){
+public MemberBean findMemberByUBC(String Username , String Birthday , String Cellphone){
 		
-		String sql = "select M_password from Member where M_Username =? "
-				+ "and M_birthday =? and M_cellphone = ?;";
+		String sql = "select * from Member where M_Username =? "
+				+ "and M_Birthday =? and M_Cellphone = ?;";
 		
 		try(
 			Connection con = ds.getConnection();
 			PreparedStatement pstmt	= con.prepareStatement(sql);){				
-			 
-			pstmt.setString(1, "'"+Username+"'");
-			pstmt.setString(2, birthday);
-			pstmt.setString(3, phonenumber);
+			MemberBean pb = new MemberBean();
+			
+			pstmt.setString(1,Username);
+			pstmt.setString(2,Birthday);
+			pstmt.setString(3,Cellphone);
 			try(
 				ResultSet rs = pstmt.executeQuery();					
 			){	
-				String password = rs.getString(1);			
-				return password;
+				if (rs.next()){					
+			
+					
+					pb.setM_Username(rs.getString(1));
+					pb.setM_Password(rs.getString(2));			
+					pb.setM_Name(rs.getString(3));	
+					pb.setM_Cellphone(rs.getString(4));
+					pb.setM_Birthday(rs.getString(5));
+					pb.setM_Insertdate(rs.getString(6));
+					pb.setM_Updatedate(rs.getString(7));
+					pb.setM_Level(rs.getInt(8));
+					pb.setM_BonusPoints(rs.getInt(9));
+					pb.setM_Total(rs.getInt(10));				
+				}
+				return pb;
 			}
+			
 		}catch (Exception e){			
 			e.printStackTrace();
 		}

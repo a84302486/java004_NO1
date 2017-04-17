@@ -133,8 +133,11 @@
 										</div>
 										<div class="form-group text-center" >
 											<input type="button" class="btn btn-xs btn-danger" 
-											name="loginhelp" id="loginhelp" value="小幫手" />
+											name="loginhelp" id="loginhelp" value="小幫手1" />
+											<input type="button" class="btn btn-xs btn-danger" 
+											name="loginhelp2" id="loginhelp2" value="小幫手2" />
 										</div>
+					
 									</form>
 									<form id="register-form" method="post" role="form"
 										style="display: none;" enctype="multipart/form-data"
@@ -247,8 +250,7 @@
 							style="font-weight: 900;">查詢密碼</h4>
 					</div>
 					<div class="modal-body" style="font-weight: 700;">
-						<form id="update-memberpassword-form" method="post" role="form"
-							class="form-horizontal">
+						<form id="forget-pwd-form" method="post" role="form" class="form-horizontal">
 							
 							<div class="form-group">
 								<label class="col-sm-6">請輸入帳號</label>
@@ -263,7 +265,7 @@
 								<div class="col-sm-6">
 									<input type="text" id="checkBirthday"
 										class="form-control" name="checkBirthday"
-										placeholder="2000-01-01">
+										placeholder="19870101">
 								</div>
 							</div>
 							<div class="form-group">
@@ -275,13 +277,15 @@
 								</div>
 							</div>
 							<div class="modal-footer">
-								<input type="button" class="btn btn-xs btn-danger"
-									name="forgetPassword" id="forgetPassword" value="小幫手" />
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">取消</button>
 								<button type="button" class="btn btn-primary"
-									id="update-member-pwd">儲存修改</button>
+									id="forget-member-pwd">確認查詢</button>
 							</div>
+							<div class="text-left">
+								<input type="button" class="btn btn-xs btn-danger"
+									name="forgetPassword" id="forgetPassword" value="小幫手" />
+								</div>
 						</form>
 					</div>
 				</div>

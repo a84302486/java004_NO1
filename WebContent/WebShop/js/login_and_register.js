@@ -27,6 +27,17 @@
 }(jQuery));
 
 
+//load的特效
+var options = {
+	    bgColor         : '#000',
+	    duration        : 800,
+	    opacity    	    : 0.7,
+	    classOveride    : false
+}
+//-------------------------
+
+
+
 $(document).ready(function() {
 	
 	$('#drag').drag();
@@ -56,10 +67,16 @@ $(document).ready(function() {
 	//地址自動完成
 	setAddressInput($("#dvAddress"));
 	
-	//登入小幫手
+	//登入小幫手1
 	$('#loginhelp').click(function() {
 		$('#Username').val("userkitty@gmail.com");
 		$('#Password').val("abc123456");
+	});
+	
+	//登入小幫手2
+	$('#loginhelp2').click(function() {
+		$('#Username').val("java004no1@gmail.com");
+		$('#Password').val("abc123");
 	});
 	
 	//註冊小幫手
@@ -78,6 +95,12 @@ $(document).ready(function() {
 		$('#checkBirthday').val("19880101");
 		$('#checkPhoneNumber').val("0988512819");
 	
+	});
+	
+	///忘記密碼
+	$('#forget-member-pwd').click(function() {
+
+		forgetPassword('../_14_Member/SearchPassword', '#forget-pwd-form');
 	});
 	
 	
@@ -205,15 +228,7 @@ $(document).ready(function() {
 		},//rules
 		submitHandler : function(form) {
 			
-			//load的特效
-			var options = {
-				    bgColor         : '#000',
-				    duration        : 800,
-				    opacity    	    : 0.6,
-				    classOveride    : false
-			}
 			new ajaxLoader(document.body, options);//load.js
-			//-------------------------
 			
 			setTimeout(function(){		    
 			$.ajax({url: '../_14_Member/Insert',dataType: 'json',data: $(form).serialize(),
@@ -233,6 +248,31 @@ $(document).ready(function() {
 	});
 
 });
+
+
+function forgetPassword(servelet, formId) {
+	
+	new ajaxLoader(document.body, options);//load.js
+	
+	setTimeout(function(){  
+	$.ajax({url: servelet,type: 'POST',dataType:'json',data: $(formId).serialize(),
+			
+			success:   function(result){
+				if(result==null){
+					alert("查詢密碼成功 請至您的信箱收信");
+					location.reload();
+				}else{
+					alert("查詢密碼失敗");
+				}
+	        },
+	        error:   function(result){  
+	        	alert("查詢密碼 系統發生問題");       	
+	        }
+	});
+	},1);
+
+	
+}
 
 
 

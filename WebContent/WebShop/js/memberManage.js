@@ -147,18 +147,17 @@ function orderResult(result, resultId, inputId){
             
   $(resultId).html(content);
 }
+//load的特效
+var options = {
+	    bgColor         : '#000',
+	    duration        : 800,
+	    opacity    	    : 0.8,
+	    classOveride    : false
+}
 
 function memberUpdate(servelet, formId) {
-
-	//load的特效
-	var options = {
-		    bgColor         : '#000',
-		    duration        : 800,
-		    opacity    	    : 0.6,
-		    classOveride    : false
-	}
+	
 	new ajaxLoader(document.body, options);//load.js
-	//-------------------------
 	
 	setTimeout(function(){		    
 		$.ajax({url: servelet,dataType:'html',data: $(formId).serialize(),
@@ -177,7 +176,10 @@ function memberUpdate(servelet, formId) {
 }
 
 function passwordUpdate(servelet, formId) {
-	    
+	
+	new ajaxLoader(document.body, options);//load.js
+	
+	setTimeout(function(){		    
 	$.ajax({url: servelet,dataType:'json',data: $(formId).serialize(),
 			
 			success:   function(result){
@@ -193,6 +195,7 @@ function passwordUpdate(servelet, formId) {
 	        }
 	});
 	
+	},1);
 
 	
 }
