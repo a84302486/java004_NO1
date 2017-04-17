@@ -32,7 +32,7 @@ public class FindUserPassword implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		
-		System.out.println("執行login_and_register前先執行FindUserPassword這個Filter");
+//		System.out.println("執行login_and_register前先執行FindUserPassword這個Filter");
 		
 		if (request instanceof HttpServletRequest
 				&& response instanceof HttpServletResponse) {

@@ -15,7 +15,6 @@
 <title>work</title>
 </head>
 <body>
-
 	<div>
 		<jsp:include page='../_00_Util/ToolBar.jsp' />
 	</div>

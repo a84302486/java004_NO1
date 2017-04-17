@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import _00_Util.AES;
+import _00_Util.SerialNumGenerator;
+
 @WebServlet("/_02_Taste/SearchPassword")
 
 public class SearchPassword extends HttpServlet {
@@ -56,8 +59,13 @@ public class SearchPassword extends HttpServlet {
 				if (!errorMsg.isEmpty()) {
 					toJson = new Gson().toJson(errorMsg);
 				} else {
-					new MemberDAO().getPassword(checkEmail,checkBirthday,checkPhoneNumber);
-					String s = "搜尋"+checkEmail+"密碼成功";
+					String password = new MemberDAO().getPassword(checkEmail,checkBirthday,checkPhoneNumber);
+					if(password != null){
+						password = SerialNumGenerator.generator(6);
+					}else if(password == null){
+						errorMsg.add("驗證失敗");
+					}
+					String s = "搜尋"+checkEmail+"的密碼成功";
 					toJson = new Gson().toJson(s);
 				}
 
