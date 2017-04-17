@@ -56,6 +56,22 @@ $(document).ready(function() {
 	//地址自動完成
 	setAddressInput($("#dvAddress"));
 	
+	//登入小幫手
+	$('#loginhelp').click(function(e) {
+		$('#Username').val("userkitty@gmail.com");
+		$('#Password').val("abc123456");
+	});
+	
+	//註冊小幫手
+	$('#registerhelp').click(function(e) {
+		$('#member_Username').val("java004no@gmail.");
+		$('#PasswordID').val("abc12");
+		$('#Password2').val("abc123");
+		$('#Name').val("張君雅");
+		$('#Cellphone').val("012-400-123");
+	
+	});
+		
 	var check ="usable";
 	var Username = "";
 	$.validator.addMethod("usernameCheck", function(value) {

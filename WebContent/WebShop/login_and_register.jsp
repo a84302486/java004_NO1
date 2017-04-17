@@ -106,14 +106,7 @@
 										</c:choose>
 									
 										<div id="drag" class="form-group col-sm-offset-2"></div>
-										<!-- 										<div class="form-group"> -->
-										<!-- 											<div class="row"> -->
-										<!-- 												<div id="drag" class="col-sm-offset-3"> -->
-										<!-- 												</div> -->
-										<!-- 											</div> -->
-										<!-- 										</div> -->
-
-
+				
 										<div class="form-group">
 											<div class="row">
 												<div class="col-sm-6 col-sm-offset-3">
@@ -122,11 +115,12 @@
 												</div>
 											</div>
 										</div>
+										
 										<div class="form-group">
 											<div class="row">
 												<div class="col-lg-12">
 													<div class="text-center">
-														<a href="http://phpoll.com/recover" tabindex="5"
+														<a href="" tabindex="5"
 															class="forgot-password" 
 															data-toggle="modal" data-target=".bs-iot">忘記密碼?</a>
 													</div>
@@ -137,10 +131,9 @@
 										<div class="form-group text-center" style="color: #FF0000;">
 											${ErrorMsgKey.LoginError}
 										</div>
-<!-- 										<div class="form-group text-center" > -->
-											
-<!-- 											<button id="help">小幫手</button> -->
-<!-- 										</div> -->
+										<div class="form-group text-center" >
+											<button class="btn btn-xs btn-danger" name="loginhelp" id="loginhelp" >小幫手</button>
+										</div>
 
 									</form>
 
@@ -152,7 +145,10 @@
 										class="form-horizontal">
 										<!-- 									<form class="form-horizontal" role="form"> -->
 
-
+										
+										<div class="form-group text-right" >
+											<button class="btn btn-xs btn-danger" name="registerhelp" id="registerhelp" >小幫手</button>
+										</div>
 										<div class="form-group">
 											<label for="member_Username" class="col-sm-3 control-label">會員帳號</label>
 											<div class="col-sm-8">
