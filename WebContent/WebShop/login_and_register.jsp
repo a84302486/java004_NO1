@@ -132,20 +132,14 @@
 											${ErrorMsgKey.LoginError}
 										</div>
 										<div class="form-group text-center" >
-											<button class="btn btn-xs btn-danger" name="loginhelp" id="loginhelp" >小幫手</button>
+											<input type="button" class="btn btn-xs btn-danger" 
+											name="loginhelp" id="loginhelp" value="小幫手" />
 										</div>
-
 									</form>
-
-
-
-
 									<form id="register-form" method="post" role="form"
 										style="display: none;" enctype="multipart/form-data"
 										class="form-horizontal">
-										<!-- 									<form class="form-horizontal" role="form"> -->
-
-										
+										<!-- 									<form class="form-horizontal" role="form"> -->				
 										<div class="form-group text-right" >
 											<button class="btn btn-xs btn-danger" name="registerhelp" id="registerhelp" >小幫手</button>
 										</div>
@@ -220,30 +214,21 @@
 												<input type="date" name="Birthday" id="birthday"
 													class="form-control required date dayCheck" value=""
 													autofocus>
-
 											</div>
-
 										</div>
 										<div class="form-group">
 											<div class="col-sm-12">
 												<hr class="colorgraph">
 											</div>
 										</div>
-
-
 										<div class="form-group">
 											<div class="col-sm-6 col-sm-offset-3">
 												<button class="btn btn-primary btn-block" type="submit"
 													id="register-form-submit">註冊</button>
 											</div>
 										</div>
-
 									</form>
-									<!-- /form -->
 								</div>
-								<!-- ./container -->
-
-
 							</div>
 						</div>
 					</div>
@@ -276,7 +261,7 @@
 							<div class="form-group">
 								<label class="col-sm-6">請輸入生日</label>
 								<div class="col-sm-6">
-									<input type="text" id="checkBirthday "
+									<input type="text" id="checkBirthday"
 										class="form-control" name="checkBirthday"
 										placeholder="2000-01-01">
 								</div>
@@ -290,6 +275,8 @@
 								</div>
 							</div>
 							<div class="modal-footer">
+								<input type="button" class="btn btn-xs btn-danger"
+									name="forgetPassword" id="forgetPassword" value="小幫手" />
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">取消</button>
 								<button type="button" class="btn btn-primary"
