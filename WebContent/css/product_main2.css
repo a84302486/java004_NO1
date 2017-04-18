@@ -61,7 +61,7 @@ table.menuBar{
 	border:2px #0d6b80 solid;
 }
 #showResult,#stock2 {
-	margin-top:4px;
+	margin-top:1px;
 	padding-top:10px;
 	height: 500px;
 	overflow:auto;

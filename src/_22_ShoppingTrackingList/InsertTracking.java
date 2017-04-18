@@ -35,7 +35,7 @@ public class InsertTracking extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		if (session == null) {
-			response.sendRedirect(response.encodeRedirectURL("../WebShop/login_and_register.jsp"));
+//			response.sendRedirect(response.encodeRedirectURL("../WebShop/login_and_register.jsp"));
 			// RequestDispatcher rd = request.getRequestDispatcher("../WebShop/login_and_register.jsp");
 			// rd.forward(request, response);
 			System.out.println("session == null");
@@ -43,18 +43,16 @@ public class InsertTracking extends HttpServlet {
 		}
 		MemberBean mb = (MemberBean) session.getAttribute("MemberLoginOK");
 		if (mb == null) {
-			
-			// RequestDispatcher rd =request.getRequestDispatcher("/java004/WebShop/login_and_register.jsp");
-			// rd.forward(request, response);
 			errorMsg.add("請先登入");
+//			RequestDispatcher rd =request.getRequestDispatcher("/java004/WebShop/login_and_register.jsp");
+//			rd.forward(request, response);
 //			response.sendRedirect(response.encodeRedirectURL(getServletContext().getContextPath()
 //			+"/WebShop/login_and_register.jsp"));
-			System.out.println("mb==null");
 			
-			RequestDispatcher rd = request
-					.getRequestDispatcher("/WebShop/login_and_register.jsp");
-			rd.forward(request, response);
-			return;
+//			RequestDispatcher rd = request
+//					.getRequestDispatcher("/WebShop/login_and_register.jsp");
+//			rd.forward(request, response);
+//			return;
 		}
 		String usernameStr = null;
 		String productIdStr = null;
@@ -66,7 +64,7 @@ public class InsertTracking extends HttpServlet {
 				errorMsg.add("該產品已存在追蹤清單");
 			}	
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("mb==null");		
 		}
 		TrackingBean tb = new TrackingBean(usernameStr, productIdStr);
 		try (PrintWriter out = response.getWriter();) {

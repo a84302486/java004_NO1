@@ -34,7 +34,7 @@ $(function() {
 	        		+ 				"<span class=star-rating-product data-rating="+data[i].score+">"+data[i].score+"<b>星</b></span>"
 	        	    + 				"<p>"
 	        	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
-	        		+ 					"data-toggle=modal data-target=.bs-iot>加入購物車</button>" 
+	        		+ 					"data-toggle=modal data-target=.bs-iot>商品明細</button>" 
 	        	    + 				"</p>"
 	        	    + 		"</div>"
 	        	    +	"</div>"
@@ -218,7 +218,7 @@ $(document).on('click','.number-spinner button',function() {
 
 //計算modal內的modal-count欄位的數量變更時
 	$(document).on('change','#modal-count',function() {
-				var quantity = $('.addcart-Modal_id').val(), 
+				var quantity = parseInt($('.addcart-Modal_id').val()), 
 					newVal = $('#modal-count').val().trim();
 
 				if (newVal > quantity) {
@@ -296,7 +296,7 @@ function getProductInfo(SetData){
         		+ 				"<span class=star-rating-product data-rating="+data[i].score+">"+data[i].score+"<b>星</b></span>"
         	    + 				"<p>"
         	    + 					"<button id="+ data[i].productId + " class='btn btn-primary'"						
-        		+ 					"data-toggle=modal data-target=.bs-iot>加入購物車</button>"
+        		+ 					"data-toggle=modal data-target=.bs-iot>商品明細</button>"
         	    + 				"</p>"
         	    + 		"</div>"
         	    +	"</div>"

@@ -66,7 +66,7 @@ function changeAmount(obj) {
         dataType:'json',
         success: function(quantity){    	
         	if( v > quantity){
-        		alert("目前庫存只剩" + (quantity-1) + "個");
+        		alert("目前庫存只剩" + quantity + "個");
         		c.val(quantity);
         		updateData();
         		return;

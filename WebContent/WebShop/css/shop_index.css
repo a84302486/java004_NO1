@@ -1,6 +1,7 @@
-window {
-	overflow: hidden;
+.modal-open{
+	overflow:visible;
 }
+
 
 body {
 	background: url('../images/foodbg7.jpg') no-repeat center fixed;
