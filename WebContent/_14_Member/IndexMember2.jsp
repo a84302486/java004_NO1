@@ -1,0 +1,94 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" import="java.util.*"%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1"
+	charset="UTF-8">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/member.css">
+
+</head>
+<body id="member_body">
+
+
+	<section class="container-fuild" id="portfolio">
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="nav navbar-nav" id="buttons">
+					<section class="container-fuild" id="about"></section>
+					<button id='buttonremark'>
+						<br>說明
+
+					</button>
+					<button onclick="IndexMember.jsp'">
+
+						<br>首頁
+
+					</button>
+
+					<button id='buttoninsert'>
+						<img src="../image/insert.png" ><br>新增
+					</button>
+					<button id='buttonupdate'>
+						<img src='../image/update.png'><br>修改
+
+					</button>
+					<button id='buttondelete'>
+						<img src='../image/delete.png'><br>刪除
+
+					</button>
+
+				</div>
+				<Form id="formSelect">
+
+					輸入帳號查詢: <input type="text" name="Username" id="M_Username" value=""
+						size="20" placeholder="不輸入搜尋全部" />
+		
+					<input type="text" name="pageNo" id="pageNo" value="1" />
+
+
+					<button type="submit" id="buttonsearch"><img src="../image/search.png"></button>
+				
+
+					<div id="sqlResult"></div>
+
+				</Form>
+			</div>
+		</nav>
+	</section>
+	<div id="pageControl">
+		<button id="pageBack">
+			<img src="../image/back.png" style="width: 2.5em; height: 1.5em;">
+
+		</button>
+
+		<input type="text" name="totalPages" id="totalPages" value="0"
+			readonly="readonly" />
+
+		<button id="pageNext">
+			<img src="../image/next.png" style="width: 2.5em; height: 1.5em;">
+
+		</button>
+	</div>
+
+	<section class="container-fuild" id="resultIndex"></section>
+	<section class="container-fuild" id="insertIndex"></section>
+
+
+
+
+
+
+	<footer class="container-fuild">我是footer</footer>
+
+
+
+
+</body>
+
+</html>

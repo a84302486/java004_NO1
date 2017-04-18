@@ -1,93 +1,48 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*"%>
-<!DOCTYPE html>
-<html lang="en">
+	pageEncoding="UTF-8"%>
+	
+	<div>
+	<table id="navBar">
+		<tr class="abgne_tab" style="width:50em;">
+			<td>
+				<ul class="tabs">
+					<li><a href="#member1">會員資料管理</a></li>
+				</ul>
+			</td>
 
-<head>
+			<td id="toolBar" style="width:30em;">
+<!-- 				<div class="col-md-4 col-md-1-offset"> -->
+				
+				<button class="insert" id='buttoninsert'></button>
+				<button class="delete" id='buttondelete'></button>
+				<button class="update" id='buttonupdate'></button>
+<!-- 				</div>	 -->
 
-<meta name="viewport" content="width=device-width, initial-scale=1"
-	charset="UTF-8">
-<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
-
-</head>
-<body id="member_body">
-
-
-	<section class="container-fuild" id="portfolio">
-
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="nav navbar-nav" id="buttons">
-					<section class="container-fuild" id="about"></section>
-					<button id='buttonremark'>
-						<br>說明
-
-					</button>
-					<button onclick="IndexMember.jsp'">
-
-						<br>首頁
-
-					</button>
-
-					<button id='buttoninsert'>
-						<img src="../image/insert.png"><br>新增
-
-					</button>
-					<button id='buttonupdate'>
-						<img src='../image/update.png'><br>修改
-
-					</button>
-					<button id='buttondelete'>
-						<img src='../image/delete.png'><br>刪除
-
-					</button>
-
-				</div>
 				<Form id="formSelect">
 
-					輸入帳號查詢: <input type="text" name="Username" id="M_Username" value=""
-						size="20" placeholder="不輸入搜尋全部" />
+					<input type="text" name="Username" id="M_Username" value=""
+						size="20" placeholder="輸入帳號查詢" />
 		
-					<input type="text" name="pageNo" id="pageNo" value="1" />
+					<input type="hidden" name="pageNo" id="pageNo" value="1" />
 
 
 					<button type="submit" id="buttonsearch"><img src="../image/search.png"></button>
-				
-
-					<div id="sqlResult"></div>
+			
 
 				</Form>
-			</div>
-		</nav>
-	</section>
-	<div id="pageControl">
-		<button id="pageBack">
-			<img src="../image/back.png" style="width: 2.5em; height: 1.5em;">
+<!-- 				</div> -->
 
-		</button>
+			<td>
+		</tr>
+	</table>
+	<div class="tab_container">
+		<div id="member1" class="tab_content">
+			<section class="container-fuild" id='showDAOJsp'>
+				<h4>請選擇功能</h4>
+			</section>
+			<section class="container-fuild" id='showResult'>
+			</section>
+		</div>
 
-		<input type="text" name="totalPages" id="totalPages" value="0"
-			readonly="readonly" />
-
-		<button id="pageNext">
-			<img src="../image/next.png" style="width: 2.5em; height: 1.5em;">
-
-		</button>
 	</div>
-
-	<section class="container-fuild" id="resultIndex"></section>
-	<section class="container-fuild" id="insertIndex"></section>
-
-
-
-
-
-
-	<footer class="container-fuild">我是footer</footer>
-
-
-
-
-</body>
-</html>
+</div>

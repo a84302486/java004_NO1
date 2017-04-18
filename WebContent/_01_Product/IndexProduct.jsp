@@ -35,13 +35,11 @@
 			</section>
 		</div>
 		<div id="product2" class="tab_content">
-		測試文字<br>
-		測試文字<br>	
-		測試文字<br>	
-		測試文字<br>	
-		測試文字<br>	
-		測試文字<br>	
-		測試文字		
+				<br>
+				<br>
+				<h1 class="text-center">歡迎使用本系統</h1>
+				<br>
+				<br>	
 		</div>
 	</div>
 </div>
