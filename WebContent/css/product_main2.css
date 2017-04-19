@@ -100,8 +100,12 @@ table.menuBar{
 	border-radius:3px;
 	background-color: #fa949e;
 }
-
-
+#upLoadPic{
+	margin-top:20px;
+}
+#updateTable .col-md-2{
+	width:200px;
+}
 
 /* ----------button背景圖片---------- */
 

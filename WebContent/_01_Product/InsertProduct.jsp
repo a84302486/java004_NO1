@@ -51,8 +51,6 @@
 				 <input type="text" name="sLife" value="360">
 			</div>
 		</div>
-	</div>
-	<div class="row">
 		<div class="col-md-2">
 			<label >產品供應商</label>
 			<div>
@@ -65,17 +63,13 @@
 				<input type="file" name="fileName" id=ProductPic size="40" required>
 			</div>
 		</div>
-		
-	</div>
-	<br>
-	<div class="row">
 		<div class="col-md-2">
 			<div>
 				<input type="submit" name="upload" id="upLoadPic" value="提交">
 			</div>
 		</div>
 	</div>
-	
+	<br>
 </Form>
 <div>
 		<div id="insertResult"></div>

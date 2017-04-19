@@ -42,22 +42,17 @@
 				 <input type="text" name="sLife" value="">
 			</div>
 		</div>
+		<div class="col-md-2">
+			<label>產品供應商</label>
+			<div>
+				<input type="text" name="suppierId" value="">
+			</div>
+		</div>
 	</div>
-<!-- 	<div class="row"> -->
-<!-- 		<div class="col-md-2"> -->
-<!-- 			<label >產品供應商</label> -->
-<!-- 			<div> -->
-<!-- 				<input type="text" name="suppierId" value=""> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 		<div class="col-md-2"> -->
-<!-- 			<label>產品圖片</label> -->
-<!-- 			<div> -->
-<!-- 				<input type="file" name="fileName" id=ProductPic size="" > -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-		
-<!-- 	</div> -->
+
+
+
+
 	<br>
 	<div class="row">
 		<div class="col-md-2">

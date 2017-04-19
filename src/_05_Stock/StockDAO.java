@@ -237,7 +237,7 @@ public class StockDAO {
 	}
 
 	public List<StockBean> findEXPOverDue() {
-		String sql = "select * from Stock where datediff(EXP,curdate()) < 7;";
+		String sql = "select * from Stock where datediff(EXP,curdate()) < 60;";
 
 		List<StockBean> coll = new ArrayList<>();
 		try (Connection con = ds.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
