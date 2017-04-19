@@ -132,9 +132,9 @@
 											${ErrorMsgKey.LoginError}
 										</div>
 										<div class="form-group text-center" >
-											<input type="button" class="btn btn-xs btn-danger" 
+											<input type="button" class="btn btn-xs" 
 											name="loginhelp" id="loginhelp" value="小幫手1" />
-											<input type="button" class="btn btn-xs btn-danger" 
+											<input type="button" class="btn btn-xs" 
 											name="loginhelp2" id="loginhelp2" value="小幫手2" />
 										</div>
 					
@@ -144,7 +144,7 @@
 										class="form-horizontal">
 										<!-- 									<form class="form-horizontal" role="form"> -->				
 										<div class="form-group text-right" >
-											<button class="btn btn-xs btn-danger" name="registerhelp" id="registerhelp" >小幫手</button>
+											<button class="btn btn-xs" name="registerhelp" id="registerhelp" >小幫手</button>
 										</div>
 										<div class="form-group">
 											<label for="member_Username" class="col-sm-3 control-label">會員帳號</label>
@@ -283,7 +283,7 @@
 									id="forget-member-pwd">確認查詢</button>
 							</div>
 							<div class="text-left">
-								<input type="button" class="btn btn-xs btn-danger"
+								<input type="button" class="btn btn-xs"
 									name="forgetPassword" id="forgetPassword" value="小幫手" />
 								</div>
 						</form>

@@ -26,6 +26,13 @@ $(document).ready(function(){
 		
 	});
 	
+	//忘記密碼小幫手
+	$('#updatePWD').click(function() {
+		$('#password2').val("abc123");
+		$('#password3').val("abc123");
+	
+	});
+	
 
 //	// 把每一個有 .password 的密碼輸入框做處理
 //	$(':password').each(function(){

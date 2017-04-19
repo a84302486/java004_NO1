@@ -180,11 +180,17 @@
 								style="font-weight: 900;">修改帳戶密碼</h4>
 						</div>
 						<hr>
+			
 						<div class="modal-body" style="font-weight: 700;">
 							<form id="update-memberpassword-form" method="post" role="form"
 								class="form-horizontal">
 								<input type="hidden" id="member_Username" name="Username"
 									value="${MemberLoginOK.m_Username}">
+								<div class="form-group text-center" >
+											<input type="button" class="btn btn-xs" 
+											name="updatePWD" id="updatePWD" value="小幫手" />
+											
+								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">舊的密碼</label>
 									<div class="col-sm-6">
